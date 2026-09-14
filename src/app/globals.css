@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700;800&family=Patrick+Hand&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased;
+  }
+}
+
+/* Notebook Aesthetic Styles */
+.notebook-paper {
+  background-color: #fdfbf7;
+  background-image: 
+    linear-gradient(#f0ebe1 1px, transparent 1px),
+    linear-gradient(90deg, #f0ebe1 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .notebook-paper {
+  background-color: #0f172a;
+  background-image: 
+    linear-gradient(#1e293b 1px, transparent 1px),
+    linear-gradient(90deg, #1e293b 1px, transparent 1px);
+}
+
+.notebook-lined {
+  background-color: #fcfbf9;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    #e8e4da 28px
+  );
+  line-height: 28px;
+}
+
+.dark .notebook-lined {
+  background-color: #0f172a;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    #1e293b 28px
+  );
+  color: #f1f5f9;
+}
+
+.notebook-margin-line {
+  border-left: 2px solid rgba(239, 68, 68, 0.4);
+}
+
+.dark .notebook-margin-line {
+  border-left: 2px solid rgba(248, 113, 113, 0.5);
+}
+
+.notebook-binder-holes {
+  background-image: radial-gradient(circle, #cbd5e1 6px, transparent 7px);
+  background-size: 20px 48px;
+  background-position: 8px 16px;
+  background-repeat: repeat-y;
+}
+
+.dark .notebook-binder-holes {
+  background-image: radial-gradient(circle, #334155 6px, transparent 7px);
+}
+
+/* Highlighter effect */
+.highlight-yellow {
+  background: linear-gradient(104deg, rgba(254, 240, 138, 0.95) 0.9%, rgba(253, 224, 71, 0.85) 98.4%);
+  padding: 0.12rem 0.35rem;
+  border-radius: 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  color: #713f12;
+  font-weight: 500;
+  display: inline;
+}
+
+.dark .highlight-yellow {
+  background: linear-gradient(104deg, rgba(161, 98, 7, 0.45) 0.9%, rgba(202, 138, 4, 0.35) 98.4%);
+  color: #fef08a;
+  border-bottom: 1px solid rgba(253, 224, 71, 0.4);
+}
+
+.highlight-rose {
+  background: linear-gradient(104deg, rgba(254, 205, 211, 0.95) 0.9%, rgba(251, 113, 133, 0.35) 98.4%);
+  padding: 0.12rem 0.35rem;
+  border-radius: 3px;
+  color: #9f1239;
+  font-weight: 500;
+  display: inline;
+}
+
+.dark .highlight-rose {
+  background: linear-gradient(104deg, rgba(159, 18, 57, 0.45) 0.9%, rgba(225, 29, 72, 0.35) 98.4%);
+  color: #fecdd3;
+  border-bottom: 1px solid rgba(251, 113, 133, 0.4);
+}
+
+.handwriting-note {
+  font-family: 'Caveat', 'Patrick Hand', cursive;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Dark mode smooth theme transitions */
+html.dark {
+  color-scheme: dark;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #64748b;
+}

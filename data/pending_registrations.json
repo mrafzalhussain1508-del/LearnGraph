@@ -1,0 +1,254 @@
+[
+  {
+    "token": "57634b8f-bf9f-4e43-a8b9-8420819388c8",
+    "email": "neha.sharma@student.learngraph.edu",
+    "role": "student",
+    "name": "neha_sharma",
+    "userData": {
+      "name": "neha_sharma",
+      "username": "neha_sharma",
+      "email": "neha.sharma@student.learngraph.edu",
+      "password": "SecretCode2026!",
+      "role": "student",
+      "studentId": "ST-2026-901",
+      "grade": "11th Grade",
+      "section": "Section B",
+      "school": "DPS Modern School",
+      "learningGoals": "Master Graph Transformations & Calculus Limits"
+    },
+    "status": "pending_verification",
+    "createdAt": 1789378580064,
+    "expiresAt": 1789464980064
+  },
+  {
+    "token": "9af19848-db7d-4083-968a-1c232de120e6",
+    "email": "sam.wilson@student.learngraph.edu",
+    "role": "student",
+    "name": "sam_wilson",
+    "userData": {
+      "name": "sam_wilson",
+      "username": "sam_wilson",
+      "email": "sam.wilson@student.learngraph.edu",
+      "password": "SamStudentPass123!",
+      "role": "student",
+      "studentId": "ST-2026-303",
+      "grade": "10th Grade",
+      "section": "Section A",
+      "school": "Lincoln High School",
+      "learningGoals": "Algebra & Radical Functions"
+    },
+    "status": "pending_verification",
+    "createdAt": 1789379197882,
+    "expiresAt": 1789465597882
+  },
+  {
+    "token": "e86a5fef-6a13-4fbd-91ec-1327eff08ee9",
+    "email": "sam.wilson@student.learngraph.edu",
+    "role": "student",
+    "name": "sam_wilson",
+    "userData": {
+      "name": "sam_wilson",
+      "username": "sam_wilson",
+      "email": "sam.wilson@student.learngraph.edu",
+      "password": "SamStudentPass123!",
+      "role": "student",
+      "studentId": "ST-2026-303",
+      "grade": "10th Grade",
+      "section": "Section A",
+      "school": "Lincoln High School",
+      "learningGoals": "Algebra & Radical Functions"
+    },
+    "status": "pending_verification",
+    "createdAt": 1789379281360,
+    "expiresAt": 1789465681360
+  },
+  {
+    "token": "547ccb9c-33d3-40be-9345-4e7605e51f7e",
+    "email": "alan.turing@faculty.learngraph.edu",
+    "role": "teacher",
+    "name": "prof_alan_turing",
+    "userData": {
+      "name": "prof_alan_turing",
+      "username": "prof_alan_turing",
+      "email": "alan.turing@faculty.learngraph.edu",
+      "password": "TuringCipher2026!",
+      "role": "teacher",
+      "staffId": "FAC-TURING-01",
+      "section": "Section A, Section B",
+      "department": "Computer Science & Cryptography",
+      "school": "Cambridge & Lincoln High",
+      "title": "Prof."
+    },
+    "status": "pending_verification",
+    "createdAt": 1789379768484,
+    "expiresAt": 1789466168484
+  },
+  {
+    "token": "04d8b4c6-03ef-4a24-8aee-c74ee35eca60",
+    "email": "student_8891@learngraph.edu",
+    "role": "student",
+    "name": "test_student_8891",
+    "userData": {
+      "name": "test_student_8891",
+      "username": "test_student_8891",
+      "email": "student_8891@learngraph.edu",
+      "password": "secretCodePass123",
+      "role": "student",
+      "studentId": "ST-2026-8891",
+      "grade": "11th Grade",
+      "section": "Section B",
+      "school": "Lincoln High School",
+      "learningGoals": "Master Polynomials and Inverses"
+    },
+    "status": "pending_verification",
+    "createdAt": 1789382728907,
+    "expiresAt": 1789469128907
+  },
+  {
+    "token": "5a03e88e-0783-4aca-8a8b-496667389799",
+    "email": "prof_8891@learngraph.edu",
+    "role": "teacher",
+    "name": "prof_8891",
+    "userData": {
+      "name": "prof_8891",
+      "username": "prof_8891",
+      "email": "prof_8891@learngraph.edu",
+      "password": "facultySecret999",
+      "role": "teacher",
+      "staffId": "FAC-8891",
+      "section": "Section B",
+      "department": "Calculus",
+      "school": "Lincoln High School",
+      "title": "Prof."
+    },
+    "status": "pending_verification",
+    "createdAt": 1789382728923,
+    "expiresAt": 1789469128923
+  },
+  {
+    "token": "9636e6cc-90bf-47ba-a5d5-a849a709f039",
+    "email": "student_1087@learngraph.edu",
+    "role": "student",
+    "name": "test_student_1087",
+    "userData": {
+      "name": "test_student_1087",
+      "username": "test_student_1087",
+      "email": "student_1087@learngraph.edu",
+      "password": "secretCodePass123",
+      "role": "student",
+      "studentId": "ST-2026-1087",
+      "grade": "11th Grade",
+      "section": "Section B",
+      "school": "Lincoln High School",
+      "learningGoals": "Master Polynomials and Inverses"
+    },
+    "status": "pending_verification",
+    "createdAt": 1789382821106,
+    "expiresAt": 1789469221106
+  },
+  {
+    "token": "121a0284-3265-41ad-be3c-763865c25c6c",
+    "email": "prof_1087@learngraph.edu",
+    "role": "teacher",
+    "name": "prof_1087",
+    "userData": {
+      "name": "prof_1087",
+      "username": "prof_1087",
+      "email": "prof_1087@learngraph.edu",
+      "password": "facultySecret999",
+      "role": "teacher",
+      "staffId": "FAC-1087",
+      "section": "Section B",
+      "department": "Calculus",
+      "school": "Lincoln High School",
+      "title": "Prof."
+    },
+    "status": "pending_verification",
+    "createdAt": 1789382821120,
+    "expiresAt": 1789469221120
+  },
+  {
+    "token": "4a0d4506-ba3b-4ff9-bbe5-1b459f09bdcc",
+    "email": "student_6196@learngraph.edu",
+    "role": "student",
+    "name": "test_student_6196",
+    "userData": {
+      "name": "test_student_6196",
+      "username": "test_student_6196",
+      "email": "student_6196@learngraph.edu",
+      "password": "secretCodePass123",
+      "role": "student",
+      "studentId": "ST-2026-6196",
+      "grade": "11th Grade",
+      "section": "Section B",
+      "school": "Lincoln High School",
+      "learningGoals": "Master Polynomials and Inverses"
+    },
+    "status": "pending_verification",
+    "createdAt": 1789383006215,
+    "expiresAt": 1789469406215
+  },
+  {
+    "token": "7bfc272c-3c39-4a6c-ba89-27d612638c2a",
+    "email": "prof_6196@learngraph.edu",
+    "role": "teacher",
+    "name": "prof_6196",
+    "userData": {
+      "name": "prof_6196",
+      "username": "prof_6196",
+      "email": "prof_6196@learngraph.edu",
+      "password": "facultySecret999",
+      "role": "teacher",
+      "staffId": "FAC-6196",
+      "section": "Section B",
+      "department": "Calculus",
+      "school": "Lincoln High School",
+      "title": "Prof."
+    },
+    "status": "pending_verification",
+    "createdAt": 1789383006230,
+    "expiresAt": 1789469406230
+  },
+  {
+    "token": "72ae5a35-f63e-4aa0-a9d6-3b94828e1641",
+    "email": "student_6779@learngraph.edu",
+    "role": "student",
+    "name": "test_student_6779",
+    "userData": {
+      "name": "test_student_6779",
+      "username": "test_student_6779",
+      "email": "student_6779@learngraph.edu",
+      "password": "secretCodePass123",
+      "role": "student",
+      "studentId": "ST-2026-6779",
+      "grade": "11th Grade",
+      "section": "Section B",
+      "school": "Lincoln High School",
+      "learningGoals": "Master Polynomials and Inverses"
+    },
+    "status": "pending_verification",
+    "createdAt": 1789383966795,
+    "expiresAt": 1789470366795
+  },
+  {
+    "token": "331d29b8-5a65-400f-9ad1-f72e13f9814e",
+    "email": "prof_6779@learngraph.edu",
+    "role": "teacher",
+    "name": "prof_6779",
+    "userData": {
+      "name": "prof_6779",
+      "username": "prof_6779",
+      "email": "prof_6779@learngraph.edu",
+      "password": "facultySecret999",
+      "role": "teacher",
+      "staffId": "FAC-6779",
+      "section": "Section B",
+      "department": "Calculus",
+      "school": "Lincoln High School",
+      "title": "Prof."
+    },
+    "status": "pending_verification",
+    "createdAt": 1789383966808,
+    "expiresAt": 1789470366808
+  }
+]

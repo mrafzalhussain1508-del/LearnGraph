@@ -1,0 +1,124 @@
+[
+  {
+    "id": "sub-01",
+    "testId": "mock-01",
+    "testTitle": "Midterm Mastery Checkpoint: Graph Transformations & Quadratics",
+    "studentId": "st-01",
+    "studentName": "Alex Chen",
+    "studentUsername": "alex_chen",
+    "studentEmail": "alex.chen@student.learngraph.edu",
+    "cohort": "Grade 10 • Section A",
+    "answers": {
+      "1": 0,
+      "2": 1,
+      "3": 1,
+      "4": 1,
+      "5": 1
+    },
+    "score": 4,
+    "totalQuestions": 5,
+    "percentage": 80,
+    "timeSpentSeconds": 420,
+    "submittedAt": "2026-09-13T11:45:00.000Z",
+    "resultsBreakdown": [
+      {
+        "questionId": 1,
+        "question": "Given the parent quadratic function f(x) = x², which transformation results in g(x) = (x - 4)² + 3?",
+        "selectedOption": 0,
+        "correctOption": 1,
+        "isCorrect": false,
+        "explanation": "The term (x - h) inside the function shifts the graph horizontally to the RIGHT by h units when h > 0. The constant +3 outside shifts it UP.",
+        "ruleToRemember": "Horizontal Shift Rule: (x - c) moves RIGHT by c units, while (x + c) moves LEFT.",
+        "misconceptionWarning": "Inverting signs: confusing the negative sign inside parentheses with negative movement on the x-axis."
+      },
+      {
+        "questionId": 2,
+        "question": "When solving 2x² - 6x + 1 = 0 with the quadratic formula x = (-b ± √(b² - 4ac)) / (2a), what is the exact value substituted for the leading term -b?",
+        "selectedOption": 1,
+        "correctOption": 1,
+        "isCorrect": true,
+        "explanation": "Since b = -6, substituting into -b yields -(-6) = +6.",
+        "ruleToRemember": "Ghost Parentheses Rule: Always write - (b). Here - (-6) simplifies to +6."
+      },
+      {
+        "questionId": 3,
+        "question": "What is the domain of the function f(x) = √(2x - 8) / (x - 6)?",
+        "selectedOption": 1,
+        "correctOption": 1,
+        "isCorrect": true,
+        "explanation": "The radicand must be non-negative: 2x - 8 ≥ 0 ⟹ x ≥ 4. The denominator cannot be zero: x ≠ 6. Combining these gives [4, 6) ∪ (6, ∞).",
+        "ruleToRemember": "Double-Gate Domain Checklist: Radicand must be ≥ 0 AND denominator must ≠ 0."
+      },
+      {
+        "questionId": 4,
+        "question": "What transformation maps the square root function y = √x onto y = -√(x + 5)?",
+        "selectedOption": 1,
+        "correctOption": 1,
+        "isCorrect": true,
+        "explanation": "A negative sign outside reflects across the x-axis (inverts y values). Adding 5 inside shifts left by 5 units.",
+        "ruleToRemember": "Reflection Rule: Negative sign OUTSIDE inverts y (x-axis reflection); negative sign INSIDE inverts x (y-axis reflection)."
+      },
+      {
+        "questionId": 5,
+        "question": "For the parabola y = 3(x + 1)² - 7, what are the coordinates of the vertex?",
+        "selectedOption": 1,
+        "correctOption": 1,
+        "isCorrect": true,
+        "explanation": "In vertex form y = a(x - h)² + k, the vertex is (h, k). For (x + 1) = (x - (-1)), h = -1 and k = -7. Vertex is (-1, -7).",
+        "ruleToRemember": "Vertex Form: y = a(x - h)² + k has vertex (h, k). Take the opposite sign of h inside parentheses."
+      }
+    ]
+  },
+  {
+    "id": "sub-mu150dnk-w9un",
+    "testId": "mock-mu150dmw-t6m3",
+    "testTitle": "Polynomial Functions & Asymptotes Checkpoint",
+    "studentId": "st-01",
+    "studentName": "Alex Chen",
+    "studentUsername": "alex_chen",
+    "studentEmail": "alex.chen@student.learngraph.edu",
+    "cohort": "Grade 10 • Section A",
+    "answers": {
+      "1": 1,
+      "2": 2,
+      "3": 0
+    },
+    "score": 2,
+    "totalQuestions": 3,
+    "percentage": 67,
+    "timeSpentSeconds": 385,
+    "submittedAt": "2026-09-14T11:06:02.144Z",
+    "resultsBreakdown": [
+      {
+        "questionId": 1,
+        "question": "What is the horizontal asymptote of the rational function f(x) = (3x^2 + 5) / (x^2 - 4)?",
+        "selectedOption": 1,
+        "correctOption": 1,
+        "isCorrect": true,
+        "explanation": "Since the degrees of the numerator and denominator are equal (both degree 2), the horizontal asymptote is the ratio of leading coefficients: 3 / 1 = 3.",
+        "ruleToRemember": "Degree Comparison Rule: Equal degrees ⟹ y = a/b.",
+        "misconceptionWarning": "Assuming horizontal asymptotes are always at y = 0."
+      },
+      {
+        "questionId": 2,
+        "question": "Which of the following represents the vertical asymptotes of f(x) = 1 / (x^2 - 9)?",
+        "selectedOption": 2,
+        "correctOption": 2,
+        "isCorrect": true,
+        "explanation": "Set the denominator to 0: x^2 - 9 = 0 ⟹ (x - 3)(x + 3) = 0 ⟹ x = ±3.",
+        "ruleToRemember": "Vertical Asymptotes: Roots of irreducible denominator.",
+        "misconceptionWarning": "Forgetting the negative root when taking the square root."
+      },
+      {
+        "questionId": 3,
+        "question": "What is the end behavior of the polynomial function P(x) = -2x^3 + 4x - 5 as x approaches infinity?",
+        "selectedOption": 0,
+        "correctOption": 1,
+        "isCorrect": false,
+        "explanation": "The leading term is -2x^3. With an odd degree and negative leading coefficient, as x ⟹ +∞, P(x) ⟹ -∞.",
+        "ruleToRemember": "Leading Term Dominance Rule: High powers dominate end behavior.",
+        "misconceptionWarning": "Looking at the constant term -5 instead of the leading term."
+      }
+    ]
+  }
+]

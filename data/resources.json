@@ -1,0 +1,108 @@
+[
+  {
+    "id": "res-01",
+    "title": "Mastering Horizontal & Vertical Graph Shifts",
+    "description": "A 12-minute breakdown of the Horizontal Translation Rule. Understand why f(x - 4) shifts right instead of left, with dynamic Desmos graphs.",
+    "type": "video",
+    "url": "https://www.youtube.com/watch?v=kYv_w2lU32g",
+    "targetClass": "Grade 10 • Section A",
+    "targetTopic": "Graph Transformations",
+    "tags": [
+      "Graph Shifts",
+      "Common Misconceptions",
+      "Core Curriculum"
+    ],
+    "authorName": "Dr. Sarah Jenkins",
+    "authorRole": "teacher",
+    "createdAt": "2026-09-10T14:30:00.000Z"
+  },
+  {
+    "id": "res-02",
+    "title": "The Ghost Parentheses Rule: Quadratic Formula Cheat Sheet",
+    "description": "Never drop a negative sign again. This one-page reference sheet covers substitution into -b ± √(b² - 4ac) when b or c is negative.",
+    "type": "pdf",
+    "url": "data:application/pdf;base64,JVBERi0xLjQKJcTl8uXrp/Og0MTGCjEgMCBvYmoKPDwKL1R5cGUgL0NhdGFsb2cKL1BhZ2VzIDIgMCBSCj4+CmVuZG9iagoyIDAgb2JqCjw8Ci9UeXBlIC9QYWdlcwovQ291bnQgMQovS2lkcyBbMyAwIFJdCj4+CmVuZG9iagozIDAgb2JqCjw8Ci9UeXBlIC9QYWdlCi9QYXJlbnQgMiAwIFIKL01lZGlhQm94IFswIDAgNjEyIDc5Ml0KPj4KZW5kb2JqCnRyYWlsZXIKPDwKL1Jvb3QgMSAwIFIKPj4KJSVFT0YK",
+    "fileName": "Ghost_Parentheses_Quadratic_Formula_Guide.pdf",
+    "fileSize": "1.4 MB",
+    "targetClass": "Grade 10 • Section A",
+    "targetTopic": "Quadratic Equations & Roots",
+    "tags": [
+      "Formula Cheat Sheet",
+      "Negative Signs",
+      "Algebra"
+    ],
+    "authorName": "Dr. Sarah Jenkins",
+    "authorRole": "teacher",
+    "createdAt": "2026-09-11T09:15:00.000Z"
+  },
+  {
+    "id": "res-03",
+    "title": "Interactive Desmos Graph: Dynamic Function Transformer",
+    "description": "Direct interactive slider sandbox for testing f(x - h) + k in real time. Manipulate vertex coordinates and reflections across the x-axis.",
+    "type": "link",
+    "url": "https://www.desmos.com/calculator/transformations",
+    "targetClass": "Grade 10 • Section A",
+    "targetTopic": "Graph Transformations",
+    "tags": [
+      "Interactive Sandbox",
+      "Desmos",
+      "Visualizer"
+    ],
+    "authorName": "Dr. Sarah Jenkins",
+    "authorRole": "teacher",
+    "createdAt": "2026-09-11T16:45:00.000Z"
+  },
+  {
+    "id": "res-04",
+    "title": "Function Domain, Inverses & Radical Restrictions",
+    "description": "Step-by-step video lesson explaining how square root restrictions and non-zero denominator conditions dictate function domains.",
+    "type": "video",
+    "url": "https://www.youtube.com/watch?v=hVK0eWfEw-w",
+    "targetClass": "Grade 10 • Section A",
+    "targetTopic": "Function Domain & Inverses",
+    "tags": [
+      "Domain & Range",
+      "Radicals",
+      "Video Lesson"
+    ],
+    "authorName": "Dr. Sarah Jenkins",
+    "authorRole": "teacher",
+    "createdAt": "2026-09-12T11:20:00.000Z"
+  },
+  {
+    "id": "res-05",
+    "title": "Midterm Diagnostic Reteach Worksheet & Solution Key",
+    "description": "Comprehensive practice problem set targeting the top 4 cognitive misconceptions diagnosed from the September 2026 midterm exam.",
+    "type": "pdf",
+    "url": "data:application/pdf;base64,JVBERi0xLjQKJcTl8uXrp/Og0MTGCjEgMCBvYmoKPDwKL1R5cGUgL0NhdGFsb2cKL1BhZ2VzIDIgMCBSCj4+CmVuZG9iagoyIDAgb2JqCjw8Ci9UeXBlIC9QYWdlcwovQ291bnQgMQovS2lkcyBbMyAwIFJdCj4+CmVuZG9iagozIDAgb2JqCjw8Ci9UeXBlIC9QYWdlCi9QYXJlbnQgMiAwIFIKL01lZGlhQm94IFswIDAgNjEyIDc5Ml0KPj4KZW5kb2JqCnRyYWlsZXIKPDwKL1Jvb3QgMSAwIFIKPj4KJSVFT0YK",
+    "fileName": "Midterm_Reteach_Practice_SectionA.pdf",
+    "fileSize": "2.8 MB",
+    "targetClass": "Grade 10 • Section A",
+    "targetTopic": "Linear Equations & Systems",
+    "tags": [
+      "Practice Worksheet",
+      "Midterm Reteach",
+      "Self Study"
+    ],
+    "authorName": "Dr. Sarah Jenkins",
+    "authorRole": "teacher",
+    "createdAt": "2026-09-12T18:00:00.000Z"
+  },
+  {
+    "id": "res-1789308246155-a1cfe",
+    "title": "Radical Functions Summary Sheet",
+    "description": "Key formulas and domain boundary checklist.",
+    "type": "pdf",
+    "url": "data:application/pdf;base64,JVBERi0xLjQKJcTl8uXrp/Og0MTGCjEgMCBvYmoKPDwKL1R5cGUgL0NhdGFsb2cKL1BhZ2VzIDIgMCBSCj4+CmVuZG9iagp0cmFpbGVyCjw8Ci9Sb290IDEgMCBSCj4+CiUlRU9G",
+    "fileName": "Radical_Functions_Summary.pdf",
+    "fileSize": "0.8 MB",
+    "targetClass": "Grade 10 • Section A",
+    "targetTopic": "Function Domain & Inverses",
+    "tags": [
+      "Study Material"
+    ],
+    "authorName": "Dr. Sarah Jenkins",
+    "authorRole": "teacher",
+    "createdAt": "2026-09-13T14:04:06.155Z"
+  }
+]

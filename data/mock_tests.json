@@ -1,0 +1,224 @@
+[
+  {
+    "id": "mock-01",
+    "title": "Midterm Mastery Checkpoint: Graph Transformations & Quadratics",
+    "subject": "Mathematics",
+    "topic": "Graph Transformations & Quadratic Equations",
+    "durationMinutes": 15,
+    "targetCohort": "Grade 10 • Section A",
+    "totalMarks": 5,
+    "passPercentage": 70,
+    "createdBy": {
+      "id": "fac-01",
+      "name": "Dr. Sarah Jenkins",
+      "role": "teacher"
+    },
+    "createdAt": "2026-09-12T10:00:00.000Z",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Given the parent quadratic function f(x) = x², which transformation results in g(x) = (x - 4)² + 3?",
+        "options": [
+          "Shift left 4 units, shift up 3 units",
+          "Shift right 4 units, shift up 3 units",
+          "Shift right 4 units, shift down 3 units",
+          "Shift left 4 units, shift down 3 units"
+        ],
+        "correctIndex": 1,
+        "explanation": "The term (x - h) inside the function shifts the graph horizontally to the RIGHT by h units when h > 0. The constant +3 outside shifts it UP.",
+        "ruleToRemember": "Horizontal Shift Rule: (x - c) moves RIGHT by c units, while (x + c) moves LEFT.",
+        "misconceptionWarning": "Inverting signs: confusing the negative sign inside parentheses with negative movement on the x-axis."
+      },
+      {
+        "id": 2,
+        "question": "When solving 2x² - 6x + 1 = 0 with the quadratic formula x = (-b ± √(b² - 4ac)) / (2a), what is the exact value substituted for the leading term -b?",
+        "options": [
+          "-6",
+          "+6",
+          "±6",
+          "-36"
+        ],
+        "correctIndex": 1,
+        "explanation": "Since b = -6, substituting into -b yields -(-6) = +6.",
+        "ruleToRemember": "Ghost Parentheses Rule: Always write - (b). Here - (-6) simplifies to +6.",
+        "misconceptionWarning": "Dropping the formula negative sign because b is already negative."
+      },
+      {
+        "id": 3,
+        "question": "What is the domain of the function f(x) = √(2x - 8) / (x - 6)?",
+        "options": [
+          "[4, ∞)",
+          "[4, 6) ∪ (6, ∞)",
+          "(4, 6) ∪ (6, ∞)",
+          "(-∞, 6) ∪ (6, ∞)"
+        ],
+        "correctIndex": 1,
+        "explanation": "The radicand must be non-negative: 2x - 8 ≥ 0 ⟹ x ≥ 4. The denominator cannot be zero: x ≠ 6. Combining these gives [4, 6) ∪ (6, ∞).",
+        "ruleToRemember": "Double-Gate Domain Checklist: Radicand must be ≥ 0 AND denominator must ≠ 0.",
+        "misconceptionWarning": "Omitting the denominator asymptote hole at x = 6."
+      },
+      {
+        "id": 4,
+        "question": "What transformation maps the square root function y = √x onto y = -√(x + 5)?",
+        "options": [
+          "Shift right 5 units, reflect across y-axis",
+          "Shift left 5 units, reflect across x-axis",
+          "Shift left 5 units, reflect across y-axis",
+          "Shift right 5 units, reflect across x-axis"
+        ],
+        "correctIndex": 1,
+        "explanation": "A negative sign outside reflects across the x-axis (inverts y values). Adding 5 inside shifts left by 5 units.",
+        "ruleToRemember": "Reflection Rule: Negative sign OUTSIDE inverts y (x-axis reflection); negative sign INSIDE inverts x (y-axis reflection).",
+        "misconceptionWarning": "Thinking the outside negative sign reflects across the vertical y-axis."
+      },
+      {
+        "id": 5,
+        "question": "For the parabola y = 3(x + 1)² - 7, what are the coordinates of the vertex?",
+        "options": [
+          "(1, -7)",
+          "(-1, -7)",
+          "(-1, 7)",
+          "(3, -7)"
+        ],
+        "correctIndex": 1,
+        "explanation": "In vertex form y = a(x - h)² + k, the vertex is (h, k). For (x + 1) = (x - (-1)), h = -1 and k = -7. Vertex is (-1, -7).",
+        "ruleToRemember": "Vertex Form: y = a(x - h)² + k has vertex (h, k). Take the opposite sign of h inside parentheses.",
+        "misconceptionWarning": "Keeping the positive sign from (x + 1) to make the vertex (+1, -7)."
+      }
+    ]
+  },
+  {
+    "id": "mock-02",
+    "title": "Algebra & Linear Systems Speed Benchmark",
+    "subject": "Mathematics",
+    "topic": "Linear Systems & Inequalities",
+    "durationMinutes": 10,
+    "targetCohort": "All Cohorts",
+    "totalMarks": 4,
+    "passPercentage": 75,
+    "createdBy": {
+      "id": "fac-01",
+      "name": "Dr. Sarah Jenkins",
+      "role": "teacher"
+    },
+    "createdAt": "2026-09-11T09:30:00.000Z",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Solve the system of linear equations: { 3x + 2y = 12,  x - y = 4 }.",
+        "options": [
+          "x = 4, y = 0",
+          "x = 3, y = -1",
+          "x = 2, y = 3",
+          "x = 5, y = 1"
+        ],
+        "correctIndex": 0,
+        "explanation": "From equation 2: x = y + 4. Substitute into eq 1: 3(y + 4) + 2y = 12 ⟹ 3y + 12 + 2y = 12 ⟹ 5y = 0 ⟹ y = 0. Then x = 4.",
+        "ruleToRemember": "Substitution or Elimination: Verify the resulting ordered pair (4, 0) satisfies BOTH equations: 3(4)+0=12 and 4-0=4.",
+        "misconceptionWarning": "Sign errors when distributing multiplication across subtraction."
+      },
+      {
+        "id": 2,
+        "question": "What is the slope of a line perpendicular to 4x - 5y = 20?",
+        "options": [
+          "4/5",
+          "-4/5",
+          "-5/4",
+          "5/4"
+        ],
+        "correctIndex": 2,
+        "explanation": "Convert to slope-intercept form: -5y = -4x + 20 ⟹ y = (4/5)x - 4. Slope is 4/5. The perpendicular slope is the negative reciprocal: -5/4.",
+        "ruleToRemember": "Perpendicular Slopes: m_perp = -1 / m_orig. Invert the fraction AND negate the sign.",
+        "misconceptionWarning": "Taking the reciprocal without flipping the sign (or vice versa)."
+      },
+      {
+        "id": 3,
+        "question": "Which graph region represents the inequality y < -(1/2)x + 3?",
+        "options": [
+          "Dashed boundary line with shading below",
+          "Solid boundary line with shading below",
+          "Dashed boundary line with shading above",
+          "Solid boundary line with shading above"
+        ],
+        "correctIndex": 0,
+        "explanation": "A strict inequality (<) uses a dashed line because points on the line are not included. \"Less than\" shades below the line.",
+        "ruleToRemember": "Inequality Boundary Rule: < or > = dashed line; ≤ or ≥ = solid line.",
+        "misconceptionWarning": "Drawing a solid line for strict inequalities."
+      },
+      {
+        "id": 4,
+        "question": "If 2(3x - 5) + 4 = 18, what is the value of 3x - 5?",
+        "options": [
+          "7",
+          "14",
+          "4",
+          "12"
+        ],
+        "correctIndex": 0,
+        "explanation": "Notice that 2(3x - 5) = 18 - 4 = 14. Dividing both sides by 2 immediately gives 3x - 5 = 7 without expanding x!",
+        "ruleToRemember": "Chunking Strategy: When asked for an entire subexpression, isolate that chunk directly.",
+        "misconceptionWarning": "Spending extra time solving for x and risking arithmetic mistakes."
+      }
+    ]
+  },
+  {
+    "id": "mock-mu150dmw-t6m3",
+    "title": "Polynomial Functions & Asymptotes Checkpoint",
+    "subject": "Pre-Calculus",
+    "topic": "Rational & Polynomial Functions",
+    "durationMinutes": 20,
+    "targetCohort": "Grade 10 • Section A",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is the horizontal asymptote of the rational function f(x) = (3x^2 + 5) / (x^2 - 4)?",
+        "options": [
+          "y = 0",
+          "y = 3",
+          "y = -4",
+          "No horizontal asymptote"
+        ],
+        "correctIndex": 1,
+        "explanation": "Since the degrees of the numerator and denominator are equal (both degree 2), the horizontal asymptote is the ratio of leading coefficients: 3 / 1 = 3.",
+        "ruleToRemember": "Degree Comparison Rule: Equal degrees ⟹ y = a/b.",
+        "misconceptionWarning": "Assuming horizontal asymptotes are always at y = 0."
+      },
+      {
+        "id": 2,
+        "question": "Which of the following represents the vertical asymptotes of f(x) = 1 / (x^2 - 9)?",
+        "options": [
+          "x = 3 only",
+          "x = -3 only",
+          "x = 3 and x = -3",
+          "y = 9"
+        ],
+        "correctIndex": 2,
+        "explanation": "Set the denominator to 0: x^2 - 9 = 0 ⟹ (x - 3)(x + 3) = 0 ⟹ x = ±3.",
+        "ruleToRemember": "Vertical Asymptotes: Roots of irreducible denominator.",
+        "misconceptionWarning": "Forgetting the negative root when taking the square root."
+      },
+      {
+        "id": 3,
+        "question": "What is the end behavior of the polynomial function P(x) = -2x^3 + 4x - 5 as x approaches infinity?",
+        "options": [
+          "P(x) approaches +infinity",
+          "P(x) approaches -infinity",
+          "P(x) approaches 0",
+          "P(x) approaches -5"
+        ],
+        "correctIndex": 1,
+        "explanation": "The leading term is -2x^3. With an odd degree and negative leading coefficient, as x ⟹ +∞, P(x) ⟹ -∞.",
+        "ruleToRemember": "Leading Term Dominance Rule: High powers dominate end behavior.",
+        "misconceptionWarning": "Looking at the constant term -5 instead of the leading term."
+      }
+    ],
+    "totalMarks": 3,
+    "passPercentage": 70,
+    "createdBy": {
+      "id": "fac-01",
+      "name": "Dr. Sarah Jenkins",
+      "role": "teacher"
+    },
+    "createdAt": "2026-09-14T11:06:02.120Z"
+  }
+]
