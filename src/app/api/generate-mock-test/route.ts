@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { GoogleGenAI } from '@google/genai';
+import { resolveGeminiApiKey } from '@/lib/ai/geminiClient';
 
 export const dynamic = 'force-dynamic';
 
@@ -191,12 +192,8 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const topic = (body.topic || body.topicName || 'Graph Transformations').trim();
-    const apiKey = process.env.GEMINI_API_KEY?.trim();
-    const isApiKeyConfigured =
-      !!apiKey &&
-      apiKey !== 'PASTE_MY_NEW_GEMINI_API_KEY_HERE' &&
-      apiKey !== 'your_gemini_api_key_here' &&
-      apiKey.length > 10;
+    const apiKey = resolveGeminiApiKey();
+    const isApiKeyConfigured = !!apiKey && apiKey.length > 10;
 
     if (isApiKeyConfigured) {
       try {

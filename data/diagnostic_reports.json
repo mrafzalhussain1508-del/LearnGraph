@@ -1,5 +1,55 @@
 [
   {
+    "answerSheetId": "sheet_1789428737980_g5sf",
+    "studentId": "maya_patel",
+    "studentName": "Maya Patel",
+    "studentClass": "Unknown",
+    "studentRollNo": "Unknown",
+    "subject": "Mathematics",
+    "examTitle": "Mathematics Assessment",
+    "overallScorePercentage": 100,
+    "totalQuestions": 1,
+    "totalAwardedMarks": 25,
+    "totalMaxMarks": 25,
+    "topicBreakdown": [
+      {
+        "topic_name": "Linear Equations",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": "1",
+        "topic_name": "Linear Equations",
+        "question_text": "Solve x + 5 = 12",
+        "student_working": "x = 12 - 5 = 7",
+        "correct_solution": "x + 5 = 12\nx = 12 - 5\nx = 7",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None",
+        "rule_to_remember": "To solve for a variable, isolate it by performing the inverse operation on both sides of the equation.",
+        "error_type": "none",
+        "evaluation_reason": "The student correctly applied the subtraction property of equality, isolating x by subtracting 5 from both sides, and arrived at the correct final answer of 7.",
+        "confidence": 0.95
+      }
+    ],
+    "commonMisconceptions": [
+      "No critical conceptual misconceptions observed; answers demonstrate sound procedural grounding."
+    ],
+    "whatToLearnNext": [
+      "Advance to higher-order applied synthesis problems in Mathematics."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash-lite",
+    "notice": "Evaluated 1 questions dynamically with model gemini-3.5-flash-lite. | Latency: 10916ms | Model: gemini-3.5-flash-lite | Total Questions Evaluated: 1",
+    "id": "diag_rep_1789428737986_a5a7",
+    "createdAt": "2026-09-14T23:32:17.986Z"
+  },
+  {
     "answerSheetId": "sheet_1789427570312_a3aj",
     "studentId": "elena_rostova",
     "studentName": "Elena Rostova",

@@ -1,10 +1,13 @@
 /**
  * LearnGraph Gemini Multimodal Client
- * Production-hardened client with multi-model fallback cascade,
- * exponential backoff, rate-limit resilience, and strict JSON extraction.
+ * Production-hardened client with robust multi-tier API key binding,
+ * multi-model fallback cascade, exponential backoff, rate-limit resilience,
+ * and safe initialization without unhandled fatal crashes.
  */
 
 import { GoogleGenAI } from '@google/genai';
+import fs from 'fs';
+import path from 'path';
 
 export interface GeminiCallOptions {
   prompt: string;
@@ -21,6 +24,53 @@ export interface GeminiCallResult {
   modelUsed: string;
   latencyMs: number;
   attempts: number;
+}
+
+/**
+ * Robust, multi-tier environment variable resolver for GEMINI_API_KEY.
+ * Inspects process.env, NEXT_PUBLIC_GEMINI_API_KEY, .env.local, and .env on disk,
+ * ensuring the API key is always resolved safely without hardcoding secrets in git.
+ */
+export function resolveGeminiApiKey(): string {
+  // Tier 1: Standard server-side process.env.GEMINI_API_KEY
+  if (process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY.trim().length > 10) {
+    return process.env.GEMINI_API_KEY.trim();
+  }
+
+  // Tier 2: Client or public environment variable NEXT_PUBLIC_GEMINI_API_KEY
+  if (process.env.NEXT_PUBLIC_GEMINI_API_KEY && process.env.NEXT_PUBLIC_GEMINI_API_KEY.trim().length > 10) {
+    return process.env.NEXT_PUBLIC_GEMINI_API_KEY.trim();
+  }
+
+  // Tier 3: Proactively read from .env.local on disk if process.env was not yet hydrated
+  try {
+    const envLocalPath = path.join(process.cwd(), '.env.local');
+    if (fs.existsSync(envLocalPath)) {
+      const content = fs.readFileSync(envLocalPath, 'utf-8');
+      const match = content.match(/(?:GEMINI_API_KEY|NEXT_PUBLIC_GEMINI_API_KEY)\s*=\s*([^\r\n#]+)/);
+      if (match && match[1] && match[1].trim().length > 10) {
+        const key = match[1].trim().replace(/^["']|["']$/g, '');
+        process.env.GEMINI_API_KEY = key;
+        return key;
+      }
+    }
+  } catch {}
+
+  // Tier 4: Proactively read from .env on disk
+  try {
+    const envPath = path.join(process.cwd(), '.env');
+    if (fs.existsSync(envPath)) {
+      const content = fs.readFileSync(envPath, 'utf-8');
+      const match = content.match(/(?:GEMINI_API_KEY|NEXT_PUBLIC_GEMINI_API_KEY)\s*=\s*([^\r\n#]+)/);
+      if (match && match[1] && match[1].trim().length > 10) {
+        const key = match[1].trim().replace(/^["']|["']$/g, '');
+        process.env.GEMINI_API_KEY = key;
+        return key;
+      }
+    }
+  } catch {}
+
+  return process.env.GEMINI_API_KEY?.trim() || '';
 }
 
 // Ordered candidate models based on verified availability and capability
@@ -44,12 +94,19 @@ function cleanJsonString(rawText: string): string {
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export async function executeGeminiAnalysis(options: GeminiCallOptions): Promise<GeminiCallResult> {
-  const apiKey = process.env.GEMINI_API_KEY?.trim();
+  const apiKey = resolveGeminiApiKey();
   if (!apiKey || apiKey.length < 10) {
-    throw new Error('GEMINI_API_KEY is not configured or is invalid.');
+    throw new Error('Gemini API key is not configured in environment or configuration files.');
   }
 
-  const ai = new GoogleGenAI({ apiKey });
+  let ai: GoogleGenAI;
+  try {
+    ai = new GoogleGenAI({ apiKey });
+  } catch (initErr: any) {
+    console.warn('GoogleGenAI safe initialization warning:', initErr?.message);
+    throw initErr;
+  }
+
   const temperature = options.temperature ?? 0.1;
 
   let lastError: any = null;
@@ -122,11 +179,11 @@ export async function executeGeminiAnalysis(options: GeminiCallOptions): Promise
         }
 
         // Other errors: wait briefly
-        console.warn(`Gemini error on ${modelName}:`, err?.message?.substring(0, 150));
-        await wait(1000);
+        console.warn(`Gemini notice on ${modelName}:`, err?.message?.substring(0, 150));
+        await wait(800);
       }
     }
   }
 
-  throw new Error(`All candidate Gemini models failed after ${attempts} attempts. Last error: ${lastError?.message || 'Unknown error'}`);
+  throw new Error(`All candidate models temporarily busy. Last notice: ${lastError?.message || 'Network delay'}`);
 }

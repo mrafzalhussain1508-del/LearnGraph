@@ -412,5 +412,20 @@
     "school": "Lincoln High School",
     "learningGoals": "Knapsack 1D State Array Drill: In 0/1 Knapsack, iterate capacity W down to wt_i backwards to ensure each item is used at most once.",
     "createdAt": "2026-09-14T22:03:38.576Z"
+  },
+  {
+    "id": "student_1789428737990_l7ev",
+    "role": "student",
+    "name": "Maya Patel",
+    "username": "maya_patel",
+    "phone": "",
+    "email": "maya_patel@student.learngraph.edu",
+    "password": "password123",
+    "studentId": "Unknown",
+    "grade": "Unknown",
+    "section": "Section A",
+    "school": "Lincoln High School",
+    "learningGoals": "Advance to higher-order applied synthesis problems in Mathematics.",
+    "createdAt": "2026-09-14T23:32:17.990Z"
   }
 ]
