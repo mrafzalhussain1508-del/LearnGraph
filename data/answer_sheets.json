@@ -1,5 +1,64 @@
 [
   {
+    "studentId": "elena_rostova",
+    "studentName": "Elena Rostova",
+    "subject": "Chemistry",
+    "fileName": "Elena_Chemistry.txt",
+    "fileSize": 689,
+    "mimeType": "text/plain",
+    "detectedMime": "text/plain",
+    "id": "sheet_1789427570312_a3aj",
+    "uploadedAt": "2026-09-14T23:12:50.312Z"
+  },
+  {
+    "studentId": "rishu",
+    "studentName": "Rishu",
+    "subject": "Mathematics",
+    "fileName": "Rishu_Mathematics_Paper.txt",
+    "fileSize": 249,
+    "mimeType": "text/plain",
+    "detectedMime": "text/plain",
+    "rawExtractedText": "Student Name: Rishu\nClass: Class 10 • Section A\nRoll No: 24\nSubject: Mathematics\nExam: Algebra & Fractions Diagnostic\n\nQuestion 1: Fractions Arithmetic (25 Marks)\nStudent Working:\n1/2 + 1/3 = 3/6 + 2/6 = 5/6.\nTeacher Grading: 25/25 ✓ Full Marks.",
+    "id": "sheet_1789424218035_6sga",
+    "uploadedAt": "2026-09-14T22:16:58.035Z"
+  },
+  {
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "subject": "Chemistry",
+    "fileName": "Chemistry_Paper.txt",
+    "fileSize": 353,
+    "mimeType": "text/plain",
+    "detectedMime": "text/plain",
+    "rawExtractedText": "Student Name: Arola Thoudam\nClass: Class 11 • Section A\nRoll No: 14\nSubject: Chemistry\nExam: Periodic Properties Diagnostic Test\n\nQuestion 1: Periodic Trends: Atomic & Ionic Radii (25 Marks)\nStudent Working:\nAcross Period 3, atomic radius decreases from Na to Cl due to increasing effective nuclear charge Z_eff.\nTeacher Grading: 25/25 ✓ Full Marks.",
+    "id": "sheet_1789424216990_1d41",
+    "uploadedAt": "2026-09-14T22:16:56.990Z"
+  },
+  {
+    "studentId": "rishu",
+    "studentName": "Rishu",
+    "subject": "Mathematics",
+    "fileName": "Rishu_Mathematics_Paper.txt",
+    "fileSize": 249,
+    "mimeType": "text/plain",
+    "detectedMime": "text/plain",
+    "rawExtractedText": "Student Name: Rishu\nClass: Class 10 • Section A\nRoll No: 24\nSubject: Mathematics\nExam: Algebra & Fractions Diagnostic\n\nQuestion 1: Fractions Arithmetic (25 Marks)\nStudent Working:\n1/2 + 1/3 = 3/6 + 2/6 = 5/6.\nTeacher Grading: 25/25 ✓ Full Marks.",
+    "id": "sheet_1789424207872_irda",
+    "uploadedAt": "2026-09-14T22:16:47.872Z"
+  },
+  {
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "subject": "Chemistry",
+    "fileName": "Chemistry_Paper.txt",
+    "fileSize": 353,
+    "mimeType": "text/plain",
+    "detectedMime": "text/plain",
+    "rawExtractedText": "Student Name: Arola Thoudam\nClass: Class 11 • Section A\nRoll No: 14\nSubject: Chemistry\nExam: Periodic Properties Diagnostic Test\n\nQuestion 1: Periodic Trends: Atomic & Ionic Radii (25 Marks)\nStudent Working:\nAcross Period 3, atomic radius decreases from Na to Cl due to increasing effective nuclear charge Z_eff.\nTeacher Grading: 25/25 ✓ Full Marks.",
+    "id": "sheet_1789424206766_umsb",
+    "uploadedAt": "2026-09-14T22:16:46.766Z"
+  },
+  {
     "studentId": "priya_sharma",
     "studentName": "Priya Sharma",
     "subject": "Physics",

@@ -1,5 +1,239 @@
 [
   {
+    "student_name": "Elena Rostova",
+    "student_class": "11th Grade • Section A",
+    "student_roll_no": "42",
+    "subject": "Chemistry",
+    "exam_title": "Periodic Properties Assessment",
+    "overall_score_percentage": 50,
+    "topic_breakdown": [
+      {
+        "topic_name": "Periodic Trends: Atomic Radius",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Periodic Trends: Electronegativity",
+        "understanding_percentage": 0,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": "1",
+        "topic_name": "Periodic Trends: Atomic Radius",
+        "question_text": "Explain why atomic radius decreases across Period 3.",
+        "student_working": "Across Period 3 from Na to Cl, electrons enter the same shell (n = 3) while nuclear charge increases. Effective nuclear charge Z_eff increases and draws electrons closer.",
+        "correct_solution": "Across a period, electrons are added to the same principal energy level while protons are added to the nucleus, increasing the effective nuclear charge (Z_eff). This stronger electrostatic attraction pulls the electron cloud closer to the nucleus, resulting in a decrease in atomic radius.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None",
+        "rule_to_remember": "Atomic radius decreases across a period due to increasing Z_eff with constant shielding.",
+        "error_type": "none",
+        "evaluation_reason": "The student correctly identified that electrons enter the same shell while nuclear charge increases, leading to a higher effective nuclear charge that draws electrons closer.",
+        "confidence": 0.95
+      },
+      {
+        "question_number": "2",
+        "topic_name": "Periodic Trends: Electronegativity",
+        "question_text": "Why does Fluorine have the highest electronegativity?",
+        "student_working": "Fluorine has the highest electronegativity because it has a huge size and extra electron shells.",
+        "correct_solution": "Fluorine has the highest electronegativity (4.0) because of its small covalent radius (allowing a bonding pair of electrons to get very close to the nucleus) and high effective nuclear charge, resulting in a very strong attraction for shared electrons.",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Student inverted the relationship between atomic size and electronegativity, incorrectly claiming Fluorine has a large size and extra shells.",
+        "misconception": "Believing that high electronegativity is associated with a large atomic size and extra shells rather than a small atomic radius and high effective nuclear charge.",
+        "rule_to_remember": "Electronegativity increases across a period and up a group; Fluorine is highest due to its minimal covalent radius and high Z_eff.",
+        "error_type": "conceptual_misconception",
+        "evaluation_reason": "The student stated that Fluorine has a 'huge size and extra electron shells', which is completely incorrect. Fluorine is a Period 2 element with a very small atomic radius, which is precisely why it has high electronegativity.",
+        "confidence": 0.95
+      }
+    ],
+    "common_misconceptions": [
+      "Periodic Trends: Electronegativity: Believing that high electronegativity is associated with a large atomic size and extra shells rather than a small atomic radius and high effective nuclear charge."
+    ],
+    "what_to_learn_next": [
+      "Periodic Trends: Electronegativity: Electronegativity increases across a period and up a group; Fluorine is highest due to its minimal covalent radius and high Z_eff."
+    ],
+    "is_live_gemini": true,
+    "model_used": "gemini-3.5-flash-lite",
+    "notice": "Evaluated 2 questions dynamically with model gemini-3.5-flash-lite. | Latency: 38069ms | Model: gemini-3.5-flash-lite | Total Questions Evaluated: 2",
+    "id": "diag_1789427570322_lxo4",
+    "createdAt": "2026-09-14T23:12:50.322Z"
+  },
+  {
+    "student_name": "Rishu",
+    "student_class": "Class 10 • Section A",
+    "student_roll_no": "24",
+    "subject": "Mathematics",
+    "exam_title": "Algebra & Fractions Diagnostic",
+    "overall_score_percentage": 100,
+    "topic_breakdown": [
+      {
+        "topic_name": "Fractions Arithmetic",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Fractions Arithmetic",
+        "question_text": "Student Working:",
+        "student_working": "1/2 + 1/3 = 3/6 + 2/6 = 5/6.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      }
+    ],
+    "common_misconceptions": [
+      "Review key procedural working steps and conceptual definitions in Mathematics."
+    ],
+    "what_to_learn_next": [
+      "Targeted practice problem set targeting key questions in Mathematics."
+    ],
+    "is_live_gemini": false,
+    "model_used": "Universal Diagnostic Engine (Mathematics)",
+    "notice": "Evaluated 1 questions dynamically from uploaded sheet.",
+    "id": "diag_1789424218046_lgx6",
+    "createdAt": "2026-09-14T22:16:58.046Z"
+  },
+  {
+    "student_name": "Arola Thoudam",
+    "student_class": "Class 11 • Section A",
+    "student_roll_no": "14",
+    "subject": "Chemistry",
+    "exam_title": "Periodic Properties Diagnostic Test",
+    "overall_score_percentage": 100,
+    "topic_breakdown": [
+      {
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "question_text": "Student Working:",
+        "student_working": "Across Period 3, atomic radius decreases from Na to Cl due to increasing effective nuclear charge Z_eff.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      }
+    ],
+    "common_misconceptions": [
+      "Review key procedural working steps and conceptual definitions in Chemistry."
+    ],
+    "what_to_learn_next": [
+      "Targeted practice problem set targeting key questions in Chemistry."
+    ],
+    "is_live_gemini": false,
+    "model_used": "Universal Diagnostic Engine (Chemistry)",
+    "notice": "Evaluated 1 questions dynamically from uploaded sheet.",
+    "id": "diag_1789424217001_nz4q",
+    "createdAt": "2026-09-14T22:16:57.001Z"
+  },
+  {
+    "student_name": "Rishu",
+    "student_class": "Class 10 • Section A",
+    "student_roll_no": "24",
+    "subject": "Mathematics",
+    "exam_title": "Algebra & Fractions Diagnostic",
+    "overall_score_percentage": 100,
+    "topic_breakdown": [
+      {
+        "topic_name": "Fractions Arithmetic",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Fractions Arithmetic",
+        "question_text": "Student Working:",
+        "student_working": "1/2 + 1/3 = 3/6 + 2/6 = 5/6.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      }
+    ],
+    "common_misconceptions": [
+      "Review key procedural working steps and conceptual definitions in Mathematics."
+    ],
+    "what_to_learn_next": [
+      "Targeted practice problem set targeting key questions in Mathematics."
+    ],
+    "is_live_gemini": false,
+    "model_used": "Universal Diagnostic Engine (Mathematics)",
+    "notice": "Evaluated 1 questions dynamically from uploaded sheet.",
+    "id": "diag_1789424207878_j513",
+    "createdAt": "2026-09-14T22:16:47.878Z"
+  },
+  {
+    "student_name": "Arola Thoudam",
+    "student_class": "Class 11 • Section A",
+    "student_roll_no": "14",
+    "subject": "Chemistry",
+    "exam_title": "Periodic Properties Diagnostic Test",
+    "overall_score_percentage": 100,
+    "topic_breakdown": [
+      {
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "question_text": "Explain the variation of atomic radius across Period 3 elements from sodium (Na) to chlorine (Cl).",
+        "student_working": "Across Period 3, atomic radius decreases from Na to Cl due to increasing effective nuclear charge Z_eff.",
+        "correct_solution": "Across Period 3 from Na to Cl, additional valence electrons enter the same principal energy level (n = 3) while nuclear charge increases from Z = 11 to Z = 17. Because inner-shell screening remains relatively constant, the effective nuclear charge (Z_eff) steadily increases, exerting a stronger electrostatic pull on the electron cloud and causing atomic radius to decrease from Na (186 pm) to Cl (99 pm).",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None. The scientific reasoning and periodic trend identification are completely accurate.",
+        "misconception": "None. Strong mastery of effective nuclear charge and coulombic attraction across periods.",
+        "rule_to_remember": "Atomic radius decreases across a period from left to right as effective nuclear charge (Z_eff) increases while electron shielding remains approximately constant."
+      }
+    ],
+    "common_misconceptions": [],
+    "what_to_learn_next": [
+      "Explore anomalous first ionisation enthalpies across periods (e.g., Nitrogen vs Oxygen half-filled subshell stability).",
+      "Analyze electron gain enthalpy trends and anomalous behavior in Period 2 vs Period 3 (e.g., Chlorine vs Fluorine interelectronic repulsions).",
+      "Study the variation in isoelectronic ionic radii (e.g., N3-, O2-, F-, Na+, Mg2+, Al3+) governed strictly by nuclear charge Z."
+    ],
+    "is_live_gemini": true,
+    "model_used": "gemini-flash-latest (Multimodal Diagnostic Engine)",
+    "id": "diag_1789424206778_lymf",
+    "createdAt": "2026-09-14T22:16:46.778Z"
+  },
+  {
     "student_name": "Priya Sharma",
     "student_class": "12th Grade",
     "student_roll_no": "29",
