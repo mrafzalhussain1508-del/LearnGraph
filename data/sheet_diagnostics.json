@@ -1,5 +1,106 @@
 [
   {
+    "student_name": "Arola Thoudam",
+    "student_class": "Class 11 • Section A",
+    "student_roll_no": "14",
+    "subject": "Chemistry",
+    "exam_title": "Periodic Properties & Chemical Trends Diagnostic Test",
+    "overall_score_percentage": 64,
+    "topic_breakdown": [
+      {
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Ionisation Enthalpy: Half-Filled Subshell Stability",
+        "understanding_percentage": 32,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Electronegativity Trends & Pauling Scale",
+        "understanding_percentage": 100,
+        "status": "Yellow"
+      },
+      {
+        "topic_name": "Electron Gain Enthalpy: Chlorine vs Fluorine Anomaly",
+        "understanding_percentage": 24,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "question_text": "Explain why atomic radius decreases across Period 3 from Na to Cl, but increases down Group 1. Compare the ionic radii of Na+ and F- (isoelectronic species).",
+        "student_working": "Across Period 3, atomic number increases from Na (11) to Cl (17) while electrons are added to the same energy level (n = 3). Effective nuclear charge (Z_eff) increases, drawing valence electrons closer to the nucleus, so atomic radius decreases.\nDown Group 1, each successive period adds a new electron shell (principal quantum number n increases), increasing electron shielding and atomic size.\nFor isoelectronic ions Na+ and F- (both have 10 electrons): Na+ has 11 protons (higher nuclear charge Z), exerting stronger coulombic pull on electrons than F- with 9 protons. Therefore, ionic radius of F- is larger than Na+ (F- > Na+).",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Flawless effective nuclear charge and isoelectronic radius comparison.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Ionisation Enthalpy: Half-Filled Subshell Stability",
+        "question_text": "Compare the first ionisation enthalpies of Nitrogen (Z = 7) and Oxygen (Z = 8). Why does Nitrogen have a higher first ionisation enthalpy than Oxygen?",
+        "student_working": "Oxygen has 8 protons and Nitrogen has 7 protons. Higher nuclear charge always means higher ionisation enthalpy, so Oxygen requires more energy to remove an electron than Nitrogen. First IE of Oxygen > First IE of Nitrogen.",
+        "correct_solution": "Nitrogen (1s² 2s² 2p³) has a stable half-filled 2p subshell with extra exchange energy. Oxygen (1s² 2s² 2p⁴) has electron pairing repulsion in one 2p orbital, making electron removal easier. Hence First IE: N (1402 kJ/mol) > O (1314 kJ/mol).",
+        "max_marks": 25,
+        "awarded_marks": 8,
+        "understanding_percentage": 32,
+        "status": "Red",
+        "mistake_detected": "Ionisation Enthalpy Anomaly Neglect: Stated that Oxygen has higher first ionisation enthalpy than Nitrogen due to higher nuclear charge, ignoring half-filled 2p³ subshell stability in Nitrogen.",
+        "misconception": "Ionisation Enthalpy Monotonicity Fallacy: Believing ionisation enthalpy increases strictly across every element in a period without accounting for half-filled/fully-filled subshell stability and orbital pairing repulsion.",
+        "rule_to_remember": "First IE Anomalies: Half-filled (2p³ for N) and fully-filled (2s² for Be) subshells confer extra stability. N > O and Be > B."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Electronegativity Trends & Pauling Scale",
+        "question_text": "Define electronegativity. Contrast it with electron gain enthalpy, and explain why Fluorine has the highest Pauling electronegativity (4.0).",
+        "student_working": "Electronegativity is the tendency of an atom in a chemical bond to attract shared electron pairs towards itself. Unlike electron gain enthalpy which measures energy change of isolated gaseous atoms gaining an electron, electronegativity is a dimensionless bonded property.\nFluorine is the smallest halogen with high effective nuclear charge, pulling bonded electrons most strongly. Pauling value is 4.0.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Yellow",
+        "mistake_detected": "Precise definition and distinction from electron gain enthalpy.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Electron Gain Enthalpy: Chlorine vs Fluorine Anomaly",
+        "question_text": "Why does Chlorine have a more negative electron gain enthalpy (-349 kJ/mol) than Fluorine (-328 kJ/mol), despite Fluorine being more electronegative?",
+        "student_working": "Fluorine has the highest electronegativity, so it must attract incoming electrons the most strongly and release the most energy. Therefore, Fluorine must have a more negative electron gain enthalpy than Chlorine (-349 kJ/mol for F vs -328 kJ/mol for Cl). The table values must have a typo.",
+        "correct_solution": "Fluorine has an extremely small 2p orbital, leading to intense electron-electron repulsion when an electron is added. Chlorine's incoming electron enters the larger 3p orbital with less repulsion. Hence Chlorine releases more energy: Δ_egH(Cl) = -349 kJ/mol vs Δ_egH(F) = -328 kJ/mol.",
+        "max_marks": 25,
+        "awarded_marks": 6,
+        "understanding_percentage": 24,
+        "status": "Red",
+        "mistake_detected": "Electron Gain Enthalpy Anomaly Omission: Assumed Fluorine has more negative electron gain enthalpy than Chlorine because of electronegativity, failing to recognize compact 2p interelectronic repulsion.",
+        "misconception": "Compact Subshell Repulsion Oversight: Overlooking electron-electron repulsion in small 2p orbitals (Fluorine, Oxygen) compared to roomier 3p orbitals (Chlorine, Sulfur).",
+        "rule_to_remember": "Electron Gain Enthalpy Halogen Anomaly: Chlorine has a more negative electron gain enthalpy than Fluorine (-349 vs -328 kJ/mol) because Fluorine's small 2p subshell creates high interelectronic repulsion."
+      }
+    ],
+    "common_misconceptions": [
+      "Ionisation Enthalpy Monotonicity Fallacy: Assuming first ionisation enthalpy increases strictly with atomic number across Period 2, missing Nitrogen's stable half-filled 2p³ configuration and Oxygen's 2p⁴ electron pairing repulsion.",
+      "Compact Subshell Repulsion Oversight: Assuming Fluorine must have the most negative electron gain enthalpy due to electronegativity, ignoring interelectronic repulsion in Fluorine's compact 2p subshell vs Chlorine's larger 3p subshell."
+    ],
+    "what_to_learn_next": [
+      "Orbital Box Notation & Exchange Energy: Draw orbital boxes for N (2p³) and O (2p⁴). Count parallel exchange pairs (3 for N) to visualize extra stability.",
+      "Electron Gain Enthalpy vs Electronegativity Drill: Fluorine is more electronegative in covalent bonds, but Chlorine releases more energy on gaining an electron (-349 kJ/mol vs -328 kJ/mol) due to 3p dispersion."
+    ],
+    "is_live_gemini": false,
+    "model_used": "Universal Diagnostic Engine (Chemistry)",
+    "notice": "Live Gemini quota temporarily unavailable; dynamic universal Chemistry diagnostic evaluated successfully.",
+    "id": "diag_1789420697914_qv3m",
+    "createdAt": "2026-09-14T21:18:17.914Z"
+  },
+  {
     "student_name": "Rishu",
     "student_class": "Class 10 • Section A",
     "student_roll_no": "24",
@@ -861,102 +962,102 @@
     "createdAt": "2026-09-14T19:27:57.095Z"
   },
   {
-    "student_name": "Aarav Gupta",
-    "student_class": "Grade 11 Section A",
-    "student_roll_no": "15",
+    "student_name": "Arola Thoudam",
+    "student_class": "Class 11 • Section A",
+    "student_roll_no": "14",
     "subject": "Chemistry",
-    "exam_title": "Chemical Principles & Analytical Diagnostics",
-    "overall_score_percentage": 75,
+    "exam_title": "Periodic Properties & Chemical Trends Diagnostic Test",
+    "overall_score_percentage": 64,
     "topic_breakdown": [
       {
-        "topic_name": "Stoichiometry & Theoretical Yield",
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
         "understanding_percentage": 100,
         "status": "Green"
       },
       {
-        "topic_name": "Acid-Base Equilibria & Buffer pH",
-        "understanding_percentage": 60,
-        "status": "Yellow"
-      },
-      {
-        "topic_name": "Chemical Thermodynamics & Gibbs Free Energy",
-        "understanding_percentage": 40,
+        "topic_name": "Ionisation Enthalpy: Half-Filled Subshell Stability",
+        "understanding_percentage": 32,
         "status": "Red"
       },
       {
-        "topic_name": "Organic Reaction Mechanisms & Stereochemistry",
+        "topic_name": "Electronegativity Trends & Pauling Scale",
         "understanding_percentage": 100,
         "status": "Green"
+      },
+      {
+        "topic_name": "Electron Gain Enthalpy: Chlorine vs Fluorine Anomaly",
+        "understanding_percentage": 24,
+        "status": "Red"
       }
     ],
     "questions": [
       {
         "question_number": 1,
-        "topic_name": "Stoichiometry & Theoretical Yield",
-        "question_text": "Calculate the theoretical yield of ammonia (NH3) formed when 28.0 g of N2 reacts with excess H2: N2 + 3H2 -> 2NH3.",
-        "student_working": "Molar mass N2 = 28.0 g/mol => moles N2 = 28.0 / 28.0 = 1.0 mol. From stoichiometry: 1 mol N2 produces 2 mol NH3. Molar mass NH3 = 14 + 3 = 17.0 g/mol. Mass NH3 = 2.0 * 17.0 = 34.0 grams.",
-        "correct_solution": "Moles N2 = 28.0 / 28.0 = 1.0 mol. Mole ratio N2:NH3 is 1:2 => 2.0 mol NH3. Theoretical yield = 2.0 mol * 17.03 g/mol = 34.06 g NH3.",
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "question_text": "Explain why atomic radius decreases across Period 3 from Na to Cl, but increases down Group 1. Compare the ionic radii of Na+ and F- (isoelectronic species).",
+        "student_working": "Across Period 3, atomic number increases from Na (11) to Cl (17) while electrons are added to the same energy level (n = 3). Effective nuclear charge (Z_eff) increases, drawing valence electrons closer to the nucleus, so atomic radius decreases.\nDown Group 1, each successive period adds a new electron shell (principal quantum number n increases), increasing electron shielding and atomic size.\nFor isoelectronic ions Na+ and F- (both have 10 electrons): Na+ has 11 protons (higher nuclear charge Z), exerting stronger coulombic pull on electrons than F- with 9 protons. Therefore, ionic radius of F- is larger than Na+ (F- > Na+).",
+        "correct_solution": "Across a period, nuclear charge increases while shielding remains constant, so Z_eff increases and pulls the electron cloud inward, decreasing atomic radius. Down a group, new principal quantum levels (n) are added, increasing atomic radius. For isoelectronic ions Na+ (11 protons) and F- (9 protons), Na+ has greater nuclear charge, pulling electrons more tightly, hence ionic radius F- > Na+.",
         "max_marks": 25,
         "awarded_marks": 25,
         "understanding_percentage": 100,
         "status": "Green",
-        "mistake_detected": "Rigorous dimensional analysis and mole ratio mapping.",
-        "misconception": "None. Balanced equation mole ratios followed properly.",
-        "rule_to_remember": "Stoichiometric Conversion: Grams A -> Moles A -> Mole Ratio (B/A) -> Grams B."
+        "mistake_detected": "Flawless effective nuclear charge and isoelectronic radius comparison.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Atomic Radius Trend: Decreases across period (Z_eff increases); increases down group (n increases). Isoelectronic: Higher Z = smaller radius."
       },
       {
         "question_number": 2,
-        "topic_name": "Acid-Base Equilibria & Buffer pH",
-        "question_text": "Calculate the pH of a buffer solution composed of 0.20 M acetic acid (CH3COOH, Ka = 1.8 x 10^-5) and 0.10 M sodium acetate (CH3COONa).",
-        "student_working": "pKa = -log(1.8 * 10^-5) = 4.74. Henderson-Hasselbalch: pH = pKa + log([acid] / [base]) = 4.74 + log(0.20 / 0.10) = 4.74 + 0.30 = 5.04.",
-        "correct_solution": "pH = pKa + log([base] / [acid]). pKa = 4.74. [base] = 0.10 M, [acid] = 0.20 M. pH = 4.74 + log(0.10 / 0.20) = 4.74 + log(0.5) = 4.74 - 0.30 = 4.44.",
+        "topic_name": "Ionisation Enthalpy: Half-Filled Subshell Stability",
+        "question_text": "Compare the first ionisation enthalpies of Nitrogen (Z = 7) and Oxygen (Z = 8). Why does Nitrogen have a higher first ionisation enthalpy than Oxygen?",
+        "student_working": "Oxygen has 8 protons and Nitrogen has 7 protons. Higher nuclear charge always means higher ionisation enthalpy, so Oxygen requires more energy to remove an electron than Nitrogen. First IE of Oxygen > First IE of Nitrogen.",
+        "correct_solution": "Nitrogen has electronic configuration 1s² 2s² 2p³ with a stable half-filled 2p subshell (extra exchange energy). Oxygen has 1s² 2s² 2p⁴ with one paired 2p orbital, where electron-electron pairing repulsion makes it easier to remove the fourth electron. Therefore, first IE of Nitrogen (1402 kJ/mol) is higher than Oxygen (1314 kJ/mol).",
         "max_marks": 25,
-        "awarded_marks": 15,
-        "understanding_percentage": 60,
-        "status": "Yellow",
-        "mistake_detected": "Inverted Buffer Ratio: Wrote log([acid]/[base]) instead of log([conjugate base]/[acid]). Because [acid] > [base], pH must be lower than pKa.",
-        "misconception": "Ratio Reversal Trap: Failing to recognize that higher acid concentration must depress the buffer pH below pKa.",
-        "rule_to_remember": "Henderson-Hasselbalch Anchor: pH = pKa + log([A-] / [HA]). Remember: Base over Acid (B before A in the alphabet)."
+        "awarded_marks": 8,
+        "understanding_percentage": 32,
+        "status": "Red",
+        "mistake_detected": "Ionisation Enthalpy Anomaly Neglect: Stated that Oxygen has higher first ionisation enthalpy than Nitrogen due to higher nuclear charge, ignoring half-filled 2p³ subshell stability in Nitrogen.",
+        "misconception": "Ionisation Enthalpy Monotonicity Fallacy: Believing ionisation enthalpy increases strictly across every element in a period without accounting for half-filled/fully-filled subshell stability and orbital pairing repulsion.",
+        "rule_to_remember": "First IE Anomalies: Half-filled (2p³ for N) and fully-filled (2s² for Be) subshells confer extra stability. N > O and Be > B."
       },
       {
         "question_number": 3,
-        "topic_name": "Chemical Thermodynamics & Gibbs Free Energy",
-        "question_text": "For a reaction at 298 K, ΔH° = -92.2 kJ and ΔS° = -198.7 J/K. Determine ΔG° and state if spontaneous.",
-        "student_working": "ΔG = ΔH - T * ΔS = -92.2 - 298 * (-198.7) = -92.2 + 59212.6 = +59120 kJ (Non-spontaneous).",
-        "correct_solution": "Must convert ΔS to kJ/K: ΔS° = -0.1987 kJ/K. ΔG° = -92.2 kJ - (298 K * -0.1987 kJ/K) = -92.2 - (-59.21) = -32.99 kJ. Since ΔG° < 0, reaction is spontaneous.",
-        "max_marks": 25,
-        "awarded_marks": 10,
-        "understanding_percentage": 40,
-        "status": "Red",
-        "mistake_detected": "Unit Scale Inconsistency: Added Joules directly to kiloJoules without dividing ΔS by 1000, reversing the sign of spontaneity.",
-        "misconception": "Dimensional Scale Blindness: Overlooking standard prefix mismatches (kJ vs J) in thermodynamic equations.",
-        "rule_to_remember": "Thermodynamic Unit Check: Always convert entropy to kJ/(mol·K) before subtracting from enthalpy: ΔG (kJ) = ΔH (kJ) - T(K) * [ΔS (J/K) / 1000]."
-      },
-      {
-        "question_number": 4,
-        "topic_name": "Organic Reaction Mechanisms & Stereochemistry",
-        "question_text": "Predict the mechanism and stereochemical outcome when (S)-2-bromobutane is treated with sodium cyanide in acetone.",
-        "student_working": "Acetone is polar aprotic solvent, cyanide is strong nucleophile -> SN2 mechanism. Nucleophile attacks from back of C-Br bond, causing inversion of configuration. Resulting product is (R)-2-methylbutanenitrile.",
-        "correct_solution": "Polar aprotic solvent + unhindered secondary substrate + strong nucleophile = SN2 bimolecular substitution. Walden inversion converts (S) stereocenter into (R)-2-cyanobutane.",
+        "topic_name": "Electronegativity Trends & Pauling Scale",
+        "question_text": "Define electronegativity. Contrast it with electron gain enthalpy, and explain why Fluorine has the highest Pauling electronegativity (4.0).",
+        "student_working": "Electronegativity is the tendency of an atom in a chemical bond to attract shared electron pairs towards itself. Unlike electron gain enthalpy which measures energy change of isolated gaseous atoms gaining an electron, electronegativity is a dimensionless bonded property.\nFluorine is the smallest halogen with high effective nuclear charge, pulling bonded electrons most strongly. Pauling value is 4.0.",
+        "correct_solution": "Electronegativity is the relative tendency of a bonded atom to attract shared electrons. Unlike electron gain enthalpy (a measurable thermodynamic quantity of isolated gaseous atoms in kJ/mol), electronegativity is an empirical scale. Fluorine has the smallest atomic size and high Z_eff among non-noble elements, maximizing coulombic attraction on shared valence electrons (Pauling 4.0).",
         "max_marks": 25,
         "awarded_marks": 25,
         "understanding_percentage": 100,
         "status": "Green",
-        "mistake_detected": "Comprehensive mechanistic reasoning and stereochemical assignment.",
-        "misconception": "None. Solvent and nucleophile kinetics recognized.",
-        "rule_to_remember": "SN2 Stereocenter Rule: Concerted bimolecular backside displacement always inverts tetrahedral chiral geometry."
+        "mistake_detected": "Rigorous definition and conceptual distinction from electron gain enthalpy.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Electronegativity vs Electron Gain Enthalpy: Electronegativity is qualitative bond attraction; Electron Gain Enthalpy is quantitative thermodynamic energy release upon adding an electron to an isolated gaseous atom."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Electron Gain Enthalpy: Chlorine vs Fluorine Anomaly",
+        "question_text": "Why does Chlorine have a more negative electron gain enthalpy (-349 kJ/mol) than Fluorine (-328 kJ/mol), despite Fluorine being more electronegative?",
+        "student_working": "Fluorine has the highest electronegativity, so it must attract incoming electrons the most strongly and release the most energy. Therefore, Fluorine must have a more negative electron gain enthalpy than Chlorine (-349 kJ/mol for F vs -328 kJ/mol for Cl). The table values must have a typo.",
+        "correct_solution": "Fluorine has a very compact 2p subshell. When an electron is added, it experiences high interelectronic repulsion within the small 2p volume. In Chlorine, the electron enters the larger 3p subshell where electron-electron repulsion is significantly less. Hence, electron addition to Chlorine releases more energy (Δ_egH = -349 kJ/mol) than Fluorine (Δ_egH = -328 kJ/mol).",
+        "max_marks": 25,
+        "awarded_marks": 6,
+        "understanding_percentage": 24,
+        "status": "Red",
+        "mistake_detected": "Electron Gain Enthalpy Anomaly Omission: Assumed Fluorine has more negative electron gain enthalpy than Chlorine because of electronegativity, failing to recognize compact 2p interelectronic repulsion.",
+        "misconception": "Compact Subshell Repulsion Oversight: Overlooking electron-electron repulsion in small 2p orbitals (Fluorine, Oxygen) compared to roomier 3p orbitals (Chlorine, Sulfur).",
+        "rule_to_remember": "Electron Gain Enthalpy Halogen Anomaly: Chlorine has a more negative electron gain enthalpy than Fluorine (-349 vs -328 kJ/mol) because Fluorine's small 2p subshell creates high interelectronic repulsion."
       }
     ],
     "common_misconceptions": [
-      "Henderson-Hasselbalch Ratio Inversion: Writing log([HA]/[A-]) rather than log([conjugate base]/[weak acid]).",
-      "Thermodynamic Prefix Omission: Direct addition of Joules to kiloJoules in Gibbs calculations."
+      "Ionisation Enthalpy Monotonicity Fallacy: Assuming first ionisation enthalpy increases strictly with atomic number across Period 2, missing Nitrogen's stable half-filled 2p³ configuration and Oxygen's 2p⁴ electron pairing repulsion.",
+      "Compact Subshell Repulsion Oversight: Assuming Fluorine must have the most negative electron gain enthalpy due to electronegativity, ignoring interelectronic repulsion in Fluorine's compact 2p subshell vs Chlorine's larger 3p subshell."
     ],
     "what_to_learn_next": [
-      "Buffer Qualitative Verification: Check if [HA] > [A-], pH MUST be less than pKa.",
-      "Thermodynamics Prefix Discipline: Circle the \"k\" in kJ and write \"/ 1000\" under any J/K value."
+      "Orbital Box Notation & Exchange Energy: Draw orbital boxes for N (2p³) and O (2p⁴). Count parallel exchange pairs (3 for N) to visualize extra stability.",
+      "Electron Gain Enthalpy vs Electronegativity Drill: Fluorine is more electronegative in covalent bonds, but Chlorine releases more energy on gaining an electron (-349 kJ/mol vs -328 kJ/mol) due to 3p dispersion."
     ],
-    "is_live_gemini": false,
-    "model_used": "Universal Diagnostic Engine (Chemistry)",
+    "is_live_gemini": true,
+    "model_used": "Gemini 3.6 Flash (Multimodal Diagnostic Engine)",
     "notice": "Live Gemini quota temporarily unavailable; dynamic universal Chemistry diagnostic evaluated successfully.",
     "id": "diag_1789414075872_0ioh",
     "createdAt": "2026-09-14T19:27:55.872Z"

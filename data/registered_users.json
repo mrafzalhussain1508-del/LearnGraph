@@ -367,5 +367,20 @@
     "school": "Lincoln High School",
     "learningGoals": "Rectangle Area Formula Practice: Explicitly write Area = Length × Breadth (L × B, in square units cm²) before calculating. Perimeter is 2(L + B).",
     "createdAt": "2026-09-14T20:25:04.304Z"
+  },
+  {
+    "id": "student_1789420000000_arola",
+    "role": "student",
+    "name": "Arola Thoudam",
+    "username": "arola_thoudam",
+    "phone": "+91 98765 43299",
+    "email": "arola.thoudam@student.learngraph.edu",
+    "password": "password123",
+    "studentId": "14",
+    "grade": "Class 11 • Section A",
+    "section": "Section A",
+    "school": "Lincoln High School",
+    "learningGoals": "Master Periodic Properties, Ionisation Enthalpy anomalies, and Electron Gain Enthalpy trends.",
+    "createdAt": "2026-09-14T21:00:00.000Z"
   }
 ]

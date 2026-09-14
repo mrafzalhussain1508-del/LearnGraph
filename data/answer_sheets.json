@@ -1,5 +1,17 @@
 [
   {
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "subject": "Chemistry",
+    "fileName": "Arola_Thoudam_Chemistry_Paper.txt",
+    "fileSize": 3271,
+    "mimeType": "text/plain",
+    "detectedMime": "text/plain",
+    "rawExtractedText": "Student Name: Arola Thoudam\nClass: Class 11 • Section A\nRoll No: 14\nSubject: Chemistry\nExam: Periodic Properties & Chemical Trends Diagnostic Test\n\nQuestion 1: Periodic Trends: Atomic & Ionic Radii (25 Marks)\nPrompt: Explain why atomic radius decreases across Period 3 from Na to Cl, but increases down Group 1. Compare the ionic radii of Na+ and F- (isoelectronic species).\nStudent Working:\nAcross Period 3, atomic number increases from Na (11) to Cl (17) while electrons are added to the same energy level (n = 3). Effective nuclear charge (Z_eff) increases, drawing valence electrons closer to the nucleus, so atomic radius decreases.\nDown Group 1, each successive period adds a new electron shell (principal quantum number n increases), increasing electron shielding and atomic size.\nFor isoelectronic ions Na+ and F- (both have 10 electrons): Na+ has 11 protons (higher nuclear charge Z), exerting stronger coulombic pull on electrons than F- with 9 protons. Therefore, ionic radius of F- is larger than Na+ (F- > Na+).\nTeacher Grading: 25/25 ✓ Full Marks. Flawless effective nuclear charge and isoelectronic radius comparison.\n\nQuestion 2: Ionisation Enthalpy: Half-Filled Subshell Stability (25 Marks)\nPrompt: Compare the first ionisation enthalpies of Nitrogen (Z = 7) and Oxygen (Z = 8). Why does Nitrogen have a higher first ionisation enthalpy than Oxygen?\nStudent Working:\nOxygen has 8 protons and Nitrogen has 7 protons. Higher nuclear charge always means higher ionisation enthalpy, so Oxygen requires more energy to remove an electron than Nitrogen. First IE of Oxygen > First IE of Nitrogen.\nTeacher Grading: 8/25 ✕ Error. Fails to account for half-filled p-orbital stability. Nitrogen (2p³) is extra stable; Oxygen (2p⁴) has electron pairing repulsion making electron removal easier.\n\nQuestion 3: Electronegativity Trends & Pauling Scale (25 Marks)\nPrompt: Define electronegativity. Contrast it with electron gain enthalpy, and explain why Fluorine has the highest Pauling electronegativity (4.0).\nStudent Working:\nElectronegativity is the tendency of an atom in a chemical bond to attract shared electron pairs towards itself. Unlike electron gain enthalpy which measures energy change of isolated gaseous atoms gaining an electron, electronegativity is a dimensionless bonded property.\nFluorine is the smallest halogen with high effective nuclear charge, pulling bonded electrons most strongly. Pauling value is 4.0.\nTeacher Grading: 25/25 ✓ Full Marks. Precise definition and distinction from electron gain enthalpy.\n\nQuestion 4: Electron Gain Enthalpy: Chlorine vs Fluorine Anomaly (25 Marks)\nPrompt: Why does Chlorine have a more negative electron gain enthalpy (-349 kJ/mol) than Fluorine (-328 kJ/mol), despite Fluorine being more electronegative?\nStudent Working:\nFluorine has the highest electronegativity, so it must attract incoming electrons the most strongly and release the most energy. Therefore, Fluorine must have a more negative electron gain enthalpy than Chlorine (-349 kJ/mol for F vs -328 kJ/mol for Cl). The table values must have a typo.\nTeacher Grading: 6/25 ✕ Error. Critical misconception: neglected compact 2p interelectronic repulsion in Fluorine. Chlorine adds electron to larger 3p orbital with less repulsion.",
+    "id": "sheet_1789420697904_mi1n",
+    "uploadedAt": "2026-09-14T21:18:17.905Z"
+  },
+  {
     "studentId": "rishu",
     "studentName": "Rishu",
     "subject": "Computer Science",
@@ -84,14 +96,14 @@
     "uploadedAt": "2026-09-14T19:27:57.092Z"
   },
   {
-    "studentId": "aarav_gupta",
-    "studentName": "Aarav Gupta",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
     "subject": "Chemistry",
-    "fileName": "Chemistry_Paper.txt",
+    "fileName": "Arola_Thoudam_Periodic_Properties_Paper.txt",
     "fileSize": 118,
     "mimeType": "text/plain",
     "detectedMime": "text/plain",
-    "rawExtractedText": "Student Name: Aarav Gupta\nClass: Grade 11 Section A\nRoll No: 15\nSubject: Chemistry\nExam: Midterm Diagnostic Evaluation",
+    "rawExtractedText": "Student Name: Arola Thoudam\nClass: Class 11 • Section A\nRoll No: 14\nSubject: Chemistry\nExam: Periodic Properties & Chemical Trends Diagnostic Test\n\nQuestion 1: Periodic Trends: Atomic & Ionic Radii\nQuestion 2: Ionisation Enthalpy: Half-Filled Subshell Stability\nQuestion 3: Electronegativity Trends & Pauling Scale\nQuestion 4: Electron Gain Enthalpy: Chlorine vs Fluorine Anomaly",
     "id": "sheet_1789414075869_wu9y",
     "uploadedAt": "2026-09-14T19:27:55.869Z"
   },

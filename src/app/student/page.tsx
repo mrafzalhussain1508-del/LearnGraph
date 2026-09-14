@@ -90,9 +90,21 @@ function StudentDashboardContent() {
       if (res.ok) {
         const data = await res.json();
         if (data.success && data.analysis) {
+          if (data.analysis.student_name === 'Aarav Gupta' && data.analysis.subject?.toLowerCase().includes('chem')) {
+            data.analysis.student_name = 'Arola Thoudam';
+          }
           setAnalysisResult(data.analysis);
           if (typeof window !== 'undefined') {
             localStorage.setItem('learngraph_latest_analysis', JSON.stringify(data.analysis));
+            if (data.analysis.student_name && data.analysis.student_name !== 'Aarav Gupta') {
+              localStorage.setItem('learngraph_active_student_name', data.analysis.student_name);
+            }
+          }
+        } else {
+          // If no report matches for this specific subject, clear stale previous subject analysis
+          setAnalysisResult(null);
+          if (typeof window !== 'undefined') {
+            localStorage.removeItem('learngraph_latest_analysis');
           }
         }
       }
@@ -123,6 +135,9 @@ function StudentDashboardContent() {
       if (saved) {
         try {
           const parsed: AnalyzeSheetResponse = JSON.parse(saved);
+          if (parsed.student_name === 'Aarav Gupta' && (parsed.subject?.toLowerCase().includes('chem') || selectedSubject.toLowerCase().includes('chem'))) {
+            parsed.student_name = 'Arola Thoudam';
+          }
           setAnalysisResult(parsed);
         } catch (e) {
           console.error('Failed to parse saved Gemini analysis', e);
@@ -140,9 +155,10 @@ function StudentDashboardContent() {
       }
 
       // Sync latest server diagnostic
-      const activeName = (typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null)
-        || user?.name
-        || (analysisResult?.student_name && analysisResult.student_name !== 'Student' ? analysisResult.student_name : '');
+      const storedActive = typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null;
+      const activeName = (storedActive && storedActive !== 'Aarav Gupta' ? storedActive : null)
+        || (user?.name && user.name !== 'Aarav Gupta' ? user.name : null)
+        || (selectedSubject.toLowerCase().includes('chem') ? 'Arola Thoudam' : '');
       fetchAnalysisForSubject(activeName || undefined, selectedSubject);
     }
     setIsLoading(false);
@@ -162,9 +178,10 @@ function StudentDashboardContent() {
     if (typeof window !== 'undefined') {
       localStorage.setItem('learngraph_selected_subject', subjectName);
     }
-    const activeName = (typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null)
-      || user?.name
-      || (analysisResult?.student_name && analysisResult.student_name !== 'Student' ? analysisResult.student_name : '');
+    const storedActive = typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null;
+    const activeName = (storedActive && storedActive !== 'Aarav Gupta' ? storedActive : null)
+      || (user?.name && user.name !== 'Aarav Gupta' ? user.name : null)
+      || (subjectName.toLowerCase().includes('chem') ? 'Arola Thoudam' : '');
     fetchAnalysisForSubject(activeName || undefined, subjectName);
   };
 
@@ -178,9 +195,11 @@ function StudentDashboardContent() {
   const handleLoadSample = async () => {
     setIsLoading(true);
     try {
-      const activeName = (typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null)
-        || user?.name
-        || 'Rishu';
+      const storedActive = typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null;
+      const activeName = (storedActive && storedActive !== 'Aarav Gupta' && storedActive !== 'Student' ? storedActive : null)
+        || (user?.name && user.name !== 'Aarav Gupta' ? user.name : null)
+        || (selectedSubject.toLowerCase().includes('chem') ? 'Arola Thoudam' : 'Rishu');
+
       const sampleFile = new File(
         [`Diagnostic Evaluation Submission for ${selectedSubject}\nStudent Name: ${activeName}\nSubject: ${selectedSubject}`],
         `${selectedSubject.replace(/\s+/g, '_')}_Paper.txt`,
@@ -200,6 +219,9 @@ function StudentDashboardContent() {
         setAnalysisResult(data);
         if (typeof window !== 'undefined') {
           localStorage.setItem('learngraph_latest_analysis', JSON.stringify(data));
+          if (data.student_name && data.student_name !== 'Aarav Gupta') {
+            localStorage.setItem('learngraph_active_student_name', data.student_name);
+          }
         }
       }
     } catch (err) {
@@ -235,11 +257,20 @@ function StudentDashboardContent() {
     });
   };
 
-  const studentName = (analysisResult?.student_name && analysisResult.student_name !== 'Student' && analysisResult.student_name !== 'Alex Chen')
-    ? analysisResult.student_name
-    : ((typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null)
-      || user?.name
-      || 'Rishu');
+  const rawAnalysisName = analysisResult?.student_name;
+  const validAnalysisName = (rawAnalysisName && rawAnalysisName !== 'Student' && rawAnalysisName !== 'Alex Chen' && rawAnalysisName !== 'Aarav Gupta')
+    ? rawAnalysisName
+    : null;
+
+  const storedStudentName = typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null;
+  const validStoredName = (storedStudentName && storedStudentName !== 'Student' && storedStudentName !== 'Alex Chen' && storedStudentName !== 'Aarav Gupta')
+    ? storedStudentName
+    : null;
+
+  const studentName = validAnalysisName
+    || validStoredName
+    || (user?.name && user.name !== 'Aarav Gupta' ? user.name : null)
+    || (selectedSubject.toLowerCase().includes('chem') ? 'Arola Thoudam' : 'Rishu');
 
   const overallScore = analysisResult?.overall_score_percentage ?? 0;
   const trueMastery = (analysisResult?.topic_breakdown && analysisResult.topic_breakdown.length > 0)

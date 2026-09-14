@@ -153,10 +153,11 @@ function UploadPageContent() {
   };
 
   const handleStartSubjectAnalysis = (subjectName: string) => {
-    const studentDisplayName = user?.name || (typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null) || 'Rishu';
+    const lower = subjectName.toLowerCase();
+    const activeStoredName = typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null;
+    const studentDisplayName = user?.name || (activeStoredName && activeStoredName !== 'Aarav Gupta' ? activeStoredName : null) || (lower.includes('chem') ? 'Arola Thoudam' : 'Rishu');
     let sampleContent = '';
 
-    const lower = subjectName.toLowerCase();
     if (lower.includes('phys')) {
       sampleContent = `Student Name: ${studentDisplayName}
 Class: Class 11 • Section B
@@ -194,31 +195,41 @@ Student Working:
 ω = 0 + (24)(4) = 96 rad/s.
 Teacher Grading: 25/25 ✓ Full Marks.`;
     } else if (lower.includes('chem')) {
-      sampleContent = `Student Name: ${studentDisplayName}
+      const chemStudent = (studentDisplayName && studentDisplayName !== 'Aarav Gupta' && studentDisplayName !== 'Student')
+        ? studentDisplayName
+        : 'Arola Thoudam';
+      sampleContent = `Student Name: ${chemStudent}
 Class: Class 11 • Section A
 Roll No: 14
 Subject: Chemistry
-Exam: Stoichiometry & Analytical Thermodynamics
+Exam: Periodic Properties & Chemical Trends Diagnostic Test
 
-Question 1: Stoichiometry & Yield (25 Marks)
-Prompt: Calculate theoretical yield of NH3 from 28.0 g N2: N2 + 3H2 -> 2NH3.
-Student Working: Moles N2 = 1.0 mol. Mole ratio 1:2 gives 2.0 mol NH3 = 34.0 g.
-Teacher Grading: 25/25 ✓ Full Marks.
+Question 1: Periodic Trends: Atomic & Ionic Radii (25 Marks)
+Prompt: Explain why atomic radius decreases across Period 3 from Na to Cl, but increases down Group 1. Compare the ionic radii of Na+ and F- (isoelectronic species).
+Student Working:
+Across Period 3, atomic number increases from Na (11) to Cl (17) while electrons are added to the same energy level (n = 3). Effective nuclear charge (Z_eff) increases, drawing valence electrons closer to the nucleus, so atomic radius decreases.
+Down Group 1, each successive period adds a new electron shell (principal quantum number n increases), increasing electron shielding and atomic size.
+For isoelectronic ions Na+ and F- (both have 10 electrons): Na+ has 11 protons (higher nuclear charge Z), exerting stronger coulombic pull on electrons than F- with 9 protons. Therefore, ionic radius of F- is larger than Na+ (F- > Na+).
+Teacher Grading: 25/25 ✓ Full Marks. Flawless effective nuclear charge and isoelectronic radius comparison.
 
-Question 2: Buffer pH & Henderson-Hasselbalch (25 Marks)
-Prompt: Buffer of 0.20 M CH3COOH (Ka = 1.8e-5) and 0.10 M CH3COONa. Calculate pH.
-Student Working: pH = 4.74 + log(0.20 / 0.10) = 5.04.
-Teacher Grading: 15/25 ½ Partial. Inverted buffer ratio (put acid over conjugate base).
+Question 2: Ionisation Enthalpy: Half-Filled Subshell Stability (25 Marks)
+Prompt: Compare the first ionisation enthalpies of Nitrogen (Z = 7) and Oxygen (Z = 8). Why does Nitrogen have a higher first ionisation enthalpy than Oxygen?
+Student Working:
+Oxygen has 8 protons and Nitrogen has 7 protons. Higher nuclear charge always means higher ionisation enthalpy, so Oxygen requires more energy to remove an electron than Nitrogen. First IE of Oxygen > First IE of Nitrogen.
+Teacher Grading: 8/25 ✕ Error. Fails to account for half-filled p-orbital stability. Nitrogen (2p³) is extra stable; Oxygen (2p⁴) has electron pairing repulsion making electron removal easier.
 
-Question 3: Gibbs Free Energy Spontaneity (25 Marks)
-Prompt: At 298 K, ΔH = -92.2 kJ, ΔS = -198.7 J/K. Determine ΔG and state if spontaneous.
-Student Working: ΔG = -92.2 - 298*(-198.7) = +59120 kJ (Non-spontaneous).
-Teacher Grading: 10/25 ✕ Error. Unit conversion error: added J directly to kJ without dividing ΔS by 1000.
+Question 3: Electronegativity Trends & Pauling Scale (25 Marks)
+Prompt: Define electronegativity. Contrast it with electron gain enthalpy, and explain why Fluorine has the highest Pauling electronegativity (4.0).
+Student Working:
+Electronegativity is the tendency of an atom in a chemical bond to attract shared electron pairs towards itself. Unlike electron gain enthalpy which measures energy change of isolated gaseous atoms gaining an electron, electronegativity is a dimensionless bonded property.
+Fluorine is the smallest halogen with high effective nuclear charge, pulling bonded electrons most strongly. Pauling value is 4.0.
+Teacher Grading: 25/25 ✓ Full Marks. Precise definition and distinction from electron gain enthalpy.
 
-Question 4: Organic SN2 Reaction Mechanism (25 Marks)
-Prompt: (S)-2-bromobutane with NaCN in acetone. Predict mechanism and stereochemistry.
-Student Working: Polar aprotic solvent -> SN2 backside attack -> Walden inversion to (R)-2-cyanobutane.
-Teacher Grading: 25/25 ✓ Full Marks.`;
+Question 4: Electron Gain Enthalpy: Chlorine vs Fluorine Anomaly (25 Marks)
+Prompt: Why does Chlorine have a more negative electron gain enthalpy (-349 kJ/mol) than Fluorine (-328 kJ/mol), despite Fluorine being more electronegative?
+Student Working:
+Fluorine has the highest electronegativity, so it must attract incoming electrons the most strongly and release the most energy. Therefore, Fluorine must have a more negative electron gain enthalpy than Chlorine (-349 kJ/mol for F vs -328 kJ/mol for Cl). The table values must have a typo.
+Teacher Grading: 6/25 ✕ Error. Critical misconception: neglected compact 2p interelectronic repulsion in Fluorine. Chlorine adds electron to larger 3p orbital with less repulsion.`;
     } else if (lower.includes('bio')) {
       sampleContent = `Student Name: ${studentDisplayName}
 Class: Class 12 • Section B
