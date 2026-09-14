@@ -14,12 +14,17 @@ import {
   Sparkles, 
   Video, 
   UploadCloud, 
-  ArrowRight,
-  RotateCcw,
-  CheckSquare,
-  Layers,
-  ChevronDown
+  ArrowRight, 
+  RotateCcw, 
+  CheckSquare, 
+  Layers, 
+  ChevronDown,
+  AlertCircle,
+  CheckCircle2,
+  RefreshCw,
+  X
 } from 'lucide-react';
+import { getSubjectSamplePaper } from '@/lib/samplePapers';
 
 import StudyGuideOverviewView from '@/components/student/StudyGuideOverviewView';
 import SubjectsView from '@/components/student/SubjectsView';
@@ -80,7 +85,21 @@ function StudentDashboardContent() {
   const [activeQuizTopic, setActiveQuizTopic] = useState<string | null>(null);
   const [clearedTopics, setClearedTopics] = useState<Set<string>>(new Set());
 
-  // Function to fetch latest analysis from server
+  // Dedicated diagnosing states for in-page evaluation (Diagnose Sample Sheet)
+  const [isDiagnosing, setIsDiagnosing] = useState(false);
+  const [diagnosingStage, setDiagnosingStage] = useState(0);
+  const [diagnosingProgress, setDiagnosingProgress] = useState(0);
+  const [diagnosingMessage, setDiagnosingMessage] = useState('Initializing AI Diagnostic engine...');
+  const [diagnosticError, setDiagnosticError] = useState<string | null>(null);
+
+  const diagnosingSteps = [
+    { title: 'Optical Character Recognition (OCR)', desc: `Scanning handwritten test sheet & annotations for ${selectedSubject}...` },
+    { title: 'Canonical Model Cross-Verification', desc: 'Auditing step-by-step calculations against subject ground truth...' },
+    { title: 'Cognitive Misconception Diagnosis', desc: 'Isolating root conceptual traps and procedural errors...' },
+    { title: 'Study Guide & Reteach Compilation', desc: 'Synthesizing topic cards and personalized action plan...' },
+  ];
+
+  // Function to fetch latest analysis from server without destructive wipe
   const fetchAnalysisForSubject = useCallback(async (studentQuery?: string, subjectQuery?: string) => {
     try {
       const params = new URLSearchParams();
@@ -100,13 +119,8 @@ function StudentDashboardContent() {
               localStorage.setItem('learngraph_active_student_name', data.analysis.student_name);
             }
           }
-        } else {
-          // If no report matches for this specific subject, clear stale previous subject analysis
-          setAnalysisResult(null);
-          if (typeof window !== 'undefined') {
-            localStorage.removeItem('learngraph_latest_analysis');
-          }
         }
+        // NOTE: If server reports no new record, PRESERVE local analysis. Never set null or remove from localStorage!
       }
     } catch (err) {
       console.error('Failed to sync diagnostic from server:', err);
@@ -181,13 +195,16 @@ function StudentDashboardContent() {
             localStorage.setItem('learngraph_active_student_name', detail.student_name);
           }
         }
+        // Automatically transition to Overview tab
+        setActiveTab('overview');
+        router.push('/student?tab=overview', { scroll: false });
       }
     };
     if (typeof window !== 'undefined') {
       window.addEventListener('learngraph_analysis_completed', handleAnalysisCompleted);
       return () => window.removeEventListener('learngraph_analysis_completed', handleAnalysisCompleted);
     }
-  }, []);
+  }, [router]);
 
   // Sync selectedSubject whenever loaded analysisResult has a differing subject
   useEffect(() => {
@@ -199,14 +216,14 @@ function StudentDashboardContent() {
     }
   }, [analysisResult?.subject, selectedSubject]);
 
-  const handleSelectTab = (tabId: string) => {
+  const handleSelectTab = useCallback((tabId: string) => {
     const validTab = (['overview', 'subjects', 'topics', 'sheet', 'next_steps', 'mock_tests', 'resources'].includes(tabId) ? tabId : 'overview') as StudentTabId;
     setActiveTab(validTab);
     router.push(`/student?tab=${validTab}`, { scroll: false });
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  };
+  }, [router]);
 
   const handleSelectSubject = (subjectName: string) => {
     setSelectedSubject(subjectName);
@@ -228,16 +245,32 @@ function StudentDashboardContent() {
   };
 
   const handleLoadSample = async () => {
-    setIsLoading(true);
+    setIsDiagnosing(true);
+    setDiagnosticError(null);
+    setDiagnosingStage(0);
+    setDiagnosingProgress(15);
+    setDiagnosingMessage(`Scanning ${selectedSubject} handwriting & evaluating steps...`);
+
+    const interval = setInterval(() => {
+      setDiagnosingProgress((prev) => {
+        if (prev >= 85) return prev;
+        const next = prev + 8;
+        if (next > 65) setDiagnosingStage(2);
+        else if (next > 35) setDiagnosingStage(1);
+        return next;
+      });
+    }, 180);
+
     try {
       const storedActive = typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null;
       const activeName = (storedActive && storedActive !== 'Aarav Gupta' && storedActive !== 'Student' ? storedActive : null)
         || (user?.name && user.name !== 'Aarav Gupta' ? user.name : null)
         || (selectedSubject.toLowerCase().includes('chem') ? 'Arola Thoudam' : 'Rishu');
 
+      const sampleContent = getSubjectSamplePaper(selectedSubject, activeName);
       const sampleFile = new File(
-        [`Diagnostic Evaluation Submission for ${selectedSubject}\nStudent Name: ${activeName}\nSubject: ${selectedSubject}`],
-        `${selectedSubject.replace(/\s+/g, '_')}_Paper.txt`,
+        [sampleContent],
+        `${activeName.replace(/\s+/g, '_')}_${selectedSubject.replace(/\s+/g, '_')}_Paper.txt`,
         { type: 'text/plain' }
       );
       const fd = new FormData();
@@ -249,20 +282,40 @@ function StudentDashboardContent() {
         method: 'POST',
         body: fd,
       });
-      if (res.ok) {
-        const data = await res.json();
-        setAnalysisResult(data);
-        if (typeof window !== 'undefined') {
-          localStorage.setItem('learngraph_latest_analysis', JSON.stringify(data));
-          if (data.student_name && data.student_name !== 'Aarav Gupta') {
-            localStorage.setItem('learngraph_active_student_name', data.student_name);
-          }
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to analyze answer sheet');
+      }
+
+      clearInterval(interval);
+      setDiagnosingStage(3);
+      setDiagnosingProgress(100);
+      setDiagnosingMessage('Analysis complete! Synthesizing student study guide...');
+
+      setAnalysisResult(data);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('learngraph_latest_analysis', JSON.stringify(data));
+        if (data.student_name && data.student_name !== 'Aarav Gupta' && data.student_name !== 'Student') {
+          localStorage.setItem('learngraph_active_student_name', data.student_name);
+        }
+        if (data.subject) {
+          localStorage.setItem('learngraph_selected_subject', data.subject);
+          setSelectedSubject(data.subject);
         }
       }
-    } catch (err) {
-      console.error('Error analyzing sample for subject:', err);
-    } finally {
-      setIsLoading(false);
+
+      // Automatically transition to Study Guide Overview
+      setTimeout(() => {
+        setIsDiagnosing(false);
+        handleSelectTab('overview');
+      }, 700);
+
+    } catch (err: any) {
+      clearInterval(interval);
+      setIsDiagnosing(false);
+      setDiagnosticError(err?.message || 'Error communicating with diagnostic service.');
     }
   };
 
@@ -439,8 +492,97 @@ function StudentDashboardContent() {
           </div>
         </div>
 
-        {/* Awaiting Upload Clean State (When no sheet is parsed yet and user is on any study desk tab) */}
-        {!analysisResult && activeTab !== 'subjects' ? (
+        {/* Diagnostic Error Notification Banner */}
+        {diagnosticError && (
+          <div className="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-900 text-rose-900 dark:text-rose-200 text-xs flex items-center justify-between gap-3 shadow-xs">
+            <div className="flex items-center space-x-3">
+              <AlertCircle className="w-5 h-5 text-rose-600 dark:text-rose-400 shrink-0" />
+              <div>
+                <span className="font-bold block text-sm">Diagnostic Service Notice</span>
+                <span className="text-slate-600 dark:text-slate-300">{diagnosticError}</span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={handleLoadSample}
+                className="px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs cursor-pointer whitespace-nowrap"
+              >
+                Retry
+              </button>
+              <button
+                onClick={() => setDiagnosticError(null)}
+                className="p-1.5 rounded-lg hover:bg-rose-100 dark:hover:bg-rose-900/40 text-rose-500 cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Live Diagnosing Progress Overlay */}
+        {isDiagnosing ? (
+          <div className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-indigo-200 dark:border-indigo-900/60 p-8 sm:p-12 shadow-md text-center space-y-6 max-w-xl mx-auto animate-fadeIn">
+            <div className="relative w-20 h-20 mx-auto">
+              <div className="absolute inset-0 rounded-full border-4 border-indigo-100 dark:border-indigo-950 animate-ping opacity-25"></div>
+              <div className="w-20 h-20 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border-2 border-indigo-600 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+                <RefreshCw className="w-8 h-8 animate-spin" />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+                {diagnosingMessage}
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                Universal AI Diagnostic Engine • Rigorous Fact-Checking Matrix
+              </p>
+            </div>
+
+            {/* Progress Bar */}
+            <div className="space-y-1.5">
+              <div className="h-2.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full transition-all duration-300 ease-out"
+                  style={{ width: `${diagnosingProgress}%` }}
+                ></div>
+              </div>
+              <div className="flex justify-between text-[11px] font-mono text-slate-400">
+                <span>Progress</span>
+                <span>{diagnosingProgress}%</span>
+              </div>
+            </div>
+
+            {/* Processing Stages */}
+            <div className="text-left space-y-2.5 pt-4 border-t border-slate-100 dark:border-slate-800">
+              {diagnosingSteps.map((step, idx) => {
+                const isDone = diagnosingStage > idx;
+                const isCurrent = diagnosingStage === idx;
+                return (
+                  <div 
+                    key={step.title}
+                    className={`flex items-start space-x-3 text-xs transition-opacity ${
+                      isCurrent ? 'opacity-100 font-bold' : isDone ? 'opacity-70 text-slate-500' : 'opacity-30'
+                    }`}
+                  >
+                    <div className="mt-0.5 shrink-0">
+                      {isDone ? (
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      ) : isCurrent ? (
+                        <div className="w-4 h-4 rounded-full border-2 border-indigo-600 border-t-transparent animate-spin"></div>
+                      ) : (
+                        <div className="w-4 h-4 rounded-full border border-slate-300 dark:border-slate-700"></div>
+                      )}
+                    </div>
+                    <div>
+                      <p className="text-slate-900 dark:text-white">{step.title}</p>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 font-normal">{step.desc}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ) : !analysisResult && activeTab !== 'subjects' ? (
           <div className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-dashed border-[#e2dac8] dark:border-slate-800 p-6 sm:p-10 md:p-12 shadow-sm text-center space-y-6 animate-fadeIn">
             <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900/60 flex items-center justify-center mx-auto text-indigo-600 dark:text-indigo-400 shadow-sm shadow-indigo-100">
               <UploadCloud className="w-8 h-8" />

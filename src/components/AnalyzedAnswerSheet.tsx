@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 
 export interface AnalyzedQuestion {
-  questionNumber: number;
+  questionNumber: number | string;
   topic: string;
   categoryHeader: string;
   maxMarks: number;

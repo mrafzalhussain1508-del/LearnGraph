@@ -21,31 +21,28 @@ export async function GET(req: NextRequest) {
                      diagnosticDb.getLatestForStudent(studentQuery);
       }
 
-      // If student was explicitly specified but no report exists for this specific student and subject:
-      // If subject is Chemistry and student is Arola or generic, look up Arola Thoudam
-      if (!diagnostic && subjectQuery && subjectQuery.toLowerCase().includes('chem')) {
-        diagnostic = diagnosticReportRepo.getLatestForStudentAndSubject('Arola Thoudam', 'Chemistry') ||
-                     diagnosticDb.getLatestForStudentAndSubject('Arola Thoudam', 'Chemistry');
+      // Fallback 1: Match student across any subject
+      if (!diagnostic) {
+        diagnostic = diagnosticReportRepo.getLatestForStudent(studentQuery) ||
+                     diagnosticDb.getLatestForStudent(studentQuery) || null;
       }
-    } else {
-      // If no student query was provided
-      if (subjectQuery) {
-        const allReports = diagnosticReportRepo.getAll();
-        diagnostic = allReports.find((r) => 
-          r.subject.toLowerCase().includes(subjectQuery.toLowerCase()) && 
-          r.studentName.toLowerCase() !== 'aarav gupta'
-        ) ||
-        diagnosticDb.getAll().find((d) => 
-          d.subject?.toLowerCase().includes(subjectQuery.toLowerCase()) && 
-          (d.student_name || '').toLowerCase() !== 'aarav gupta'
-        ) ||
-        allReports.find((r) => r.subject.toLowerCase().includes(subjectQuery.toLowerCase())) || null;
-      } else {
-        const allReports = diagnosticReportRepo.getAll();
-        diagnostic = allReports.find((r) => r.studentName.toLowerCase() !== 'aarav gupta') || 
-                     allReports[0] || 
-                     diagnosticDb.getLatest();
-      }
+    }
+
+    // Fallback 2: Match by subject if requested
+    if (!diagnostic && subjectQuery) {
+      const allReports = diagnosticReportRepo.getAll();
+      diagnostic = allReports.find((r) => 
+        r.subject.toLowerCase().includes(subjectQuery.toLowerCase())
+      ) ||
+      diagnosticDb.getAll().find((d) => 
+        d.subject?.toLowerCase().includes(subjectQuery.toLowerCase())
+      ) || null;
+    }
+
+    // Fallback 3: Latest diagnostic report overall
+    if (!diagnostic) {
+      const allReports = diagnosticReportRepo.getAll();
+      diagnostic = allReports[0] || diagnosticDb.getLatest();
     }
 
     if (!diagnostic) {
@@ -59,11 +56,8 @@ export async function GET(req: NextRequest) {
     }
 
     // Format uniformly matching AnalyzeSheetResponse
-    let studentName = (diagnostic as any).studentName || (diagnostic as any).student_name;
-    const subject = (diagnostic as any).subject || subjectQuery || 'Mathematics';
-    if (studentName && studentName.toLowerCase() === 'aarav gupta' && subject.toLowerCase().includes('chem')) {
-      studentName = 'Arola Thoudam';
-    }
+    const studentName = (diagnostic as any).studentName || (diagnostic as any).student_name || 'Student';
+    const subject = (diagnostic as any).subject || subjectQuery || 'General Studies';
 
     const responseData = {
       student_name: studentName,
@@ -80,7 +74,7 @@ export async function GET(req: NextRequest) {
       common_misconceptions: (diagnostic as any).commonMisconceptions || (diagnostic as any).common_misconceptions || [],
       what_to_learn_next: (diagnostic as any).whatToLearnNext || (diagnostic as any).what_to_learn_next || [],
       is_live_gemini: Boolean((diagnostic as any).isLiveGemini ?? (diagnostic as any).is_live_gemini),
-      model_used: (diagnostic as any).modelUsed || (diagnostic as any).model_used || 'Gemini 3.6 Flash',
+      model_used: (diagnostic as any).modelUsed || (diagnostic as any).model_used || 'Gemini Multimodal Engine',
       notice: (diagnostic as any).notice,
     };
 
