@@ -138,6 +138,9 @@ function UploadPageContent() {
             } catch {}
           }
         }
+        if (data.subject) {
+          localStorage.setItem('learngraph_selected_subject', data.subject);
+        }
         window.dispatchEvent(new CustomEvent('learngraph_analysis_completed', { detail: data }));
       }
 

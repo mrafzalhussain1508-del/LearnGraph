@@ -164,6 +164,41 @@ function StudentDashboardContent() {
     setIsLoading(false);
   }, [user, selectedSubject, fetchAnalysisForSubject]);
 
+  // Real-time synchronization when analysis completes via upload or background job
+  useEffect(() => {
+    const handleAnalysisCompleted = (e: any) => {
+      const detail = e.detail;
+      if (detail) {
+        setAnalysisResult(detail);
+        if (detail.subject) {
+          setSelectedSubject(detail.subject);
+          if (typeof window !== 'undefined') {
+            localStorage.setItem('learngraph_selected_subject', detail.subject);
+          }
+        }
+        if (detail.student_name && detail.student_name !== 'Student') {
+          if (typeof window !== 'undefined') {
+            localStorage.setItem('learngraph_active_student_name', detail.student_name);
+          }
+        }
+      }
+    };
+    if (typeof window !== 'undefined') {
+      window.addEventListener('learngraph_analysis_completed', handleAnalysisCompleted);
+      return () => window.removeEventListener('learngraph_analysis_completed', handleAnalysisCompleted);
+    }
+  }, []);
+
+  // Sync selectedSubject whenever loaded analysisResult has a differing subject
+  useEffect(() => {
+    if (analysisResult?.subject && analysisResult.subject !== selectedSubject) {
+      setSelectedSubject(analysisResult.subject);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('learngraph_selected_subject', analysisResult.subject);
+      }
+    }
+  }, [analysisResult?.subject, selectedSubject]);
+
   const handleSelectTab = (tabId: string) => {
     const validTab = (['overview', 'subjects', 'topics', 'sheet', 'next_steps', 'mock_tests', 'resources'].includes(tabId) ? tabId : 'overview') as StudentTabId;
     setActiveTab(validTab);

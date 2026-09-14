@@ -341,16 +341,16 @@
   {
     "id": "student_1789411503573_oh1m",
     "role": "student",
-    "name": "Aarav Gupta",
-    "username": "aarav_gupta",
+    "name": "Dev Patel",
+    "username": "dev_patel",
     "phone": "",
-    "email": "aarav_gupta@student.learngraph.edu",
+    "email": "dev_patel@student.learngraph.edu",
     "password": "password123",
     "studentId": "24",
-    "grade": "Class 10 Section A",
+    "grade": "Class 11 Section A",
     "section": "Section A",
     "school": "Lincoln High School",
-    "learningGoals": "Quadratic Factor-to-Root Check: Always set each bracket to 0 separately: (x - a) = 0 => x = a.",
+    "learningGoals": "Master Mechanics, Kinematics, and Dynamics.",
     "createdAt": "2026-09-14T18:45:03.573Z"
   },
   {
@@ -382,5 +382,20 @@
     "school": "Lincoln High School",
     "learningGoals": "Master Periodic Properties, Ionisation Enthalpy anomalies, and Electron Gain Enthalpy trends.",
     "createdAt": "2026-09-14T21:00:00.000Z"
+  },
+  {
+    "id": "student_1789421398984_mnsz",
+    "role": "student",
+    "name": "Elena Rostova",
+    "username": "elena_rostova",
+    "phone": "",
+    "email": "elena_rostova@student.learngraph.edu",
+    "password": "password123",
+    "studentId": "07",
+    "grade": "Class 12 • Section C",
+    "section": "Section A",
+    "school": "Lincoln High School",
+    "learningGoals": "Explore Kant's Formula of Humanity (End-in-Itself) formulation.",
+    "createdAt": "2026-09-14T21:29:58.984Z"
   }
 ]

@@ -1,5 +1,361 @@
 [
   {
+    "answerSheetId": "sheet_1789421398977_bf86",
+    "studentId": "elena_rostova",
+    "studentName": "Elena Rostova",
+    "studentClass": "Class 12 • Section C",
+    "studentRollNo": "07",
+    "subject": "Philosophy & Ethics",
+    "examTitle": "Moral Philosophy Diagnostic Midterm",
+    "overallScorePercentage": 100,
+    "totalQuestions": 2,
+    "totalAwardedMarks": 50,
+    "totalMaxMarks": 50,
+    "topicBreakdown": [
+      {
+        "topic_name": "Kantian Deontology: Categorical Imperative",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Utilitarianism: Act vs. Rule",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Kantian Deontology: Categorical Imperative",
+        "question_text": "State Kant's Categorical Imperative universal law formulation.",
+        "student_working": "Act only according to that maxim whereby you can at the same time will that it should become a universal law.",
+        "correct_solution": "Kant's Universal Law formulation of the Categorical Imperative states: 'Act only according to that maxim whereby you can at the same time will that it should become a universal law.' This requires that the principle behind one's action can be consistently willed as a universal law applying to all rational agents without contradiction.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None",
+        "misconception": "None",
+        "rule_to_remember": "The Universal Law formulation tests the logical consistency of universalizing a personal maxim."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Utilitarianism: Act vs. Rule",
+        "question_text": "Contrast Bentham's act utilitarianism with rule utilitarianism.",
+        "student_working": "Act utilitarianism evaluates consequences of individual actions; rule utilitarianism evaluates the consequence of general conformity to rules.",
+        "correct_solution": "Act utilitarianism asserts that an action is right if and only if it produces the greatest balance of utility (pleasure/happiness) over pain on a case-by-case basis. Rule utilitarianism asserts that an action is right if it conforms to a set of rules, the general adoption of which would maximize utility/happiness overall.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None",
+        "misconception": "None",
+        "rule_to_remember": "Act utilitarianism applies the principle of utility directly to individual actions, whereas rule utilitarianism applies it to general rules of conduct."
+      }
+    ],
+    "commonMisconceptions": [
+      "Confusing rule utilitarianism with deontology due to the shared focus on rules (rule utilitarianism still derives its moral authority from consequences, not duty)."
+    ],
+    "whatToLearnNext": [
+      "Explore Kant's Formula of Humanity (End-in-Itself) formulation.",
+      "Analyze the 'Rule Worship' objection to Rule Utilitarianism.",
+      "Examine Preference Utilitarianism (Peter Singer) and modern consequentialist developments."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789421398981_w2xj",
+    "createdAt": "2026-09-14T21:29:58.981Z"
+  },
+  {
+    "answerSheetId": "sheet_1789421388339_t356",
+    "studentId": "dev_patel",
+    "studentName": "Dev Patel",
+    "studentClass": "Class 11 • Section B",
+    "studentRollNo": "18",
+    "subject": "Physics",
+    "examTitle": "Mechanics & Kinematics Assessment",
+    "overallScorePercentage": 80,
+    "totalQuestions": 2,
+    "totalAwardedMarks": 40,
+    "totalMaxMarks": 50,
+    "topicBreakdown": [
+      {
+        "topic_name": "Projectile Kinematics",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Newton's Law & Friction",
+        "understanding_percentage": 60,
+        "status": "Yellow"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Projectile Kinematics",
+        "question_text": "Find maximum height of projectile launched at 25 m/s at 30 deg.",
+        "student_working": "v_0y = 12.5 m/s. 0 = 156.25 - 19.6h => h = 7.97 m.",
+        "correct_solution": "v_0y = v_0 * sin(theta) = 25 * sin(30) = 12.5 m/s. Using v_y^2 = v_0y^2 - 2gh, at max height v_y = 0. 0 = (12.5)^2 - 2(9.8)h => 19.6h = 156.25 => h = 7.97 m.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None. The student correctly calculated the vertical velocity component and applied the kinematic equation to find the maximum height.",
+        "misconception": "None.",
+        "rule_to_remember": "At maximum height, the vertical component of velocity (v_y) is always 0."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Newton's Law & Friction",
+        "question_text": "5 kg block pulled with 30 N, mu_k = 0.3. Find acceleration.",
+        "student_working": "N = 49 N. f_k = 14.7 N. F_net = 30 + 14.7 = 44.7 N. a = 8.94 m/s^2.",
+        "correct_solution": "Normal force N = m * g = 5 * 9.8 = 49 N. Kinetic friction f_k = mu_k * N = 0.3 * 49 = 14.7 N. Net force F_net = F_pull - f_k = 30 - 14.7 = 15.3 N. Acceleration a = F_net / m = 15.3 / 5 = 3.06 m/s^2.",
+        "max_marks": 25,
+        "awarded_marks": 15,
+        "understanding_percentage": 60,
+        "status": "Yellow",
+        "mistake_detected": "The student added the friction force (14.7 N) to the pulling force (30 N) instead of subtracting it to find the net force.",
+        "misconception": "Friction is a resistive force that opposes relative motion; it must be subtracted from the driving force, not added.",
+        "rule_to_remember": "F_net = F_applied - f_friction (friction always opposes the direction of motion)."
+      }
+    ],
+    "commonMisconceptions": [
+      "Treating kinetic friction as an assisting force rather than a resistive force opposing motion."
+    ],
+    "whatToLearnNext": [
+      "Practice drawing Free Body Diagrams (FBD) to correctly identify the direction of all forces.",
+      "Solve problems involving multiple forces acting on a single body to master net force calculations."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789421388343_58c4",
+    "createdAt": "2026-09-14T21:29:48.344Z"
+  },
+  {
+    "answerSheetId": "sheet_1789421375589_04zg",
+    "studentId": "rishu",
+    "studentName": "Rishu",
+    "studentClass": "Class 10 • Section A",
+    "studentRollNo": "28",
+    "subject": "Mathematics",
+    "examTitle": "Mathematics Diagnostic Midterm",
+    "overallScorePercentage": 43,
+    "totalQuestions": 4,
+    "totalAwardedMarks": 43,
+    "totalMaxMarks": 100,
+    "topicBreakdown": [
+      {
+        "topic_name": "Fractions Arithmetic",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Linear Equations: Distributive Expansion",
+        "understanding_percentage": 32,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Exponents Product Law",
+        "understanding_percentage": 20,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Mensuration: Rectangle Area",
+        "understanding_percentage": 20,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Fractions Arithmetic",
+        "question_text": "Evaluate 3/4 + 2/5 - 1/2.",
+        "student_working": "LCM = 20. 15/20 + 8/20 - 10/20 = 13/20.",
+        "correct_solution": "Find the Least Common Multiple (LCM) of 4, 5, and 2, which is 20. Convert each fraction: 3/4 = 15/20, 2/5 = 8/20, 1/2 = 10/20. Perform the arithmetic: 15/20 + 8/20 - 10/20 = (15 + 8 - 10)/20 = 13/20.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None. The student correctly identified the LCM and performed the fraction arithmetic flawlessly.",
+        "misconception": "None.",
+        "rule_to_remember": "To add or subtract fractions, find a common denominator, convert each numerator accordingly, and then combine the numerators."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Linear Equations: Distributive Expansion",
+        "question_text": "Solve 2(x - 3) = 14.",
+        "student_working": "2(x - 3) = 14 => 2x - 3 = 14 => 2x = 17 => x = 8.5.",
+        "correct_solution": "Distribute the 2 to both terms inside the parentheses: 2*x - 2*3 = 14 => 2x - 6 = 14. Add 6 to both sides: 2x = 20. Divide by 2: x = 10.",
+        "max_marks": 25,
+        "awarded_marks": 8,
+        "understanding_percentage": 32,
+        "status": "Red",
+        "mistake_detected": "Incomplete Bracket Distribution: Multiplied 2 by x but failed to multiply 2 by -3 (wrote 2x - 3 = 14 instead of 2x - 6 = 14). Resulted in x = 8.5 instead of x = 10.",
+        "misconception": "Distributive Property Neglect: Neglected to distribute the outer multiplier across the second term inside parentheses.",
+        "rule_to_remember": "Distributive Law: a(b - c) = ab - ac. Expand 2(x - 3) = 2x - 6 before isolating x."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Exponents Product Law",
+        "question_text": "Evaluate 2^3 * 2^4.",
+        "student_working": "Multiply exponents: 2^(3 * 4) = 2^12 = 4096.",
+        "correct_solution": "According to the product law of exponents, when multiplying powers with the same base, you add the exponents: 2^3 * 2^4 = 2^(3 + 4) = 2^7 = 128.",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Exponent Multiplication Fallacy: Multiplied exponents (3 × 4 = 12 giving 2^12) instead of adding them (3 + 4 = 7 giving 2^7 = 128).",
+        "misconception": "Exponents / Algebraic Laws: Conflated power of a power rule (a^m)^n = a^(m×n) with product of like bases a^m × a^n = a^(m+n).",
+        "rule_to_remember": "Product Law of Exponents: a^m × a^n = a^(m+n). When multiplying like bases, ADD the exponents: 2^3 × 2^4 = 2^(3+4) = 2^7 = 128."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Mensuration: Rectangle Area",
+        "question_text": "Find Area of rectangle with length 12 cm and breadth 7 cm.",
+        "student_working": "Area = 12 + 7 = 19 cm.",
+        "correct_solution": "Area of a rectangle = Length * Breadth. Area = 12 cm * 7 cm = 84 cm².",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Critical Formula Error: Student added length and breadth (12 + 7 = 19) instead of multiplying (12 × 7 = 84) to calculate area.",
+        "misconception": "Area vs Perimeter Formula Conflation: Conflated linear boundary addition with 2D orthogonal multiplication (Length × Breadth).",
+        "rule_to_remember": "Area of Rectangle = Length × Breadth (L × B, in cm²). Perimeter = 2 × (Length + Breadth). Always verify square units."
+      }
+    ],
+    "commonMisconceptions": [
+      "Area vs Perimeter Formula Conflation: Calculated area of rectangle by adding dimensions (12 + 7 = 19) instead of multiplying length × breadth (12 × 7 = 84).",
+      "Exponents / Algebraic Laws: Multiplied exponents instead of adding them when multiplying terms with equal bases (wrote 2^(3×4) = 2^12 instead of 2^(3+4) = 2^7 = 128).",
+      "Distributive Property & Bracket Expansion: Dropped outer multiplier across interior constant (wrote 2(x - 3) as 2x - 3 instead of 2x - 6).",
+      "Partial distribution: failing to multiply the external coefficient by all terms inside parentheses.",
+      "Exponent multiplication fallacy: multiplying exponents when multiplying powers of the same base instead of adding them.",
+      "Area-Perimeter confusion: adding dimensions instead of multiplying them to find the area of a 2D shape."
+    ],
+    "whatToLearnNext": [
+      "Rectangle Area Formula Practice: Explicitly write Area = Length × Breadth (L × B, in square units cm²) before calculating. Perimeter is 2(L + B).",
+      "Laws of Indices Drill: Memorize and apply the Product Rule: a^m × a^n = a^(m+n). Only multiply powers for power of a power: (a^m)^n = a^(m×n).",
+      "Distributive Law Practice: Always distribute the outer coefficient to every term inside parentheses: a(b - c) = ab - ac before isolating variables.",
+      "Practice distributive property drills with single-variable linear equations (e.g., 3(x - 5) = 12).",
+      "Review the fundamental laws of indices, specifically focusing on the difference between the Product Rule (a^m * a^n = a^(m+n)) and the Power Rule ((a^m)^n = a^(mn)).",
+      "Revisit basic geometric formulas for area and perimeter of 2D shapes, emphasizing the physical meaning of multiplication (area) versus addition (perimeter) and their respective units."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789421375592_nwse",
+    "createdAt": "2026-09-14T21:29:35.592Z"
+  },
+  {
+    "answerSheetId": "sheet_1789421364972_xqxj",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties & Chemical Trends Diagnostic Test",
+    "overallScorePercentage": 64,
+    "totalQuestions": 4,
+    "totalAwardedMarks": 64,
+    "totalMaxMarks": 100,
+    "topicBreakdown": [
+      {
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Ionisation Enthalpy: Half-Filled Subshell Stability",
+        "understanding_percentage": 32,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Electronegativity Trends & Pauling Scale",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Electron Gain Enthalpy: Chlorine vs Fluorine Anomaly",
+        "understanding_percentage": 24,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "question_text": "Explain why atomic radius decreases across Period 3 from Na to Cl, but increases down Group 1. Compare the ionic radii of Na+ and F- (isoelectronic species).",
+        "student_working": "Across Period 3, atomic number increases from Na (11) to Cl (17) while electrons are added to the same energy level (n = 3). Effective nuclear charge (Z_eff) increases, drawing valence electrons closer to the nucleus, so atomic radius decreases.\nDown Group 1, each successive period adds a new electron shell (principal quantum number n increases), increasing electron shielding and atomic size.\nFor isoelectronic ions Na+ and F- (both have 10 electrons): Na+ has 11 protons (higher nuclear charge Z), exerting stronger coulombic pull on electrons than F- with 9 protons. Therefore, ionic radius of F- is larger than Na+ (F- > Na+).",
+        "correct_solution": "1. Across Period 3, nuclear charge increases while shielding remains relatively constant (electrons added to same shell, n=3). Thus, effective nuclear charge (Z_eff) increases, pulling outer electrons closer and decreasing atomic radius.\n2. Down Group 1, a new principal energy level (n) is added at each step, increasing shielding and distance from the nucleus, which outweighs the increase in nuclear charge, increasing atomic radius.\n3. Na+ and F- are isoelectronic (10 electrons each). Na+ has 11 protons, whereas F- has 9 protons. The higher nuclear charge in Na+ exerts a stronger electrostatic pull on the same number of electrons, making its ionic radius smaller than that of F- (F- > Na+).",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None. The student provided a flawless explanation of both periodic trends and the isoelectronic comparison.",
+        "misconception": "None.",
+        "rule_to_remember": "For isoelectronic species, ionic radius decreases as nuclear charge (atomic number) increases."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Ionisation Enthalpy: Half-Filled Subshell Stability",
+        "question_text": "Compare the first ionisation enthalpies of Nitrogen (Z = 7) and Oxygen (Z = 8). Why does Nitrogen have a higher first ionisation enthalpy than Oxygen?",
+        "student_working": "Oxygen has 8 protons and Nitrogen has 7 protons. Higher nuclear charge always means higher ionisation enthalpy, so Oxygen requires more energy to remove an electron than Nitrogen. First IE of Oxygen > First IE of Nitrogen.",
+        "correct_solution": "Nitrogen (1s² 2s² 2p³) has a stable half-filled 2p subshell with extra exchange energy. Oxygen (1s² 2s² 2p⁴) has electron pairing repulsion in one 2p orbital, making electron removal easier. Hence First IE: N (1402 kJ/mol) > O (1314 kJ/mol).",
+        "max_marks": 25,
+        "awarded_marks": 8,
+        "understanding_percentage": 32,
+        "status": "Red",
+        "mistake_detected": "Ionisation Enthalpy Anomaly Neglect: Stated that Oxygen has higher first ionisation enthalpy than Nitrogen due to higher nuclear charge, ignoring half-filled 2p³ subshell stability in Nitrogen.",
+        "misconception": "Ionisation Enthalpy Monotonicity Fallacy: Believing ionisation enthalpy increases strictly across every element in a period without accounting for half-filled/fully-filled subshell stability and orbital pairing repulsion.",
+        "rule_to_remember": "First IE Anomalies: Half-filled (2p³ for N) and fully-filled (2s² for Be) subshells confer extra stability. N > O and Be > B."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Electronegativity Trends & Pauling Scale",
+        "question_text": "Define electronegativity. Contrast it with electron gain enthalpy, and explain why Fluorine has the highest Pauling electronegativity (4.0).",
+        "student_working": "Electronegativity is the tendency of an atom in a chemical bond to attract shared electron pairs towards itself. Unlike electron gain enthalpy which measures energy change of isolated gaseous atoms gaining an electron, electronegativity is a dimensionless bonded property.\nFluorine is the smallest halogen with high effective nuclear charge, pulling bonded electrons most strongly. Pauling value is 4.0.",
+        "correct_solution": "1. Electronegativity is the qualitative measure of the ability of an atom in a chemical compound to attract shared electrons to itself.\n2. Contrast: Electron gain enthalpy is a quantitative thermodynamic property measuring the energy change when an isolated gaseous atom gains an electron. Electronegativity is a dimensionless, relative property of a bonded atom.\n3. Fluorine has the highest electronegativity (4.0) because it has a very small atomic size and a high effective nuclear charge, allowing its nucleus to attract shared bonding pairs more strongly than any other element.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None. The student provided an accurate definition, a clear contrast, and a correct explanation for Fluorine's high electronegativity.",
+        "misconception": "None.",
+        "rule_to_remember": "Electronegativity is a relative property of bonded atoms, whereas electron gain enthalpy is an absolute thermodynamic property of isolated gaseous atoms."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Electron Gain Enthalpy: Chlorine vs Fluorine Anomaly",
+        "question_text": "Why does Chlorine have a more negative electron gain enthalpy (-349 kJ/mol) than Fluorine (-328 kJ/mol), despite Fluorine being more electronegative?",
+        "student_working": "Fluorine has the highest electronegativity, so it must attract incoming electrons the most strongly and release the most energy. Therefore, Fluorine must have a more negative electron gain enthalpy than Chlorine (-349 kJ/mol for F vs -328 kJ/mol for Cl). The table values must have a typo.",
+        "correct_solution": "Fluorine has an extremely small 2p orbital, leading to intense electron-electron repulsion when an electron is added. Chlorine's incoming electron enters the larger 3p orbital with less repulsion. Hence Chlorine releases more energy: Δ_egH(Cl) = -349 kJ/mol vs Δ_egH(F) = -328 kJ/mol.",
+        "max_marks": 25,
+        "awarded_marks": 6,
+        "understanding_percentage": 24,
+        "status": "Red",
+        "mistake_detected": "Electron Gain Enthalpy Anomaly Omission: Assumed Fluorine has more negative electron gain enthalpy than Chlorine because of electronegativity, failing to recognize compact 2p interelectronic repulsion.",
+        "misconception": "Compact Subshell Repulsion Oversight: Overlooking electron-electron repulsion in small 2p orbitals (Fluorine, Oxygen) compared to roomier 3p orbitals (Chlorine, Sulfur).",
+        "rule_to_remember": "Electron Gain Enthalpy Halogen Anomaly: Chlorine has a more negative electron gain enthalpy than Fluorine (-349 vs -328 kJ/mol) because Fluorine's small 2p subshell creates high interelectronic repulsion."
+      }
+    ],
+    "commonMisconceptions": [
+      "Compact Subshell Repulsion Oversight: Assuming Fluorine must have the most negative electron gain enthalpy due to electronegativity, ignoring interelectronic repulsion in Fluorine's compact 2p subshell vs Chlorine's larger 3p subshell.",
+      "Ionisation Enthalpy Monotonicity Fallacy: Assuming first ionisation enthalpy increases strictly with atomic number across Period 2, missing Nitrogen's stable half-filled 2p³ configuration and Oxygen's 2p⁴ electron pairing repulsion.",
+      "Assuming that first ionisation enthalpy increases monotonically across a period without considering subshell stability (half-filled p-orbitals).",
+      "Equating electronegativity directly with electron gain enthalpy, leading to the false assumption that Fluorine must have a more negative electron gain enthalpy than Chlorine."
+    ],
+    "whatToLearnNext": [
+      "Electron Gain Enthalpy vs Electronegativity Drill: Fluorine is more electronegative in covalent bonds, but Chlorine releases more energy on gaining an electron (-349 kJ/mol vs -328 kJ/mol) due to 3p dispersion.",
+      "Orbital Box Notation & Exchange Energy: Draw orbital boxes for N (2p³) and O (2p⁴). Count parallel exchange pairs (3 for N) to visualize extra stability.",
+      "Review the electronic configurations of Period 2 and 3 elements, focusing on the stability of half-filled (p³) and fully-filled (s², p⁶) subshells.",
+      "Practice explaining the anomalous electron gain enthalpies of Group 16 (O vs S) and Group 17 (F vs Cl) by drawing orbital diagrams to visualize interelectronic repulsion.",
+      "Solve targeted practice problems contrasting bonded properties (electronegativity) with isolated atomic properties (electron gain enthalpy)."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789421364975_cw7r",
+    "createdAt": "2026-09-14T21:29:24.975Z"
+  },
+  {
     "answerSheetId": "sheet_1789420697904_mi1n",
     "studentId": "arola_thoudam",
     "studentName": "Arola Thoudam",
@@ -685,8 +1041,8 @@
   },
   {
     "answerSheetId": "sheet_1789414079276_eeia",
-    "studentId": "aarav_gupta",
-    "studentName": "Aarav Gupta",
+    "studentId": "elena_rostova",
+    "studentName": "Elena Rostova",
     "studentClass": "Grade 11 Section A",
     "studentRollNo": "15",
     "subject": "History",
@@ -791,8 +1147,8 @@
   },
   {
     "answerSheetId": "sheet_1789414078119_ixrk",
-    "studentId": "aarav_gupta",
-    "studentName": "Aarav Gupta",
+    "studentId": "david_kim",
+    "studentName": "David Kim",
     "studentClass": "Grade 11 Section A",
     "studentRollNo": "15",
     "subject": "Computer Science",
@@ -897,8 +1253,8 @@
   },
   {
     "answerSheetId": "sheet_1789414077092_d1pj",
-    "studentId": "aarav_gupta",
-    "studentName": "Aarav Gupta",
+    "studentId": "maya_patel",
+    "studentName": "Maya Patel",
     "studentClass": "Grade 11 Section A",
     "studentRollNo": "15",
     "subject": "Biology",
@@ -1109,8 +1465,8 @@
   },
   {
     "answerSheetId": "sheet_1789414074607_4xjh",
-    "studentId": "aarav_gupta",
-    "studentName": "Aarav Gupta",
+    "studentId": "david_kim",
+    "studentName": "David Kim",
     "studentClass": "Grade 11 Section A",
     "studentRollNo": "15",
     "subject": "Physics",
@@ -1215,8 +1571,8 @@
   },
   {
     "answerSheetId": "sheet_1789411503570_5rsq",
-    "studentId": "aarav_gupta",
-    "studentName": "Aarav Gupta",
+    "studentId": "rishu",
+    "studentName": "Rishu",
     "studentClass": "Class 10 Section A",
     "studentRollNo": "24",
     "subject": "Mathematics",
