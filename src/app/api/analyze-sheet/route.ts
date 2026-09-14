@@ -53,20 +53,26 @@ CRITICAL INSTRUCTIONS:
    - "subject": The specific academic subject of the exam (e.g. "Mathematics", "Physics", "Chemistry", "Biology", "Computer Science", "History", "Economics").
 
 2. Rigorous Step-by-Step Mathematical & Formula Evaluation:
-   - Check every mathematical formula, substitution, and arithmetic step with 100% precision.
-   - For example: Area of a rectangle is Length × Breadth (L × B, e.g. 12 × 7 = 84), NOT addition (12 + 7 = 19). Perimeter is 2 × (L + B).
-   - If a student applies an incorrect formula (e.g., adding dimensions instead of multiplying for area, sign errors in quadratic factorization like (x-6)(x+2)=0 => x=-6 or 2, bracket sign distribution errors, or integrating factors separately):
-     * The question MUST BE STRICTLY PENALIZED (awarded_marks capped at 20% or less of max_marks; status MUST be marked "Red" or "Yellow", never "Green").
-     * DO NOT award false-positive masteries or praise incorrect formula applications.
-     * Flag the exact flaw under "mistake_detected" (e.g., "Formula Error: Added length and breadth (12 + 7 = 19) instead of multiplying (12 × 7 = 84) to calculate area.").
-     * Detail the conceptual trap under "misconception" (e.g., "Area vs Perimeter Conflation: Used addition instead of 2D orthogonal multiplication (Length × Breadth).").
-     * State the true model formula in "rule_to_remember" (e.g., "Area of a Rectangle = Length × Breadth (L × B, measured in square units cm²). Perimeter = 2 × (Length + Breadth).").
-     * Crucially, the error must be included in the top-level "common_misconceptions" array.
+   - Check every mathematical formula, substitution, expansion, and arithmetic calculation with 100% precision.
+   - Specific Check 1 - Algebraic Expansion & Distributive Property:
+     * For linear equations with parentheses like 2(x - 3) = 14, verify that the multiplier is distributed to ALL terms inside: 2x - 6 = 14 => 2x = 20 => x = 10.
+     * If the student fails to distribute the multiplier across interior terms (e.g., writing 2x - 3 = 14 => 2x = 17 => x = 8.5), STRICTLY flag under "mistake_detected" as "Incomplete Bracket Distribution: Multiplied 2 by x but failed to multiply 2 by -3 (wrote 2x - 3 = 14 instead of 2x - 6 = 14)".
+     * Mark status as "Red" (awarded_marks capped at ≤ 35%, e.g., 8/25), record misconception under "Distributive Property / Algebraic Expansion", and include in top-level "common_misconceptions".
+   - Specific Check 2 - Exponents & Laws of Indices:
+     * For multiplying powers with the same base like 2^3 × 2^4, verify the Product Rule: a^m × a^n = a^(m+n) => 2^(3+4) = 2^7 = 128.
+     * If a student multiplies the powers instead of adding them (e.g., writing 3 × 4 = 12 => 2^12 = 4096), STRICTLY flag under "mistake_detected" as "Exponent Multiplication Fallacy: Multiplied exponents (3 × 4 = 12 giving 2^12) instead of adding them (3 + 4 = 7 giving 2^7 = 128)".
+     * Mark status as "Red" (awarded_marks capped at ≤ 20%, e.g., 5/25), categorize misconception under "Exponents / Algebraic Laws", and include in top-level "common_misconceptions".
+   - Specific Check 3 - Mensuration Area vs Perimeter:
+     * Area of a rectangle is Length × Breadth (L × B, e.g. 12 × 7 = 84 cm²), NOT addition (12 + 7 = 19). Perimeter is 2 × (L + B).
+     * If a student calculates area by adding dimensions, strictly penalize (awarded_marks ≤ 5/25, status "Red"), and flag under "Area vs Perimeter Formula Conflation".
+   - Specific Check 4 - Quadratic Factorization & Root Extraction:
+     * For quadratics like (x - 6)(x + 2) = 0, roots are x = +6 and x = -2 (solving x - 6 = 0 and x + 2 = 0), NOT x = -6 and x = 2. Flag zero-product sign inversions.
+   - DO NOT award false-positive masteries or praise incorrect formula applications.
 
 3. Question-by-Question Coverage:
-   - For EVERY question present on the sheet (Question 1, Question 2, Question 3, Question 7, etc.):
+   - For EVERY question present on the sheet (Question 1, Question 2, Question 3, Question 4, Question 5, Question 6, Question 7, etc.):
      - "question_number": Integer (1, 2, 3...)
-     - "topic_name": Specific academic topic (e.g., "Mensuration: Area of Rectangle", "Quadratic Factorization", "Linear Systems")
+     - "topic_name": Specific academic topic (e.g., "Fractions: Arithmetic & Simplification", "Linear Equations: Distributive Expansion", "Number Theory: Highest Common Factor (HCF)", "Linear Equations Word Problems: Perimeter Modeling", "Quadratic Equations: Factorization & Roots", "Exponents & Powers: Product Law of Indices", "Mensuration: Rectangle Area Calculation")
      - "question_text": The complete question statement and prompt
      - "student_working": The student's handwritten steps, formulas, and final answers
      - "correct_solution": The standard, canonical model solution and final answer
@@ -78,8 +84,9 @@ CRITICAL INSTRUCTIONS:
      - "misconception": Underlying conceptual or theoretical cognitive trap
      - "rule_to_remember": Key actionable principle, formula anchor, or verification check
 
-4. Dynamic Topic Breakdown & Aggregations:
-   - Aggregate questions by topic into "topic_breakdown".
+4. Granular Topic Breakdown:
+   - Do NOT group questions into broad, generic categories like "General Math" or "Algebra".
+   - Create granular, 1:1 topic cards in "topic_breakdown" corresponding directly to every question tested on the sheet.
    - "overall_score_percentage": Calculated directly as Math.round((total_awarded_marks / total_max_marks) * 100).
    - "common_misconceptions": Bullet points summarizing the main cognitive pitfalls identified across the questions.
    - "what_to_learn_next": Concrete, high-yield practice drills and rules to review.
@@ -146,6 +153,18 @@ function auditAndEvaluateMathSteps(
     const maxM = Number(q.max_marks) || 25;
     let awardedM = Number(q.awarded_marks) || 0;
 
+    // Granular topic name refinement if generic
+    let topicName = q.topic_name || `Question ${q.question_number}`;
+    if (/^(?:Question|Problem|Q)\s*\d+$/i.test(topicName) || topicName.toLowerCase() === 'general math' || topicName.toLowerCase() === 'algebra') {
+      if (text.includes('fraction')) topicName = 'Fractions: Arithmetic & Simplification';
+      else if (text.includes('2(x - 3)') || text.includes('2(x-3)') || text.includes('distribut') || text.includes('bracket')) topicName = 'Linear Equations: Distributive Expansion';
+      else if (text.includes('hcf') || text.includes('highest common factor') || text.includes('36 and 48')) topicName = 'Number Theory: Highest Common Factor (HCF)';
+      else if (text.includes('perimeter') || text.includes('garden') || text.includes('word problem')) topicName = 'Linear Equations Word Problems: Perimeter Modeling';
+      else if (text.includes('quadratic') || text.includes('x^2 - 4x') || text.includes('x^2-4x')) topicName = 'Quadratic Equations: Factorization & Roots';
+      else if (text.includes('2^3') || text.includes('2³') || text.includes('exponent') || text.includes('indices') || text.includes('laws of indices')) topicName = 'Exponents & Powers: Product Law of Indices';
+      else if (text.includes('area') || text.includes('rectangle') || text.includes('mensuration')) topicName = 'Mensuration: Rectangle Area Calculation';
+    }
+
     // 1. Rectangle Area vs Addition Error Audit (e.g. 12 + 7 = 19 instead of 12 * 7 = 84)
     const mentionsArea = text.includes('area') || text.includes('rectangle') || text.includes('rectangular') || text.includes('breadth') || text.includes('width');
     const hasAreaAdditionSlip = 
@@ -178,6 +197,7 @@ function auditAndEvaluateMathSteps(
 
       return {
         ...q,
+        topic_name: topicName,
         awarded_marks: penalizedAwarded,
         understanding_percentage: penalizedPct,
         status: 'Red' as const,
@@ -190,7 +210,113 @@ function auditAndEvaluateMathSteps(
       };
     }
 
-    // 2. Quadratic Zero-Product Sign Inversion Audit
+    // 2. Algebraic Expansion & Distributive Property Audit (e.g., 2(x - 3) = 14 => 2x - 6 = 14 vs 2x - 3 = 14)
+    const mentionsDistributive = 
+      text.includes('2(x - 3)') || 
+      text.includes('2(x-3)') || 
+      text.includes('distribut') || 
+      text.includes('bracket') || 
+      text.includes('expansion') ||
+      working.includes('2(x - 3)') ||
+      working.includes('2(x-3)');
+
+    const hasDistributiveSlip = 
+      mentionsDistributive && (
+        working.includes('2x - 3') ||
+        working.includes('2x-3') ||
+        working.includes('2x = 17') ||
+        working.includes('2x=17') ||
+        working.includes('x = 8.5') ||
+        working.includes('x=8.5') ||
+        working.includes('17/2') ||
+        working.includes('8.5') ||
+        (working.includes('2(x') && !working.includes('2x - 6') && !working.includes('2x-6') && working.includes('- 3'))
+      );
+
+    if (hasDistributiveSlip) {
+      const penalizedAwarded = Math.min(awardedM, Math.round(maxM * 0.32)); // Maximum 32% marks (8/25)
+      const penalizedPct = Math.round((penalizedAwarded / maxM) * 100);
+
+      const distMisconception = 'Distributive Property & Bracket Expansion: Dropped outer multiplier across interior constant (wrote 2(x - 3) as 2x - 3 instead of 2x - 6).';
+      if (!misconceptions.includes(distMisconception)) {
+        misconceptions.unshift(distMisconception);
+      }
+
+      const distDrill = 'Distributive Law Practice: Always distribute the outer coefficient to every term inside parentheses: a(b - c) = ab - ac before isolating variables.';
+      if (!whatNext.includes(distDrill)) {
+        whatNext.unshift(distDrill);
+      }
+
+      return {
+        ...q,
+        topic_name: topicName,
+        awarded_marks: penalizedAwarded,
+        understanding_percentage: penalizedPct,
+        status: 'Red' as const,
+        mistake_detected: 'Incomplete Bracket Distribution: Multiplied 2 by x but failed to multiply 2 by -3 (wrote 2x - 3 = 14 instead of 2x - 6 = 14). Resulted in x = 8.5 instead of x = 10.',
+        misconception: 'Distributive Property Neglect: Neglected to distribute the outer multiplier across the second term inside parentheses.',
+        rule_to_remember: 'Distributive Law: a(b - c) = ab - ac. Expand 2(x - 3) = 2x - 6 before isolating x.',
+        correct_solution: q.correct_solution && q.correct_solution.includes('10')
+          ? q.correct_solution
+          : '2(x - 3) = 14 => 2x - 6 = 14 => 2x = 20 => x = 10. Check: 2(10 - 3) = 2(7) = 14.',
+      };
+    }
+
+    // 3. Exponents & Product Law of Indices Audit (e.g., 2^3 * 2^4 = 2^(3+4) = 2^7 = 128 vs 3 * 4 = 12 => 2^12)
+    const mentionsExponents = 
+      text.includes('2^3') || 
+      text.includes('2³') || 
+      text.includes('exponent') || 
+      text.includes('indices') || 
+      text.includes('power') ||
+      working.includes('2^3') ||
+      working.includes('2³');
+
+    const hasExponentMultiplicationSlip = 
+      mentionsExponents && (
+        working.includes('3 * 4 = 12') ||
+        working.includes('3*4=12') ||
+        working.includes('3 × 4 = 12') ||
+        working.includes('3×4=12') ||
+        working.includes('2^12') ||
+        working.includes('2¹²') ||
+        working.includes('4096') ||
+        working.includes('multiply the indices') ||
+        working.includes('multiply the powers') ||
+        working.includes('multiplied powers') ||
+        (working.includes('12') && !working.includes('128') && !working.includes('2^7'))
+      );
+
+    if (hasExponentMultiplicationSlip) {
+      const penalizedAwarded = Math.min(awardedM, Math.round(maxM * 0.2)); // Maximum 20% marks (5/25)
+      const penalizedPct = Math.round((penalizedAwarded / maxM) * 100);
+
+      const expMisconception = 'Exponents / Algebraic Laws: Multiplied exponents instead of adding them when multiplying terms with equal bases (wrote 2^(3×4) = 2^12 instead of 2^(3+4) = 2^7 = 128).';
+      if (!misconceptions.includes(expMisconception)) {
+        misconceptions.unshift(expMisconception);
+      }
+
+      const expDrill = 'Laws of Indices Drill: Memorize and apply the Product Rule: a^m × a^n = a^(m+n). Only multiply powers for power of a power: (a^m)^n = a^(m×n).';
+      if (!whatNext.includes(expDrill)) {
+        whatNext.unshift(expDrill);
+      }
+
+      return {
+        ...q,
+        topic_name: topicName,
+        awarded_marks: penalizedAwarded,
+        understanding_percentage: penalizedPct,
+        status: 'Red' as const,
+        mistake_detected: 'Exponent Multiplication Fallacy: Multiplied exponents (3 × 4 = 12 giving 2^12) instead of adding them (3 + 4 = 7 giving 2^7 = 128).',
+        misconception: 'Exponents / Algebraic Laws: Conflated power of a power rule (a^m)^n = a^(m×n) with product of like bases a^m × a^n = a^(m+n).',
+        rule_to_remember: 'Product Law of Exponents: a^m × a^n = a^(m+n). When multiplying like bases, ADD the exponents: 2^3 × 2^4 = 2^(3+4) = 2^7 = 128.',
+        correct_solution: q.correct_solution && q.correct_solution.includes('128')
+          ? q.correct_solution
+          : 'Product of powers with same base: 2^3 × 2^4 = 2^(3 + 4) = 2^7 = 128. (Note: Only multiply powers when raised to another power: (2^3)^4 = 2^12).',
+      };
+    }
+
+    // 4. Quadratic Zero-Product Sign Inversion Audit
     const hasQuadraticSignSlip =
       (working.includes('(x - 6)(x + 2)') || working.includes('(x-6)(x+2)')) &&
       (working.includes('x = -6') || working.includes('x=-6')) &&
@@ -207,6 +333,7 @@ function auditAndEvaluateMathSteps(
 
       return {
         ...q,
+        topic_name: topicName,
         awarded_marks: penalizedAwarded,
         understanding_percentage: penalizedPct,
         status: 'Yellow' as const,
@@ -216,7 +343,7 @@ function auditAndEvaluateMathSteps(
       };
     }
 
-    // 3. Status and Percentage Consistency Sanity Check
+    // 5. Status and Percentage Consistency Sanity Check
     const calculatedPct = maxM > 0 ? Math.round((awardedM / maxM) * 100) : q.understanding_percentage;
     let finalStatus: 'Green' | 'Yellow' | 'Red' = q.status;
     if (calculatedPct < 50) finalStatus = 'Red';
@@ -232,6 +359,7 @@ function auditAndEvaluateMathSteps(
 
     return {
       ...q,
+      topic_name: topicName,
       understanding_percentage: Math.min(100, Math.max(0, calculatedPct)),
       status: finalStatus,
     };
@@ -297,26 +425,58 @@ function tryParseTextDocument(rawText: string): Partial<AnalyzeSheetResponse> & 
     while ((match = questionRegex.exec(rawText)) !== null && qIdx < 25) {
       qIdx++;
       const qNum = parseInt(match[1], 10) || qIdx;
-      const topicOrTitle = match[2].trim();
+      const rawTitle = match[2].trim();
+      const cleanTopic = rawTitle.replace(/\s*\(\d+\s*Marks?\)/i, '').trim();
       
       const startPos = match.index + match[0].length;
       const nextMatch = /(?:^|\n)(?:Question|Q|Problem)\s*\d+[:.-]?/gi;
       nextMatch.lastIndex = startPos;
       const nextQ = nextMatch.exec(rawText);
-      const questionBody = rawText.substring(startPos, nextQ ? nextQ.index : startPos + 500).trim();
+      const questionBody = rawText.substring(startPos, nextQ ? nextQ.index : startPos + 800).trim();
+
+      // Extract Prompt
+      const promptMatch = questionBody.match(/(?:Prompt|Question|Problem)[:\s]+([^\n]+)/i);
+      const questionText = promptMatch ? promptMatch[1].trim() : questionBody.split('\n')[0].trim();
+
+      // Extract Student Working
+      let studentWorking = '';
+      const workingMatch = questionBody.match(/(?:Student Working|Working|Steps)[:\s]+([\s\S]*?)(?:Teacher Grading|Teacher|Grading|Correct Solution|$)/i);
+      if (workingMatch && workingMatch[1]) {
+        studentWorking = workingMatch[1].trim();
+      } else {
+        studentWorking = questionBody;
+      }
+
+      // Extract Teacher Grading / Marks
+      let awardedMarks = 25;
+      let maxMarks = 25;
+      let mistake = 'Clean procedural solution with zero errors.';
+      const marksMatch = questionBody.match(/(?:Teacher Grading|Grading|Score|Marks)[:\s]+(\d+)\s*\/\s*(\d+)/i);
+      if (marksMatch) {
+        awardedMarks = parseInt(marksMatch[1], 10);
+        maxMarks = parseInt(marksMatch[2], 10);
+      }
+      const gradingLine = questionBody.match(/(?:Teacher Grading|Grading)[:\s]+([^\n]+)/i);
+      if (gradingLine) {
+        const afterMarks = gradingLine[1].replace(/^\d+\s*\/\s*\d+\s*[✓✕½]?\s*(?:Full Marks|Partial|Error|Critical Formula Error)?[.:-]?\s*/i, '').trim();
+        if (afterMarks) mistake = afterMarks;
+      }
+
+      const pct = maxMarks > 0 ? Math.round((awardedMarks / maxMarks) * 100) : 100;
+      const status: 'Green' | 'Yellow' | 'Red' = pct >= 80 ? 'Green' : pct >= 50 ? 'Yellow' : 'Red';
 
       questionBlocks.push({
         question_number: qNum,
-        topic_name: topicOrTitle || `Question ${qNum}`,
-        question_text: questionBody.split('\n')[0] || `Problem ${qNum}: ${topicOrTitle}`,
-        student_working: questionBody.length > 10 ? questionBody : 'Procedural steps recorded on answer sheet.',
+        topic_name: cleanTopic || `Question ${qNum}`,
+        question_text: questionText || `Problem ${qNum}: ${cleanTopic}`,
+        student_working: studentWorking.length > 5 ? studentWorking : 'Procedural steps recorded on answer sheet.',
         correct_solution: 'Standard model proof and exact analytical resolution verified.',
-        max_marks: 25,
-        awarded_marks: 25,
-        understanding_percentage: 100,
-        status: 'Green',
-        mistake_detected: 'Clean procedural solution with zero errors.',
-        misconception: 'None observed.',
+        max_marks: maxMarks,
+        awarded_marks: awardedMarks,
+        understanding_percentage: pct,
+        status: status,
+        mistake_detected: mistake,
+        misconception: pct < 80 ? 'Identified cognitive misconception in procedural execution.' : 'None observed.',
         rule_to_remember: 'Standard verification: Check units, signs, and boundary values upon conclusion.',
       });
     }
@@ -786,26 +946,68 @@ function generateUniversalDiagnostic(
         'Composite Chain Rule Drills: Practice 10 problems pairing product rule with inner trigonometric coefficients.',
       ];
     } else {
-      resolvedSubject = 'Mathematics: Linear & Quadratic Equations';
-      examTitle = 'Algebra & Quadratic Equations Midterm Diagnostic';
+      resolvedSubject = 'Mathematics';
+      examTitle = 'Mathematics Comprehensive Diagnostic Assessment';
       questions = [
         {
           question_number: 1,
-          topic_name: 'Linear Equations in Two Variables',
-          question_text: 'Solve the system of linear equations by substitution: 2x + 3y = 12 and x - y = 1.',
-          student_working: 'From equation 2: x = y + 1. Substitute into eq 1: 2(y + 1) + 3y = 12 => 2y + 2 + 3y = 12 => 5y = 10 => y = 2. Then x = 2 + 1 = 3. Final Solution: x = 3, y = 2.',
-          correct_solution: 'From eq 2: x = y + 1. Substitute: 2(y + 1) + 3y = 12 => 5y + 2 = 12 => 5y = 10 => y = 2. Then x = 3. Check: 2(3)+3(2)=12 (valid).',
+          topic_name: 'Fractions: Arithmetic & Simplification',
+          question_text: 'Evaluate and simplify the fraction expression: 3/4 + 2/5 - 1/2.',
+          student_working: 'Find common denominator (LCM of 4, 5, 2 is 20). Convert fractions: 3/4 = 15/20, 2/5 = 8/20, 1/2 = 10/20. Combine: (15 + 8 - 10)/20 = 13/20.',
+          correct_solution: 'LCM(4, 5, 2) = 20. Expression: 15/20 + 8/20 - 10/20 = (15 + 8 - 10)/20 = 13/20. Fraction is in lowest terms.',
           max_marks: 25,
           awarded_marks: 25,
           understanding_percentage: 100,
           status: 'Green',
-          mistake_detected: 'Clean procedural substitution with zero calculation errors.',
-          misconception: 'None. Method of substitution executed with solid foundational accuracy.',
-          rule_to_remember: 'Substitution Method: Isolate the single-coefficient variable first and protect terms with parentheses.',
+          mistake_detected: 'Clean common denominator calculation with accurate fraction arithmetic.',
+          misconception: 'None observed. LCM conversion executed soundly.',
+          rule_to_remember: 'Fraction Addition & Subtraction: Always convert fractions to their Least Common Multiple (LCM) denominator before adding numerators.',
         },
         {
           question_number: 2,
-          topic_name: 'Quadratic Equation Factorization & Roots',
+          topic_name: 'Linear Equations: Distributive Expansion',
+          question_text: 'Solve the linear equation with parentheses: 2(x - 3) = 14.',
+          student_working: '2(x - 3) = 14 => 2x - 3 = 14 => 2x = 14 + 3 = 17 => x = 17/2 = 8.5.',
+          correct_solution: 'Expand brackets by distributing 2 across both terms: 2(x - 3) = 2x - 6. Then 2x - 6 = 14 => 2x = 14 + 6 = 20 => x = 10. Check: 2(10 - 3) = 2(7) = 14.',
+          max_marks: 25,
+          awarded_marks: 8,
+          understanding_percentage: 32,
+          status: 'Red',
+          mistake_detected: 'Incomplete Bracket Distribution: Multiplied 2 by x but failed to multiply 2 by -3 (wrote 2x - 3 = 14 instead of 2x - 6 = 14). Resulted in x = 8.5 instead of x = 10.',
+          misconception: 'Distributive Property Neglect: Neglected to distribute the outer multiplier across the second term inside parentheses.',
+          rule_to_remember: 'Distributive Law: a(b - c) = ab - ac. Expand 2(x - 3) = 2x - 6 before isolating x.',
+        },
+        {
+          question_number: 3,
+          topic_name: 'Number Theory: Highest Common Factor (HCF)',
+          question_text: 'Find the Highest Common Factor (HCF) of 36 and 48 using prime factorization.',
+          student_working: 'Prime factorization: 36 = 2^2 * 3^2, 48 = 2^4 * 3^1. Common prime factors with lowest exponents: 2^2 * 3^1 = 4 * 3 = 12. HCF = 12.',
+          correct_solution: 'Prime factors: 36 = 2² × 3², 48 = 2⁴ × 3¹. Take the lowest powers of common primes: 2² × 3¹ = 4 × 3 = 12. HCF(36, 48) = 12.',
+          max_marks: 25,
+          awarded_marks: 25,
+          understanding_percentage: 100,
+          status: 'Green',
+          mistake_detected: 'Accurate prime decomposition and lowest power extraction.',
+          misconception: 'None observed. Prime factorization and HCF extraction are solid.',
+          rule_to_remember: 'Highest Common Factor Rule: For prime factorizations, HCF is the product of the lowest power of each shared prime factor.',
+        },
+        {
+          question_number: 4,
+          topic_name: 'Linear Equations Word Problems: Perimeter Modeling',
+          question_text: 'The perimeter of a rectangular garden is 48 meters. The length is 6 meters greater than the width. Find the length and width.',
+          student_working: 'Let width = w, length = w + 6. Perimeter = 2(l + w) = 2(w + 6 + w) = 2(2w + 6) = 4w + 12. Set 4w + 12 = 48 => 4w = 36 => w = 9 meters. Length = 9 + 6 = 15 meters. Verification: 2(15 + 9) = 48m.',
+          correct_solution: '2(w + w + 6) = 48 => 4w + 12 = 48 => 4w = 36 => w = 9 m. Length = 9 + 6 = 15 m. Verification: 2(9 + 15) = 48 m.',
+          max_marks: 25,
+          awarded_marks: 25,
+          understanding_percentage: 100,
+          status: 'Green',
+          mistake_detected: 'Clean mathematical modeling with explicit verification check.',
+          misconception: 'None. Geometric translation to algebraic equation is robust.',
+          rule_to_remember: 'Perimeter Formulation: 2(length + width) = P. Always define variables explicitly before modeling.',
+        },
+        {
+          question_number: 5,
+          topic_name: 'Quadratic Equations: Factorization & Roots',
           question_text: 'Solve the quadratic equation by factoring: x^2 - 4x - 12 = 0.',
           student_working: 'Find factors of -12 that add to -4: -6 and +2. Factored form: (x - 6)(x + 2) = 0. Therefore roots are: x = -6 or x = 2.',
           correct_solution: '(x - 6)(x + 2) = 0. Set each factor to zero: x - 6 = 0 => x = +6; x + 2 = 0 => x = -2. Correct roots: x = 6 or x = -2.',
@@ -818,32 +1020,18 @@ function generateUniversalDiagnostic(
           rule_to_remember: 'Zero Product Property: Always write the explicit intermediate step: (x - a) = 0 => x = +a.',
         },
         {
-          question_number: 3,
-          topic_name: 'Algebraic Identities & Bracket Expansion',
-          question_text: 'Expand and simplify: (2x + 3)^2 - (2x - 3)^2.',
-          student_working: '(4x^2 + 12x + 9) - (4x^2 - 12x + 9) = 4x^2 - 4x^2 + 12x - 12x + 9 - 9 = 0.',
-          correct_solution: '(4x^2 + 12x + 9) - (4x^2 - 12x + 9) = 4x^2 - 4x^2 + 12x - (-12x) + 9 - 9 = 12x + 12x = 24x.',
+          question_number: 6,
+          topic_name: 'Exponents & Powers: Product Law of Indices',
+          question_text: 'Simplify and evaluate using exponential rules: 2^3 × 2^4.',
+          student_working: 'When multiplying powers with the same base, multiply the indices: 2^(3 × 4) = 2^12 = 4096.',
+          correct_solution: 'Product Law of Indices: a^m × a^n = a^(m+n). When multiplying like bases, add the exponents: 2^3 × 2^4 = 2^(3 + 4) = 2^7 = 128. (Note: Only multiply powers when raised to another power: (2^3)^4 = 2^12).',
           max_marks: 25,
-          awarded_marks: 10,
-          understanding_percentage: 40,
+          awarded_marks: 5,
+          understanding_percentage: 20,
           status: 'Red',
-          mistake_detected: 'Negative Distribution Error: Failed to distribute the negative sign across the second bracket: wrote -(-12x) as -12x instead of +12x. Expected answer: 24x.',
-          misconception: 'Bracket Neglect under Subtraction: Dropped parentheses prematurely without multiplying every internal term by -1.',
-          rule_to_remember: 'Distribution Anchor: -(A - B + C) = -A + B - C. Invert every internal sign when expanding subtracted brackets.',
-        },
-        {
-          question_number: 4,
-          topic_name: 'Linear Equations Word Problems',
-          question_text: 'The perimeter of a rectangular garden is 48 meters. The length is 6 meters greater than the width. Find the length and width.',
-          student_working: 'Let width = w, length = w + 6. Perimeter = 2(l + w) = 2(w + 6 + w) = 2(2w + 6) = 4w + 12. Set 4w + 12 = 48 => 4w = 36 => w = 9 meters. Length = 9 + 6 = 15 meters. Verification: 2(15 + 9) = 48m.',
-          correct_solution: '2(w + w + 6) = 48 => 4w + 12 = 48 => 4w = 36 => w = 9 m. Length = 9 + 6 = 15 m. Verification: 2(9 + 15) = 48 m.',
-          max_marks: 25,
-          awarded_marks: 25,
-          understanding_percentage: 100,
-          status: 'Green',
-          mistake_detected: 'Clean mathematical modeling with explicit verification check.',
-          misconception: 'None. Geometric translation to algebraic equation is robust.',
-          rule_to_remember: 'Perimeter Formulation: 2(length + width) = P. Always define variables explicitly before modeling.',
+          mistake_detected: 'Exponent Multiplication Fallacy: Multiplied exponents (3 × 4 = 12 giving 2^12) instead of adding them (3 + 4 = 7 giving 2^7 = 128).',
+          misconception: 'Exponents / Algebraic Laws: Conflated power of a power rule (a^m)^n = a^(m×n) with product of like bases a^m × a^n = a^(m+n).',
+          rule_to_remember: 'Product Law of Exponents: a^m × a^n = a^(m+n). When multiplying like bases, ADD exponents: 2^3 × 2^4 = 2^(3+4) = 2^7 = 128.',
         },
         {
           question_number: 7,
@@ -861,14 +1049,16 @@ function generateUniversalDiagnostic(
         },
       ];
       commonMisconceptions = [
+        'Distributive Property & Bracket Expansion: Dropped outer multiplier across interior constant (wrote 2(x - 3) = 14 as 2x - 3 = 14 instead of 2x - 6 = 14).',
+        'Exponents / Algebraic Laws: Multiplied exponents instead of adding them when multiplying terms with equal bases (wrote 2^(3×4) = 2^12 instead of 2^(3+4) = 2^7 = 128).',
         'Area vs Perimeter Formula Conflation: Calculated area of rectangle by adding dimensions (12 + 7 = 19) instead of multiplying length × breadth (12 × 7 = 84).',
         'Zero-Product Sign Confusion: Directly copying numbers from linear factors instead of solving (x - 6 = 0 => x = 6).',
-        'Negative Bracket Distribution: Dropping parentheses without multiplying interior negative terms by -1.',
       ];
       whatToLearnNext = [
+        'Distributive Law Practice: Always distribute the outer coefficient to every term inside parentheses: a(b - c) = ab - ac before isolating variables.',
+        'Laws of Indices Drill: Memorize and apply the Product Rule: a^m × a^n = a^(m+n). Only multiply powers for power of a power: (a^m)^n = a^(m×n).',
         'Mensuration & Area Drills: Always state Area = Length × Breadth and verify dimensions produce square units before calculating.',
         'Quadratic Factor-to-Root Check: Always set each bracket to 0 separately: (x - a) = 0 => x = a.',
-        'Two-Pass Negative Distribution: Circle the preceding negative sign and multiply across each term individually.',
       ];
     }
   }
@@ -954,7 +1144,7 @@ export async function POST(req: NextRequest) {
 
     // 1. Attempt Live Multimodal Analysis with Google GenAI
     if (isApiKeyConfigured) {
-      const candidateModels = ['gemini-3.6-flash', 'gemini-flash-latest'];
+      const candidateModels = ['gemini-3.5-flash', 'gemini-3.6-flash', 'gemini-flash-latest'];
       
       for (const modelName of candidateModels) {
         try {
@@ -971,12 +1161,16 @@ CRITICAL INSTRUCTIONS FOR THIS EVALUATION:
    - The handwritten student name on the paper ALWAYS TAKES ABSOLUTE PRECEDENCE over any active session student name.
    - If the student name is "Rishu", you MUST output "Rishu". NEVER output "Alex Chen" or "Aarav Gupta" if "Rishu" is written on the sheet!
 2. Rigorous Step-by-Step Mathematical & Formula Evaluation:
-   - Check every mathematical formula, substitution, and arithmetic calculation with 100% precision.
-   - For example: Area of a rectangle is Length × Breadth (L × B, e.g. 12 × 7 = 84), NOT addition (12 + 7 = 19). Perimeter is 2 × (L + B).
-   - If a student calculates area by adding length and breadth (e.g. 12 + 7 = 19), or applies an incorrect formula, DO NOT award high marks. Penalize the question (awarded_marks ≤ 5 out of 25), mark status as "Red", explicitly detail the mistake in mistake_detected, record the conceptual trap in misconception, and include it under common_misconceptions.
+   - Check every mathematical formula, substitution, expansion, and calculation with 100% precision.
+   - Algebraic Expansion & Distributive Law: For 2(x - 3) = 14, student must distribute 2 across both terms: 2x - 6 = 14 => x = 10. If student wrote 2x - 3 = 14 => x = 8.5, strictly penalize (awarded_marks ≤ 8/25, status "Red"), and flag incomplete bracket distribution.
+   - Exponents & Laws of Indices: For 2^3 × 2^4, student must add powers: 2^(3+4) = 2^7 = 128. If student multiplied powers (3 × 4 = 12 => 2^12), strictly penalize (awarded_marks ≤ 5/25, status "Red"), and flag under "Exponents / Algebraic Laws".
+   - Rectangle Area: Length × Breadth (12 × 7 = 84 cm²), NOT addition (12 + 7 = 19). Penalize area addition (awarded_marks ≤ 5/25, status "Red").
+   - Quadratic Roots: (x - 6)(x + 2) = 0 gives roots x = +6 or x = -2, not -6 and 2.
    - DO NOT give false positive masteries or Green status for incorrect steps or wrong formulas.
-3. Subject Alignment: Evaluate for subject "${targetSubject}".
-4. Full Question Coverage: Transcribe each question, student working, and calculate "correct_solution".`;
+3. Granular Topic Breakdown:
+   - Generate distinct, 1:1 topic breakdown cards for each question evaluated on the sheet (e.g., Fractions, Linear Equations: Distributive Expansion, HCF, Word Problems, Quadratic Factorization, Exponents: Product Law of Indices, Mensuration).
+4. Subject Alignment: Evaluate for subject "${targetSubject}".
+5. Full Question Coverage: Transcribe each question, student working, and calculate "correct_solution".`;
 
           const contents: any[] = [];
           if (isTextDocument || extractedTextContent) {

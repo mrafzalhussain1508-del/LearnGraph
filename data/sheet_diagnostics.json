@@ -2,6 +2,501 @@
   {
     "student_name": "Rishu",
     "student_class": "Class 10 • Section A",
+    "student_roll_no": "24",
+    "subject": "Computer Science",
+    "exam_title": "Data Structures & Algorithms Diagnostic Assessment",
+    "overall_score_percentage": 62,
+    "topic_breakdown": [
+      {
+        "topic_name": "Fractions: Arithmetic & Simplification",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Linear Equations: Distributive Expansion",
+        "understanding_percentage": 32,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Number Theory: Highest Common Factor (HCF)",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Linear Equations Word Problems: Perimeter Modeling",
+        "understanding_percentage": 100,
+        "status": "Yellow"
+      },
+      {
+        "topic_name": "Quadratic Equations: Factorization & Roots",
+        "understanding_percentage": 60,
+        "status": "Yellow"
+      },
+      {
+        "topic_name": "Exponents & Powers: Product Law of Indices",
+        "understanding_percentage": 20,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Mensuration: Rectangle Area Calculation",
+        "understanding_percentage": 20,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Fractions: Arithmetic & Simplification",
+        "question_text": "Evaluate and simplify the fraction expression: 3/4 + 2/5 - 1/2.",
+        "student_working": "LCM of 4, 5, 2 is 20.\n3/4 = 15/20, 2/5 = 8/20, 1/2 = 10/20.\n(15 + 8 - 10)/20 = 13/20.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean common denominator calculation.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Linear Equations: Distributive Expansion",
+        "question_text": "Solve the linear equation with parentheses: 2(x - 3) = 14.",
+        "student_working": "2(x - 3) = 14 => 2x - 3 = 14 => 2x = 17 => x = 8.5.",
+        "correct_solution": "2(x - 3) = 14 => 2x - 6 = 14 => 2x = 20 => x = 10. Check: 2(10 - 3) = 2(7) = 14.",
+        "max_marks": 25,
+        "awarded_marks": 8,
+        "understanding_percentage": 32,
+        "status": "Red",
+        "mistake_detected": "Incomplete Bracket Distribution: Multiplied 2 by x but failed to multiply 2 by -3 (wrote 2x - 3 = 14 instead of 2x - 6 = 14). Resulted in x = 8.5 instead of x = 10.",
+        "misconception": "Distributive Property Neglect: Neglected to distribute the outer multiplier across the second term inside parentheses.",
+        "rule_to_remember": "Distributive Law: a(b - c) = ab - ac. Expand 2(x - 3) = 2x - 6 before isolating x."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Number Theory: Highest Common Factor (HCF)",
+        "question_text": "Find the Highest Common Factor (HCF) of 36 and 48 using prime factorization.",
+        "student_working": "36 = 2^2 * 3^2, 48 = 2^4 * 3.\nCommon prime factors with lowest exponents: 2^2 * 3 = 4 * 3 = 12. HCF = 12.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Flawless prime factorization.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Linear Equations Word Problems: Perimeter Modeling",
+        "question_text": "The perimeter of a rectangular garden is 48 meters. The length is 6 meters greater than the width. Find the length and width.",
+        "student_working": "Let width = w, length = w + 6.\nPerimeter = 2(w + w + 6) = 4w + 12 = 48.\n4w = 36 => w = 9 meters.\nLength = 9 + 6 = 15 meters. Verification: 2(15 + 9) = 48m.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Yellow",
+        "mistake_detected": "Excellent algebraic modeling.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      },
+      {
+        "question_number": 5,
+        "topic_name": "Quadratic Equations: Factorization & Roots",
+        "question_text": "Solve the quadratic equation by factoring: x^2 - 4x - 12 = 0.",
+        "student_working": "Factors of -12 that add to -4 are -6 and +2.\nFactored form: (x - 6)(x + 2) = 0.\nTherefore roots are: x = -6 or x = 2.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 15,
+        "understanding_percentage": 60,
+        "status": "Yellow",
+        "mistake_detected": "Sign Inversion on Root Extraction: Factored (x - 6)(x + 2) correctly, but inverted root signs stating x = -6 or x = 2 instead of x = 6 or x = -2.",
+        "misconception": "Zero-Product Sign Confusion: Failed to solve linear factors separately (x - 6 = 0 => x = 6).",
+        "rule_to_remember": "Zero Product Property: Always write out x - a = 0 => x = +a explicitly to prevent sign inversion."
+      },
+      {
+        "question_number": 6,
+        "topic_name": "Exponents & Powers: Product Law of Indices",
+        "question_text": "Simplify and evaluate using exponential rules: 2^3 × 2^4.",
+        "student_working": "When multiplying powers with same base, multiply the indices: 2^(3 × 4) = 2^12 = 4096.",
+        "correct_solution": "Product of powers with same base: 2^3 × 2^4 = 2^(3 + 4) = 2^7 = 128. (Note: Only multiply powers when raised to another power: (2^3)^4 = 2^12).",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Exponent Multiplication Fallacy: Multiplied exponents (3 × 4 = 12 giving 2^12) instead of adding them (3 + 4 = 7 giving 2^7 = 128).",
+        "misconception": "Exponents / Algebraic Laws: Conflated power of a power rule (a^m)^n = a^(m×n) with product of like bases a^m × a^n = a^(m+n).",
+        "rule_to_remember": "Product Law of Exponents: a^m × a^n = a^(m+n). When multiplying like bases, ADD the exponents: 2^3 × 2^4 = 2^(3+4) = 2^7 = 128."
+      },
+      {
+        "question_number": 7,
+        "topic_name": "Mensuration: Rectangle Area Calculation",
+        "question_text": "A rectangle has a length of 12 cm and a breadth of 7 cm. Calculate the Area of the rectangle.",
+        "student_working": "Area of rectangle = Length + Breadth = 12 + 7 = 19 cm.",
+        "correct_solution": "Area of rectangle = Length × Breadth = 12 cm × 7 cm = 84 cm². Perimeter = 2(Length + Breadth) = 2(12 + 7) = 38 cm.",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Critical Formula Error: Student added length and breadth (12 + 7 = 19) instead of multiplying (12 × 7 = 84) to calculate area.",
+        "misconception": "Area vs Perimeter Formula Conflation: Conflated linear boundary addition with 2D orthogonal multiplication (Length × Breadth).",
+        "rule_to_remember": "Area of Rectangle = Length × Breadth (L × B, in cm²). Perimeter = 2 × (Length + Breadth). Always verify square units."
+      }
+    ],
+    "common_misconceptions": [
+      "Area vs Perimeter Formula Conflation: Calculated area of rectangle by adding dimensions (12 + 7 = 19) instead of multiplying length × breadth (12 × 7 = 84).",
+      "Exponents / Algebraic Laws: Multiplied exponents instead of adding them when multiplying terms with equal bases (wrote 2^(3×4) = 2^12 instead of 2^(3+4) = 2^7 = 128).",
+      "Distributive Property & Bracket Expansion: Dropped outer multiplier across interior constant (wrote 2(x - 3) as 2x - 3 instead of 2x - 6).",
+      "Unlinked Recursive Return: Failing to capture return value when inserting into BST (root.left = insert(root.left)).",
+      "Forward Loop in 1D Knapsack: Forward iteration allows an item to be selected multiple times.",
+      "Zero-Product Sign Confusion: Extracted roots with reversed signs (x = -6, 2 instead of x = 6, -2)."
+    ],
+    "what_to_learn_next": [
+      "Rectangle Area Formula Practice: Explicitly write Area = Length × Breadth (L × B, in square units cm²) before calculating. Perimeter is 2(L + B).",
+      "Laws of Indices Drill: Memorize and apply the Product Rule: a^m × a^n = a^(m+n). Only multiply powers for power of a power: (a^m)^n = a^(m×n).",
+      "Distributive Law Practice: Always distribute the outer coefficient to every term inside parentheses: a(b - c) = ab - ac before isolating variables.",
+      "Tree Mutation Drill: Always write root.child = helper(root.child) when returning reconstructed subtrees.",
+      "Reverse DP Loop Habit: For subsets without repetition, always iterate weights from capacity W down to weight[i]."
+    ],
+    "is_live_gemini": false,
+    "model_used": "Universal Diagnostic Engine (Computer Science)",
+    "notice": "Live Gemini quota temporarily unavailable; dynamic universal Computer Science diagnostic evaluated successfully.",
+    "id": "diag_1789418833075_tli0",
+    "createdAt": "2026-09-14T20:47:13.075Z"
+  },
+  {
+    "student_name": "Rishu",
+    "student_class": "Class 10 • Section A",
+    "student_roll_no": "24",
+    "subject": "Mathematics",
+    "exam_title": "Mathematics Comprehensive Diagnostic Assessment",
+    "overall_score_percentage": 62,
+    "topic_breakdown": [
+      {
+        "topic_name": "Fractions: Arithmetic & Simplification",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Linear Equations: Distributive Expansion",
+        "understanding_percentage": 32,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Number Theory: Highest Common Factor (HCF)",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Linear Equations Word Problems: Perimeter Modeling",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Quadratic Equations: Factorization & Roots",
+        "understanding_percentage": 60,
+        "status": "Yellow"
+      },
+      {
+        "topic_name": "Exponents & Powers: Product Law of Indices",
+        "understanding_percentage": 20,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Mensuration: Rectangle Area Calculation",
+        "understanding_percentage": 20,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Fractions: Arithmetic & Simplification",
+        "question_text": "Evaluate and simplify the fraction expression: 3/4 + 2/5 - 1/2.",
+        "student_working": "LCM of 4, 5, 2 is 20.\n3/4 = 15/20, 2/5 = 8/20, 1/2 = 10/20.\n(15 + 8 - 10)/20 = 13/20.",
+        "correct_solution": "LCM of 4, 5, and 2 is 20.\nConvert fractions: 15/20 + 8/20 - 10/20.\nCombine: (15 + 8 - 10)/20 = 13/20.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None",
+        "misconception": "None",
+        "rule_to_remember": "To add or subtract fractions, always find a common denominator first, convert each fraction, and then perform the operations on the numerators."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Linear Equations: Distributive Expansion",
+        "question_text": "Solve the linear equation with parentheses: 2(x - 3) = 14.",
+        "student_working": "2(x - 3) = 14 => 2x - 3 = 14 => 2x = 17 => x = 8.5.",
+        "correct_solution": "Distribute the 2 to both terms inside the parentheses:\n2x - 6 = 14\nAdd 6 to both sides:\n2x = 20\nDivide by 2:\nx = 10.",
+        "max_marks": 25,
+        "awarded_marks": 8,
+        "understanding_percentage": 32,
+        "status": "Red",
+        "mistake_detected": "Incomplete Bracket Distribution: Multiplied 2 by x but failed to multiply 2 by -3 (wrote 2x - 3 = 14 instead of 2x - 6 = 14). Resulted in x = 8.5 instead of x = 10.",
+        "misconception": "Distributive Property Neglect: Neglected to distribute the outer multiplier across the second term inside parentheses.",
+        "rule_to_remember": "Distributive Law: a(b - c) = ab - ac. Expand 2(x - 3) = 2x - 6 before isolating x."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Number Theory: Highest Common Factor (HCF)",
+        "question_text": "Find the Highest Common Factor (HCF) of 36 and 48 using prime factorization.",
+        "student_working": "36 = 2^2 * 3^2, 48 = 2^4 * 3.\nCommon prime factors with lowest exponents: 2^2 * 3 = 4 * 3 = 12. HCF = 12.",
+        "correct_solution": "Prime factorization:\n36 = 2^2 × 3^2\n48 = 2^4 × 3^1\nHCF is the product of the lowest powers of common prime factors:\n2^2 × 3^1 = 4 × 3 = 12.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None",
+        "misconception": "None",
+        "rule_to_remember": "The HCF is found by multiplying the lowest power of each common prime factor present in the prime factorizations."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Linear Equations Word Problems: Perimeter Modeling",
+        "question_text": "The perimeter of a rectangular garden is 48 meters. The length is 6 meters greater than the width. Find the length and width.",
+        "student_working": "Let width = w, length = w + 6.\nPerimeter = 2(w + w + 6) = 4w + 12 = 48.\n4w = 36 => w = 9 meters.\nLength = 9 + 6 = 15 meters. Verification: 2(15 + 9) = 48m.",
+        "correct_solution": "Let width = w, length = w + 6.\nPerimeter formula: P = 2(L + W)\n48 = 2((w + 6) + w)\n48 = 2(2w + 6)\n48 = 4w + 12\n36 = 4w => w = 9 meters.\nLength = 9 + 6 = 15 meters.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None",
+        "misconception": "None",
+        "rule_to_remember": "Always define variables clearly, set up the equation using the correct geometric formula, and verify your final dimensions against the given perimeter."
+      },
+      {
+        "question_number": 5,
+        "topic_name": "Quadratic Equations: Factorization & Roots",
+        "question_text": "Solve the quadratic equation by factoring: x^2 - 4x - 12 = 0.",
+        "student_working": "Factors of -12 that add to -4 are -6 and +2.\nFactored form: (x - 6)(x + 2) = 0.\nTherefore roots are: x = -6 or x = 2.",
+        "correct_solution": "Factor the quadratic equation:\n(x - 6)(x + 2) = 0\nSet each factor to zero to find the roots:\nx - 6 = 0 => x = 6\nx + 2 = 0 => x = -2\nRoots are x = 6 and x = -2.",
+        "max_marks": 25,
+        "awarded_marks": 15,
+        "understanding_percentage": 60,
+        "status": "Yellow",
+        "mistake_detected": "Sign Inversion on Root Extraction: Factored (x - 6)(x + 2) correctly, but inverted root signs stating x = -6 or x = 2 instead of x = 6 or x = -2.",
+        "misconception": "Zero-Product Sign Confusion: Failed to solve linear factors separately (x - 6 = 0 => x = 6).",
+        "rule_to_remember": "Zero Product Property: Always write out x - a = 0 => x = +a explicitly to prevent sign inversion."
+      },
+      {
+        "question_number": 6,
+        "topic_name": "Exponents & Powers: Product Law of Indices",
+        "question_text": "Simplify and evaluate using exponential rules: 2^3 × 2^4.",
+        "student_working": "When multiplying powers with same base, multiply the indices: 2^(3 × 4) = 2^12 = 4096.",
+        "correct_solution": "Using the Product Law of Indices: a^m × a^n = a^(m+n).\n2^3 × 2^4 = 2^(3 + 4) = 2^7 = 128.",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Exponent Multiplication Fallacy: Multiplied exponents (3 × 4 = 12 giving 2^12) instead of adding them (3 + 4 = 7 giving 2^7 = 128).",
+        "misconception": "Exponents / Algebraic Laws: Conflated power of a power rule (a^m)^n = a^(m×n) with product of like bases a^m × a^n = a^(m+n).",
+        "rule_to_remember": "Product Law of Exponents: a^m × a^n = a^(m+n). When multiplying like bases, ADD the exponents: 2^3 × 2^4 = 2^(3+4) = 2^7 = 128."
+      },
+      {
+        "question_number": 7,
+        "topic_name": "Mensuration: Rectangle Area Calculation",
+        "question_text": "A rectangle has a length of 12 cm and a breadth of 7 cm. Calculate the Area of the rectangle.",
+        "student_working": "Area of rectangle = Length + Breadth = 12 + 7 = 19 cm.",
+        "correct_solution": "Area of a rectangle = Length × Breadth\nArea = 12 cm × 7 cm = 84 cm².",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Critical Formula Error: Student added length and breadth (12 + 7 = 19) instead of multiplying (12 × 7 = 84) to calculate area.",
+        "misconception": "Area vs Perimeter Formula Conflation: Conflated linear boundary addition with 2D orthogonal multiplication (Length × Breadth).",
+        "rule_to_remember": "Area of Rectangle = Length × Breadth (L × B, in cm²). Perimeter = 2 × (Length + Breadth). Always verify square units."
+      }
+    ],
+    "common_misconceptions": [
+      "Area vs Perimeter Formula Conflation: Calculated area of rectangle by adding dimensions (12 + 7 = 19) instead of multiplying length × breadth (12 × 7 = 84).",
+      "Exponents / Algebraic Laws: Multiplied exponents instead of adding them when multiplying terms with equal bases (wrote 2^(3×4) = 2^12 instead of 2^(3+4) = 2^7 = 128).",
+      "Distributive Property & Bracket Expansion: Dropped outer multiplier across interior constant (wrote 2(x - 3) as 2x - 3 instead of 2x - 6).",
+      "Incomplete Bracket Distribution: Failing to distribute a multiplier to all terms inside parentheses.",
+      "Zero-Product Property Sign Inversion: Incorrectly keeping the signs of factors when solving for roots.",
+      "Exponent Multiplication Fallacy: Multiplying exponents instead of adding them when multiplying powers with the same base."
+    ],
+    "what_to_learn_next": [
+      "Rectangle Area Formula Practice: Explicitly write Area = Length × Breadth (L × B, in square units cm²) before calculating. Perimeter is 2(L + B).",
+      "Laws of Indices Drill: Memorize and apply the Product Rule: a^m × a^n = a^(m+n). Only multiply powers for power of a power: (a^m)^n = a^(m×n).",
+      "Distributive Law Practice: Always distribute the outer coefficient to every term inside parentheses: a(b - c) = ab - ac before isolating variables.",
+      "Practice distributive property drills with equations like a(bx - c) = d.",
+      "Review the Zero-Product Property and practice solving roots from factored quadratic equations.",
+      "Review the Laws of Indices, specifically focusing on the difference between the Product Rule (a^m * a^n = a^(m+n)) and the Power of a Power Rule ((a^m)^n = a^(m*n))."
+    ],
+    "is_live_gemini": true,
+    "model_used": "gemini-3.5-flash (Multimodal Diagnostic Engine)",
+    "id": "diag_1789418652527_vcmg",
+    "createdAt": "2026-09-14T20:44:12.527Z"
+  },
+  {
+    "student_name": "Rishu",
+    "student_class": "Class 10 • Section A",
+    "student_roll_no": "24",
+    "subject": "Mathematics",
+    "exam_title": "Mathematics Comprehensive Diagnostic Assessment",
+    "overall_score_percentage": 62,
+    "topic_breakdown": [
+      {
+        "topic_name": "Fractions: Arithmetic & Simplification",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Linear Equations: Distributive Expansion",
+        "understanding_percentage": 32,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Number Theory: Highest Common Factor (HCF)",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Linear Equations Word Problems: Perimeter Modeling",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Quadratic Equations: Factorization & Roots",
+        "understanding_percentage": 60,
+        "status": "Yellow"
+      },
+      {
+        "topic_name": "Exponents & Powers: Product Law of Indices",
+        "understanding_percentage": 20,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Mensuration: Rectangle Area Calculation",
+        "understanding_percentage": 20,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Fractions: Arithmetic & Simplification",
+        "question_text": "Evaluate and simplify the fraction expression: 3/4 + 2/5 - 1/2.",
+        "student_working": "LCM of 4, 5, 2 is 20.\n3/4 = 15/20, 2/5 = 8/20, 1/2 = 10/20.\n(15 + 8 - 10)/20 = 13/20.",
+        "correct_solution": "LCM(4, 5, 2) = 20.\n3/4 + 2/5 - 1/2 = 15/20 + 8/20 - 10/20 = (15 + 8 - 10)/20 = 13/20.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None. The student solved the fraction evaluation perfectly using the correct common denominator.",
+        "misconception": "None",
+        "rule_to_remember": "To add or subtract fractions with unlike denominators, convert them to equivalent fractions using the Least Common Multiple (LCM) of the denominators."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Linear Equations: Distributive Expansion",
+        "question_text": "Solve the linear equation with parentheses: 2(x - 3) = 14.",
+        "student_working": "2(x - 3) = 14 => 2x - 3 = 14 => 2x = 17 => x = 8.5.",
+        "correct_solution": "2(x - 3) = 14 => 2x - 6 = 14 => 2x = 20 => x = 10.",
+        "max_marks": 25,
+        "awarded_marks": 8,
+        "understanding_percentage": 32,
+        "status": "Red",
+        "mistake_detected": "Incomplete Bracket Distribution: Multiplied 2 by x but failed to multiply 2 by -3 (wrote 2x - 3 = 14 instead of 2x - 6 = 14). Resulted in x = 8.5 instead of x = 10.",
+        "misconception": "Distributive Property Neglect: Neglected to distribute the outer multiplier across the second term inside parentheses.",
+        "rule_to_remember": "Distributive Law: a(b - c) = ab - ac. Expand 2(x - 3) = 2x - 6 before isolating x."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Number Theory: Highest Common Factor (HCF)",
+        "question_text": "Find the Highest Common Factor (HCF) of 36 and 48 using prime factorization.",
+        "student_working": "36 = 2^2 * 3^2, 48 = 2^4 * 3.\nCommon prime factors with lowest exponents: 2^2 * 3 = 4 * 3 = 12. HCF = 12.",
+        "correct_solution": "Prime factorization:\n36 = 2^2 × 3^2\n48 = 2^4 × 3^1\nHCF = Product of common prime factors raised to their lowest powers = 2^2 × 3^1 = 4 × 3 = 12.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None. Accurate prime decomposition and correct identification of common prime factors.",
+        "misconception": "None",
+        "rule_to_remember": "HCF is calculated by taking the lowest power of each common prime factor in the numbers' prime factorizations."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Linear Equations Word Problems: Perimeter Modeling",
+        "question_text": "The perimeter of a rectangular garden is 48 meters. The length is 6 meters greater than the width. Find the length and width.",
+        "student_working": "Let width = w, length = w + 6.\nPerimeter = 2(w + w + 6) = 4w + 12 = 48.\n4w = 36 => w = 9 meters.\nLength = 9 + 6 = 15 meters. Verification: 2(15 + 9) = 48m.",
+        "correct_solution": "Let width = w. Length = w + 6.\nPerimeter = 2(Length + Width) = 2(w + 6 + w) = 2(2w + 6) = 4w + 12.\n4w + 12 = 48 => 4w = 36 => w = 9 m.\nLength = 9 + 6 = 15 m.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None. Excellent algebraic modeling, calculation, and step verification.",
+        "misconception": "None",
+        "rule_to_remember": "To solve perimeter word problems, express dimensions in terms of a single variable and substitute into the geometric perimeter formula."
+      },
+      {
+        "question_number": 5,
+        "topic_name": "Quadratic Equations: Factorization & Roots",
+        "question_text": "Solve the quadratic equation by factoring: x^2 - 4x - 12 = 0.",
+        "student_working": "Factors of -12 that add to -4 are -6 and +2.\nFactored form: (x - 6)(x + 2) = 0.\nTherefore roots are: x = -6 or x = 2.",
+        "correct_solution": "x^2 - 4x - 12 = 0\n(x - 6)(x + 2) = 0\nSet each factor equal to zero using Zero-Product Property:\nx - 6 = 0 => x = +6\nx + 2 = 0 => x = -2\nRoots: x = 6 or x = -2.",
+        "max_marks": 25,
+        "awarded_marks": 15,
+        "understanding_percentage": 60,
+        "status": "Yellow",
+        "mistake_detected": "Sign Inversion on Root Extraction: Factored (x - 6)(x + 2) correctly, but inverted root signs stating x = -6 or x = 2 instead of x = 6 or x = -2.",
+        "misconception": "Zero-Product Sign Confusion: Failed to solve linear factors separately (x - 6 = 0 => x = 6).",
+        "rule_to_remember": "Zero Product Property: Always write out x - a = 0 => x = +a explicitly to prevent sign inversion."
+      },
+      {
+        "question_number": 6,
+        "topic_name": "Exponents & Powers: Product Law of Indices",
+        "question_text": "Simplify and evaluate using exponential rules: 2^3 × 2^4.",
+        "student_working": "When multiplying powers with same base, multiply the indices: 2^(3 × 4) = 2^12 = 4096.",
+        "correct_solution": "Product Law of Indices: a^m × a^n = a^(m+n).\n2^3 × 2^4 = 2^(3 + 4) = 2^7 = 128.",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Exponent Multiplication Fallacy: Multiplied exponents (3 × 4 = 12 giving 2^12) instead of adding them (3 + 4 = 7 giving 2^7 = 128).",
+        "misconception": "Exponents / Algebraic Laws: Conflated power of a power rule (a^m)^n = a^(m×n) with product of like bases a^m × a^n = a^(m+n).",
+        "rule_to_remember": "Product Law of Exponents: a^m × a^n = a^(m+n). When multiplying like bases, ADD the exponents: 2^3 × 2^4 = 2^(3+4) = 2^7 = 128."
+      },
+      {
+        "question_number": 7,
+        "topic_name": "Mensuration: Rectangle Area Calculation",
+        "question_text": "A rectangle has a length of 12 cm and a breadth of 7 cm. Calculate the Area of the rectangle.",
+        "student_working": "Area of rectangle = Length + Breadth = 12 + 7 = 19 cm.",
+        "correct_solution": "Area of Rectangle = Length × Breadth = 12 cm × 7 cm = 84 cm².",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Critical Formula Error: Student added length and breadth (12 + 7 = 19) instead of multiplying (12 × 7 = 84) to calculate area.",
+        "misconception": "Area vs Perimeter Formula Conflation: Conflated linear boundary addition with 2D orthogonal multiplication (Length × Breadth).",
+        "rule_to_remember": "Area of Rectangle = Length × Breadth (L × B, in cm²). Perimeter = 2 × (Length + Breadth). Always verify square units."
+      }
+    ],
+    "common_misconceptions": [
+      "Area vs Perimeter Formula Conflation: Calculated area of rectangle by adding dimensions (12 + 7 = 19) instead of multiplying length × breadth (12 × 7 = 84).",
+      "Exponents / Algebraic Laws: Multiplied exponents instead of adding them when multiplying terms with equal bases (wrote 2^(3×4) = 2^12 instead of 2^(3+4) = 2^7 = 128).",
+      "Distributive Property & Bracket Expansion: Dropped outer multiplier across interior constant (wrote 2(x - 3) as 2x - 3 instead of 2x - 6).",
+      "Incomplete Algebraic Expansion: Failing to distribute outside factors across all terms inside parentheses during linear equation simplification.",
+      "Zero-Product Sign Inversion: Forgetting that setting factor (x - a) = 0 flips the sign to yield root x = +a.",
+      "Exponent Product Fallacy: Conflating the Product Law of Exponents (adding powers: a^m × a^n = a^(m+n)) with the Power of a Power Rule (multiplying powers: (a^m)^n = a^(m·n))."
+    ],
+    "what_to_learn_next": [
+      "Rectangle Area Formula Practice: Explicitly write Area = Length × Breadth (L × B, in square units cm²) before calculating. Perimeter is 2(L + B).",
+      "Laws of Indices Drill: Memorize and apply the Product Rule: a^m × a^n = a^(m+n). Only multiply powers for power of a power: (a^m)^n = a^(m×n).",
+      "Distributive Law Practice: Always distribute the outer coefficient to every term inside parentheses: a(b - c) = ab - ac before isolating variables.",
+      "Practice Distributive Law Drills: Focus on expanding expressions with negative numbers and multipliers like -3(2x - 5).",
+      "Review Exponent Laws: Drill the distinction between Product Law (a^m · a^n = a^(m+n)) and Power Law ((a^m)^n = a^(m·n)).",
+      "Quadratic Root Extraction Practice: Explicitly write down 'Factor = 0' steps (e.g., x - 6 = 0 => x = 6) to avoid sign inversion traps."
+    ],
+    "is_live_gemini": true,
+    "model_used": "gemini-3.6-flash (Multimodal Diagnostic Engine)",
+    "id": "diag_1789418251789_8he2",
+    "createdAt": "2026-09-14T20:37:31.789Z"
+  },
+  {
+    "student_name": "Rishu",
+    "student_class": "Class 10 • Section A",
     "student_roll_no": "28",
     "subject": "Mathematics",
     "exam_title": "Mathematics Comprehensive Midterm",

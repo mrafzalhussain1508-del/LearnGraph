@@ -235,41 +235,48 @@ Make sure:
 4. Mathematical notation is clean and readable (e.g., x^2, f(x - 3), sqrt(x)).
 5. The rule_to_remember provides actionable study guidance.`;
 
-        const response = await ai.models.generateContent({
-          model: 'gemini-2.5-flash',
-          contents: [{ text: prompt }],
-          config: {
-            responseMimeType: 'application/json',
-            temperature: 0.2,
-          },
-        });
+        const candidateModels = ['gemini-3.5-flash', 'gemini-3.6-flash', 'gemini-flash-latest'];
+        for (const modelName of candidateModels) {
+          try {
+            const response = await ai.models.generateContent({
+              model: modelName,
+              contents: [{ text: prompt }],
+              config: {
+                responseMimeType: 'application/json',
+                temperature: 0.2,
+              },
+            });
 
-        const text = response.text?.trim() || '{}';
-        const cleanJson = text
-          .replace(/^```json\s*/i, '')
-          .replace(/^```\s*/i, '')
-          .replace(/```\s*$/i, '')
-          .trim();
+            const text = response.text?.trim() || '{}';
+            const cleanJson = text
+              .replace(/^```json\s*/i, '')
+              .replace(/^```\s*/i, '')
+              .replace(/```\s*$/i, '')
+              .trim();
 
-        const parsed = JSON.parse(cleanJson);
+            const parsed = JSON.parse(cleanJson);
 
-        if (Array.isArray(parsed.questions) && parsed.questions.length >= 3) {
-          return NextResponse.json({
-            topic: parsed.topic || topic,
-            adaptive_level: 'Remediation & Mastery Checkpoint',
-            questions: parsed.questions.slice(0, 3).map((q: any, idx: number) => ({
-              id: idx + 1,
-              question: q.question || 'Math problem statement',
-              options: Array.isArray(q.options) && q.options.length === 4
-                ? q.options
-                : ['Option A', 'Option B', 'Option C', 'Option D'],
-              correct_index: typeof q.correct_index === 'number' ? q.correct_index : 0,
-              rule_to_remember: q.rule_to_remember || 'Double check signs and formula substitution.',
-              misconception_warning: q.misconception_warning || 'Watch out for transposing errors.',
-            })),
-            is_live_gemini: true,
-            model_used: 'Gemini 2.5 Flash',
-          });
+            if (Array.isArray(parsed.questions) && parsed.questions.length >= 3) {
+              return NextResponse.json({
+                topic: parsed.topic || topic,
+                adaptive_level: 'Remediation & Mastery Checkpoint',
+                questions: parsed.questions.slice(0, 3).map((q: any, idx: number) => ({
+                  id: idx + 1,
+                  question: q.question || 'Math problem statement',
+                  options: Array.isArray(q.options) && q.options.length === 4
+                    ? q.options
+                    : ['Option A', 'Option B', 'Option C', 'Option D'],
+                  correct_index: typeof q.correct_index === 'number' ? q.correct_index : 0,
+                  rule_to_remember: q.rule_to_remember || 'Double check signs and formula substitution.',
+                  misconception_warning: q.misconception_warning || 'Watch out for transposing errors.',
+                })),
+                is_live_gemini: true,
+                model_used: `${modelName} (Interactive Adaptive Engine)`,
+              });
+            }
+          } catch (modelErr) {
+            console.warn(`Model ${modelName} unavailable for mock test generation, trying next...`);
+          }
         }
       } catch (geminiError) {
         console.error('Gemini Mock Test Generation Error (using curated fallback):', geminiError);

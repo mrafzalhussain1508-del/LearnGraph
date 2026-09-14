@@ -301,19 +301,41 @@ Teacher Grading: 25/25 ✓ Full Marks.`;
       sampleContent = `Student Name: ${studentDisplayName}
 Class: Class 10 • Section A
 Roll No: 24
-Subject: Mathematics (Algebra & Quadratic Equations Midterm)
+Subject: Mathematics
+Exam: Mathematics Comprehensive Diagnostic Assessment
 Date: 2026-09-14
 
-Question 1: Linear Equations in Two Variables (25 Marks)
-Prompt: Solve the system of linear equations by substitution: 2x + 3y = 12 and x - y = 1.
+Question 1: Fractions: Arithmetic & Simplification (25 Marks)
+Prompt: Evaluate and simplify the fraction expression: 3/4 + 2/5 - 1/2.
 Student Working:
-From equation 2: x = y + 1.
-Substitute into equation 1: 2(y + 1) + 3y = 12 => 2y + 2 + 3y = 12 => 5y = 10 => y = 2.
-Then x = 2 + 1 = 3.
-Final Solution: x = 3, y = 2.
-Teacher Grading: 25/25 ✓ Full Marks.
+LCM of 4, 5, 2 is 20.
+3/4 = 15/20, 2/5 = 8/20, 1/2 = 10/20.
+(15 + 8 - 10)/20 = 13/20.
+Teacher Grading: 25/25 ✓ Full Marks. Clean common denominator calculation.
 
-Question 2: Quadratic Equation Factorization & Roots (25 Marks)
+Question 2: Linear Equations: Distributive Expansion (25 Marks)
+Prompt: Solve the linear equation with parentheses: 2(x - 3) = 14.
+Student Working:
+2(x - 3) = 14 => 2x - 3 = 14 => 2x = 17 => x = 8.5.
+Teacher Grading: 8/25 ✕ Incomplete Bracket Distribution. Multiplied 2 by x but failed to distribute to -3 (wrote 2x - 3 = 14 instead of 2x - 6 = 14). Result should be x = 10.
+
+Question 3: Number Theory: Highest Common Factor (HCF) (25 Marks)
+Prompt: Find the Highest Common Factor (HCF) of 36 and 48 using prime factorization.
+Student Working:
+36 = 2^2 * 3^2, 48 = 2^4 * 3.
+Common prime factors with lowest exponents: 2^2 * 3 = 4 * 3 = 12. HCF = 12.
+Teacher Grading: 25/25 ✓ Full Marks. Flawless prime factorization.
+
+Question 4: Linear Equations Word Problems: Perimeter Modeling (25 Marks)
+Prompt: The perimeter of a rectangular garden is 48 meters. The length is 6 meters greater than the width. Find the length and width.
+Student Working:
+Let width = w, length = w + 6.
+Perimeter = 2(w + w + 6) = 4w + 12 = 48.
+4w = 36 => w = 9 meters.
+Length = 9 + 6 = 15 meters. Verification: 2(15 + 9) = 48m.
+Teacher Grading: 25/25 ✓ Full Marks. Excellent algebraic modeling.
+
+Question 5: Quadratic Equations: Factorization & Roots (25 Marks)
 Prompt: Solve the quadratic equation by factoring: x^2 - 4x - 12 = 0.
 Student Working:
 Factors of -12 that add to -4 are -6 and +2.
@@ -321,22 +343,13 @@ Factored form: (x - 6)(x + 2) = 0.
 Therefore roots are: x = -6 or x = 2.
 Teacher Grading: 15/25 ½ Partial. Factored correctly but sign inversion on roots: x - 6 = 0 gives x = +6, and x + 2 = 0 gives x = -2.
 
-Question 3: Algebraic Identities & Bracket Expansion (25 Marks)
-Prompt: Expand and simplify: (2x + 3)^2 - (2x - 3)^2.
+Question 6: Exponents & Powers: Product Law of Indices (25 Marks)
+Prompt: Simplify and evaluate using exponential rules: 2^3 × 2^4.
 Student Working:
-(4x^2 + 12x + 9) - (4x^2 - 12x + 9) = 4x^2 - 4x^2 + 12x - 12x + 9 - 9 = 0.
-Teacher Grading: 10/25 ✕ Error. Dropped negative sign distribution over -(-12x). Correct answer is 24x.
+When multiplying powers with same base, multiply the indices: 2^(3 × 4) = 2^12 = 4096.
+Teacher Grading: 5/25 ✕ Exponent Multiplication Fallacy. Conflated product of powers (add exponents: 2^(3+4) = 2^7 = 128) with power of a power.
 
-Question 4: Linear Equations Word Problems (25 Marks)
-Prompt: The perimeter of a rectangular garden is 48 meters. The length is 6 meters greater than the width. Find the length and width.
-Student Working:
-Let width = w, length = w + 6.
-Perimeter = 2(w + w + 6) = 4w + 12 = 48.
-4w = 36 => w = 9 meters.
-Length = 9 + 6 = 15 meters. Verification: 2(15 + 9) = 48m.
-Teacher Grading: 25/25 ✓ Full Marks. Excellent modeling.
-
-Question 7: Mensuration: Area of a Rectangle (25 Marks)
+Question 7: Mensuration: Rectangle Area Calculation (25 Marks)
 Prompt: A rectangle has a length of 12 cm and a breadth of 7 cm. Calculate the Area of the rectangle.
 Student Working:
 Area of rectangle = Length + Breadth = 12 + 7 = 19 cm.
