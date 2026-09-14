@@ -38,23 +38,23 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(target, request.url));
   }
 
-  // 3. Convenience alias: /study-guide & /student-guide -> /student
+  // 3. Enforce strict role-based route boundaries: Prevent students entering teacher routes and vice-versa
+  if (pathname.startsWith('/teacher') && payload?.role === 'student') {
+    return NextResponse.redirect(new URL('/student', request.url));
+  }
+  if ((pathname.startsWith('/student') || pathname === '/study-guide' || pathname === '/student-guide') && payload?.role === 'teacher') {
+    return NextResponse.redirect(new URL('/teacher', request.url));
+  }
+
+  // 4. Convenience alias: /study-guide & /student-guide -> /student
   if (pathname === '/study-guide' || pathname === '/student-guide') {
     return NextResponse.redirect(new URL('/student', request.url));
   }
 
-  // 4. Convenience alias: /dashboard & /overview -> role-specific view
+  // 5. Convenience alias: /dashboard & /overview -> role-specific view
   if ((pathname === '/dashboard' || pathname === '/overview') && isAuthenticated) {
     const target = payload.role === 'teacher' ? '/teacher' : '/student';
     return NextResponse.redirect(new URL(target, request.url));
-  }
-
-  // 5. Enforce role-based route boundaries: Prevent students entering teacher routes and vice-versa
-  if (pathname.startsWith('/teacher') && payload?.role === 'student') {
-    return NextResponse.redirect(new URL('/student', request.url));
-  }
-  if (pathname.startsWith('/student') && payload?.role === 'teacher') {
-    return NextResponse.redirect(new URL('/teacher', request.url));
   }
 
   return NextResponse.next();

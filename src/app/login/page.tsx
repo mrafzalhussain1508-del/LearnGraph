@@ -20,14 +20,14 @@ import {
 
 function getSafeRedirectUrl(redirectParam: string | null, userRole?: string | null): string {
   if (!redirectParam || !redirectParam.startsWith('/') || redirectParam.startsWith('/login')) {
-    return userRole === 'student' ? '/student-study-guide' : '/overview';
+    return userRole === 'teacher' ? '/teacher' : '/student';
   }
 
   const roleLower = (userRole || '').toLowerCase();
   const paramLower = redirectParam.toLowerCase();
 
   if (roleLower === 'student' && paramLower.includes('/teacher')) {
-    return '/student-study-guide';
+    return '/student';
   }
 
   if (roleLower === 'teacher' && (paramLower.includes('/student') || paramLower.includes('/study-guide') || paramLower.includes('/student-guide'))) {

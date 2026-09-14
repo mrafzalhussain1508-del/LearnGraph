@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useAuth } from '@/context/AuthContext';
 import { 
   School, 
   BarChart3, 
@@ -43,6 +44,7 @@ export default function Sidebar({
   onMobileToggle
 }: SidebarProps) {
   const pathname = usePathname();
+  const { user } = useAuth();
   const [internalMobileOpen, setInternalMobileOpen] = useState(false);
 
   const isMobileOpen = externalMobileOpen !== undefined ? externalMobileOpen : internalMobileOpen;
@@ -223,35 +225,28 @@ export default function Sidebar({
                   })}
                 </div>
 
-                {/* Perspective Mode Switcher */}
-                <div className="p-3 bg-gradient-to-br from-slate-50 to-indigo-50/40 dark:from-slate-800/80 dark:to-indigo-950/30 rounded-xl border border-slate-200/70 dark:border-slate-700">
-                  <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 mb-1">Switch Perspective</p>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mb-2.5">Compare student notebook view vs teacher classroom map</p>
-                  <div className="grid grid-cols-2 gap-1.5">
-                    <Link
-                      href="/teacher"
-                      onClick={() => setMobileOpen(false)}
-                      className={`text-center py-2 px-2 text-xs font-bold rounded-lg transition-colors ${
-                        type === 'teacher'
-                          ? 'bg-white dark:bg-slate-900 shadow-xs border border-slate-200 dark:border-slate-700 text-indigo-700 dark:text-indigo-400'
-                          : 'text-slate-600 dark:text-slate-400 hover:bg-white/60 dark:hover:bg-slate-800/60'
-                      }`}
-                    >
-                      Teacher
-                    </Link>
-                    <Link
-                      href="/student"
-                      onClick={() => setMobileOpen(false)}
-                      className={`text-center py-2 px-2 text-xs font-bold rounded-lg transition-colors ${
-                        type === 'student'
-                          ? 'bg-white dark:bg-slate-900 shadow-xs border border-slate-200 dark:border-slate-700 text-rose-700 dark:text-rose-400'
-                          : 'text-slate-600 dark:text-slate-400 hover:bg-white/60 dark:hover:bg-slate-800/60'
-                      }`}
-                    >
-                      Student
-                    </Link>
+                {/* Role-Enforced Workspace Indicator */}
+                {type === 'teacher' ? (
+                  <div className="p-3 bg-gradient-to-br from-indigo-50/70 to-slate-50 dark:from-indigo-950/40 dark:to-slate-900 rounded-xl border border-indigo-200/70 dark:border-indigo-800/60">
+                    <div className="flex items-center space-x-2 text-indigo-700 dark:text-indigo-400 text-xs font-bold mb-1">
+                      <School className="w-3.5 h-3.5" />
+                      <span>Faculty Instruction Workspace</span>
+                    </div>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                      Active: {user?.section || 'Section A Math'} • {user?.name || 'Faculty Member'}
+                    </p>
                   </div>
-                </div>
+                ) : (
+                  <div className="p-3 bg-gradient-to-br from-rose-50/70 to-slate-50 dark:from-rose-950/40 dark:to-slate-900 rounded-xl border border-rose-200/70 dark:border-rose-800/60">
+                    <div className="flex items-center space-x-2 text-rose-700 dark:text-rose-400 text-xs font-bold mb-1">
+                      <BookOpen className="w-3.5 h-3.5" />
+                      <span>Student Study Desk</span>
+                    </div>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                      Enrolled: {user?.grade || '10th Grade'} • {user?.section || 'Section A'}
+                    </p>
+                  </div>
+                )}
               </div>
 
               {/* Drawer Bottom Info */}
@@ -345,33 +340,28 @@ export default function Sidebar({
           })}
         </div>
 
-        {/* Quick Mode Toggle */}
-        <div className="p-3 bg-gradient-to-br from-slate-50 to-indigo-50/40 dark:from-slate-800/80 dark:to-indigo-950/30 rounded-xl border border-slate-200/70 dark:border-slate-700">
-          <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 mb-1">Switch Perspective</p>
-          <p className="text-[11px] text-slate-500 dark:text-slate-400 mb-3">Compare student notebook view vs teacher classroom map</p>
-          <div className="grid grid-cols-2 gap-1.5">
-            <Link
-              href="/teacher"
-              className={`text-center py-1.5 px-2 text-xs font-medium rounded-lg transition-colors ${
-                type === 'teacher'
-                  ? 'bg-white dark:bg-slate-900 shadow-xs border border-slate-200 dark:border-slate-700 text-indigo-700 dark:text-indigo-400 font-semibold'
-                  : 'text-slate-600 dark:text-slate-400 hover:bg-white/60 dark:hover:bg-slate-800/60'
-              }`}
-            >
-              Teacher
-            </Link>
-            <Link
-              href="/student"
-              className={`text-center py-1.5 px-2 text-xs font-medium rounded-lg transition-colors ${
-                type === 'student'
-                  ? 'bg-white dark:bg-slate-900 shadow-xs border border-slate-200 dark:border-slate-700 text-rose-700 dark:text-rose-400 font-semibold'
-                  : 'text-slate-600 dark:text-slate-400 hover:bg-white/60 dark:hover:bg-slate-800/60'
-              }`}
-            >
-              Student
-            </Link>
+        {/* Role-Enforced Workspace Indicator */}
+        {type === 'teacher' ? (
+          <div className="p-3 bg-gradient-to-br from-indigo-50/70 to-slate-50 dark:from-indigo-950/40 dark:to-slate-900 rounded-xl border border-indigo-200/70 dark:border-indigo-800/60">
+            <div className="flex items-center space-x-2 text-indigo-700 dark:text-indigo-400 text-xs font-bold mb-1">
+              <School className="w-3.5 h-3.5" />
+              <span>Faculty Instruction Workspace</span>
+            </div>
+            <p className="text-[11px] text-slate-500 dark:text-slate-400">
+              Active: {user?.section || 'Section A Math'} • {user?.name || 'Faculty Member'}
+            </p>
           </div>
-        </div>
+        ) : (
+          <div className="p-3 bg-gradient-to-br from-rose-50/70 to-slate-50 dark:from-rose-950/40 dark:to-slate-900 rounded-xl border border-rose-200/70 dark:border-rose-800/60">
+            <div className="flex items-center space-x-2 text-rose-700 dark:text-rose-400 text-xs font-bold mb-1">
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>Student Study Desk</span>
+            </div>
+            <p className="text-[11px] text-slate-500 dark:text-slate-400">
+              Enrolled: {user?.grade || '10th Grade'} • {user?.section || 'Section A'}
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Bottom Info */}

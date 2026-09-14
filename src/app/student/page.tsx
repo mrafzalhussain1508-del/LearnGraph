@@ -76,9 +76,20 @@ const tabList: { id: StudentTabId; label: string; icon: React.ElementType }[] = 
 ];
 
 function StudentDashboardContent() {
-  const { user } = useAuth();
+  const { user, isReady } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  // Strict RBAC: If an authenticated teacher attempts to view student study guide, redirect to teacher dashboard
+  useEffect(() => {
+    if (isReady && user && user.role === 'teacher') {
+      router.replace('/teacher');
+    }
+  }, [user, isReady, router]);
+
+  if (isReady && user && user.role === 'teacher') {
+    return null;
+  }
 
   // 1. Tab Navigation State: Initialize from ?tab= query parameter or default to 'overview'
   const urlTab = searchParams.get('tab') as StudentTabId | null;

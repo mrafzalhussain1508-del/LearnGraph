@@ -27,10 +27,20 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
 
+  const isTeacher = user?.role === 'teacher' || (!user && pathname?.startsWith('/teacher'));
+  const isStudent = user?.role === 'student' || (!user && (pathname?.startsWith('/student') || pathname?.startsWith('/study-guide')));
+
   const navLinks = [
     { href: '/', label: 'Overview', icon: Sparkles },
-    { href: '/teacher', label: 'Teacher Dashboard', icon: School },
-    { href: '/student', label: 'Student Study Guide', icon: BookOpen },
+    ...(isStudent && !isTeacher
+      ? [{ href: '/student', label: 'Study Guide', icon: BookOpen }]
+      : isTeacher && !isStudent
+      ? [{ href: '/teacher', label: 'Teacher Dashboard', icon: School }]
+      : [
+          { href: '/teacher', label: 'Teacher Dashboard', icon: School },
+          { href: '/student', label: 'Student Study Guide', icon: BookOpen },
+        ]
+    ),
     { href: '/upload', label: 'Upload & Diagnose', icon: UploadCloud },
   ];
 
