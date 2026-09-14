@@ -59,7 +59,7 @@ export default function MasteryCheckpointModal({
   isOpen = true,
   onClose,
   topicName,
-  studentName = 'Alex Chen',
+  studentName = 'Lingjensthaibi',
   onMasteryCleared,
   onMasteryAchieved,
 }: MasteryCheckpointModalProps) {

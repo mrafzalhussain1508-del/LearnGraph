@@ -22,11 +22,11 @@ export async function POST(
     }
 
     // Identify student from session or fallback payload
-    let studentId = body.studentId || 'st-01';
-    let studentName = body.studentName || 'Alex Chen';
-    let studentUsername = body.studentUsername || 'alex_chen';
-    let studentEmail = body.studentEmail || 'alex.chen@student.learngraph.edu';
-    let studentCohort = body.cohort || 'Grade 10 • Section A';
+    let studentId = body.studentId || 'st-02';
+    let studentName = body.studentName || 'Lingjensthaibi';
+    let studentUsername = body.studentUsername || 'lingjensthaibi';
+    let studentEmail = body.studentEmail || 'lingjensthaibi@student.learngraph.edu';
+    let studentCohort = body.cohort || 'Grade 12 • Section A';
 
     const token = req.cookies.get('learngraph_session')?.value;
     if (token) {

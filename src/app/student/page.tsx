@@ -29,41 +29,97 @@ import MockTestsView from '@/components/student/MockTestsView';
 export type StudentTabId = 'overview' | 'topics' | 'sheet' | 'next_steps' | 'mock_tests' | 'resources';
 
 const sampleGeminiResponse: AnalyzeSheetResponse = {
-  student_name: 'Priya Sharma',
-  overall_score_percentage: 76,
+  student_name: 'Lingjensthaibi',
+  overall_score_percentage: 67,
   topic_breakdown: [
     {
-      topic_name: 'Linear Equations & Systems',
-      understanding_percentage: 92,
+      topic_name: 'Differential Calculus & Chain Rule',
+      understanding_percentage: 100,
       status: 'Green',
     },
     {
-      topic_name: 'Quadratic Equations & Roots',
-      understanding_percentage: 78,
+      topic_name: 'Product & Quotient Rules',
+      understanding_percentage: 72,
       status: 'Yellow',
     },
     {
-      topic_name: 'Function Domain & Inverses',
-      understanding_percentage: 64,
+      topic_name: 'Integral Calculus & U-Substitution',
+      understanding_percentage: 60,
       status: 'Yellow',
     },
     {
-      topic_name: 'Graph Transformations',
-      understanding_percentage: 38,
+      topic_name: 'Applications of Derivatives (Tangents)',
+      understanding_percentage: 36,
       status: 'Red',
     },
   ],
+  questions: [
+    {
+      question_number: 1,
+      topic_name: 'Differential Calculus & Chain Rule',
+      question_text: 'Find the derivative dy/dx for y = (3x^2 - 5)^4 using the Chain Rule.',
+      student_working: 'Let u = 3x^2 - 5 => dy/du = 4u^3, du/dx = 6x. dy/dx = (dy/du)(du/dx) = 4(3x^2 - 5)^3 * (6x) = 24x(3x^2 - 5)^3',
+      max_marks: 25,
+      awarded_marks: 25,
+      understanding_percentage: 100,
+      status: 'Green',
+      mistake_detected: 'Clean procedural execution with zero sign errors.',
+      misconception: 'No structural misconceptions detected. Composite function differentiation is sound and rigorous.',
+      rule_to_remember: 'Chain Rule: d/dx[f(g(x))] = f\'(g(x)) * g\'(x) — always multiply by the inner derivative.',
+    },
+    {
+      question_number: 2,
+      topic_name: 'Product & Quotient Rules',
+      question_text: 'Differentiate f(x) = x^3 * sin(2x) with respect to x.',
+      student_working: 'f\'(x) = (3x^2) * sin(2x) + x^3 * cos(2x) => Answer: 3x^2 sin(2x) + x^3 cos(2x)',
+      max_marks: 25,
+      awarded_marks: 18,
+      understanding_percentage: 72,
+      status: 'Yellow',
+      mistake_detected: 'Omitted inner chain factor of 2: wrote d/dx[sin(2x)] = cos(2x) instead of 2cos(2x).',
+      misconception: 'Argument Neglect: Treated composite trigonometric argument 2x as a plain variable without multiplying by the internal derivative.',
+      rule_to_remember: 'Trig Chain Rule: d/dx[sin(kx)] = k * cos(kx) — don\'t drop the coefficient.',
+    },
+    {
+      question_number: 3,
+      topic_name: 'Integral Calculus & U-Substitution',
+      question_text: 'Evaluate the indefinite integral: \\int 2x * sqrt(x^2 + 9) dx.',
+      student_working: 'Let u = x^2 + 9, du = 2x dx => \\int u^(1/2) du = (2/3)u^(3/2) = (2/3)(x^2 + 9)^(3/2)',
+      max_marks: 25,
+      awarded_marks: 15,
+      understanding_percentage: 60,
+      status: 'Yellow',
+      mistake_detected: 'Omission of integration constant (+ C) on indefinite antiderivative evaluation.',
+      misconception: 'Family of Antiderivatives: Evaluated indefinite integral as a single deterministic curve rather than a continuous infinite family.',
+      rule_to_remember: 'Indefinite Integral Constant: Every indefinite integral must terminate with + C.',
+    },
+    {
+      question_number: 4,
+      topic_name: 'Applications of Derivatives (Tangents)',
+      question_text: 'Find the equation of the tangent line to the curve y = x^3 - 4x + 1 at the point (2, 1).',
+      student_working: 'dy/dx = 3x^2 - 4. At x = 2: m = 3(4) - 4 = 8. Tangent: y - 2 = 8(x - 1) => y = 8x - 6',
+      max_marks: 25,
+      awarded_marks: 9,
+      understanding_percentage: 36,
+      status: 'Red',
+      mistake_detected: 'Inverted coordinates (x_1, y_1): substituted point (2, 1) as x_1 = 1 and y_1 = 2.',
+      misconception: 'Point-Slope Inversion: Mechanically applied point-slope formula without verifying coordinate axes assignment.',
+      rule_to_remember: 'Point-Slope Anchor: Write y - (y_1) = m(x - (x_1)) with explicit brackets and confirm coordinates.',
+    },
+  ],
   common_misconceptions: [
-    'Inverted horizontal translation rule: plotted f(x - 4) as a shift to the left instead of right.',
-    'Dropped negative sign during quadratic formula -b evaluation when b was already negative.',
+    'Trigonometric Chain Rule Slip: Differentiated sin(2x) as cos(2x), forgetting to multiply by the derivative of the inner argument (2).',
+    'Indefinite Integral Constant Omission: Dropped the integration constant (+ C) on indefinite antiderivative evaluation.',
+    'Point-Slope Coordinate Inversion: Inverted x_1 and y_1 coordinates when establishing tangent line equation.',
   ],
   what_to_learn_next: [
-    'Master the Horizontal Shift Rule: Inside parentheses f(x - c) shifts RIGHT, while f(x + c) shifts LEFT.',
-    'Ghost Parentheses Rule: Always substitute variables into formulas with parentheses: - (b) +- sqrt(...).',
+    'Chain Rule Template: Always formulate d/dx[f(g(x))] = f\'(g(x)) * g\'(x) before substituting.',
+    'Indefinite Integral Anchor: Indefinite integrals represent a family of functions; always terminate with + C.',
+    'Tangent Line Protocol: Write y - (y_1) = m(x - (x_1)) and double check coordinates before expanding.',
   ],
   is_live_gemini: true,
   model_used: 'Gemini 3.6 Flash',
-  notice: 'Loaded sample Gemini multimodal assessment.',
+  notice: 'Loaded multimodal calculus assessment for Lingjensthaibi.',
 };
 
 const tabList: { id: StudentTabId; label: string; icon: React.ElementType }[] = [
@@ -197,7 +253,7 @@ function StudentDashboardContent() {
 
   const studentName = (analysisResult?.student_name && analysisResult.student_name !== 'Student')
     ? analysisResult.student_name
-    : (user?.name || analysisResult?.student_name || 'Student');
+    : (user?.name || analysisResult?.student_name || 'Lingjensthaibi');
 
   const overallScore = analysisResult?.overall_score_percentage ?? 0;
   const trueMastery = (analysisResult?.topic_breakdown && analysisResult.topic_breakdown.length > 0)
@@ -366,6 +422,7 @@ function StudentDashboardContent() {
 
             {activeTab === 'sheet' && (
               <AnalyzedSheetView
+                studentName={studentName}
                 analysisResult={analysisResult}
                 onSelectTab={handleSelectTab}
                 onLoadSample={handleLoadSample}

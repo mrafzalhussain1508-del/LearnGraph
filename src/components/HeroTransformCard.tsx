@@ -1,7 +1,7 @@
 'use client';
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useAuth } from '@/context/AuthContext';
 import { 
   Sparkles, 
   ArrowRight, 
@@ -16,7 +16,25 @@ import {
 } from 'lucide-react';
 
 export default function HeroTransformCard() {
+  const { user } = useAuth();
+  const [savedName, setSavedName] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'traditional' | 'learngraph'>('learngraph');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const stored = localStorage.getItem('learngraph_latest_analysis');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (parsed?.student_name && parsed.student_name !== 'Student') {
+            setSavedName(parsed.student_name);
+          }
+        }
+      } catch {}
+    }
+  }, []);
+
+  const studentDisplayName = user?.name || savedName || 'Lingjensthaibi';
 
   return (
     <div className="w-full max-w-4xl mx-auto rounded-3xl p-1 bg-gradient-to-b from-indigo-500/20 via-slate-200 dark:via-slate-800 to-transparent shadow-2xl">
@@ -28,7 +46,7 @@ export default function HeroTransformCard() {
             <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
             <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 ml-2">
-              Transforming Assessment: Real Student Case Study (Alex Chen)
+              Transforming Assessment: Real Student Case Study ({studentDisplayName})
             </span>
           </div>
 
@@ -68,7 +86,7 @@ export default function HeroTransformCard() {
                   <div>
                     <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Student Test Paper</span>
                     <h4 className="text-lg font-bold text-slate-800 dark:text-slate-100">Midterm Mathematics</h4>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">Class: 10-A • Student: Alex Chen</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">Class: 12-A • Student: {studentDisplayName}</p>
                   </div>
                   <div className="w-12 h-12 rounded-full border-2 border-dashed border-rose-400 flex items-center justify-center text-rose-600 dark:text-red-400 font-bold text-lg rotate-12">
                     C+
@@ -100,7 +118,7 @@ export default function HeroTransformCard() {
                   A score of &quot;72&quot; conceals what the student actually knows.
                 </h3>
                 <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Alex doesn&apos;t know what to study next. Is his algebra weak? Is his calculus failing? Telling a student they scored 72% creates anxiety without direction.
+                  {studentDisplayName} doesn&apos;t know what to study next. Is the algebra weak? Is the calculus failing? Telling a student they scored 72% creates anxiety without direction.
                 </p>
 
                 <div className="space-y-2.5 pt-2">
@@ -140,7 +158,7 @@ export default function HeroTransformCard() {
                       Extracted Understanding Profile
                     </span>
                     <h4 className="text-lg font-bold text-slate-900 dark:text-white">
-                      Topic Breakdown for Alex Chen
+                      Topic Breakdown for {studentDisplayName}
                     </h4>
                   </div>
                   <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-400 dark:border-emerald-800">
@@ -226,7 +244,7 @@ export default function HeroTransformCard() {
                     <span className="text-xs font-bold uppercase tracking-wider">AI Prescription</span>
                   </div>
                   <h4 className="text-sm font-bold text-slate-900 dark:text-white leading-snug">
-                    "Alex is not a 72% student. He is a 95% algebraic thinker with 2 specific rule misconceptions."
+                    &quot;{studentDisplayName} is not a 72% student. This student is a 95% mathematical thinker with 2 specific rule misconceptions.&quot;
                   </h4>
 
                   <div className="mt-4 space-y-3">
@@ -260,7 +278,7 @@ export default function HeroTransformCard() {
                       href="/student"
                       className="w-full text-center py-2 px-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-xs transition-colors"
                     >
-                      View Alex's Notebook Guide →
+                      View {studentDisplayName}&apos;s Notebook Guide →
                     </Link>
                   </div>
                 </div>

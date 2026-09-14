@@ -315,12 +315,12 @@ export default function Navbar() {
                 <div className={`w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-sm text-white shadow-xs shrink-0 ${
                   (user?.role === 'teacher' || (!user && isTeacher)) ? 'bg-indigo-900' : 'bg-rose-600'
                 }`}>
-                  {user?.name ? user.name.charAt(0) : isTeacher ? 'D' : 'A'}
+                  {user?.name ? user.name.charAt(0) : isTeacher ? 'D' : 'L'}
                 </div>
                 <div className="min-w-0">
                   <div className="flex items-center space-x-1.5">
                     <p className="text-sm font-bold text-slate-900 dark:text-slate-100 truncate">
-                      {user?.name || (isTeacher ? 'Dr. Sarah Jenkins' : 'Alex Chen')}
+                      {user?.name || (isTeacher ? 'Dr. Sarah Jenkins' : 'Lingjensthaibi')}
                     </p>
                     <span className={`text-[10px] font-black px-1.5 py-0.2 rounded uppercase shrink-0 ${
                       (user?.role === 'teacher' || (!user && isTeacher))
@@ -331,12 +331,12 @@ export default function Navbar() {
                     </span>
                   </div>
                   <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
-                    {user?.email || (isTeacher ? 's.jenkins@faculty.learngraph.edu' : 'alex.chen@student.learngraph.edu')}
+                    {user?.email || (isTeacher ? 's.jenkins@faculty.learngraph.edu' : 'lingjensthaibi@student.learngraph.edu')}
                   </p>
                   <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 truncate">
                     {(user?.role === 'teacher' || (!user && isTeacher))
                       ? (user?.department || 'Mathematics & Computer Science')
-                      : `${user?.grade || '10th Grade'} • ${user?.section || 'Section A'}`}
+                      : `${user?.grade || '12th Grade'} • ${user?.section || 'Section A'}`}
                   </p>
                 </div>
               </div>

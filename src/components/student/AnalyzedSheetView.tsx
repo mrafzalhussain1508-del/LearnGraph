@@ -15,12 +15,14 @@ import AnalyzedAnswerSheet from '@/components/AnalyzedAnswerSheet';
 
 interface AnalyzedSheetViewProps {
   analysisResult: AnalyzeSheetResponse | null;
+  studentName?: string;
   onSelectTab: (tabId: string) => void;
   onLoadSample?: () => void;
 }
 
 export default function AnalyzedSheetView({
   analysisResult,
+  studentName,
   onSelectTab,
   onLoadSample,
 }: AnalyzedSheetViewProps) {
@@ -61,7 +63,7 @@ export default function AnalyzedSheetView({
       {/* 2. Main Sheet Component */}
       {analysisResult ? (
         <div className="space-y-6">
-          <AnalyzedAnswerSheet analysisResult={analysisResult} />
+          <AnalyzedAnswerSheet analysisResult={analysisResult} studentName={studentName} />
 
           {/* Cross-Link Directive */}
           <div className="p-4 rounded-2xl bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-900/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">

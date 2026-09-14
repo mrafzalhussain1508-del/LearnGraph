@@ -25,43 +25,89 @@ export interface AnalyzedQuestion {
 const fallbackQuestions: AnalyzedQuestion[] = [
   {
     questionNumber: 1,
-    topic: 'Algebra & Linear Equations',
-    categoryHeader: 'TOPIC 1: ALGEBRA & LINEAR EQUATIONS',
+    topic: 'Differential Calculus & Chain Rule',
+    categoryHeader: 'TOPIC 1: DIFFERENTIAL CALCULUS & CHAIN RULE',
     maxMarks: 25,
     awardedMarks: 25,
-    questionText: 'Solve for x: 4(2x - 3) = 3(x + 6) - 5',
-    studentAnswerText: '8x - 12 = 3x + 18 - 5 => 8x - 12 = 3x + 13 => 5x = 25 => x = 5',
+    questionText: 'Find the derivative dy/dx for y = (3x^2 - 5)^4 using the Chain Rule.',
+    studentAnswerText: 'Let u = 3x^2 - 5 => dy/du = 4u^3, du/dx = 6x. dy/dx = (dy/du)(du/dx) = 4(3x^2 - 5)^3 * (6x) = 24x(3x^2 - 5)^3',
     highlightedMistake: 'Clean procedural execution with zero sign errors.',
-    misconceptionAnalysis: 'No misconceptions detected. Algebraic manipulation is sound and structured.',
-    aiCorrectionTip: 'Excellent work. Maintain step-by-step balance operations.',
-    ruleToRemember: 'Balance Rule: Operations applied to one side must be identically applied to the other.',
+    misconceptionAnalysis: 'No misconceptions detected. Applied composite derivative theorem accurately.',
+    aiCorrectionTip: 'Excellent work. Maintain step-by-step substitution rigor.',
+    ruleToRemember: 'Chain Rule: d/dx[f(g(x))] = f\'(g(x)) * g\'(x) — always multiply by the inner derivative.',
     status: 'correct',
   },
   {
     questionNumber: 2,
-    topic: 'Quadratic Equations & Roots',
-    categoryHeader: 'TOPIC 2: QUADRATIC EQUATIONS & ROOTS',
+    topic: 'Product & Quotient Rules',
+    categoryHeader: 'TOPIC 2: PRODUCT & QUOTIENT DIFFERENTIATION',
     maxMarks: 25,
-    awardedMarks: 16,
-    questionText: 'Find roots of 2x^2 - 4x - 6 = 0 using the quadratic formula.',
-    studentAnswerText: 'a=2, b=-4, c=-6. x = (-4 +- sqrt(16 - 4(2)(-6))) / 4 = (-4 +- 8) / 4 => x = 1 or -3',
-    highlightedMistake: 'Sign drop on -b substitution: wrote -4 instead of -(-4) = +4.',
-    misconceptionAnalysis: 'Student dropped the negative sign outside the formula when substituting a negative b value.',
-    aiCorrectionTip: 'Ghost Parentheses Rule: Always substitute variables into formulas with parentheses: - (b) +- sqrt(...).',
-    ruleToRemember: 'Negation Rule: -(-b) is positive.',
+    awardedMarks: 18,
+    questionText: 'Differentiate f(x) = x^3 * sin(2x) with respect to x.',
+    studentAnswerText: 'f\'(x) = (3x^2) * sin(2x) + x^3 * cos(2x) => Answer: 3x^2 sin(2x) + x^3 cos(2x)',
+    highlightedMistake: 'Omitted inner chain factor of 2: wrote d/dx[sin(2x)] = cos(2x) instead of 2cos(2x).',
+    misconceptionAnalysis: 'Argument Neglect: Treated composite trigonometric argument 2x as a plain variable without multiplying by the internal derivative.',
+    aiCorrectionTip: 'Ghost Parentheses Rule: Always write out d/dx[sin(u)] = cos(u) * du/dx before simplifying.',
+    ruleToRemember: 'Trig Chain Rule: d/dx[sin(kx)] = k * cos(kx) — don\'t drop the coefficient.',
     status: 'partial',
+  },
+  {
+    questionNumber: 3,
+    topic: 'Integral Calculus & U-Substitution',
+    categoryHeader: 'TOPIC 3: INTEGRAL CALCULUS & U-SUBSTITUTION',
+    maxMarks: 25,
+    awardedMarks: 15,
+    questionText: 'Evaluate the indefinite integral: \\int 2x * sqrt(x^2 + 9) dx.',
+    studentAnswerText: 'Let u = x^2 + 9, du = 2x dx => \\int u^(1/2) du = (2/3)u^(3/2) = (2/3)(x^2 + 9)^(3/2)',
+    highlightedMistake: 'Omission of integration constant (+ C) on indefinite antiderivative evaluation.',
+    misconceptionAnalysis: 'Family of Antiderivatives: Evaluated indefinite integral as a single deterministic curve rather than a continuous infinite family.',
+    aiCorrectionTip: 'Indefinite Integral Anchor: Every indefinite integral must terminate with + C.',
+    ruleToRemember: 'Indefinite Integral Constant: Always append + C to any indefinite integral solution.',
+    status: 'partial',
+  },
+  {
+    questionNumber: 4,
+    topic: 'Applications of Derivatives (Tangents)',
+    categoryHeader: 'TOPIC 4: APPLICATIONS OF DERIVATIVES & TANGENT LINES',
+    maxMarks: 25,
+    awardedMarks: 9,
+    questionText: 'Find the equation of the tangent line to the curve y = x^3 - 4x + 1 at the point (2, 1).',
+    studentAnswerText: 'dy/dx = 3x^2 - 4. At x = 2: m = 3(4) - 4 = 8. Tangent: y - 2 = 8(x - 1) => y = 8x - 6',
+    highlightedMistake: 'Inverted coordinates (x_1, y_1): substituted point (2, 1) as x_1 = 1 and y_1 = 2.',
+    misconceptionAnalysis: 'Point-Slope Inversion: Mechanically applied point-slope formula without verifying coordinate axes assignment.',
+    aiCorrectionTip: 'Point-Slope Template: Write y - (y_1) = m(x - (x_1)) with explicit brackets and confirm coordinates.',
+    ruleToRemember: 'Point-Slope Anchor: Always verify (x_1, y_1) substitution before expanding.',
+    status: 'incorrect',
   },
 ];
 
 export default function AnalyzedAnswerSheet({
   analysisResult,
+  studentName,
 }: {
   analysisResult?: AnalyzeSheetResponse | null;
+  studentName?: string;
 }) {
   const [selectedQIndex, setSelectedQIndex] = useState(0);
 
   // Safely map dynamic questions from analysisResult using optional chaining
-  const questions: AnalyzedQuestion[] = (analysisResult?.topic_breakdown && analysisResult.topic_breakdown.length > 0)
+  // Prioritize directly parsed question objects from live Gemini OCR
+  const questions: AnalyzedQuestion[] = (analysisResult?.questions && analysisResult.questions.length > 0)
+    ? analysisResult.questions.map((q, idx) => ({
+        questionNumber: q.question_number || idx + 1,
+        topic: q.topic_name || `Topic ${idx + 1}`,
+        categoryHeader: `TOPIC ${idx + 1}: ${(q.topic_name || '').toUpperCase()}`,
+        maxMarks: q.max_marks || 25,
+        awardedMarks: q.awarded_marks ?? Math.round(((q.understanding_percentage ?? 0) / 100) * (q.max_marks || 25)),
+        questionText: q.question_text || `Question ${idx + 1}`,
+        studentAnswerText: q.student_working || 'Student working transcribed.',
+        highlightedMistake: q.mistake_detected || (q.status === 'Green' ? 'Clean procedural and conceptual solution.' : 'Step error detected.'),
+        misconceptionAnalysis: q.misconception || (q.status === 'Green' ? 'Clean working steps with zero errors.' : 'Conceptual error in working steps.'),
+        aiCorrectionTip: q.rule_to_remember || 'Follow standard calculus rule.',
+        ruleToRemember: q.rule_to_remember || 'Practice core concept.',
+        status: q.status === 'Green' ? 'correct' as const : q.status === 'Yellow' ? 'partial' as const : 'incorrect' as const,
+      }))
+    : (analysisResult?.topic_breakdown && analysisResult.topic_breakdown.length > 0)
     ? analysisResult.topic_breakdown.map((t, idx) => {
         const misconception = analysisResult?.common_misconceptions?.[idx] ||
           (t?.status === 'Green' ? 'No structural misconceptions detected. Working steps are sound.' : `Conceptual gap detected in ${t?.topic_name || 'curriculum topic'}.`);
@@ -74,8 +120,8 @@ export default function AnalyzedAnswerSheet({
           categoryHeader: `TOPIC ${idx + 1}: ${(t?.topic_name || '').toUpperCase()}`,
           maxMarks: 25,
           awardedMarks: Math.round((percentage / 100) * 25),
-          questionText: `Assessment Problem ${idx + 1} evaluating student grasp of ${t?.topic_name || 'curriculum topic'}`,
-          studentAnswerText: `Student submitted working for ${t?.topic_name || 'problem'} — Diagnostic mastery computed at ${percentage}%`,
+          questionText: `Calculus Problem ${idx + 1}: Evaluating conceptual mastery in ${t?.topic_name || 'Calculus Strand'}`,
+          studentAnswerText: `Handwritten step analysis for ${t?.topic_name || 'problem'} — Evaluated understanding: ${percentage}%`,
           highlightedMistake: t?.status === 'Green' ? 'Clean procedural and conceptual solution.' : misconception,
           misconceptionAnalysis: misconception,
           aiCorrectionTip: prescription,
@@ -86,7 +132,9 @@ export default function AnalyzedAnswerSheet({
     : fallbackQuestions;
 
   const currentQ = questions?.[selectedQIndex] || questions?.[0] || fallbackQuestions[0];
-  const studentDisplayName = analysisResult?.student_name || 'Student';
+  const studentDisplayName = (analysisResult?.student_name && analysisResult.student_name !== 'Student')
+    ? analysisResult.student_name
+    : (studentName || analysisResult?.student_name || 'Lingjensthaibi');
 
   return (
     <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">

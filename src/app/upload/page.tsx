@@ -63,6 +63,8 @@ export default function UploadPage() {
     try {
       const formData = new FormData();
       formData.append('file', fileToUpload);
+      const studentDisplayName = user?.name || 'Lingjensthaibi';
+      formData.append('student_name', studentDisplayName);
 
       const res = await fetch('/api/analyze-sheet', {
         method: 'POST',
@@ -103,13 +105,48 @@ export default function UploadPage() {
   };
 
   const handleStartAnalysis = (filename?: string) => {
-    const studentDisplayName = user?.name || 'Alex Chen';
-    const targetFilename = filename || `${studentDisplayName.replace(/\s+/g, '_')}_Math_Midterm_10A.pdf`;
+    const studentDisplayName = user?.name || 'Lingjensthaibi';
+    const targetFilename = filename || `${studentDisplayName.replace(/\s+/g, '_')}_Calculus_Midterm.pdf`;
     // If a file was selected, use it; otherwise create a sample test file
     let file = uploadedFile;
     if (!file) {
-      const sampleContent = `${studentDisplayName} Math Midterm Exam Section 10A: Algebra, Quadratic Equations, Functions & Graphs`;
-      file = new File([sampleContent], targetFilename, { type: 'application/pdf' });
+      const sampleContent = `Student Name: ${studentDisplayName}
+Subject: Advanced Calculus & Analysis Midterm
+Grade & Section: Grade 12 • Section A
+Date of Examination: 2026-09-14
+
+Question 1: Differential Calculus & Chain Rule (25 Marks)
+Prompt: Find the derivative dy/dx for y = (3x^2 - 5)^4 using the Chain Rule.
+Student Working:
+Let u = 3x^2 - 5
+dy/du = 4u^3
+du/dx = 6x
+dy/dx = (dy/du) * (du/dx) = 4(3x^2 - 5)^3 * (6x) = 24x(3x^2 - 5)^3
+Teacher Grading: 25/25 ✓ Full Marks. Clean application of chain rule theorem.
+
+Question 2: Product & Quotient Differentiation (25 Marks)
+Prompt: Differentiate f(x) = x^3 * sin(2x) with respect to x.
+Student Working:
+f'(x) = d/dx[x^3] * sin(2x) + x^3 * d/dx[sin(2x)]
+= 3x^2 * sin(2x) + x^3 * cos(2x)
+Teacher Grading: 18/25 ½ Partial. Omitted inner chain rule factor of 2 on sin(2x). Expected 2cos(2x).
+
+Question 3: Integral Calculus & U-Substitution (25 Marks)
+Prompt: Evaluate the indefinite integral: \int 2x * sqrt(x^2 + 9) dx.
+Student Working:
+Let u = x^2 + 9, du = 2x dx
+\int u^(1/2) du = (2/3)u^(3/2) = (2/3)(x^2 + 9)^(3/2)
+Teacher Grading: 15/25 ½ Partial. Forgot constant of integration + C on indefinite integral.
+
+Question 4: Applications of Derivatives & Tangents (25 Marks)
+Prompt: Find the equation of the tangent line to the curve y = x^3 - 4x + 1 at the point (2, 1).
+Student Working:
+dy/dx = 3x^2 - 4. At x = 2, slope m = 3(4) - 4 = 8.
+Tangent line equation: y - 2 = 8(x - 1) => y = 8x - 6
+Teacher Grading: 9/25 ✕ Error. Inverted coordinates: swapped (x1, y1) as (1, 2) instead of (2, 1).
+
+Final Total Score: 67/100 (67%)`;
+      file = new File([sampleContent], targetFilename, { type: 'text/plain' });
       setUploadedFile(file);
     }
     uploadAndAnalyze(file);
@@ -220,14 +257,14 @@ export default function UploadPage() {
                 <div>
                   <div className="flex items-center space-x-2">
                     <h4 className="text-sm font-bold text-slate-900 dark:text-white">
-                      Try Sample Test: {user?.name || 'Alex Chen'}
+                      Try Sample Test: {user?.name || 'Lingjensthaibi'}
                     </h4>
                     <span className="px-2 py-0.2 rounded text-[10px] font-bold bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-400">
                       Ready to Test
                     </span>
                   </div>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                    "Midterm Math 10A (Algebra, Quadratics, Functions, Graphs)"
+                    &quot;Calculus Midterm (Derivatives, Integrals, Chain Rule, Tangents)&quot;
                   </p>
                 </div>
               </div>

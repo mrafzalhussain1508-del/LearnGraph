@@ -495,7 +495,7 @@ export default function TeacherDashboard() {
                   </div>
                 ) : (
                   filteredStudents.map((student: EnrichedStudentProfile) => {
-                    const isAlex = student.name === 'Alex Chen';
+                    const isAlex = student.name === 'Lingjensthaibi' || student.name === 'Alex Chen';
                     return (
                       <div
                         key={`mobile-card-${student.id}`}
@@ -633,7 +633,7 @@ export default function TeacherDashboard() {
                     </tr>
                   ) : (
                     filteredStudents.map((student: EnrichedStudentProfile) => {
-                      const isAlex = student.name === 'Alex Chen';
+                      const isAlex = student.name === 'Lingjensthaibi' || student.name === 'Alex Chen';
                       return (
                         <tr 
                           key={student.id} 
@@ -775,7 +775,7 @@ export default function TeacherDashboard() {
               {/* Mobile Card List for Diagnostics (< 768px) */}
               <div className="md:hidden space-y-3">
                 {filteredStudents.map((student: EnrichedStudentProfile) => {
-                  const isAlex = student.name === 'Alex Chen';
+                  const isAlex = student.name === 'Lingjensthaibi' || student.name === 'Alex Chen';
                   return (
                     <div
                       key={`mobile-diag-${student.id}`}
@@ -872,7 +872,7 @@ export default function TeacherDashboard() {
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
                   {filteredStudents.map((student: EnrichedStudentProfile) => {
-                    const isAlex = student.name === 'Alex Chen';
+                    const isAlex = student.name === 'Lingjensthaibi' || student.name === 'Alex Chen';
                     return (
                       <tr 
                         key={student.id} 
