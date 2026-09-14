@@ -42,12 +42,12 @@ export default function UploadPage() {
     { title: 'Study Guide & Reteach Compilation', desc: 'Synthesizing personalized notebook cards & Section A heatmap metrics...' },
   ];
 
-  const uploadAndAnalyze = async (fileToUpload: File) => {
+  const uploadAndAnalyze = async (fileToUpload: File, customStudentName?: string, customSubject?: string) => {
     setIsProcessing(true);
     setErrorMessage(null);
     setProcessingStage(0);
     setProgressPercent(15);
-    setStatusMessage('Scanning handwriting & analyzing cognitive gaps with Gemini...');
+    setStatusMessage('Scanning handwriting & evaluating steps with AI Diagnostic Engine...');
 
     // Progress animation ticker
     const interval = setInterval(() => {
@@ -63,8 +63,11 @@ export default function UploadPage() {
     try {
       const formData = new FormData();
       formData.append('file', fileToUpload);
-      const studentDisplayName = user?.name || 'Lingjensthaibi';
+      const studentDisplayName = customStudentName || user?.name || 'Aarav Gupta';
       formData.append('student_name', studentDisplayName);
+
+      const activeSubject = customSubject || (typeof window !== 'undefined' ? localStorage.getItem('learngraph_selected_subject') : 'Mathematics') || 'Mathematics';
+      formData.append('subject', activeSubject);
 
       const res = await fetch('/api/analyze-sheet', {
         method: 'POST',
@@ -90,6 +93,7 @@ export default function UploadPage() {
       // Store in localStorage for dynamic rendering on the Student Dashboard
       if (typeof window !== 'undefined') {
         localStorage.setItem('learngraph_latest_analysis', JSON.stringify(data));
+        window.dispatchEvent(new CustomEvent('learngraph_analysis_completed', { detail: data }));
       }
 
       // Smooth transition to /student
@@ -104,13 +108,57 @@ export default function UploadPage() {
     }
   };
 
-  const handleStartAnalysis = (filename?: string) => {
+  const handleStartAlgebraAnalysis = () => {
+    const studentDisplayName = user?.name || 'Aarav Gupta';
+    const sampleContent = `Student Name: ${studentDisplayName}
+Class: Class 10 • Section A
+Roll No: 24
+Subject: Mathematics (Algebra & Quadratic Equations Midterm)
+Date: 2026-09-14
+
+Question 1: Linear Equations in Two Variables (25 Marks)
+Prompt: Solve the system of linear equations by substitution: 2x + 3y = 12 and x - y = 1.
+Student Working:
+From equation 2: x = y + 1.
+Substitute into eq 1: 2(y + 1) + 3y = 12
+=> 2y + 2 + 3y = 12 => 5y = 10 => y = 2.
+Then x = 2 + 1 = 3.
+Final Solution: x = 3, y = 2.
+Teacher Grading: 25/25 ✓ Full Marks. Clean substitution and calculation.
+
+Question 2: Quadratic Equation Factorization & Roots (25 Marks)
+Prompt: Solve the quadratic equation by factoring: x^2 - 4x - 12 = 0.
+Student Working:
+Factors of -12 that add to -4 are -6 and +2.
+Factored form: (x - 6)(x + 2) = 0.
+Therefore roots are: x = -6 or x = 2.
+Teacher Grading: 15/25 ½ Partial. Factored correctly but sign inversion on roots: x - 6 = 0 gives x = +6, and x + 2 = 0 gives x = -2.
+
+Question 3: Algebraic Identities & Bracket Expansion (25 Marks)
+Prompt: Expand and simplify: (2x + 3)^2 - (2x - 3)^2.
+Student Working:
+(4x^2 + 12x + 9) - (4x^2 - 12x + 9) = 4x^2 - 4x^2 + 12x - 12x + 9 - 9 = 0.
+Teacher Grading: 10/25 ✕ Error. Dropped negative sign distribution over -(-12x). Correct answer is 24x.
+
+Question 4: Linear Equations Word Problems (25 Marks)
+Prompt: The perimeter of a rectangular garden is 48 meters. The length is 6 meters greater than the width. Find the length and width.
+Student Working:
+Let width = w, length = w + 6.
+Perimeter = 2(w + w + 6) = 4w + 12 = 48.
+4w = 36 => w = 9 meters.
+Length = 9 + 6 = 15 meters. Verification: 2(15 + 9) = 48m.
+Teacher Grading: 25/25 ✓ Full Marks. Excellent modeling.
+
+Final Total Score: 75/100 (75%)`;
+
+    const file = new File([sampleContent], `${studentDisplayName.replace(/\s+/g, '_')}_Algebra_Midterm.txt`, { type: 'text/plain' });
+    setUploadedFile(file);
+    uploadAndAnalyze(file, studentDisplayName, 'Mathematics');
+  };
+
+  const handleStartCalculusAnalysis = () => {
     const studentDisplayName = user?.name || 'Lingjensthaibi';
-    const targetFilename = filename || `${studentDisplayName.replace(/\s+/g, '_')}_Calculus_Midterm.pdf`;
-    // If a file was selected, use it; otherwise create a sample test file
-    let file = uploadedFile;
-    if (!file) {
-      const sampleContent = `Student Name: ${studentDisplayName}
+    const sampleContent = `Student Name: ${studentDisplayName}
 Subject: Advanced Calculus & Analysis Midterm
 Grade & Section: Grade 12 • Section A
 Date of Examination: 2026-09-14
@@ -119,37 +167,33 @@ Question 1: Differential Calculus & Chain Rule (25 Marks)
 Prompt: Find the derivative dy/dx for y = (3x^2 - 5)^4 using the Chain Rule.
 Student Working:
 Let u = 3x^2 - 5
-dy/du = 4u^3
-du/dx = 6x
+dy/du = 4u^3, du/dx = 6x
 dy/dx = (dy/du) * (du/dx) = 4(3x^2 - 5)^3 * (6x) = 24x(3x^2 - 5)^3
-Teacher Grading: 25/25 ✓ Full Marks. Clean application of chain rule theorem.
+Teacher Grading: 25/25 ✓ Full Marks.
 
 Question 2: Product & Quotient Differentiation (25 Marks)
 Prompt: Differentiate f(x) = x^3 * sin(2x) with respect to x.
 Student Working:
-f'(x) = d/dx[x^3] * sin(2x) + x^3 * d/dx[sin(2x)]
-= 3x^2 * sin(2x) + x^3 * cos(2x)
-Teacher Grading: 18/25 ½ Partial. Omitted inner chain rule factor of 2 on sin(2x). Expected 2cos(2x).
+f'(x) = 3x^2 * sin(2x) + x^3 * cos(2x)
+Teacher Grading: 18/25 ½ Partial. Omitted inner chain factor of 2 on sin(2x).
 
 Question 3: Integral Calculus & U-Substitution (25 Marks)
 Prompt: Evaluate the indefinite integral: \int 2x * sqrt(x^2 + 9) dx.
 Student Working:
-Let u = x^2 + 9, du = 2x dx
-\int u^(1/2) du = (2/3)u^(3/2) = (2/3)(x^2 + 9)^(3/2)
-Teacher Grading: 15/25 ½ Partial. Forgot constant of integration + C on indefinite integral.
+Let u = x^2 + 9, du = 2x dx => (2/3)u^(3/2) = (2/3)(x^2 + 9)^(3/2)
+Teacher Grading: 15/25 ½ Partial. Omission of integration constant (+ C).
 
 Question 4: Applications of Derivatives & Tangents (25 Marks)
-Prompt: Find the equation of the tangent line to the curve y = x^3 - 4x + 1 at the point (2, 1).
+Prompt: Find the equation of the tangent line to y = x^3 - 4x + 1 at (2, 1).
 Student Working:
-dy/dx = 3x^2 - 4. At x = 2, slope m = 3(4) - 4 = 8.
-Tangent line equation: y - 2 = 8(x - 1) => y = 8x - 6
-Teacher Grading: 9/25 ✕ Error. Inverted coordinates: swapped (x1, y1) as (1, 2) instead of (2, 1).
+dy/dx = 3x^2 - 4. At x = 2, m = 8. Tangent: y - 2 = 8(x - 1) => y = 8x - 6
+Teacher Grading: 9/25 ✕ Error. Inverted coordinates: substituted (x1, y1) as (1, 2) instead of (2, 1).
 
 Final Total Score: 67/100 (67%)`;
-      file = new File([sampleContent], targetFilename, { type: 'text/plain' });
-      setUploadedFile(file);
-    }
-    uploadAndAnalyze(file);
+
+    const file = new File([sampleContent], `${studentDisplayName.replace(/\s+/g, '_')}_Calculus_Midterm.txt`, { type: 'text/plain' });
+    setUploadedFile(file);
+    uploadAndAnalyze(file, studentDisplayName, 'Mathematics');
   };
 
   return (
@@ -248,34 +292,67 @@ Final Total Score: 67/100 (67%)`;
               </div>
             </div>
 
-            {/* Quick Demo Preset: 1-Click Test Sheet */}
-            <div className="p-5 bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-indigo-950/30 dark:via-slate-900 dark:to-blue-950/20 rounded-2xl border border-indigo-200 dark:border-indigo-900/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="flex items-center space-x-3.5">
-                <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0">
-                  <FileText className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="flex items-center space-x-2">
-                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">
-                      Try Sample Test: {user?.name || 'Lingjensthaibi'}
-                    </h4>
-                    <span className="px-2 py-0.2 rounded text-[10px] font-bold bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-400">
-                      Ready to Test
-                    </span>
+            {/* Quick Demo Presets: 1-Click Test Sheets */}
+            <div className="grid sm:grid-cols-2 gap-3.5">
+              {/* Preset 1: Algebra & Quadratics (Aarav Gupta) */}
+              <div className="p-4 bg-gradient-to-br from-amber-50/70 via-white to-orange-50/40 dark:from-amber-950/20 dark:via-slate-900 dark:to-orange-950/10 rounded-2xl border border-amber-200 dark:border-amber-900/50 flex flex-col justify-between gap-3">
+                <div className="flex items-start space-x-3">
+                  <div className="w-9 h-9 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                    <FileText className="w-4 h-4" />
                   </div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                    &quot;Calculus Midterm (Derivatives, Integrals, Chain Rule, Tangents)&quot;
-                  </p>
+                  <div>
+                    <div className="flex items-center space-x-1.5">
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-white">
+                        Sample 1: Aarav Gupta
+                      </h4>
+                      <span className="px-1.5 py-0.2 rounded text-[9px] font-bold bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300">
+                        Class 10
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                      Linear Equations, Quadratic Factorization & Word Problems
+                    </p>
+                  </div>
                 </div>
+
+                <button
+                  onClick={handleStartAlgebraAnalysis}
+                  className="w-full inline-flex items-center justify-center space-x-1.5 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold shadow-2xs transition-all active:scale-95 cursor-pointer"
+                >
+                  <span>Test Algebra Paper</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
               </div>
 
-              <button
-                onClick={() => handleStartAnalysis()}
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-sm transition-all active:scale-95 cursor-pointer"
-              >
-                <span>Run 1-Click Diagnostic</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+              {/* Preset 2: Calculus Midterm (Lingjensthaibi) */}
+              <div className="p-4 bg-gradient-to-br from-indigo-50/70 via-white to-blue-50/40 dark:from-indigo-950/20 dark:via-slate-900 dark:to-blue-950/10 rounded-2xl border border-indigo-200 dark:border-indigo-900/50 flex flex-col justify-between gap-3">
+                <div className="flex items-start space-x-3">
+                  <div className="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                    <FileText className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="flex items-center space-x-1.5">
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-white">
+                        Sample 2: Lingjensthaibi
+                      </h4>
+                      <span className="px-1.5 py-0.2 rounded text-[9px] font-bold bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-400">
+                        Grade 12
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                      Derivatives, Chain Rule, U-Substitution & Tangents
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={handleStartCalculusAnalysis}
+                  className="w-full inline-flex items-center justify-center space-x-1.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-2xs transition-all active:scale-95 cursor-pointer"
+                >
+                  <span>Test Calculus Paper</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
             </div>
 
             {/* API Key Configuration Tip */}

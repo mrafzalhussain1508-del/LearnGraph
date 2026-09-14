@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, Suspense, useCallback } from 'react';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Sidebar from '@/components/Sidebar';
@@ -16,114 +16,121 @@ import {
   UploadCloud, 
   ArrowRight,
   RotateCcw,
-  CheckSquare
+  CheckSquare,
+  Layers,
+  ChevronDown
 } from 'lucide-react';
 
 import StudyGuideOverviewView from '@/components/student/StudyGuideOverviewView';
+import SubjectsView from '@/components/student/SubjectsView';
 import TopicDiagnosesView from '@/components/student/TopicDiagnosesView';
 import AnalyzedSheetView from '@/components/student/AnalyzedSheetView';
 import WhatToLearnNextView from '@/components/student/WhatToLearnNextView';
 import StudyResourcesView from '@/components/student/StudyResourcesView';
 import MockTestsView from '@/components/student/MockTestsView';
 
-export type StudentTabId = 'overview' | 'topics' | 'sheet' | 'next_steps' | 'mock_tests' | 'resources';
+type StudentTabId = 'overview' | 'subjects' | 'topics' | 'sheet' | 'next_steps' | 'mock_tests' | 'resources';
 
 const sampleGeminiResponse: AnalyzeSheetResponse = {
-  student_name: 'Lingjensthaibi',
-  overall_score_percentage: 67,
+  student_name: 'Aarav Gupta',
+  student_class: 'Class 10 • Section A',
+  student_roll_no: 'Roll No: 24',
+  subject: 'Algebra & Quadratic Equations',
+  exam_title: 'Class 10 Algebra & Quadratic Equations Midterm',
+  overall_score_percentage: 70,
   topic_breakdown: [
     {
-      topic_name: 'Differential Calculus & Chain Rule',
+      topic_name: 'Linear Equations in Two Variables',
       understanding_percentage: 100,
       status: 'Green',
     },
     {
-      topic_name: 'Product & Quotient Rules',
-      understanding_percentage: 72,
-      status: 'Yellow',
-    },
-    {
-      topic_name: 'Integral Calculus & U-Substitution',
+      topic_name: 'Quadratic Equation Factorization & Roots',
       understanding_percentage: 60,
       status: 'Yellow',
     },
     {
-      topic_name: 'Applications of Derivatives (Tangents)',
-      understanding_percentage: 36,
+      topic_name: 'Algebraic Identities & Bracket Expansion',
+      understanding_percentage: 40,
       status: 'Red',
+    },
+    {
+      topic_name: 'Linear Equations Word Problems',
+      understanding_percentage: 100,
+      status: 'Green',
     },
   ],
   questions: [
     {
       question_number: 1,
-      topic_name: 'Differential Calculus & Chain Rule',
-      question_text: 'Find the derivative dy/dx for y = (3x^2 - 5)^4 using the Chain Rule.',
-      student_working: 'Let u = 3x^2 - 5 => dy/du = 4u^3, du/dx = 6x. dy/dx = (dy/du)(du/dx) = 4(3x^2 - 5)^3 * (6x) = 24x(3x^2 - 5)^3',
+      topic_name: 'Linear Equations in Two Variables',
+      question_text: 'Solve the system of linear equations by substitution: 2x + 3y = 12 and x - y = 1.',
+      student_working: 'From equation 2: x = y + 1. Substitute into eq 1: 2(y + 1) + 3y = 12 => 2y + 2 + 3y = 12 => 5y = 10 => y = 2. Then x = 2 + 1 = 3. Final Solution: x = 3, y = 2.',
       max_marks: 25,
       awarded_marks: 25,
       understanding_percentage: 100,
       status: 'Green',
-      mistake_detected: 'Clean procedural execution with zero sign errors.',
-      misconception: 'No structural misconceptions detected. Composite function differentiation is sound and rigorous.',
-      rule_to_remember: 'Chain Rule: d/dx[f(g(x))] = f\'(g(x)) * g\'(x) — always multiply by the inner derivative.',
+      mistake_detected: 'Clean procedural substitution with zero calculation errors.',
+      misconception: 'None. Method of substitution executed with solid foundational accuracy.',
+      rule_to_remember: 'Substitution Method: Isolate the single-coefficient variable first and protect terms with parentheses.',
     },
     {
       question_number: 2,
-      topic_name: 'Product & Quotient Rules',
-      question_text: 'Differentiate f(x) = x^3 * sin(2x) with respect to x.',
-      student_working: 'f\'(x) = (3x^2) * sin(2x) + x^3 * cos(2x) => Answer: 3x^2 sin(2x) + x^3 cos(2x)',
-      max_marks: 25,
-      awarded_marks: 18,
-      understanding_percentage: 72,
-      status: 'Yellow',
-      mistake_detected: 'Omitted inner chain factor of 2: wrote d/dx[sin(2x)] = cos(2x) instead of 2cos(2x).',
-      misconception: 'Argument Neglect: Treated composite trigonometric argument 2x as a plain variable without multiplying by the internal derivative.',
-      rule_to_remember: 'Trig Chain Rule: d/dx[sin(kx)] = k * cos(kx) — don\'t drop the coefficient.',
-    },
-    {
-      question_number: 3,
-      topic_name: 'Integral Calculus & U-Substitution',
-      question_text: 'Evaluate the indefinite integral: \\int 2x * sqrt(x^2 + 9) dx.',
-      student_working: 'Let u = x^2 + 9, du = 2x dx => \\int u^(1/2) du = (2/3)u^(3/2) = (2/3)(x^2 + 9)^(3/2)',
+      topic_name: 'Quadratic Equation Factorization & Roots',
+      question_text: 'Solve the quadratic equation by factoring: x^2 - 4x - 12 = 0.',
+      student_working: 'Find factors of -12 that add to -4: -6 and +2. Factored form: (x - 6)(x + 2) = 0. Therefore roots are: x = -6 or x = 2.',
       max_marks: 25,
       awarded_marks: 15,
       understanding_percentage: 60,
       status: 'Yellow',
-      mistake_detected: 'Omission of integration constant (+ C) on indefinite antiderivative evaluation.',
-      misconception: 'Family of Antiderivatives: Evaluated indefinite integral as a single deterministic curve rather than a continuous infinite family.',
-      rule_to_remember: 'Indefinite Integral Constant: Every indefinite integral must terminate with + C.',
+      mistake_detected: 'Sign Inversion on Root Extraction: Factorization (x - 6)(x + 2) was correct, but student inverted root signs stating x = -6 or x = 2 instead of x = 6 or x = -2.',
+      misconception: 'Zero-Product Sign Confusion: Confused linear factor constants with roots, failing to write out x - 6 = 0 => x = +6 and x + 2 = 0 => x = -2.',
+      rule_to_remember: 'Zero Product Property: Always write the explicit intermediate step: (x - a) = 0 => x = +a.',
+    },
+    {
+      question_number: 3,
+      topic_name: 'Algebraic Identities & Bracket Expansion',
+      question_text: 'Expand and simplify: (2x + 3)^2 - (2x - 3)^2.',
+      student_working: '(4x^2 + 12x + 9) - (4x^2 - 12x + 9) = 4x^2 - 4x^2 + 12x - 12x + 9 - 9 = 0.',
+      max_marks: 25,
+      awarded_marks: 10,
+      understanding_percentage: 40,
+      status: 'Red',
+      mistake_detected: 'Negative Distribution Error: Failed to distribute the negative sign across the second bracket: wrote -(-12x) as -12x instead of +12x. Expected answer: 24x.',
+      misconception: 'Bracket Neglect under Subtraction: Dropped parentheses prematurely without multiplying every internal term by -1.',
+      rule_to_remember: 'Distribution Anchor: -(A - B + C) = -A + B - C. Invert every internal sign when expanding subtracted brackets.',
     },
     {
       question_number: 4,
-      topic_name: 'Applications of Derivatives (Tangents)',
-      question_text: 'Find the equation of the tangent line to the curve y = x^3 - 4x + 1 at the point (2, 1).',
-      student_working: 'dy/dx = 3x^2 - 4. At x = 2: m = 3(4) - 4 = 8. Tangent: y - 2 = 8(x - 1) => y = 8x - 6',
+      topic_name: 'Linear Equations Word Problems',
+      question_text: 'The perimeter of a rectangular garden is 48 meters. The length is 6 meters greater than the width. Find the length and width.',
+      student_working: 'Let width = w, length = w + 6. Perimeter = 2(l + w) = 2(w + 6 + w) = 2(2w + 6) = 4w + 12. Set 4w + 12 = 48 => 4w = 36 => w = 9 meters. Length = 9 + 6 = 15 meters. Verification: 2(15 + 9) = 48m.',
       max_marks: 25,
-      awarded_marks: 9,
-      understanding_percentage: 36,
-      status: 'Red',
-      mistake_detected: 'Inverted coordinates (x_1, y_1): substituted point (2, 1) as x_1 = 1 and y_1 = 2.',
-      misconception: 'Point-Slope Inversion: Mechanically applied point-slope formula without verifying coordinate axes assignment.',
-      rule_to_remember: 'Point-Slope Anchor: Write y - (y_1) = m(x - (x_1)) with explicit brackets and confirm coordinates.',
+      awarded_marks: 25,
+      understanding_percentage: 100,
+      status: 'Green',
+      mistake_detected: 'Clean mathematical modeling with explicit verification check.',
+      misconception: 'None. Geometric translation to algebraic equation is robust.',
+      rule_to_remember: 'Perimeter Formulation: 2(length + width) = P. Always define variables explicitly before modeling.',
     },
   ],
   common_misconceptions: [
-    'Trigonometric Chain Rule Slip: Differentiated sin(2x) as cos(2x), forgetting to multiply by the derivative of the inner argument (2).',
-    'Indefinite Integral Constant Omission: Dropped the integration constant (+ C) on indefinite antiderivative evaluation.',
-    'Point-Slope Coordinate Inversion: Inverted x_1 and y_1 coordinates when establishing tangent line equation.',
+    'Zero-Product Sign Confusion: Directly copying numbers from linear factors instead of solving (x - 6 = 0 => x = 6).',
+    'Negative Bracket Distribution: Dropping parentheses without multiplying interior negative terms by -1.',
   ],
   what_to_learn_next: [
-    'Chain Rule Template: Always formulate d/dx[f(g(x))] = f\'(g(x)) * g\'(x) before substituting.',
-    'Indefinite Integral Anchor: Indefinite integrals represent a family of functions; always terminate with + C.',
-    'Tangent Line Protocol: Write y - (y_1) = m(x - (x_1)) and double check coordinates before expanding.',
+    'Quadratic Factor-to-Root Check: Always set each bracket to 0 separately: (x - a) = 0 => x = a.',
+    'Two-Pass Negative Distribution: Circle the preceding negative sign and multiply across each term individually.',
+    'Mastery Checkpoint: Solve 5 quadratic factorization drills with mixed positive and negative roots.',
   ],
   is_live_gemini: true,
-  model_used: 'Gemini 3.6 Flash',
-  notice: 'Loaded multimodal calculus assessment for Lingjensthaibi.',
+  model_used: 'Gemini 3.6 Flash (Diagnostic Evaluation)',
+  notice: 'Loaded dynamic diagnostic assessment.',
 };
 
 const tabList: { id: StudentTabId; label: string; icon: React.ElementType }[] = [
   { id: 'overview', label: 'Study Guide Overview', icon: BookOpen },
+  { id: 'subjects', label: 'My Subjects', icon: Layers },
   { id: 'topics', label: 'Topic Diagnoses', icon: Compass },
   { id: 'sheet', label: 'Analyzed Answer Sheet', icon: FileSpreadsheet },
   { id: 'next_steps', label: 'What to Learn Next', icon: Sparkles },
@@ -147,28 +154,58 @@ function StudentDashboardContent() {
     return null;
   }
 
-  // 1. Tab Navigation State: Initialize from ?tab= query parameter or default to 'overview'
+  // 1. Tab Navigation State
   const urlTab = searchParams.get('tab') as StudentTabId | null;
   const [activeTab, setActiveTab] = useState<StudentTabId>(() => {
-    if (urlTab && ['overview', 'topics', 'sheet', 'next_steps', 'mock_tests', 'resources'].includes(urlTab)) {
+    if (urlTab && ['overview', 'subjects', 'topics', 'sheet', 'next_steps', 'mock_tests', 'resources'].includes(urlTab)) {
       return urlTab;
     }
     return 'overview';
   });
 
-  // 2. State Management: Stores exact JSON response from /api/analyze-sheet
+  // 2. Active Subject State
+  const [selectedSubject, setSelectedSubject] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('learngraph_selected_subject') || 'Mathematics';
+    }
+    return 'Mathematics';
+  });
+
+  // 3. State Management: Stores exact JSON response from /api/analyze-sheet
   const [analysisResult, setAnalysisResult] = useState<AnalyzeSheetResponse | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [activeQuizTopic, setActiveQuizTopic] = useState<string | null>(null);
   const [clearedTopics, setClearedTopics] = useState<Set<string>>(new Set());
 
+  // Function to fetch latest analysis from server
+  const fetchAnalysisForSubject = useCallback(async (studentQuery?: string, subjectQuery?: string) => {
+    try {
+      const params = new URLSearchParams();
+      if (studentQuery) params.set('student', studentQuery);
+      if (subjectQuery) params.set('subject', subjectQuery);
+      const res = await fetch(`/api/student/latest-analysis?${params.toString()}`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data.success && data.analysis) {
+          setAnalysisResult(data.analysis);
+          if (typeof window !== 'undefined') {
+            localStorage.setItem('learngraph_latest_analysis', JSON.stringify(data.analysis));
+          }
+        }
+      }
+    } catch (err) {
+      console.error('Failed to sync diagnostic from server:', err);
+    }
+  }, []);
+
   // Synchronize activeTab with URL changes & backward-compatible hash anchors
   useEffect(() => {
-    if (urlTab && ['overview', 'topics', 'sheet', 'next_steps', 'mock_tests', 'resources'].includes(urlTab)) {
+    if (urlTab && ['overview', 'subjects', 'topics', 'sheet', 'next_steps', 'mock_tests', 'resources'].includes(urlTab)) {
       setActiveTab(urlTab);
     } else if (typeof window !== 'undefined' && window.location.hash) {
       const hash = window.location.hash;
-      if (hash === '#topic-breakdown') setActiveTab('topics');
+      if (hash === '#subjects') setActiveTab('subjects');
+      else if (hash === '#topic-breakdown') setActiveTab('topics');
       else if (hash === '#analyzed-sheet') setActiveTab('sheet');
       else if (hash === '#action-plan' || hash === '#diagnostic-tabs') setActiveTab('next_steps');
       else if (hash === '#mock-tests') setActiveTab('mock_tests');
@@ -176,7 +213,7 @@ function StudentDashboardContent() {
     }
   }, [urlTab]);
 
-  // Load saved analysis & cleared topics from localStorage
+  // Load saved analysis & cleared topics from localStorage and sync from server
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('learngraph_latest_analysis');
@@ -198,17 +235,30 @@ function StudentDashboardContent() {
           console.error('Failed to parse saved cleared topics', e);
         }
       }
+
+      // Sync latest server diagnostic
+      const activeName = user?.name || 'Aarav Gupta';
+      fetchAnalysisForSubject(activeName, selectedSubject);
     }
     setIsLoading(false);
-  }, []);
+  }, [user, selectedSubject, fetchAnalysisForSubject]);
 
   const handleSelectTab = (tabId: string) => {
-    const validTab = (['overview', 'topics', 'sheet', 'next_steps', 'mock_tests', 'resources'].includes(tabId) ? tabId : 'overview') as StudentTabId;
+    const validTab = (['overview', 'subjects', 'topics', 'sheet', 'next_steps', 'mock_tests', 'resources'].includes(tabId) ? tabId : 'overview') as StudentTabId;
     setActiveTab(validTab);
     router.push(`/student?tab=${validTab}`, { scroll: false });
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+  };
+
+  const handleSelectSubject = (subjectName: string) => {
+    setSelectedSubject(subjectName);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('learngraph_selected_subject', subjectName);
+    }
+    const activeName = user?.name || 'Aarav Gupta';
+    fetchAnalysisForSubject(activeName, subjectName);
   };
 
   const handleReset = () => {
@@ -219,10 +269,15 @@ function StudentDashboardContent() {
   };
 
   const handleLoadSample = () => {
+    const sample = {
+      ...sampleGeminiResponse,
+      student_name: user?.name || 'Aarav Gupta',
+      subject: selectedSubject || 'Algebra & Quadratic Equations',
+    };
     if (typeof window !== 'undefined') {
-      localStorage.setItem('learngraph_latest_analysis', JSON.stringify(sampleGeminiResponse));
+      localStorage.setItem('learngraph_latest_analysis', JSON.stringify(sample));
     }
-    setAnalysisResult(sampleGeminiResponse);
+    setAnalysisResult(sample);
   };
 
   const handleMarkTopicCleared = (topicName: string) => {
@@ -253,7 +308,7 @@ function StudentDashboardContent() {
 
   const studentName = (analysisResult?.student_name && analysisResult.student_name !== 'Student')
     ? analysisResult.student_name
-    : (user?.name || analysisResult?.student_name || 'Lingjensthaibi');
+    : (user?.name || analysisResult?.student_name || 'Aarav Gupta');
 
   const overallScore = analysisResult?.overall_score_percentage ?? 0;
   const trueMastery = (analysisResult?.topic_breakdown && analysisResult.topic_breakdown.length > 0)
@@ -279,7 +334,6 @@ function StudentDashboardContent() {
     );
   }
 
-  // Active view label mapping for breadcrumb
   const currentTabObj = tabList.find((t) => t.id === activeTab) || tabList[0];
 
   return (
@@ -317,19 +371,74 @@ function StudentDashboardContent() {
           })}
         </div>
 
-        {/* Desktop Header Breadcrumb Bar */}
-        <div className="hidden sm:flex items-center justify-between pb-3 border-b border-slate-200/80 dark:border-slate-800">
-          <div className="flex items-center space-x-2 text-xs font-medium text-slate-500 dark:text-slate-400">
-            <span>Student Study Desk</span>
-            <span>/</span>
-            <span className="font-bold text-slate-900 dark:text-white">
-              {currentTabObj.label}
-            </span>
+        {/* Desktop Header Breadcrumb & Subject Switcher Bar */}
+        <div className="space-y-3">
+          <div className="hidden sm:flex items-center justify-between pb-2 border-b border-slate-200/80 dark:border-slate-800">
+            <div className="flex items-center space-x-2 text-xs font-medium text-slate-500 dark:text-slate-400">
+              <span>Student Study Desk</span>
+              <span>/</span>
+              <span className="font-bold text-slate-900 dark:text-white">
+                {currentTabObj.label}
+              </span>
+              <span>/</span>
+              <span className="font-bold text-indigo-600 dark:text-indigo-400">
+                {selectedSubject}
+              </span>
+            </div>
+
+            <div className="flex items-center space-x-2 text-xs">
+              <span className="text-[11px] text-slate-400 font-medium">Diagnostic Active</span>
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            </div>
           </div>
 
-          <div className="flex items-center space-x-2 text-xs">
-            <span className="text-[11px] text-slate-400 font-medium">Standalone View Active</span>
-            <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+          {/* Interactive Subject Switcher Header Bar */}
+          <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-3 sm:p-4 shadow-2xs flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center space-x-3">
+              <div className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold shrink-0">
+                <Layers className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="flex items-center space-x-2">
+                  <span className="text-[10px] font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                    Current Subject
+                  </span>
+                  <span className="px-2 py-0.2 rounded-full text-[10px] font-extrabold bg-indigo-50 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+                    Active Desk
+                  </span>
+                </div>
+                <p className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">
+                  {selectedSubject}
+                </p>
+              </div>
+            </div>
+
+            {/* Quick Switch Pills */}
+            <div className="flex items-center space-x-1.5 overflow-x-auto max-w-full">
+              {['Mathematics', 'Physics', 'Chemistry', 'Computer Science'].map((subj) => {
+                const isSel = subj.toLowerCase() === selectedSubject.toLowerCase();
+                return (
+                  <button
+                    key={subj}
+                    onClick={() => handleSelectSubject(subj)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                      isSel
+                        ? 'bg-indigo-600 text-white shadow-xs'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400'
+                    }`}
+                  >
+                    {subj}
+                  </button>
+                );
+              })}
+              <button
+                onClick={() => handleSelectTab('subjects')}
+                className="px-3 py-1.5 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-indigo-600 hover:border-indigo-300 dark:hover:border-indigo-700 transition-colors whitespace-nowrap cursor-pointer flex items-center space-x-1"
+              >
+                <span>Manage</span>
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
         </div>
 
@@ -346,10 +455,10 @@ function StudentDashboardContent() {
                 <span>Awaiting Answer Sheet Upload</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-                No Diagnostic Data Available Yet
+                No Diagnostic Data for {selectedSubject}
               </h2>
               <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Upload a handwritten math test paper to have Google Gemini evaluate true topic mastery percentages, diagnose cognitive misconceptions, and generate an actionable study guide.
+                Upload a handwritten test paper for {selectedSubject} to have the AI evaluate true topic mastery percentages, diagnose cognitive misconceptions, and generate an actionable study guide.
               </p>
             </div>
 
@@ -359,7 +468,7 @@ function StudentDashboardContent() {
                 className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-md shadow-indigo-600/20 transition-all hover:scale-105"
               >
                 <UploadCloud className="w-4 h-4" />
-                <span>Upload Student Test Paper</span>
+                <span>Upload {selectedSubject} Answer Sheet</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Link>
 
@@ -368,29 +477,8 @@ function StudentDashboardContent() {
                 className="inline-flex items-center space-x-2 px-5 py-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-sm transition-all border border-slate-200 dark:border-slate-700 cursor-pointer"
               >
                 <Sparkles className="w-4 h-4 text-amber-500" />
-                <span>Try Demo with Sample Gemini Response</span>
+                <span>Try Demo Diagnostic</span>
               </button>
-            </div>
-
-            {/* 3 Step Capability Overview */}
-            <div className="grid sm:grid-cols-3 gap-4 pt-8 border-t border-[#f0eae0] dark:border-slate-800 text-left">
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700 space-y-1">
-                <span className="text-xs font-black text-indigo-600 dark:text-indigo-400">01. Optical OCR</span>
-                <h4 className="text-xs font-bold text-slate-900 dark:text-white">Handwriting Step Scan</h4>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">Multimodal vision reads messy scratch annotations directly from photos or PDFs.</p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700 space-y-1">
-                <span className="text-xs font-black text-indigo-600 dark:text-indigo-400">02. Topic Breakdown</span>
-                <h4 className="text-xs font-bold text-slate-900 dark:text-white">Dynamic Understanding %</h4>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">Calculates true conceptual grasp per curriculum strand, replacing raw point scores.</p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700 space-y-1">
-                <span className="text-xs font-black text-indigo-600 dark:text-indigo-400">03. Actionable Notebook</span>
-                <h4 className="text-xs font-bold text-slate-900 dark:text-white">Misconception Prescription</h4>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">Students get highlighted rules to remember, and teachers get a 15-minute reteach roadmap.</p>
-              </div>
             </div>
           </div>
         ) : (
@@ -406,6 +494,14 @@ function StudentDashboardContent() {
                 onSelectTab={handleSelectTab}
                 onReset={handleReset}
                 onLoadSample={handleLoadSample}
+              />
+            )}
+
+            {activeTab === 'subjects' && (
+              <SubjectsView
+                currentSubject={selectedSubject}
+                onSelectSubject={handleSelectSubject}
+                onSelectTab={handleSelectTab}
               />
             )}
 

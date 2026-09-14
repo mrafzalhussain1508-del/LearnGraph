@@ -2,15 +2,31 @@
   {
     "id": "st-01",
     "role": "student",
-    "name": "Alex Chen",
+    "name": "Ethan Brooks",
     "phone": "+91 98765 43210",
-    "email": "alex.chen@student.learngraph.edu",
+    "email": "ethan.brooks@student.learngraph.edu",
+    "username": "ethan_brooks",
     "password": "password123",
     "studentId": "ST-2026-084",
     "grade": "10th Grade",
     "section": "Section A",
     "school": "Lincoln High School",
     "learningGoals": "Master graph transformations and radical functions",
+    "createdAt": "2026-09-01T00:00:00.000Z"
+  },
+  {
+    "id": "st-02",
+    "role": "student",
+    "name": "Lingjensthaibi",
+    "phone": "+91 98765 43211",
+    "email": "lingjensthaibi@student.learngraph.edu",
+    "username": "lingjensthaibi",
+    "password": "password123",
+    "studentId": "ST-2026-102",
+    "grade": "12th Grade",
+    "section": "Section A",
+    "school": "Lincoln High School",
+    "learningGoals": "Master differential calculus, chain rule, and definite integrals",
     "createdAt": "2026-09-01T00:00:00.000Z"
   },
   {
@@ -321,5 +337,20 @@
     "school": "Lincoln High School",
     "title": "Prof.",
     "createdAt": "2026-09-14T11:06:06.807Z"
+  },
+  {
+    "id": "student_1789411503573_oh1m",
+    "role": "student",
+    "name": "Aarav Gupta",
+    "username": "aarav_gupta",
+    "phone": "",
+    "email": "aarav_gupta@student.learngraph.edu",
+    "password": "password123",
+    "studentId": "24",
+    "grade": "Class 10 Section A",
+    "section": "Section A",
+    "school": "Lincoln High School",
+    "learningGoals": "Quadratic Factor-to-Root Check: Always set each bracket to 0 separately: (x - a) = 0 => x = a.",
+    "createdAt": "2026-09-14T18:45:03.573Z"
   }
 ]

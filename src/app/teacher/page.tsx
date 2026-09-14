@@ -495,12 +495,12 @@ export default function TeacherDashboard() {
                   </div>
                 ) : (
                   filteredStudents.map((student: EnrichedStudentProfile) => {
-                    const isAlex = student.name === 'Lingjensthaibi' || student.name === 'Alex Chen';
+                    const isCaseStudy = student.name === 'Lingjensthaibi';
                     return (
                       <div
                         key={`mobile-card-${student.id}`}
                         className={`p-4 rounded-2xl border transition-all space-y-3 ${
-                          isAlex
+                          isCaseStudy
                             ? 'bg-indigo-50/40 dark:bg-indigo-950/20 border-indigo-200 dark:border-indigo-900/60 shadow-xs'
                             : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-2xs'
                         }`}
@@ -509,7 +509,7 @@ export default function TeacherDashboard() {
                         <div className="flex items-start justify-between gap-2">
                           <div className="flex items-center space-x-2.5">
                             <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold text-xs shrink-0 ${
-                              isAlex
+                              isCaseStudy
                                 ? 'bg-gradient-to-tr from-indigo-600 to-rose-600 text-white shadow-xs'
                                 : 'bg-indigo-100 dark:bg-slate-800 text-indigo-700 dark:text-indigo-300 font-black'
                             }`}>
@@ -520,7 +520,7 @@ export default function TeacherDashboard() {
                                 <span className="font-extrabold text-sm text-slate-900 dark:text-white">
                                   {student.name}
                                 </span>
-                                {isAlex && (
+                                {isCaseStudy && (
                                   <span className="px-1.5 py-0.2 rounded text-[9px] font-black uppercase bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800/60">
                                     Case Study
                                   </span>
@@ -633,19 +633,19 @@ export default function TeacherDashboard() {
                     </tr>
                   ) : (
                     filteredStudents.map((student: EnrichedStudentProfile) => {
-                      const isAlex = student.name === 'Lingjensthaibi' || student.name === 'Alex Chen';
+                      const isCaseStudy = student.name === 'Lingjensthaibi';
                       return (
                         <tr 
                           key={student.id} 
                           className={`hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors ${
-                            isAlex ? 'bg-indigo-50/30 dark:bg-indigo-950/15' : ''
+                            isCaseStudy ? 'bg-indigo-50/30 dark:bg-indigo-950/15' : ''
                           }`}
                         >
                           {/* Student Name & Username & ID */}
                           <td className="py-3.5 px-3.5">
                             <div className="flex items-center space-x-2.5">
                               <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs shrink-0 ${
-                                isAlex 
+                                isCaseStudy 
                                   ? 'bg-gradient-to-tr from-indigo-600 to-rose-600 text-white shadow-xs' 
                                   : 'bg-indigo-100 dark:bg-slate-800 text-indigo-700 dark:text-indigo-300 font-black'
                               }`}>
@@ -656,7 +656,7 @@ export default function TeacherDashboard() {
                                   <span className="font-extrabold text-slate-900 dark:text-white">
                                     {student.name}
                                   </span>
-                                  {isAlex && (
+                                  {isCaseStudy && (
                                     <span className="px-1.5 py-0.2 rounded text-[9px] font-black uppercase bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800/60">
                                       Case Study
                                     </span>
@@ -775,12 +775,12 @@ export default function TeacherDashboard() {
               {/* Mobile Card List for Diagnostics (< 768px) */}
               <div className="md:hidden space-y-3">
                 {filteredStudents.map((student: EnrichedStudentProfile) => {
-                  const isAlex = student.name === 'Lingjensthaibi' || student.name === 'Alex Chen';
+                  const isCaseStudy = student.name === 'Lingjensthaibi';
                   return (
                     <div
                       key={`mobile-diag-${student.id}`}
                       className={`p-4 rounded-2xl border transition-all space-y-3 ${
-                        isAlex
+                        isCaseStudy
                           ? 'bg-indigo-50/40 dark:bg-indigo-950/20 border-indigo-200 dark:border-indigo-900/60'
                           : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-2xs'
                       }`}
@@ -788,13 +788,13 @@ export default function TeacherDashboard() {
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-2">
                           <div className={`w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs ${
-                            isAlex ? 'bg-indigo-600 text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
+                            isCaseStudy ? 'bg-indigo-600 text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
                           }`}>
                             {student.name.charAt(0)}
                           </div>
                           <div>
                             <span className="font-bold text-sm text-slate-900 dark:text-white">{student.name}</span>
-                            {isAlex && (
+                            {isCaseStudy && (
                               <span className="ml-1.5 px-1.5 py-0.2 rounded text-[9px] font-bold bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-400">
                                 Case Study
                               </span>
@@ -872,24 +872,24 @@ export default function TeacherDashboard() {
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
                   {filteredStudents.map((student: EnrichedStudentProfile) => {
-                    const isAlex = student.name === 'Lingjensthaibi' || student.name === 'Alex Chen';
+                    const isCaseStudy = student.name === 'Lingjensthaibi';
                     return (
                       <tr 
                         key={student.id} 
                         className={`hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors ${
-                          isAlex ? 'bg-indigo-50/40 dark:bg-indigo-950/20 font-medium' : ''
+                          isCaseStudy ? 'bg-indigo-50/40 dark:bg-indigo-950/20 font-medium' : ''
                         }`}
                       >
                         <td className="py-3.5 px-3">
                           <div className="flex items-center space-x-2">
                             <div className={`w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs ${
-                              isAlex ? 'bg-indigo-600 text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
+                              isCaseStudy ? 'bg-indigo-600 text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
                             }`}>
                               {student.name.charAt(0)}
                             </div>
                             <div>
                               <span className="font-bold text-slate-900 dark:text-white">{student.name}</span>
-                              {isAlex && (
+                              {isCaseStudy && (
                                 <span className="ml-1.5 px-1.5 py-0.2 rounded text-[10px] font-bold bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-400">
                                   Case Study
                                 </span>

@@ -243,16 +243,16 @@ const SEED_MOCK_TESTS: MockTest[] = [
   }
 ];
 
-// Seed initial student submission for Alex Chen
+// Seed initial student submission for Lingjensthaibi
 const SEED_SUBMISSIONS: MockTestSubmission[] = [
   {
     id: 'sub-01',
     testId: 'mock-01',
     testTitle: 'Midterm Mastery Checkpoint: Graph Transformations & Quadratics',
     studentId: 'st-01',
-    studentName: 'Alex Chen',
-    studentUsername: 'alex_chen',
-    studentEmail: 'alex.chen@student.learngraph.edu',
+    studentName: 'Lingjensthaibi',
+    studentUsername: 'lingjensthaibi',
+    studentEmail: 'lingjensthaibi@student.learngraph.edu',
     cohort: 'Grade 10 • Section A',
     answers: {
       1: 0, // Inverted: chose shift left instead of right

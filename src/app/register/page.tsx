@@ -334,7 +334,7 @@ function RegisterContent() {
                       autoComplete="username"
                       value={studentUsername}
                       onChange={(e) => setStudentUsername(e.target.value)}
-                      placeholder="e.g. alex_chen"
+                      placeholder="e.g. lingjensthaibi"
                       className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-slate-800 border border-[#ded7c8] dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500/20 text-slate-900 dark:text-white font-medium"
                     />
                   </div>
@@ -352,7 +352,7 @@ function RegisterContent() {
                       autoComplete="email"
                       value={studentEmail}
                       onChange={(e) => setStudentEmail(e.target.value)}
-                      placeholder="alex.chen@student.learngraph.edu"
+                      placeholder="lingjensthaibi@student.learngraph.edu"
                       className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-slate-800 border border-[#ded7c8] dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500/20 text-slate-900 dark:text-white font-medium"
                     />
                   </div>

@@ -24,9 +24,10 @@ const SEED_USERS: RegisteredUser[] = [
   {
     id: 'st-01',
     role: 'student',
-    name: 'Alex Chen',
+    name: 'Ethan Brooks',
     phone: '+91 98765 43210',
-    email: 'alex.chen@student.learngraph.edu',
+    email: 'ethan.brooks@student.learngraph.edu',
+    username: 'ethan_brooks',
     password: 'password123',
     studentId: 'ST-2026-084',
     grade: '10th Grade',
@@ -125,9 +126,21 @@ export function normalizePhone(phone?: string): string {
   return phone.replace(/[\s\-\(\)\+]/g, '').replace(/^91/, '');
 }
 
+function syncPersistedUsers(): void {
+  try {
+    const persisted = loadPersistedUsers();
+    for (const user of persisted) {
+      userMap.set(user.id, user);
+    }
+  } catch (err) {
+    console.error('Error synchronizing persisted users:', err);
+  }
+}
+
 export const userDb = {
   findUserByIdentifier(identifier: string, role?: 'student' | 'teacher'): RegisteredUser | undefined {
     if (!identifier) return undefined;
+    syncPersistedUsers();
     const cleanId = identifier.trim();
     const cleanLower = cleanId.toLowerCase();
     const cleanNormPhone = normalizePhone(cleanId);
@@ -146,7 +159,7 @@ export const userDb = {
       if (user.username && user.username.toLowerCase() === cleanLower) {
         return user;
       }
-      // 3. Email username prefix match (e.g. "alex.chen" from "alex.chen@student.learngraph.edu")
+      // 3. Email username prefix match (e.g. "lingjensthaibi" from "lingjensthaibi@student.learngraph.edu")
       if (user.email && user.email.split('@')[0].toLowerCase() === cleanLower) {
         return user;
       }
@@ -173,7 +186,7 @@ export const userDb = {
       if (user.id && user.id.toLowerCase() === cleanLower) {
         return user;
       }
-      // 8. Normalized Name or Username match (e.g. "alex_chen" matches "Alex Chen" or "alex.chen")
+      // 8. Normalized Name or Username match (e.g. "lingjensthaibi" matches "Lingjensthaibi")
       const strippedClean = cleanLower.replace(/[\s\-_.]/g, '');
       if (strippedClean.length >= 3) {
         if (user.name && user.name.toLowerCase().replace(/[\s\-_.]/g, '') === strippedClean) {
@@ -288,16 +301,19 @@ export const userDb = {
   },
 
   getAllUsers(): RegisteredUser[] {
+    syncPersistedUsers();
     return Array.from(userMap.values());
   },
 
   getStudents(): RegisteredUser[] {
+    syncPersistedUsers();
     return Array.from(userMap.values())
       .filter((user) => user.role === 'student')
       .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
   },
 
   getStudentById(id: string): RegisteredUser | undefined {
+    syncPersistedUsers();
     const user = userMap.get(id);
     return user && user.role === 'student' ? user : undefined;
   },

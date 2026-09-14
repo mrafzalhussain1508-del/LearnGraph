@@ -23,7 +23,8 @@ import {
   Menu,
   X,
   ChevronRight,
-  CheckSquare
+  CheckSquare,
+  Layers
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -82,6 +83,7 @@ export default function Sidebar({
 
   const studentItems = [
     { id: 'overview', label: 'Study Guide Overview', href: '/student?tab=overview', icon: BookOpen, badge: 'Midterm' },
+    { id: 'subjects', label: 'My Subjects', href: '/student?tab=subjects', icon: Layers, badge: 'Active' },
     { id: 'topics', label: 'Topic Diagnoses', href: '/student?tab=topics', icon: Compass },
     { id: 'sheet', label: 'Analyzed Answer Sheet', href: '/student?tab=sheet', icon: FileSpreadsheet, highlight: true },
     { id: 'next_steps', label: 'What to Learn Next', href: '/student?tab=next_steps', icon: Sparkles, alertCount: 3 },

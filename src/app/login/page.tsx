@@ -93,7 +93,7 @@ function LoginContent() {
   const handleAutofillDemo = () => {
     setAuthError(null);
     if (role === 'student') {
-      setIdentifier('alex.chen@student.learngraph.edu');
+      setIdentifier('lingjensthaibi@student.learngraph.edu');
       setSecretCode('password123');
     } else {
       setIdentifier('s.jenkins@faculty.learngraph.edu');
@@ -271,7 +271,7 @@ function LoginContent() {
                   setIdentifier(e.target.value);
                   setAuthError(null);
                 }}
-                placeholder={role === 'student' ? 'student@example.com or alex.chen' : 'teacher@example.com or s.jenkins'}
+                placeholder={role === 'student' ? 'student@example.com or lingjensthaibi' : 'teacher@example.com or s.jenkins'}
                 className={`w-full pl-9 pr-3 py-2.5 text-sm sm:text-xs rounded-xl focus:outline-none focus:ring-2 text-slate-900 dark:text-white font-medium ${
                   role === 'student'
                     ? 'bg-white dark:bg-slate-800 border border-[#ded7c8] dark:border-slate-700 focus:ring-rose-500/20'
@@ -352,7 +352,7 @@ function LoginContent() {
               <div className="text-[11px]">
                 <span className="font-bold text-slate-800 dark:text-slate-200">Demo User: </span>
                 <span className="text-[10px] text-slate-600 dark:text-slate-400 font-mono font-medium">
-                  {role === 'student' ? 'alex.chen' : 's.jenkins'}
+                  {role === 'student' ? 'lingjensthaibi' : 's.jenkins'}
                 </span>
                 <span className="text-[10px] text-slate-400 dark:text-slate-500 ml-1">
                   (Code: <code className="font-mono font-bold">password123</code>)

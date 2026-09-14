@@ -35,15 +35,15 @@ interface AuthContextType {
 
 const DEMO_STUDENT: UserProfile = {
   id: 'st-01',
-  name: 'Alex Chen',
+  name: 'Lingjensthaibi',
   phone: '+91 98765 43210',
-  email: 'alex.chen@student.learngraph.edu',
+  email: 'lingjensthaibi@student.learngraph.edu',
   role: 'student',
   studentId: 'ST-2026-084',
-  grade: '10th Grade',
+  grade: '12th Grade',
   section: 'Section A',
   school: 'Lincoln High School',
-  learningGoals: 'Master graph transformations and radical functions',
+  learningGoals: 'Master differential calculus, chain rule, and definite integrals',
 };
 
 const DEMO_TEACHER: UserProfile = {

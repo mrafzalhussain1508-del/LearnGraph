@@ -1,0 +1,52 @@
+[
+  {
+    "id": "subj-math",
+    "name": "Mathematics",
+    "code": "MATH-102",
+    "category": "STEM",
+    "instructor": "Dr. Sarah Jenkins",
+    "description": "Linear & Quadratic Equations, Polynomials, and Calculus Analysis",
+    "color": "indigo",
+    "createdAt": "2026-09-01T00:00:00.000Z"
+  },
+  {
+    "id": "subj-phys",
+    "name": "Physics",
+    "code": "PHYS-101",
+    "category": "STEM",
+    "instructor": "Prof. Raymond Hayes",
+    "description": "Kinematics, Newton Laws, Vector Mechanics, and Energy Conservations",
+    "color": "cyan",
+    "createdAt": "2026-09-01T00:00:00.000Z"
+  },
+  {
+    "id": "subj-chem",
+    "name": "Chemistry",
+    "code": "CHEM-101",
+    "category": "STEM",
+    "instructor": "Dr. Anita Verma",
+    "description": "Atomic Structure, Chemical Bonding, Stoichiometry, and Periodic Trends",
+    "color": "emerald",
+    "createdAt": "2026-09-01T00:00:00.000Z"
+  },
+  {
+    "id": "subj-cs",
+    "name": "Computer Science",
+    "code": "CS-104",
+    "category": "STEM",
+    "instructor": "Mr. David Lin",
+    "description": "Algorithms, Data Structures, Computational Problem Solving",
+    "color": "purple",
+    "createdAt": "2026-09-01T00:00:00.000Z"
+  },
+  {
+    "id": "subj-bio",
+    "name": "Biology",
+    "code": "BIO-101",
+    "category": "Core",
+    "instructor": "Dr. Elena Rossi",
+    "description": "Cellular Biology, Molecular Genetics, and Ecology",
+    "color": "rose",
+    "createdAt": "2026-09-01T00:00:00.000Z"
+  }
+]
