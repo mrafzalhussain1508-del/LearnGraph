@@ -1,6 +1,511 @@
 [
   {
     "student_name": "Aarav Gupta",
+    "student_class": "Grade 11 Section A",
+    "student_roll_no": "15",
+    "subject": "History",
+    "exam_title": "World History & Constitutional Analysis Diagnostic",
+    "overall_score_percentage": 85,
+    "topic_breakdown": [
+      {
+        "topic_name": "Historiography & Primary Source Analysis",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Industrial Revolution & Agrarian Shift",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Treaty of Versailles & Interwar Geopolitics",
+        "understanding_percentage": 40,
+        "status": "Red"
+      },
+      {
+        "topic_name": "The Cold War & Global Non-Alignment",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Historiography & Primary Source Analysis",
+        "question_text": "Define the distinction between primary and secondary sources and evaluate how bias impacts historical corroboration.",
+        "student_working": "Primary sources are direct artifacts or firsthand accounts from contemporaries (letters, treaties, eyewitness diaries). Secondary sources interpret or analyze primary sources (monographs, textbooks). Bias must be addressed through provenance, intent, audience, and cross-corroboration.",
+        "correct_solution": "Primary sources represent contemporaneous evidence from the era studied. Secondary sources evaluate and interpret primary evidence. Historians corroborate accounts to detect selective framing, perspective, and ideological intent.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Nuanced methodological appraisal of historical evidence.",
+        "misconception": "None. Provenance and contextual evaluation thoroughly grasped.",
+        "rule_to_remember": "Corroboration Standard: Never accept a solitary source as empirical fact; corroborate across multiple independent witnesses."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Industrial Revolution & Agrarian Shift",
+        "question_text": "Examine the role of the Enclosure Acts in catalyzing British industrialization.",
+        "student_working": "Enclosure Acts privatized communal agricultural land. Displaced tenant farmers were forced off farmland and migrated to urban factory centers, creating the concentrated wage-labor force required for textile manufacturing.",
+        "correct_solution": "Enclosure Acts consolidated communal open fields into private estates, boosting agrarian productivity while severing peasant subsistence. Displaced rural populations flooded industrializing cities, providing cheap urban factory labor.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clear causal linkage between agrarian privatization and urban proletarianization.",
+        "misconception": "None. Socio-economic structural transformation recognized.",
+        "rule_to_remember": "Agrarian-Industrial Linkage: Agricultural surpluses and peasant displacement are historical prerequisites for rapid urban industrialization."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Treaty of Versailles & Interwar Geopolitics",
+        "question_text": "Analyze the significance of Article 231 of the Treaty of Versailles and its impact on the Weimar Republic.",
+        "student_working": "Article 231 assigned exclusive war guilt to Austria-Hungary, forcing them to pay reparations which caused hyperinflation in Berlin.",
+        "correct_solution": "Article 231 (the \"War Guilt Clause\") required GERMANY (not Austria-Hungary) to accept sole responsibility for all loss and damage, providing legal justification for devastating Allied reparations that destabilized the Weimar Republic.",
+        "max_marks": 25,
+        "awarded_marks": 10,
+        "understanding_percentage": 40,
+        "status": "Red",
+        "mistake_detected": "State Attribution Error: Attributed Article 231 war guilt to Austria-Hungary instead of Germany (Austria signed the separate Treaty of Saint-Germain-en-Laye).",
+        "misconception": "Treaty Partition Confusion: Conflating the Treaty of Versailles (Germany) with Saint-Germain and Trianon (Austro-Hungarian dual monarchy).",
+        "rule_to_remember": "Paris Peace Conference Distinctions: Versailles = Germany (Article 231), Saint-Germain = Austria, Trianon = Hungary, Sèvres = Ottoman Empire."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "The Cold War & Global Non-Alignment",
+        "question_text": "Explain the strategic objectives of the Non-Aligned Movement (NAM) founded at Bandung in 1955.",
+        "student_working": "Led by Nehru, Nasser, and Tito, the NAM sought to navigate Cold War bipolarity without formally aligning with NATO or the Warsaw Pact, championing anti-colonial self-determination and mutual non-aggression.",
+        "correct_solution": "The Non-Aligned Movement united newly sovereign post-colonial states to resist superpower hegemony, prevent proxy militarization, and advance South-South economic cooperation without subservience to US or Soviet blocs.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Accurate geopolitical contextualization of Third World diplomacy.",
+        "misconception": "None. Strategic neutrality grasped effectively.",
+        "rule_to_remember": "Bandung Principles: Sovereignty, non-intervention, and peaceful coexistence outside superpower military pacts."
+      }
+    ],
+    "common_misconceptions": [
+      "Peace Treaty Conflation: Conflating German Versailles clauses with Austro-Hungarian Saint-Germain provisions.",
+      "Hyperinflation Chronology Slip: Hyperinflation (1923) occurred primarily due to passive resistance in the Ruhr, not solely treaty signing."
+    ],
+    "what_to_learn_next": [
+      "Treaty Mapping Table: Chart each 1919 treaty, signatory nation, key territory transferred, and specific war clause.",
+      "Primary Source Attribution Practice: Identify author bias, political motives, and historical counterweights."
+    ],
+    "is_live_gemini": false,
+    "model_used": "Universal Diagnostic Engine (History)",
+    "notice": "Live Gemini quota temporarily unavailable; dynamic universal History diagnostic evaluated successfully.",
+    "id": "diag_1789414079278_7654",
+    "createdAt": "2026-09-14T19:27:59.278Z"
+  },
+  {
+    "student_name": "Aarav Gupta",
+    "student_class": "Grade 11 Section A",
+    "student_roll_no": "15",
+    "subject": "Computer Science",
+    "exam_title": "Data Structures & Algorithms Diagnostic Assessment",
+    "overall_score_percentage": 75,
+    "topic_breakdown": [
+      {
+        "topic_name": "Asymptotic Analysis & Big-O Recurrence",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Binary Search Tree Insertion & Pointers",
+        "understanding_percentage": 60,
+        "status": "Yellow"
+      },
+      {
+        "topic_name": "Dynamic Programming & Space Optimization",
+        "understanding_percentage": 40,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Graph Traversal & Shortest Path Algorithm",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Asymptotic Analysis & Big-O Recurrence",
+        "question_text": "Solve the recurrence relation T(n) = 2T(n/2) + O(n) using the Master Theorem to find its tight asymptotic bound.",
+        "student_working": "Here a = 2, b = 2, f(n) = O(n). Log_b(a) = log_2(2) = 1. Since f(n) = Θ(n^log_b(a)) = Θ(n^1), this falls under Case 2 of Master Theorem. Therefore, T(n) = Θ(n log n).",
+        "correct_solution": "a = 2, b = 2, f(n) = n. Calculate n^(log_b a) = n^(log_2 2) = n^1. Since f(n) = Θ(n^1), Case 2 applies: T(n) = Θ(n^(log_b a) * log n) = Θ(n log n).",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Rigorous Master Theorem parameter verification.",
+        "misconception": "None. Divide-and-conquer recurrence solved accurately.",
+        "rule_to_remember": "Master Theorem Case 2: When work at root matches work at leaves, multiply by logarithmic recursion tree depth: T(n) = Θ(n^(log_b a) * log n)."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Binary Search Tree Insertion & Pointers",
+        "question_text": "Write the recursive case for inserting a key into a Binary Search Tree.",
+        "student_working": "if (root == null) return new Node(key);\nif (key < root.val) insert(root.left, key);\nelse insert(root.right, key);\nreturn root;",
+        "correct_solution": "if (root == null) return new Node(key);\nif (key < root.val) root.left = insert(root.left, key);\nelse if (key > root.val) root.right = insert(root.right, key);\nreturn root;",
+        "max_marks": 25,
+        "awarded_marks": 15,
+        "understanding_percentage": 60,
+        "status": "Yellow",
+        "mistake_detected": "Missing Pointer Reassignment: Called insert(root.left, key) without reassigning root.left = insert(...) upon return from the null base case.",
+        "misconception": "Pass-by-Value Reference Trap: Assuming passing a child pointer variable mutates the parent node's internal pointer field.",
+        "rule_to_remember": "Pointer Re-linking Idiom: Always write root.child = insert(root.child, key) to re-bind pointers when nodes are instantiated."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Dynamic Programming & Space Optimization",
+        "question_text": "Explain how the 0/1 Knapsack 2D DP table can be optimized to a 1D array, and specify the loop iteration direction for weights.",
+        "student_working": "Can reduce dp[n][W] to dp[W]. Loop items from 1 to n, and loop capacity w from 0 to W: dp[w] = max(dp[w], dp[w - wt[i]] + val[i]).",
+        "correct_solution": "To compress 2D DP to 1D, loop capacity w in REVERSE from W down to wt[i]. If iterated forwards (0 to W), the item can be reused multiple times, turning it into Unbounded Knapsack.",
+        "max_marks": 25,
+        "awarded_marks": 10,
+        "understanding_percentage": 40,
+        "status": "Red",
+        "mistake_detected": "Loop Direction Inversion: Iterated capacity forwards (0 to W) instead of backwards, accidentally converting a 0/1 Knapsack problem into an Unbounded Knapsack problem.",
+        "misconception": "Table Overwrite Blindness: Failing to recognize that forward 1D updates overwrite states from the previous item level needed for subsequent calculations.",
+        "rule_to_remember": "1D Knapsack Reversal Rule: For 0/1 Knapsack in 1D, iterate capacity BACKWARDS (W down to wt) to prevent multiple inclusions of the same item."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Graph Traversal & Shortest Path Algorithm",
+        "question_text": "Why does Dijkstra’s algorithm fail on graphs with negative edge weights?",
+        "student_working": "Dijkstra assumes that once a node is popped from the priority queue, its distance is finalized and cannot be improved because adding further edges only increases path cost. With negative weights, a later detour can yield a lower total cost, violating greedy optimality.",
+        "correct_solution": "Dijkstra operates on greedy invariant that shortest path to visited nodes is finalized. Negative edge weights allow future path relaxation to decrease already-finalized distances. Bellman-Ford must be used instead.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Solid conceptual understanding of greedy invariants.",
+        "misconception": "None. Invariant breakdown properly articulated.",
+        "rule_to_remember": "Greedy Invariant Condition: Dijkstra requires non-negative edge weights (w(u,v) >= 0) to guarantee optimal substructure upon queue extraction."
+      }
+    ],
+    "common_misconceptions": [
+      "Unlinked Recursive Return: Failing to capture return value when inserting into BST (root.left = insert(root.left)).",
+      "Forward Loop in 1D Knapsack: Forward iteration allows an item to be selected multiple times."
+    ],
+    "what_to_learn_next": [
+      "Tree Mutation Drill: Always write root.child = helper(root.child) when returning reconstructed subtrees.",
+      "Reverse DP Loop Habit: For subsets without repetition, always iterate weights from capacity W down to weight[i]."
+    ],
+    "is_live_gemini": false,
+    "model_used": "Universal Diagnostic Engine (Computer Science)",
+    "notice": "Live Gemini quota temporarily unavailable; dynamic universal Computer Science diagnostic evaluated successfully.",
+    "id": "diag_1789414078122_1jk2",
+    "createdAt": "2026-09-14T19:27:58.122Z"
+  },
+  {
+    "student_name": "Aarav Gupta",
+    "student_class": "Grade 11 Section A",
+    "student_roll_no": "15",
+    "subject": "Biology",
+    "exam_title": "Cellular & Molecular Biology Diagnostic",
+    "overall_score_percentage": 85,
+    "topic_breakdown": [
+      {
+        "topic_name": "Cellular Respiration & Chemiosmosis",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Mendelian Genetics & Dihybrid Crosses",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Molecular Genetics & DNA Replication",
+        "understanding_percentage": 40,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Gene Regulation & Operon Dynamics",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Cellular Respiration & Chemiosmosis",
+        "question_text": "Trace the path of protons and electrons in the mitochondrial electron transport chain during oxidative phosphorylation.",
+        "student_working": "NADH and FADH2 donate electrons to Complexes I and II. Electrons flow through CoQ and Cytochrome c to Oxygen, which forms H2O. Complexes I, III, IV pump H+ ions into intermembrane space creating electrochemical gradient. H+ flows back through ATP Synthase to generate ATP from ADP + Pi.",
+        "correct_solution": "Electrons pass through ETC complexes (I, II, III, IV) to final electron acceptor O2 (forming H2O). Protons are pumped across inner membrane to intermembrane space. Proton-motive force drives ATP synthesis via rotational catalysis of ATP Synthase.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Exemplary cellular bioenergetics description with explicit gradient tracking.",
+        "misconception": "None. Coupling between electron flow and chemiosmosis is thorough.",
+        "rule_to_remember": "Chemiosmotic Coupling: Electron transfer releases free energy to generate a proton-motive gradient driving ATP Synthase."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Mendelian Genetics & Dihybrid Crosses",
+        "question_text": "In pea plants, Yellow (Y) is dominant to Green (y), and Round (R) is dominant to Wrinkled (r). In a dihybrid cross YyRr x YyRr, calculate the expected fraction of Green, Round offspring.",
+        "student_working": "Dihybrid ratio is 9:3:3:1. Green is recessive (yy) -> 1/4. Round is dominant (RR or Rr) -> 3/4. Multiplying: (1/4) * (3/4) = 3/16 = 18.75%.",
+        "correct_solution": "Green (yy) probability = 1/4. Round (R_) probability = 3/4. By law of independent assortment: P(Green, Round) = (1/4) * (3/4) = 3/16 (18.75%).",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Accurate probabilistic product rule application.",
+        "misconception": "None. Independent assortment applied properly.",
+        "rule_to_remember": "Product Rule in Genetics: P(A and B) = P(A) * P(B) for unlinked autosomal loci."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Molecular Genetics & DNA Replication",
+        "question_text": "Describe the functional difference between leading strand and lagging strand synthesis at the replication fork.",
+        "student_working": "DNA polymerase synthesizes DNA from 3 to 5 prime. Leading strand is continuous. Lagging strand is discontinuous forming Okazaki fragments. Fragments are connected by RNA polymerase.",
+        "correct_solution": "DNA Polymerase synthesizes ONLY in the 5' -> 3' direction (reading template 3' -> 5'). The leading strand points into fork continuously. The lagging strand synthesizes away from fork in Okazaki fragments. RNA primers are removed by DNA Pol I, and gaps sealed by DNA Ligase (not RNA polymerase).",
+        "max_marks": 25,
+        "awarded_marks": 10,
+        "understanding_percentage": 40,
+        "status": "Red",
+        "mistake_detected": "Directionality & Enzymatic Reversal: Stated DNA synthesis proceeds 3' -> 5' (it is 5' -> 3') and attributed fragment sealing to RNA polymerase rather than DNA Ligase.",
+        "misconception": "Polymerase Polarity Confusion: Confusing template reading direction (3' -> 5') with new strand elongation direction (5' -> 3').",
+        "rule_to_remember": "Universal Polymerase Law: ALL nucleic acid synthesis occurs strictly 5' to 3' via nucleophilic attack on the 3'-OH group."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Gene Regulation & Operon Dynamics",
+        "question_text": "Explain the state of the lac operon in the presence of high lactose and high glucose.",
+        "student_working": "Lactose is present, so allolactose binds lac repressor and removes it from operator. But with high glucose, cAMP levels are low, so CAP is inactive and does not bind promoter. Transcription occurs at very low (basal) levels.",
+        "correct_solution": "Allolactose binds repressor, preventing operator binding. However, high glucose causes catabolite repression (low cAMP -> inactive CAP). RNA Polymerase has low affinity for promoter without CAP-cAMP complex, resulting in low/basal transcription.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Sharp dual-control analysis (negative control via repressor, positive control via CAP).",
+        "misconception": "None. Catabolite repression model recognized.",
+        "rule_to_remember": "Lac Operon Dual Gate: Repressor acts as ON/OFF switch; CAP-cAMP acts as volume knob."
+      }
+    ],
+    "common_misconceptions": [
+      "DNA Directionality Inversion: Confusing template reading (3'->5') with chain synthesis (5'->3').",
+      "Ligation Enzyme Confusion: Attributing Okazaki fragment phosphodiester sealing to RNA Pol rather than DNA Ligase."
+    ],
+    "what_to_learn_next": [
+      "Directionality Anchor: Always draw an arrow with 5' at the tail and 3'-OH at the arrowhead.",
+      "Enzyme Function Checklist: DNA Helicase unwinds, Primase lays RNA primers, Pol III elongates, Pol I replaces primers, Ligase seals nicks."
+    ],
+    "is_live_gemini": false,
+    "model_used": "Universal Diagnostic Engine (Biology)",
+    "notice": "Live Gemini quota temporarily unavailable; dynamic universal Biology diagnostic evaluated successfully.",
+    "id": "diag_1789414077095_dwxz",
+    "createdAt": "2026-09-14T19:27:57.095Z"
+  },
+  {
+    "student_name": "Aarav Gupta",
+    "student_class": "Grade 11 Section A",
+    "student_roll_no": "15",
+    "subject": "Chemistry",
+    "exam_title": "Chemical Principles & Analytical Diagnostics",
+    "overall_score_percentage": 75,
+    "topic_breakdown": [
+      {
+        "topic_name": "Stoichiometry & Theoretical Yield",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Acid-Base Equilibria & Buffer pH",
+        "understanding_percentage": 60,
+        "status": "Yellow"
+      },
+      {
+        "topic_name": "Chemical Thermodynamics & Gibbs Free Energy",
+        "understanding_percentage": 40,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Organic Reaction Mechanisms & Stereochemistry",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Stoichiometry & Theoretical Yield",
+        "question_text": "Calculate the theoretical yield of ammonia (NH3) formed when 28.0 g of N2 reacts with excess H2: N2 + 3H2 -> 2NH3.",
+        "student_working": "Molar mass N2 = 28.0 g/mol => moles N2 = 28.0 / 28.0 = 1.0 mol. From stoichiometry: 1 mol N2 produces 2 mol NH3. Molar mass NH3 = 14 + 3 = 17.0 g/mol. Mass NH3 = 2.0 * 17.0 = 34.0 grams.",
+        "correct_solution": "Moles N2 = 28.0 / 28.0 = 1.0 mol. Mole ratio N2:NH3 is 1:2 => 2.0 mol NH3. Theoretical yield = 2.0 mol * 17.03 g/mol = 34.06 g NH3.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Rigorous dimensional analysis and mole ratio mapping.",
+        "misconception": "None. Balanced equation mole ratios followed properly.",
+        "rule_to_remember": "Stoichiometric Conversion: Grams A -> Moles A -> Mole Ratio (B/A) -> Grams B."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Acid-Base Equilibria & Buffer pH",
+        "question_text": "Calculate the pH of a buffer solution composed of 0.20 M acetic acid (CH3COOH, Ka = 1.8 x 10^-5) and 0.10 M sodium acetate (CH3COONa).",
+        "student_working": "pKa = -log(1.8 * 10^-5) = 4.74. Henderson-Hasselbalch: pH = pKa + log([acid] / [base]) = 4.74 + log(0.20 / 0.10) = 4.74 + 0.30 = 5.04.",
+        "correct_solution": "pH = pKa + log([base] / [acid]). pKa = 4.74. [base] = 0.10 M, [acid] = 0.20 M. pH = 4.74 + log(0.10 / 0.20) = 4.74 + log(0.5) = 4.74 - 0.30 = 4.44.",
+        "max_marks": 25,
+        "awarded_marks": 15,
+        "understanding_percentage": 60,
+        "status": "Yellow",
+        "mistake_detected": "Inverted Buffer Ratio: Wrote log([acid]/[base]) instead of log([conjugate base]/[acid]). Because [acid] > [base], pH must be lower than pKa.",
+        "misconception": "Ratio Reversal Trap: Failing to recognize that higher acid concentration must depress the buffer pH below pKa.",
+        "rule_to_remember": "Henderson-Hasselbalch Anchor: pH = pKa + log([A-] / [HA]). Remember: Base over Acid (B before A in the alphabet)."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Chemical Thermodynamics & Gibbs Free Energy",
+        "question_text": "For a reaction at 298 K, ΔH° = -92.2 kJ and ΔS° = -198.7 J/K. Determine ΔG° and state if spontaneous.",
+        "student_working": "ΔG = ΔH - T * ΔS = -92.2 - 298 * (-198.7) = -92.2 + 59212.6 = +59120 kJ (Non-spontaneous).",
+        "correct_solution": "Must convert ΔS to kJ/K: ΔS° = -0.1987 kJ/K. ΔG° = -92.2 kJ - (298 K * -0.1987 kJ/K) = -92.2 - (-59.21) = -32.99 kJ. Since ΔG° < 0, reaction is spontaneous.",
+        "max_marks": 25,
+        "awarded_marks": 10,
+        "understanding_percentage": 40,
+        "status": "Red",
+        "mistake_detected": "Unit Scale Inconsistency: Added Joules directly to kiloJoules without dividing ΔS by 1000, reversing the sign of spontaneity.",
+        "misconception": "Dimensional Scale Blindness: Overlooking standard prefix mismatches (kJ vs J) in thermodynamic equations.",
+        "rule_to_remember": "Thermodynamic Unit Check: Always convert entropy to kJ/(mol·K) before subtracting from enthalpy: ΔG (kJ) = ΔH (kJ) - T(K) * [ΔS (J/K) / 1000]."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Organic Reaction Mechanisms & Stereochemistry",
+        "question_text": "Predict the mechanism and stereochemical outcome when (S)-2-bromobutane is treated with sodium cyanide in acetone.",
+        "student_working": "Acetone is polar aprotic solvent, cyanide is strong nucleophile -> SN2 mechanism. Nucleophile attacks from back of C-Br bond, causing inversion of configuration. Resulting product is (R)-2-methylbutanenitrile.",
+        "correct_solution": "Polar aprotic solvent + unhindered secondary substrate + strong nucleophile = SN2 bimolecular substitution. Walden inversion converts (S) stereocenter into (R)-2-cyanobutane.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Comprehensive mechanistic reasoning and stereochemical assignment.",
+        "misconception": "None. Solvent and nucleophile kinetics recognized.",
+        "rule_to_remember": "SN2 Stereocenter Rule: Concerted bimolecular backside displacement always inverts tetrahedral chiral geometry."
+      }
+    ],
+    "common_misconceptions": [
+      "Henderson-Hasselbalch Ratio Inversion: Writing log([HA]/[A-]) rather than log([conjugate base]/[weak acid]).",
+      "Thermodynamic Prefix Omission: Direct addition of Joules to kiloJoules in Gibbs calculations."
+    ],
+    "what_to_learn_next": [
+      "Buffer Qualitative Verification: Check if [HA] > [A-], pH MUST be less than pKa.",
+      "Thermodynamics Prefix Discipline: Circle the \"k\" in kJ and write \"/ 1000\" under any J/K value."
+    ],
+    "is_live_gemini": false,
+    "model_used": "Universal Diagnostic Engine (Chemistry)",
+    "notice": "Live Gemini quota temporarily unavailable; dynamic universal Chemistry diagnostic evaluated successfully.",
+    "id": "diag_1789414075872_0ioh",
+    "createdAt": "2026-09-14T19:27:55.872Z"
+  },
+  {
+    "student_name": "Aarav Gupta",
+    "student_class": "Grade 11 Section A",
+    "student_roll_no": "15",
+    "subject": "Physics",
+    "exam_title": "Mechanics & Dynamics Comprehensive Diagnostic",
+    "overall_score_percentage": 75,
+    "topic_breakdown": [
+      {
+        "topic_name": "Kinematics & Projectile Trajectory",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Newton’s Second Law & Friction",
+        "understanding_percentage": 60,
+        "status": "Yellow"
+      },
+      {
+        "topic_name": "Work-Energy Theorem & Conservation",
+        "understanding_percentage": 40,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Rotational Mechanics & Torque",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Kinematics & Projectile Trajectory",
+        "question_text": "A projectile is launched from ground level at 25 m/s at an angle of 30° above horizontal. Find the maximum height reached (g = 9.8 m/s²).",
+        "student_working": "Vertical component: v_0y = 25 * sin(30°) = 12.5 m/s. At peak height v_y = 0. Using v_y^2 = v_0y^2 - 2gh => 0 = (12.5)^2 - 2(9.8)h => 19.6h = 156.25 => h = 7.97 meters.",
+        "correct_solution": "v_0y = 25 * sin(30°) = 12.5 m/s. Using v_y^2 = v_0y^2 - 2gh at v_y = 0: h_max = (12.5)^2 / (2 * 9.8) = 156.25 / 19.6 = 7.97 m.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean vector decomposition with explicit kinematic equation choice.",
+        "misconception": "None. Vertical velocity isolation executed accurately.",
+        "rule_to_remember": "Peak Height Condition: Set vertical velocity v_y = 0 at the zenith of any unpowered trajectory."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Newton’s Second Law & Friction",
+        "question_text": "A 5 kg block is pulled along a rough horizontal plane with force F = 30 N. Coefficient of kinetic friction μ_k = 0.3. Find the acceleration (g = 9.8 m/s²).",
+        "student_working": "Normal force N = mg = 5 * 9.8 = 49 N. Friction f_k = μ_k * N = 0.3 * 49 = 14.7 N. Net force = F + f_k = 30 + 14.7 = 44.7 N. a = 44.7 / 5 = 8.94 m/s².",
+        "correct_solution": "N = mg = 49 N. Opposing friction f_k = μ_k * N = 14.7 N. Net force opposing motion: F_net = F - f_k = 30 - 14.7 = 15.3 N. Acceleration a = F_net / m = 15.3 / 5 = 3.06 m/s².",
+        "max_marks": 25,
+        "awarded_marks": 15,
+        "understanding_percentage": 60,
+        "status": "Yellow",
+        "mistake_detected": "Friction Sign Error: Added frictional force instead of subtracting it from the pulling force: wrote F + f_k instead of F - f_k.",
+        "misconception": "Vector Direction Inversion: Friction opposes relative motion; it must always have a negative sign relative to velocity.",
+        "rule_to_remember": "Opposing Resistance Law: Friction is inherently dissipative: F_net = F_applied - f_friction."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Work-Energy Theorem & Conservation",
+        "question_text": "A roller coaster cart of mass 200 kg rolls down from height H = 20 m to h = 5 m with negligible friction. Find its speed at h = 5 m (initial speed = 0).",
+        "student_working": "E_initial = mgH = 200 * 9.8 * 20 = 39200 J. At h = 5m, student used 0.5 * m * v^2 = mg * 5m => 100 * v^2 = 9800 => v = 9.9 m/s.",
+        "correct_solution": "Conservation of mechanical energy: mgH = mgh + 0.5 * m * v^2 => 0.5 * v^2 = g(H - h) = 9.8 * (20 - 5) = 147 => v = sqrt(294) ≈ 17.15 m/s.",
+        "max_marks": 25,
+        "awarded_marks": 10,
+        "understanding_percentage": 40,
+        "status": "Red",
+        "mistake_detected": "Energy Balance Miscalculation: Equated kinetic energy to remaining potential energy mg*h rather than the potential energy lost mg*(H - h).",
+        "misconception": "Reference Datum Confusion: Confused absolute height with the height differential Δh converted into kinetic energy.",
+        "rule_to_remember": "Energy Transformation Equation: ΔK = -ΔU. Kinetic energy gained equals potential energy lost: 0.5*m*v^2 = mg(h_initial - h_final)."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Rotational Mechanics & Torque",
+        "question_text": "A solid cylindrical wheel with moment of inertia I = 0.5 kg·m² has a tangential torque of 12 N·m applied for 4 seconds from rest. Calculate the angular velocity.",
+        "student_working": "Torque τ = I * α => α = 12 / 0.5 = 24 rad/s². Final angular velocity ω = ω_0 + α * t = 0 + 24 * 4 = 96 rad/s.",
+        "correct_solution": "τ = I * α => α = 12 / 0.5 = 24 rad/s². ω = ω_0 + α * t = 0 + (24)(4) = 96 rad/s.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Flawless rotational kinematics integration.",
+        "misconception": "None. Direct analog between linear and angular momentum.",
+        "rule_to_remember": "Rotational Newton’s Law: τ_net = I * α. Linear and rotational equations share identical mathematical isomorphisms."
+      }
+    ],
+    "common_misconceptions": [
+      "Directional Resistance Neglect: Adding dissipative friction forces to applied driving forces instead of subtracting.",
+      "Potential Energy Differential Error: Confusing total remaining height with the converted height loss Δh."
+    ],
+    "what_to_learn_next": [
+      "Free-Body Diagram Vector Drill: Always define a coordinate axis and mark arrows for friction in the opposite direction of motion.",
+      "Work-Energy Delta Check: State explicitly E_initial = E_final and verify Δh = h_initial - h_final."
+    ],
+    "is_live_gemini": false,
+    "model_used": "Universal Diagnostic Engine (Physics)",
+    "notice": "Live Gemini quota temporarily unavailable; dynamic universal Physics diagnostic evaluated successfully.",
+    "id": "diag_1789414074610_1ojz",
+    "createdAt": "2026-09-14T19:27:54.610Z"
+  },
+  {
+    "student_name": "Aarav Gupta",
     "student_class": "Class 10 Section A",
     "student_roll_no": "24",
     "subject": "Mathematics",

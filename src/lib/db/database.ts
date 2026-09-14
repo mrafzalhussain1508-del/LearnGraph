@@ -234,7 +234,12 @@ export const diagnosticReportRepo = {
       }
     }
 
-    // If subject-specific not found, return latest for this student
+    // If cleanSubject was explicitly specified but no match found, do NOT cross-contaminate with other subjects
+    if (cleanSubject) {
+      return null;
+    }
+
+    // If no subject filter was specified, return latest for this student
     return this.getLatestForStudent(studentIdentifier);
   },
 

@@ -7,6 +7,7 @@ export interface StoredQuestionItem {
   topic_name: string;
   question_text: string;
   student_working: string;
+  correct_solution?: string;
   max_marks: number;
   awarded_marks: number;
   understanding_percentage: number;
@@ -139,6 +140,35 @@ export const diagnosticDb = {
         (diagRoll && diagRoll.includes(cleanId))
       ) {
         return diag;
+      }
+    }
+    return null;
+  },
+
+  getLatestForStudentAndSubject(identifier: string, subjectName: string): StoredDiagnostic | null {
+    if (!identifier || !subjectName) return null;
+    const cleanId = identifier.trim().toLowerCase();
+    const cleanStripped = cleanId.replace(/[\s\-_.]/g, '');
+    const cleanSubj = subjectName.trim().toLowerCase();
+    const all = this.getAll();
+
+    for (const diag of all) {
+      const rawName = diag.student_name || (diag as any).studentName || '';
+      const diagName = rawName.trim().toLowerCase();
+      const diagStripped = diagName.replace(/[\s\-_.]/g, '');
+      const diagRoll = (diag.student_roll_no || (diag as any).studentRollNo || '').trim().toLowerCase();
+      const diagSubject = (diag.subject || (diag as any).subject || '').trim().toLowerCase();
+
+      const nameMatches =
+        diagName === cleanId ||
+        diagStripped === cleanStripped ||
+        (cleanId.length >= 3 && diagStripped.includes(cleanStripped)) ||
+        (diagRoll && diagRoll.includes(cleanId));
+
+      if (nameMatches) {
+        if (diagSubject.includes(cleanSubj) || cleanSubj.includes(diagSubject)) {
+          return diag;
+        }
       }
     }
     return null;

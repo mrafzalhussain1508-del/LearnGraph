@@ -80,6 +80,7 @@ export interface DiagnosticQuestionItem {
   topic_name: string;
   question_text: string;
   student_working: string;
+  correct_solution?: string;
   max_marks: number;
   awarded_marks: number;
   understanding_percentage: number;

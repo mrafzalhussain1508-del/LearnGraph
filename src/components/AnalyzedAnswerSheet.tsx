@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import { AnalyzeSheetResponse } from '@/app/api/analyze-sheet/route';
 import { 
   FileText, 
-  Sparkles, 
+  Sparkles,
+  CheckCircle2,
 } from 'lucide-react';
 
 export interface AnalyzedQuestion {
@@ -15,6 +16,7 @@ export interface AnalyzedQuestion {
   awardedMarks: number;
   questionText: string;
   studentAnswerText: string;
+  correctSolution?: string;
   highlightedMistake: string;
   misconceptionAnalysis: string;
   aiCorrectionTip: string;
@@ -101,6 +103,7 @@ export default function AnalyzedAnswerSheet({
         awardedMarks: q.awarded_marks ?? Math.round(((q.understanding_percentage ?? 0) / 100) * (q.max_marks || 25)),
         questionText: q.question_text || `Question ${idx + 1}`,
         studentAnswerText: q.student_working || 'Student working transcribed.',
+        correctSolution: q.correct_solution || (q as any).correctSolution,
         highlightedMistake: q.mistake_detected || (q.status === 'Green' ? 'Clean procedural and conceptual solution.' : 'Step error detected.'),
         misconceptionAnalysis: q.misconception || (q.status === 'Green' ? 'Clean working steps with zero errors.' : 'Conceptual error in working steps.'),
         aiCorrectionTip: q.rule_to_remember || 'Follow standard mathematical procedure.',
@@ -252,6 +255,19 @@ export default function AnalyzedAnswerSheet({
                   {currentQ.studentAnswerText}
                 </div>
               </div>
+
+              {/* Canonical Model Solution */}
+              {currentQ.correctSolution && (
+                <div className="p-3.5 bg-emerald-50/90 dark:bg-emerald-950/40 rounded-xl border border-emerald-300 dark:border-emerald-800 text-emerald-950 dark:text-emerald-200">
+                  <div className="flex items-center space-x-1.5 text-xs font-bold uppercase text-emerald-700 dark:text-emerald-400 mb-1 font-sans">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>Canonical Model Solution:</span>
+                  </div>
+                  <div className="font-mono text-xs text-emerald-900 dark:text-emerald-200">
+                    {currentQ.correctSolution}
+                  </div>
+                </div>
+              )}
 
               {/* Red Pen Correction Overlay */}
               {currentQ.status !== 'correct' && (

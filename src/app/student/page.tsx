@@ -31,103 +31,6 @@ import MockTestsView from '@/components/student/MockTestsView';
 
 type StudentTabId = 'overview' | 'subjects' | 'topics' | 'sheet' | 'next_steps' | 'mock_tests' | 'resources';
 
-const sampleGeminiResponse: AnalyzeSheetResponse = {
-  student_name: 'Aarav Gupta',
-  student_class: 'Class 10 • Section A',
-  student_roll_no: 'Roll No: 24',
-  subject: 'Algebra & Quadratic Equations',
-  exam_title: 'Class 10 Algebra & Quadratic Equations Midterm',
-  overall_score_percentage: 70,
-  topic_breakdown: [
-    {
-      topic_name: 'Linear Equations in Two Variables',
-      understanding_percentage: 100,
-      status: 'Green',
-    },
-    {
-      topic_name: 'Quadratic Equation Factorization & Roots',
-      understanding_percentage: 60,
-      status: 'Yellow',
-    },
-    {
-      topic_name: 'Algebraic Identities & Bracket Expansion',
-      understanding_percentage: 40,
-      status: 'Red',
-    },
-    {
-      topic_name: 'Linear Equations Word Problems',
-      understanding_percentage: 100,
-      status: 'Green',
-    },
-  ],
-  questions: [
-    {
-      question_number: 1,
-      topic_name: 'Linear Equations in Two Variables',
-      question_text: 'Solve the system of linear equations by substitution: 2x + 3y = 12 and x - y = 1.',
-      student_working: 'From equation 2: x = y + 1. Substitute into eq 1: 2(y + 1) + 3y = 12 => 2y + 2 + 3y = 12 => 5y = 10 => y = 2. Then x = 2 + 1 = 3. Final Solution: x = 3, y = 2.',
-      max_marks: 25,
-      awarded_marks: 25,
-      understanding_percentage: 100,
-      status: 'Green',
-      mistake_detected: 'Clean procedural substitution with zero calculation errors.',
-      misconception: 'None. Method of substitution executed with solid foundational accuracy.',
-      rule_to_remember: 'Substitution Method: Isolate the single-coefficient variable first and protect terms with parentheses.',
-    },
-    {
-      question_number: 2,
-      topic_name: 'Quadratic Equation Factorization & Roots',
-      question_text: 'Solve the quadratic equation by factoring: x^2 - 4x - 12 = 0.',
-      student_working: 'Find factors of -12 that add to -4: -6 and +2. Factored form: (x - 6)(x + 2) = 0. Therefore roots are: x = -6 or x = 2.',
-      max_marks: 25,
-      awarded_marks: 15,
-      understanding_percentage: 60,
-      status: 'Yellow',
-      mistake_detected: 'Sign Inversion on Root Extraction: Factorization (x - 6)(x + 2) was correct, but student inverted root signs stating x = -6 or x = 2 instead of x = 6 or x = -2.',
-      misconception: 'Zero-Product Sign Confusion: Confused linear factor constants with roots, failing to write out x - 6 = 0 => x = +6 and x + 2 = 0 => x = -2.',
-      rule_to_remember: 'Zero Product Property: Always write the explicit intermediate step: (x - a) = 0 => x = +a.',
-    },
-    {
-      question_number: 3,
-      topic_name: 'Algebraic Identities & Bracket Expansion',
-      question_text: 'Expand and simplify: (2x + 3)^2 - (2x - 3)^2.',
-      student_working: '(4x^2 + 12x + 9) - (4x^2 - 12x + 9) = 4x^2 - 4x^2 + 12x - 12x + 9 - 9 = 0.',
-      max_marks: 25,
-      awarded_marks: 10,
-      understanding_percentage: 40,
-      status: 'Red',
-      mistake_detected: 'Negative Distribution Error: Failed to distribute the negative sign across the second bracket: wrote -(-12x) as -12x instead of +12x. Expected answer: 24x.',
-      misconception: 'Bracket Neglect under Subtraction: Dropped parentheses prematurely without multiplying every internal term by -1.',
-      rule_to_remember: 'Distribution Anchor: -(A - B + C) = -A + B - C. Invert every internal sign when expanding subtracted brackets.',
-    },
-    {
-      question_number: 4,
-      topic_name: 'Linear Equations Word Problems',
-      question_text: 'The perimeter of a rectangular garden is 48 meters. The length is 6 meters greater than the width. Find the length and width.',
-      student_working: 'Let width = w, length = w + 6. Perimeter = 2(l + w) = 2(w + 6 + w) = 2(2w + 6) = 4w + 12. Set 4w + 12 = 48 => 4w = 36 => w = 9 meters. Length = 9 + 6 = 15 meters. Verification: 2(15 + 9) = 48m.',
-      max_marks: 25,
-      awarded_marks: 25,
-      understanding_percentage: 100,
-      status: 'Green',
-      mistake_detected: 'Clean mathematical modeling with explicit verification check.',
-      misconception: 'None. Geometric translation to algebraic equation is robust.',
-      rule_to_remember: 'Perimeter Formulation: 2(length + width) = P. Always define variables explicitly before modeling.',
-    },
-  ],
-  common_misconceptions: [
-    'Zero-Product Sign Confusion: Directly copying numbers from linear factors instead of solving (x - 6 = 0 => x = 6).',
-    'Negative Bracket Distribution: Dropping parentheses without multiplying interior negative terms by -1.',
-  ],
-  what_to_learn_next: [
-    'Quadratic Factor-to-Root Check: Always set each bracket to 0 separately: (x - a) = 0 => x = a.',
-    'Two-Pass Negative Distribution: Circle the preceding negative sign and multiply across each term individually.',
-    'Mastery Checkpoint: Solve 5 quadratic factorization drills with mixed positive and negative roots.',
-  ],
-  is_live_gemini: true,
-  model_used: 'Gemini 3.6 Flash (Diagnostic Evaluation)',
-  notice: 'Loaded dynamic diagnostic assessment.',
-};
-
 const tabList: { id: StudentTabId; label: string; icon: React.ElementType }[] = [
   { id: 'overview', label: 'Study Guide Overview', icon: BookOpen },
   { id: 'subjects', label: 'My Subjects', icon: Layers },
@@ -268,16 +171,36 @@ function StudentDashboardContent() {
     setAnalysisResult(null);
   };
 
-  const handleLoadSample = () => {
-    const sample = {
-      ...sampleGeminiResponse,
-      student_name: user?.name || 'Aarav Gupta',
-      subject: selectedSubject || 'Algebra & Quadratic Equations',
-    };
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('learngraph_latest_analysis', JSON.stringify(sample));
+  const handleLoadSample = async () => {
+    setIsLoading(true);
+    try {
+      const activeName = user?.name || 'Aarav Gupta';
+      const sampleFile = new File(
+        [`Diagnostic Evaluation Submission for ${selectedSubject}\nStudent Name: ${activeName}\nSubject: ${selectedSubject}`],
+        `${selectedSubject.replace(/\s+/g, '_')}_Paper.txt`,
+        { type: 'text/plain' }
+      );
+      const fd = new FormData();
+      fd.append('file', sampleFile);
+      fd.append('student_name', activeName);
+      fd.append('subject', selectedSubject);
+
+      const res = await fetch('/api/analyze-sheet', {
+        method: 'POST',
+        body: fd,
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setAnalysisResult(data);
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('learngraph_latest_analysis', JSON.stringify(data));
+        }
+      }
+    } catch (err) {
+      console.error('Error analyzing sample for subject:', err);
+    } finally {
+      setIsLoading(false);
     }
-    setAnalysisResult(sample);
   };
 
   const handleMarkTopicCleared = (topicName: string) => {
@@ -415,7 +338,7 @@ function StudentDashboardContent() {
 
             {/* Quick Switch Pills */}
             <div className="flex items-center space-x-1.5 overflow-x-auto max-w-full">
-              {['Mathematics', 'Physics', 'Chemistry', 'Computer Science'].map((subj) => {
+              {['Mathematics', 'Physics', 'Chemistry', 'Computer Science', 'Biology', 'History'].map((subj) => {
                 const isSel = subj.toLowerCase() === selectedSubject.toLowerCase();
                 return (
                   <button
@@ -442,8 +365,8 @@ function StudentDashboardContent() {
           </div>
         </div>
 
-        {/* Awaiting Upload Clean State (When no sheet is parsed yet and user is on overview) */}
-        {!analysisResult && activeTab === 'overview' ? (
+        {/* Awaiting Upload Clean State (When no sheet is parsed yet and user is on any study desk tab) */}
+        {!analysisResult && activeTab !== 'subjects' ? (
           <div className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-dashed border-[#e2dac8] dark:border-slate-800 p-6 sm:p-10 md:p-12 shadow-sm text-center space-y-6 animate-fadeIn">
             <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900/60 flex items-center justify-center mx-auto text-indigo-600 dark:text-indigo-400 shadow-sm shadow-indigo-100">
               <UploadCloud className="w-8 h-8" />
@@ -464,7 +387,7 @@ function StudentDashboardContent() {
 
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
               <Link
-                href="/upload"
+                href={`/upload?subject=${encodeURIComponent(selectedSubject)}`}
                 className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-md shadow-indigo-600/20 transition-all hover:scale-105"
               >
                 <UploadCloud className="w-4 h-4" />
@@ -477,7 +400,7 @@ function StudentDashboardContent() {
                 className="inline-flex items-center space-x-2 px-5 py-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-sm transition-all border border-slate-200 dark:border-slate-700 cursor-pointer"
               >
                 <Sparkles className="w-4 h-4 text-amber-500" />
-                <span>Try Demo Diagnostic</span>
+                <span>Diagnose Sample {selectedSubject} Sheet</span>
               </button>
             </div>
           </div>

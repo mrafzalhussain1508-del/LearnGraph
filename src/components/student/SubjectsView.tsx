@@ -93,6 +93,16 @@ export const DEFAULT_STUDENT_SUBJECTS: StudentSubject[] = [
     topicCount: 3,
     status: 'pending',
   },
+  {
+    id: 'subj-hist',
+    name: 'History',
+    code: 'HIST-101',
+    category: 'Core',
+    teacher: 'Mr. Arthur Campbell',
+    color: 'amber',
+    topicCount: 4,
+    status: 'pending',
+  },
 ];
 
 interface SubjectsViewProps {
@@ -355,7 +365,7 @@ export default function SubjectsView({
 
                 <div className="flex items-center space-x-1.5">
                   <Link
-                    href={`/upload`}
+                    href={`/upload?subject=${encodeURIComponent(subj.name)}`}
                     className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                     title={`Upload answer sheet for ${subj.name}`}
                   >
