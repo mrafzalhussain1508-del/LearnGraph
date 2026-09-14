@@ -1,5 +1,77 @@
 [
   {
+    "studentId": "priya_sharma",
+    "studentName": "Priya Sharma",
+    "subject": "Physics",
+    "fileName": "answer_sheet.txt",
+    "fileSize": 776,
+    "mimeType": "text/plain",
+    "detectedMime": "text/plain",
+    "rawExtractedText": "Name: Priya Sharma\nClass: 12th Grade\nRoll No: 29\nSubject: Physics\nExam: Multi-Discipline Diagnostic\n\nQuestion 1: A 5kg block is pulled with 30 N force against friction (mu_k = 0.3). Calculate net force and acceleration.\nStudent Working:\nN = mg = 49 N.\nFriction = 0.3 * 49 = 14.7 N.\nF_net = F + f_k = 30 + 14.7 = 44.7 N.\nFriction adds to pulling force so a = 44.7 / 5 = 8.94 m/s^2.\n\nQuestion 2: In DNA replication, what is the synthesis direction and what enzyme joins Okazaki fragments?\nStudent Working:\nThe lagging strand is synthesized 3' to 5' and RNA primase joins okazaki fragments together.\n\nQuestion 3: In a 1D DP array for 0/1 knapsack, how should capacity w be traversed?\nStudent Working:\nIterate capacity for w from 0 to W in a forward capacity loop to update dp[w].",
+    "id": "sheet_1789423554622_36t4",
+    "uploadedAt": "2026-09-14T22:05:54.622Z"
+  },
+  {
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "subject": "Chemistry",
+    "fileName": "answer_sheet.txt",
+    "fileSize": 1311,
+    "mimeType": "text/plain",
+    "detectedMime": "text/plain",
+    "rawExtractedText": "Name: Arola Thoudam\nClass: Class 11 • Section A\nRoll No: 14\nSubject: Chemistry\nExam: Periodic Properties & Chemical Trends Diagnostic Test\n\nQuestion 1: Define First Ionisation Enthalpy and explain why it generally increases across a period.\nStudent Working:\nFirst ionisation enthalpy is the minimum energy required to remove the most loosely bound electron from an isolated neutral gaseous atom. Across a period, nuclear charge increases while electrons enter the same shell, causing effective nuclear charge to rise, holding electrons tighter.\n\nQuestion 2: State how atomic radius changes across Period 3 from Sodium to Chlorine and give reason.\nStudent Working:\nAcross Period 3 from Na to Cl, atomic radius increases because atomic number increases from 11 to 17, adding more protons and electrons which expand the electron cloud. So chlorine is larger than sodium.\n\nQuestion 3: Why does Fluorine have the highest electronegativity on the Pauling scale?\nStudent Working:\nFluorine has the highest electronegativity because of its large size and extra shells, which gives it more space to attract shared electron pairs.\n\nQuestion 4: Compare the atomic radius of Magnesium (Mg) and Aluminium (Al).\nStudent Working:\nAluminium has 13 protons while Magnesium has 12 protons, so aluminium is larger than magnesium.",
+    "id": "sheet_1789423545321_7i1q",
+    "uploadedAt": "2026-09-14T22:05:45.321Z"
+  },
+  {
+    "studentId": "rishu",
+    "studentName": "Rishu",
+    "subject": "Mathematics",
+    "fileName": "answer_sheet.txt",
+    "fileSize": 618,
+    "mimeType": "text/plain",
+    "detectedMime": "text/plain",
+    "rawExtractedText": "Name: Rishu\nClass: 10th Grade\nRoll No: 18\nSubject: Mathematics\nExam: Algebra & Mensuration Diagnostic\n\nQuestion 1: Find the HCF of 72 and 120.\nStudent Working:\n72 = 2^3 * 3^2\n120 = 2^3 * 3 * 5\nCommon prime factors = 2^3 * 3 = 8 * 3 = 24.\nTherefore, HCF(72, 120) = 24.\n\nQuestion 2: Solve 2(x - 3) = 14 for x.\nStudent Working:\n2(x - 3) = 14\n2x - 3 = 14\n2x = 17\nx = 8.5\n\nQuestion 3: Simplify 2^3 * 2^4.\nStudent Working:\n2^3 * 2^4\nMultiplying exponents: 3 * 4 = 12\nResult = 2^12 = 4096.\n\nQuestion 4: A rectangle has length 12 cm and breadth 7 cm. Find its area.\nStudent Working:\nArea = length + breadth = 12 + 7 = 19 cm^2.",
+    "id": "sheet_1789423537640_hw3x",
+    "uploadedAt": "2026-09-14T22:05:37.640Z"
+  },
+  {
+    "studentId": "priya_sharma",
+    "studentName": "Priya Sharma",
+    "subject": "Physics",
+    "fileName": "answer_sheet.txt",
+    "fileSize": 776,
+    "mimeType": "text/plain",
+    "detectedMime": "text/plain",
+    "rawExtractedText": "Name: Priya Sharma\nClass: 12th Grade\nRoll No: 29\nSubject: Physics\nExam: Multi-Discipline Diagnostic\n\nQuestion 1: A 5kg block is pulled with 30 N force against friction (mu_k = 0.3). Calculate net force and acceleration.\nStudent Working:\nN = mg = 49 N.\nFriction = 0.3 * 49 = 14.7 N.\nF_net = F + f_k = 30 + 14.7 = 44.7 N.\nFriction adds to pulling force so a = 44.7 / 5 = 8.94 m/s^2.\n\nQuestion 2: In DNA replication, what is the synthesis direction and what enzyme joins Okazaki fragments?\nStudent Working:\nThe lagging strand is synthesized 3' to 5' and RNA primase joins okazaki fragments together.\n\nQuestion 3: In a 1D DP array for 0/1 knapsack, how should capacity w be traversed?\nStudent Working:\nIterate capacity for w from 0 to W in a forward capacity loop to update dp[w].",
+    "id": "sheet_1789423418568_f0fm",
+    "uploadedAt": "2026-09-14T22:03:38.568Z"
+  },
+  {
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "subject": "Chemistry",
+    "fileName": "answer_sheet.txt",
+    "fileSize": 1311,
+    "mimeType": "text/plain",
+    "detectedMime": "text/plain",
+    "rawExtractedText": "Name: Arola Thoudam\nClass: Class 11 • Section A\nRoll No: 14\nSubject: Chemistry\nExam: Periodic Properties & Chemical Trends Diagnostic Test\n\nQuestion 1: Define First Ionisation Enthalpy and explain why it generally increases across a period.\nStudent Working:\nFirst ionisation enthalpy is the minimum energy required to remove the most loosely bound electron from an isolated neutral gaseous atom. Across a period, nuclear charge increases while electrons enter the same shell, causing effective nuclear charge to rise, holding electrons tighter.\n\nQuestion 2: State how atomic radius changes across Period 3 from Sodium to Chlorine and give reason.\nStudent Working:\nAcross Period 3 from Na to Cl, atomic radius increases because atomic number increases from 11 to 17, adding more protons and electrons which expand the electron cloud. So chlorine is larger than sodium.\n\nQuestion 3: Why does Fluorine have the highest electronegativity on the Pauling scale?\nStudent Working:\nFluorine has the highest electronegativity because of its large size and extra shells, which gives it more space to attract shared electron pairs.\n\nQuestion 4: Compare the atomic radius of Magnesium (Mg) and Aluminium (Al).\nStudent Working:\nAluminium has 13 protons while Magnesium has 12 protons, so aluminium is larger than magnesium.",
+    "id": "sheet_1789423410929_9oxw",
+    "uploadedAt": "2026-09-14T22:03:30.929Z"
+  },
+  {
+    "studentId": "rishu",
+    "studentName": "Rishu",
+    "subject": "Mathematics",
+    "fileName": "answer_sheet.txt",
+    "fileSize": 618,
+    "mimeType": "text/plain",
+    "detectedMime": "text/plain",
+    "rawExtractedText": "Name: Rishu\nClass: 10th Grade\nRoll No: 18\nSubject: Mathematics\nExam: Algebra & Mensuration Diagnostic\n\nQuestion 1: Find the HCF of 72 and 120.\nStudent Working:\n72 = 2^3 * 3^2\n120 = 2^3 * 3 * 5\nCommon prime factors = 2^3 * 3 = 8 * 3 = 24.\nTherefore, HCF(72, 120) = 24.\n\nQuestion 2: Solve 2(x - 3) = 14 for x.\nStudent Working:\n2(x - 3) = 14\n2x - 3 = 14\n2x = 17\nx = 8.5\n\nQuestion 3: Simplify 2^3 * 2^4.\nStudent Working:\n2^3 * 2^4\nMultiplying exponents: 3 * 4 = 12\nResult = 2^12 = 4096.\n\nQuestion 4: A rectangle has length 12 cm and breadth 7 cm. Find its area.\nStudent Working:\nArea = length + breadth = 12 + 7 = 19 cm^2.",
+    "id": "sheet_1789423402488_rc8h",
+    "uploadedAt": "2026-09-14T22:03:22.488Z"
+  },
+  {
     "studentId": "elena_rostova",
     "studentName": "Elena Rostova",
     "subject": "Philosophy & Ethics",

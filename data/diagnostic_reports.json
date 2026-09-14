@@ -1,5 +1,625 @@
 [
   {
+    "answerSheetId": "sheet_1789423554622_36t4",
+    "studentId": "priya_sharma",
+    "studentName": "Priya Sharma",
+    "studentClass": "12th Grade",
+    "studentRollNo": "29",
+    "subject": "Physics",
+    "examTitle": "Multi-Discipline Diagnostic",
+    "overallScorePercentage": 0,
+    "totalQuestions": 3,
+    "totalAwardedMarks": 75,
+    "totalMaxMarks": 75,
+    "topicBreakdown": [
+      {
+        "topic_name": "Newtonian Mechanics: Kinetic Friction & Net Force Vectors",
+        "understanding_percentage": 0,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Molecular Biology: DNA Replication & Okazaki Ligation",
+        "understanding_percentage": 0,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Dynamic Programming: 1D Array 0/1 Knapsack State Traversal",
+        "understanding_percentage": 0,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Newtonian Mechanics: Kinetic Friction & Net Force Vectors",
+        "question_text": "A 5kg block is pulled with 30 N force against friction (mu_k = 0.3). Calculate net force and acceleration.",
+        "student_working": "N = mg = 49 N.\nFriction = 0.3 * 49 = 14.7 N.\nF_net = F + f_k = 30 + 14.7 = 44.7 N.\nFriction adds to pulling force so a = 44.7 / 5 = 8.94 m/s^2.",
+        "correct_solution": "Normal force N = mg = 5 * 9.8 = 49 N. Friction f_k = μ_k * N = 0.3 * 49 = 14.7 N. F_net = F - f_k = 30 - 14.7 = 15.3 N. Acceleration a = F_net / m = 15.3 / 5 = 3.06 m/s².",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Friction Vector Error: Added kinetic friction to pulling force (F + f_k = 44.7 N) instead of subtracting it (F - f_k = 15.3 N).",
+        "misconception": "Dissipative Resistance Direction Fallacy: Treating friction as an additive pulling force rather than an opposing resistive force.",
+        "rule_to_remember": "Opposing Resistance Law: Friction opposes relative motion: F_net = F_applied - f_friction."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Molecular Biology: DNA Replication & Okazaki Ligation",
+        "question_text": "In DNA replication, what is the synthesis direction and what enzyme joins Okazaki fragments?",
+        "student_working": "The lagging strand is synthesized 3' to 5' and RNA primase joins okazaki fragments together.",
+        "correct_solution": "DNA Polymerase III synthesizes continuous leading and discontinuous lagging strands strictly 5' to 3'. Okazaki fragments are RNA-primed, elongated, replaced by DNA Pol I, and joined covalently by DNA Ligase.",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Molecular Polarity/Enzymatic Error: Synthesizes strictly 5' to 3' (not 3' to 5') and DNA ligase (not RNA polymerase or primase) seals phosphodiester backbones between Okazaki fragments.",
+        "misconception": "Nucleic Acid Polarity Inversion: Misattributing synthesis directionality and enzyme functions in lagging strand replication.",
+        "rule_to_remember": "DNA Polymerase Rule: Always synthesizes 5' to 3'. DNA Ligase joins Okazaki fragments."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Dynamic Programming: 1D Array 0/1 Knapsack State Traversal",
+        "question_text": "In a 1D DP array for 0/1 knapsack, how should capacity w be traversed?",
+        "student_working": "Iterate capacity for w from 0 to W in a forward capacity loop to update dp[w].",
+        "correct_solution": "for i = 1 to n: for w = W down to wt[i]: dp[w] = max(dp[w], val[i] + dp[w - wt[i]]). Reverse traversal prevents using item i multiple times.",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "State Invariant Violation: Iterated capacity forward (0 to W) in 1D array, turning 0/1 knapsack into unbounded knapsack by reusing the same item.",
+        "misconception": "Unbounded Knapsack State Pollution: Failing to traverse capacity array in reverse (W down to w_i) in 1D memory-optimized DP.",
+        "rule_to_remember": "0/1 Knapsack Traversal Rule: In 1D DP array, iterate capacity backwards (W down to wt_i) so DP values come from the previous item."
+      }
+    ],
+    "commonMisconceptions": [
+      "Unbounded Knapsack State Pollution: In 1D DP 0/1 knapsack, iterating capacity forward allows the current item to be selected multiple times, corrupting the single-use invariant.",
+      "Enzyme & Polarity Inversion: Stated DNA is synthesized 3' to 5' or confused DNA ligase with RNA polymerase/primase during Okazaki fragment joining.",
+      "Vector Direction Inversion: Added dissipative friction force to applied force instead of subtracting it (F_net = F - f_friction).",
+      "Treating resistive forces (friction) as constructive/additive forces parallel to the applied vector.",
+      "Confusing replication template orientation with elongation direction, and mistaking primer synthesis for nick ligation.",
+      "Neglecting state overwrite hazards in space-optimized dynamic programming arrays, confusing 0/1 knapsack with unbounded knapsack."
+    ],
+    "whatToLearnNext": [
+      "Knapsack 1D State Array Drill: In 0/1 Knapsack, iterate capacity W down to wt_i backwards to ensure each item is used at most once.",
+      "DNA Replication Polarity Anchor: All nucleic acid polymerases synthesize exclusively in the 5' to 3' direction. DNA ligase seals phosphodiester nicks.",
+      "Free-Body Diagram Drill: Draw opposing friction vectors antiparallel to relative velocity.",
+      "Draw Free Body Diagrams (FBDs) before writing Newton's Second Law equations to verify vector opposition.",
+      "Review replication fork molecular machinery: 5' to 3' elongation rule and sequential roles of Primase, DNA Pol I, and Ligase.",
+      "Implement and dry-run 1D array state transitions for 0/1 Knapsack vs. Unbounded Knapsack to visualize item reuse."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-flash-latest (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789423554625_t0f6",
+    "createdAt": "2026-09-14T22:05:54.625Z"
+  },
+  {
+    "answerSheetId": "sheet_1789423545321_7i1q",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties & Chemical Trends Diagnostic Test",
+    "overallScorePercentage": 25,
+    "totalQuestions": 4,
+    "totalAwardedMarks": 25,
+    "totalMaxMarks": 100,
+    "topicBreakdown": [
+      {
+        "topic_name": "Define First Ionisation Enthalpy and explain why it generally increases across a period.",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "State how atomic radius changes across Period 3 from Sodium to Chlorine and give reason.",
+        "understanding_percentage": 0,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Why does Fluorine have the highest electronegativity on the Pauling scale?",
+        "understanding_percentage": 0,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Compare the atomic radius of Magnesium (Mg) and Aluminium (Al).",
+        "understanding_percentage": 0,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Define First Ionisation Enthalpy and explain why it generally increases across a period.",
+        "question_text": "Student Working:",
+        "student_working": "First ionisation enthalpy is the minimum energy required to remove the most loosely bound electron from an isolated neutral gaseous atom. Across a period, nuclear charge increases while electrons enter the same shell, causing effective nuclear charge to rise, holding electrons tighter.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "State how atomic radius changes across Period 3 from Sodium to Chlorine and give reason.",
+        "question_text": "Student Working:",
+        "student_working": "Across Period 3 from Na to Cl, atomic radius increases because atomic number increases from 11 to 17, adding more protons and electrons which expand the electron cloud. So chlorine is larger than sodium.",
+        "correct_solution": "Across Period 3 (Na to Cl), atomic number increases from 11 to 17 while electrons enter the same n = 3 shell. The effective nuclear charge (Z_eff) increases, drawing the valence electron cloud closer to the nucleus. Therefore, atomic radius decreases across the period.",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Periodic Trend Reversal Error: Stated that atomic radius/size increases across a period (from left to right). Across any period, atomic radius actually DECREASES because protons increase while electrons enter the same shell, driving up effective nuclear charge (Z_eff).",
+        "misconception": "Atomic Radius Trend Inversion: Confusing period contraction (Z_eff) with group expansion (adding principal quantum shells).",
+        "rule_to_remember": "Periodic Law of Radii: Atomic radius DECREASES across a period from left to right as Z_eff increases; it INCREASES down a group as principal quantum level n increases."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Why does Fluorine have the highest electronegativity on the Pauling scale?",
+        "question_text": "Student Working:",
+        "student_working": "Fluorine has the highest electronegativity because of its large size and extra shells, which gives it more space to attract shared electron pairs.",
+        "correct_solution": "Electronegativity is the tendency of an atom in a covalent bond to attract shared electron pairs. Fluorine has the highest Pauling value (4.0) because it has the smallest atomic size in Period 2 (excluding noble gases) and a high effective nuclear charge (Z_eff = +5.2), placing bonding electrons extremely close to its positively charged nucleus.",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Electronegativity Attribution Fallacy: Stated that Fluorine has high electronegativity due to \"large size\" or \"large radius\". In reality, Fluorine has the highest Pauling electronegativity (4.0) because of its minimal 2p covalent radius and high effective nuclear charge.",
+        "misconception": "Electronegativity Determinant Inversion: Believing high electronegativity is correlated with large atomic volume rather than minimal nuclear-to-electron distance.",
+        "rule_to_remember": "Electronegativity Inverse Size Rule: Electronegativity increases as atomic size DECREASES. Fluorine is the most electronegative atom precisely because it is the smallest non-noble reactive atom."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Compare the atomic radius of Magnesium (Mg) and Aluminium (Al).",
+        "question_text": "Student Working:",
+        "student_working": "Aluminium has 13 protons while Magnesium has 12 protons, so aluminium is larger than magnesium.",
+        "correct_solution": "Magnesium (Z = 12) and Aluminium (Z = 13) both have valence electrons in the n = 3 shell. Aluminium has 13 protons compared to Magnesium's 12 protons, resulting in a higher effective nuclear charge (Z_eff) in Aluminium. This stronger coulombic pull draws the electron cloud tighter towards the nucleus. Consequently, Magnesium (160 pm) has a larger atomic radius than Aluminium (143 pm): Mg > Al.",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Elemental Radius Comparison Error: Claimed Aluminium (Al) has a larger atomic radius than Magnesium (Mg). Across Period 3, atomic radius decreases as nuclear charge increases, so Mg (160 pm) is strictly larger than Al (143 pm).",
+        "misconception": "Mass-Radius Fallacy: Assuming that having more protons/electrons makes an atom physically larger within the same principal quantum shell.",
+        "rule_to_remember": "Iso-Period Radius Law: Across Period 3, Mg (Z=12, 160 pm) is larger than Al (Z=13, 143 pm) because Al's higher nuclear charge exerts a stronger coulombic pull on the n = 3 electrons."
+      }
+    ],
+    "commonMisconceptions": [
+      "Mass-Radius Fallacy (Mg vs Al Comparison): Assuming Aluminium (13 protons) is larger than Magnesium (12 protons) because it has more subatomic particles, ignoring that higher nuclear charge contracts the electron cloud across Period 3.",
+      "Electronegativity Determinant Inversion: Attributed Fluorine's high electronegativity to \"large size\" or \"large radius\", whereas high electronegativity is physically caused by Fluorine's exceptionally COMPACT covalent radius and high Z_eff.",
+      "Atomic Radius Trend Inversion: Stated that atomic radius increases across a period, conflating period trends (where higher Z_eff contracts the electron cloud) with group trends (where new shells expand atomic size)."
+    ],
+    "whatToLearnNext": [
+      "Period 3 Elemental Size Order: Memorize the atomic radius contraction from left to right: Na (186 pm) > Mg (160 pm) > Al (143 pm) > Si (118 pm) > P (110 pm) > S (102 pm) > Cl (99 pm). Higher Z within the same shell always shrinks radius.",
+      "Coulomb's Law of Electronegativity: Attraction force F = k*(Z_eff * e)/r². A smaller covalent radius r dramatically INCREASES nuclear electrostatic pull on shared bond pairs. Fluorine has the highest electronegativity BECAUSE it is the smallest halogen.",
+      "Periodic Radius Anchor: Across a period, atomic radius DECREASES (higher Z_eff pull on same shell n). Down a group, atomic radius INCREASES (new principal energy levels added)."
+    ],
+    "isLiveGemini": false,
+    "modelUsed": "Universal Diagnostic Engine (Chemistry)",
+    "notice": "Evaluated 4 questions dynamically from uploaded sheet.",
+    "id": "diag_rep_1789423545326_6ggg",
+    "createdAt": "2026-09-14T22:05:45.326Z"
+  },
+  {
+    "answerSheetId": "sheet_1789423537640_hw3x",
+    "studentId": "rishu",
+    "studentName": "Rishu",
+    "studentClass": "10th Grade",
+    "studentRollNo": "18",
+    "subject": "Mathematics",
+    "examTitle": "Algebra & Mensuration Diagnostic",
+    "overallScorePercentage": 25,
+    "totalQuestions": 4,
+    "totalAwardedMarks": 25,
+    "totalMaxMarks": 100,
+    "topicBreakdown": [
+      {
+        "topic_name": "Prime Factorisation & Highest Common Factor (HCF)",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Linear Equations: Distributive Law Expansion",
+        "understanding_percentage": 0,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Exponents & Powers: Product Law of Indices",
+        "understanding_percentage": 0,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Mensuration: Area of a Rectangle",
+        "understanding_percentage": 0,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Prime Factorisation & Highest Common Factor (HCF)",
+        "question_text": "Find the HCF of 72 and 120.",
+        "student_working": "72 = 2^3 * 3^2\n120 = 2^3 * 3 * 5\nCommon prime factors = 2^3 * 3 = 8 * 3 = 24.\nTherefore, HCF(72, 120) = 24.",
+        "correct_solution": "Express each number as a product of prime factors:\n72 = 2^3 × 3^2\n120 = 2^3 × 3^1 × 5^1\nHCF is the product of the lowest powers of common prime factors:\nHCF(72, 120) = 2^3 × 3^1 = 8 × 3 = 24.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None. The prime factorisation and identification of common powers are completely accurate.",
+        "misconception": "None.",
+        "rule_to_remember": "HCF is calculated by taking the lowest exponent of all common prime factors: HCF(a, b) = ∏ p_i^(min(a_i, b_i))."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Linear Equations: Distributive Law Expansion",
+        "question_text": "Solve 2(x - 3) = 14 for x.",
+        "student_working": "2(x - 3) = 14\n2x - 3 = 14\n2x = 17\nx = 8.5",
+        "correct_solution": "Method 1 (Distributive Property):\n2(x - 3) = 14\n2*x - 2*3 = 14\n2x - 6 = 14\n2x = 14 + 6\n2x = 20\nx = 10\n\nMethod 2 (Division First):\nx - 3 = 14 / 2\nx - 3 = 7\nx = 10",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Incomplete Bracket Distribution: Multiplied 2 by x but failed to multiply 2 by -3 (wrote 2x - 3 = 14 instead of 2x - 6 = 14). Resulted in x = 8.5 instead of x = 10.",
+        "misconception": "Distributive Property Neglect: Neglected to distribute the outer multiplier across the second term inside parentheses.",
+        "rule_to_remember": "Distributive Law: a(b - c) = ab - ac. Expand 2(x - 3) = 2x - 6 before isolating x."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Exponents & Powers: Product Law of Indices",
+        "question_text": "Simplify 2^3 * 2^4.",
+        "student_working": "2^3 * 2^4\nMultiplying exponents: 3 * 4 = 12\nResult = 2^12 = 4096.",
+        "correct_solution": "Apply the product rule of exponents for powers with the same base:\na^m × a^n = a^(m + n)\n2^3 × 2^4 = 2^(3 + 4) = 2^7 = 128.",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Exponent Multiplication Fallacy: Multiplied exponents (3 × 4 = 12 giving 2^12) instead of adding them (3 + 4 = 7 giving 2^7 = 128).",
+        "misconception": "Exponents / Algebraic Laws: Conflated power of a power rule (a^m)^n = a^(m×n) with product of like bases a^m × a^n = a^(m+n).",
+        "rule_to_remember": "Product Law of Exponents: a^m × a^n = a^(m+n). When multiplying like bases, ADD the exponents: 2^3 × 2^4 = 2^(3+4) = 2^7 = 128."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Mensuration: Area of a Rectangle",
+        "question_text": "A rectangle has length 12 cm and breadth 7 cm. Find its area.",
+        "student_working": "Area = length + breadth = 12 + 7 = 19 cm^2.",
+        "correct_solution": "Area of a rectangle is given by the product of its length and breadth:\nArea = Length × Breadth\nArea = 12 cm × 7 cm = 84 cm².",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Critical Formula Error: Student added length and breadth (12 + 7 = 19) instead of multiplying (12 × 7 = 84) to calculate area.",
+        "misconception": "Area vs Perimeter Formula Conflation: Conflated linear boundary addition with 2D orthogonal multiplication (Length × Breadth).",
+        "rule_to_remember": "Area of Rectangle = Length × Breadth (L × B, in cm²). Perimeter = 2 × (Length + Breadth). Always verify square units."
+      }
+    ],
+    "commonMisconceptions": [
+      "Area vs Perimeter Formula Conflation: Calculated area of rectangle by adding dimensions (12 + 7 = 19) instead of multiplying length × breadth (12 × 7 = 84).",
+      "Exponents / Algebraic Laws: Multiplied exponents instead of adding them when multiplying terms with equal bases (wrote 2^(3×4) = 2^12 instead of 2^(3+4) = 2^7 = 128).",
+      "Distributive Property & Bracket Expansion: Dropped outer multiplier across interior constant (wrote 2(x - 3) as 2x - 3 instead of 2x - 6).",
+      "Incomplete Distribution: Forgetting to multiply the constant term inside parentheses by the external coefficient in linear equations.",
+      "Exponent Multiplication Fallacy: Incorrectly multiplying powers together (3 × 4 = 12) when multiplying like bases rather than adding the exponents.",
+      "Area Addition Fallacy: Adding side lengths (Length + Breadth) rather than multiplying them to determine two-dimensional area."
+    ],
+    "whatToLearnNext": [
+      "Rectangle Area Formula Practice: Explicitly write Area = Length × Breadth (L × B, in square units cm²) before calculating. Perimeter is 2(L + B).",
+      "Laws of Indices Drill: Memorize and apply the Product Rule: a^m × a^n = a^(m+n). Only multiply powers for power of a power: (a^m)^n = a^(m×n).",
+      "Distributive Law Practice: Always distribute the outer coefficient to every term inside parentheses: a(b - c) = ab - ac before isolating variables.",
+      "Practice Distributive Property drills with single and double bracket expansions: a(b ± c) = ab ± ac.",
+      "Review the Laws of Indices, specifically contrasting the Product Rule [a^m × a^n = a^(m+n)] with the Power Rule [(a^m)^n = a^(m·n)].",
+      "Reinforce foundational 2D geometric mensuration formulas, distinguishing clearly between Perimeter (1D boundary sum) and Area (2D surface product)."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-flash-latest (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789423537645_zqn5",
+    "createdAt": "2026-09-14T22:05:37.645Z"
+  },
+  {
+    "answerSheetId": "sheet_1789423418568_f0fm",
+    "studentId": "priya_sharma",
+    "studentName": "Priya Sharma",
+    "studentClass": "12th Grade",
+    "studentRollNo": "29",
+    "subject": "Physics",
+    "examTitle": "Multi-Discipline Diagnostic",
+    "overallScorePercentage": 0,
+    "totalQuestions": 3,
+    "totalAwardedMarks": 75,
+    "totalMaxMarks": 75,
+    "topicBreakdown": [
+      {
+        "topic_name": "A 5kg block is pulled with 30 N force against friction (mu_k = 0.3). Calculate net force and acceleration.",
+        "understanding_percentage": 0,
+        "status": "Red"
+      },
+      {
+        "topic_name": "In DNA replication, what is the synthesis direction and what enzyme joins Okazaki fragments?",
+        "understanding_percentage": 0,
+        "status": "Red"
+      },
+      {
+        "topic_name": "In a 1D DP array for 0/1 knapsack, how should capacity w be traversed?",
+        "understanding_percentage": 0,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "A 5kg block is pulled with 30 N force against friction (mu_k = 0.3). Calculate net force and acceleration.",
+        "question_text": "Student Working:",
+        "student_working": "N = mg = 49 N.\nFriction = 0.3 * 49 = 14.7 N.\nF_net = F + f_k = 30 + 14.7 = 44.7 N.\nFriction adds to pulling force so a = 44.7 / 5 = 8.94 m/s^2.",
+        "correct_solution": "Normal force N = mg = 5 * 9.8 = 49 N. Friction f_k = μ_k * N = 0.3 * 49 = 14.7 N. F_net = F - f_k = 30 - 14.7 = 15.3 N. Acceleration a = F_net / m = 15.3 / 5 = 3.06 m/s².",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Friction Vector Error: Added kinetic friction to pulling force (F + f_k = 44.7 N) instead of subtracting it (F - f_k = 15.3 N).",
+        "misconception": "Dissipative Resistance Direction Fallacy: Treating friction as an additive pulling force rather than an opposing resistive force.",
+        "rule_to_remember": "Opposing Resistance Law: Friction opposes relative motion: F_net = F_applied - f_friction."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "In DNA replication, what is the synthesis direction and what enzyme joins Okazaki fragments?",
+        "question_text": "Student Working:",
+        "student_working": "The lagging strand is synthesized 3' to 5' and RNA primase joins okazaki fragments together.",
+        "correct_solution": "DNA Polymerase III synthesizes continuous leading and discontinuous lagging strands strictly 5' to 3'. Okazaki fragments are RNA-primed, elongated, replaced by DNA Pol I, and joined covalently by DNA Ligase.",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Molecular Polarity/Enzymatic Error: Synthesizes strictly 5' to 3' (not 3' to 5') and DNA ligase (not RNA polymerase or primase) seals phosphodiester backbones between Okazaki fragments.",
+        "misconception": "Nucleic Acid Polarity Inversion: Misattributing synthesis directionality and enzyme functions in lagging strand replication.",
+        "rule_to_remember": "DNA Polymerase Rule: Always synthesizes 5' to 3'. DNA Ligase joins Okazaki fragments."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "In a 1D DP array for 0/1 knapsack, how should capacity w be traversed?",
+        "question_text": "Student Working:",
+        "student_working": "Iterate capacity for w from 0 to W in a forward capacity loop to update dp[w].",
+        "correct_solution": "for i = 1 to n: for w = W down to wt[i]: dp[w] = max(dp[w], val[i] + dp[w - wt[i]]). Reverse traversal prevents using item i multiple times.",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "State Invariant Violation: Iterated capacity forward (0 to W) in 1D array, turning 0/1 knapsack into unbounded knapsack by reusing the same item.",
+        "misconception": "Unbounded Knapsack State Pollution: Failing to traverse capacity array in reverse (W down to w_i) in 1D memory-optimized DP.",
+        "rule_to_remember": "0/1 Knapsack Traversal Rule: In 1D DP array, iterate capacity backwards (W down to wt_i) so DP values come from the previous item."
+      }
+    ],
+    "commonMisconceptions": [
+      "Unbounded Knapsack State Pollution: In 1D DP 0/1 knapsack, iterating capacity forward allows the current item to be selected multiple times, corrupting the single-use invariant.",
+      "Enzyme & Polarity Inversion: Stated DNA is synthesized 3' to 5' or confused DNA ligase with RNA polymerase/primase during Okazaki fragment joining.",
+      "Vector Direction Inversion: Added dissipative friction force to applied force instead of subtracting it (F_net = F - f_friction)."
+    ],
+    "whatToLearnNext": [
+      "Knapsack 1D State Array Drill: In 0/1 Knapsack, iterate capacity W down to wt_i backwards to ensure each item is used at most once.",
+      "DNA Replication Polarity Anchor: All nucleic acid polymerases synthesize exclusively in the 5' to 3' direction. DNA ligase seals phosphodiester nicks.",
+      "Free-Body Diagram Drill: Draw opposing friction vectors antiparallel to relative velocity."
+    ],
+    "isLiveGemini": false,
+    "modelUsed": "Universal Diagnostic Engine (Physics)",
+    "notice": "Evaluated 3 questions dynamically from uploaded sheet.",
+    "id": "diag_rep_1789423418572_km6j",
+    "createdAt": "2026-09-14T22:03:38.572Z"
+  },
+  {
+    "answerSheetId": "sheet_1789423410929_9oxw",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties & Chemical Trends Diagnostic Test",
+    "overallScorePercentage": 25,
+    "totalQuestions": 4,
+    "totalAwardedMarks": 25,
+    "totalMaxMarks": 100,
+    "topicBreakdown": [
+      {
+        "topic_name": "Define First Ionisation Enthalpy and explain why it generally increases across a period.",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "State how atomic radius changes across Period 3 from Sodium to Chlorine and give reason.",
+        "understanding_percentage": 0,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Why does Fluorine have the highest electronegativity on the Pauling scale?",
+        "understanding_percentage": 0,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Compare the atomic radius of Magnesium (Mg) and Aluminium (Al).",
+        "understanding_percentage": 0,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Define First Ionisation Enthalpy and explain why it generally increases across a period.",
+        "question_text": "Student Working:",
+        "student_working": "First ionisation enthalpy is the minimum energy required to remove the most loosely bound electron from an isolated neutral gaseous atom. Across a period, nuclear charge increases while electrons enter the same shell, causing effective nuclear charge to rise, holding electrons tighter.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "State how atomic radius changes across Period 3 from Sodium to Chlorine and give reason.",
+        "question_text": "Student Working:",
+        "student_working": "Across Period 3 from Na to Cl, atomic radius increases because atomic number increases from 11 to 17, adding more protons and electrons which expand the electron cloud. So chlorine is larger than sodium.",
+        "correct_solution": "Across Period 3 (Na to Cl), atomic number increases from 11 to 17 while electrons enter the same n = 3 shell. The effective nuclear charge (Z_eff) increases, drawing the valence electron cloud closer to the nucleus. Therefore, atomic radius decreases across the period.",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Periodic Trend Reversal Error: Stated that atomic radius/size increases across a period (from left to right). Across any period, atomic radius actually DECREASES because protons increase while electrons enter the same shell, driving up effective nuclear charge (Z_eff).",
+        "misconception": "Atomic Radius Trend Inversion: Confusing period contraction (Z_eff) with group expansion (adding principal quantum shells).",
+        "rule_to_remember": "Periodic Law of Radii: Atomic radius DECREASES across a period from left to right as Z_eff increases; it INCREASES down a group as principal quantum level n increases."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Why does Fluorine have the highest electronegativity on the Pauling scale?",
+        "question_text": "Student Working:",
+        "student_working": "Fluorine has the highest electronegativity because of its large size and extra shells, which gives it more space to attract shared electron pairs.",
+        "correct_solution": "Electronegativity is the tendency of an atom in a covalent bond to attract shared electron pairs. Fluorine has the highest Pauling value (4.0) because it has the smallest atomic size in Period 2 (excluding noble gases) and a high effective nuclear charge (Z_eff = +5.2), placing bonding electrons extremely close to its positively charged nucleus.",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Electronegativity Attribution Fallacy: Stated that Fluorine has high electronegativity due to \"large size\" or \"large radius\". In reality, Fluorine has the highest Pauling electronegativity (4.0) because of its minimal 2p covalent radius and high effective nuclear charge.",
+        "misconception": "Electronegativity Determinant Inversion: Believing high electronegativity is correlated with large atomic volume rather than minimal nuclear-to-electron distance.",
+        "rule_to_remember": "Electronegativity Inverse Size Rule: Electronegativity increases as atomic size DECREASES. Fluorine is the most electronegative atom precisely because it is the smallest non-noble reactive atom."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Compare the atomic radius of Magnesium (Mg) and Aluminium (Al).",
+        "question_text": "Student Working:",
+        "student_working": "Aluminium has 13 protons while Magnesium has 12 protons, so aluminium is larger than magnesium.",
+        "correct_solution": "Magnesium (Z = 12) and Aluminium (Z = 13) both have valence electrons in the n = 3 shell. Aluminium has 13 protons compared to Magnesium's 12 protons, resulting in a higher effective nuclear charge (Z_eff) in Aluminium. This stronger coulombic pull draws the electron cloud tighter towards the nucleus. Consequently, Magnesium (160 pm) has a larger atomic radius than Aluminium (143 pm): Mg > Al.",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Elemental Radius Comparison Error: Claimed Aluminium (Al) has a larger atomic radius than Magnesium (Mg). Across Period 3, atomic radius decreases as nuclear charge increases, so Mg (160 pm) is strictly larger than Al (143 pm).",
+        "misconception": "Mass-Radius Fallacy: Assuming that having more protons/electrons makes an atom physically larger within the same principal quantum shell.",
+        "rule_to_remember": "Iso-Period Radius Law: Across Period 3, Mg (Z=12, 160 pm) is larger than Al (Z=13, 143 pm) because Al's higher nuclear charge exerts a stronger coulombic pull on the n = 3 electrons."
+      }
+    ],
+    "commonMisconceptions": [
+      "Mass-Radius Fallacy (Mg vs Al Comparison): Assuming Aluminium (13 protons) is larger than Magnesium (12 protons) because it has more subatomic particles, ignoring that higher nuclear charge contracts the electron cloud across Period 3.",
+      "Electronegativity Determinant Inversion: Attributed Fluorine's high electronegativity to \"large size\" or \"large radius\", whereas high electronegativity is physically caused by Fluorine's exceptionally COMPACT covalent radius and high Z_eff.",
+      "Atomic Radius Trend Inversion: Stated that atomic radius increases across a period, conflating period trends (where higher Z_eff contracts the electron cloud) with group trends (where new shells expand atomic size)."
+    ],
+    "whatToLearnNext": [
+      "Period 3 Elemental Size Order: Memorize the atomic radius contraction from left to right: Na (186 pm) > Mg (160 pm) > Al (143 pm) > Si (118 pm) > P (110 pm) > S (102 pm) > Cl (99 pm). Higher Z within the same shell always shrinks radius.",
+      "Coulomb's Law of Electronegativity: Attraction force F = k*(Z_eff * e)/r². A smaller covalent radius r dramatically INCREASES nuclear electrostatic pull on shared bond pairs. Fluorine has the highest electronegativity BECAUSE it is the smallest halogen.",
+      "Periodic Radius Anchor: Across a period, atomic radius DECREASES (higher Z_eff pull on same shell n). Down a group, atomic radius INCREASES (new principal energy levels added)."
+    ],
+    "isLiveGemini": false,
+    "modelUsed": "Universal Diagnostic Engine (Chemistry)",
+    "notice": "Evaluated 4 questions dynamically from uploaded sheet.",
+    "id": "diag_rep_1789423410933_1fc1",
+    "createdAt": "2026-09-14T22:03:30.933Z"
+  },
+  {
+    "answerSheetId": "sheet_1789423402488_rc8h",
+    "studentId": "rishu",
+    "studentName": "Rishu",
+    "studentClass": "10th Grade",
+    "studentRollNo": "18",
+    "subject": "Mathematics",
+    "examTitle": "Algebra & Mensuration Diagnostic",
+    "overallScorePercentage": 0,
+    "totalQuestions": 4,
+    "totalAwardedMarks": 75,
+    "totalMaxMarks": 100,
+    "topicBreakdown": [
+      {
+        "topic_name": "Find the HCF of 72 and 120.",
+        "understanding_percentage": 0,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Solve 2(x - 3) = 14 for x.",
+        "understanding_percentage": 0,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Simplify 2^3 * 2^4.",
+        "understanding_percentage": 0,
+        "status": "Red"
+      },
+      {
+        "topic_name": "A rectangle has length 12 cm and breadth 7 cm. Find its area.",
+        "understanding_percentage": 0,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Find the HCF of 72 and 120.",
+        "question_text": "Student Working:",
+        "student_working": "72 = 2^3 * 3^2\n120 = 2^3 * 3 * 5\nCommon prime factors = 2^3 * 3 = 8 * 3 = 24.\nTherefore, HCF(72, 120) = 24.",
+        "correct_solution": "Product of powers with same base: 2^3 × 2^4 = 2^(3 + 4) = 2^7 = 128. (Note: Only multiply powers when raised to another power: (2^3)^4 = 2^12).",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Exponent Multiplication Fallacy: Multiplied exponents (3 × 4 = 12 giving 2^12) instead of adding them (3 + 4 = 7 giving 2^7 = 128).",
+        "misconception": "Exponents / Algebraic Laws: Conflated power of a power rule (a^m)^n = a^(m×n) with product of like bases a^m × a^n = a^(m+n).",
+        "rule_to_remember": "Product Law of Exponents: a^m × a^n = a^(m+n). When multiplying like bases, ADD the exponents: 2^3 × 2^4 = 2^(3+4) = 2^7 = 128."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Solve 2(x - 3) = 14 for x.",
+        "question_text": "Student Working:",
+        "student_working": "2(x - 3) = 14\n2x - 3 = 14\n2x = 17\nx = 8.5",
+        "correct_solution": "2(x - 3) = 14 => 2x - 6 = 14 => 2x = 20 => x = 10. Check: 2(10 - 3) = 2(7) = 14.",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Incomplete Bracket Distribution: Multiplied 2 by x but failed to multiply 2 by -3 (wrote 2x - 3 = 14 instead of 2x - 6 = 14). Resulted in x = 8.5 instead of x = 10.",
+        "misconception": "Distributive Property Neglect: Neglected to distribute the outer multiplier across the second term inside parentheses.",
+        "rule_to_remember": "Distributive Law: a(b - c) = ab - ac. Expand 2(x - 3) = 2x - 6 before isolating x."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Simplify 2^3 * 2^4.",
+        "question_text": "Student Working:",
+        "student_working": "2^3 * 2^4\nMultiplying exponents: 3 * 4 = 12\nResult = 2^12 = 4096.",
+        "correct_solution": "Product of powers with same base: 2^3 × 2^4 = 2^(3 + 4) = 2^7 = 128. (Note: Only multiply powers when raised to another power: (2^3)^4 = 2^12).",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Exponent Multiplication Fallacy: Multiplied exponents (3 × 4 = 12 giving 2^12) instead of adding them (3 + 4 = 7 giving 2^7 = 128).",
+        "misconception": "Exponents / Algebraic Laws: Conflated power of a power rule (a^m)^n = a^(m×n) with product of like bases a^m × a^n = a^(m+n).",
+        "rule_to_remember": "Product Law of Exponents: a^m × a^n = a^(m+n). When multiplying like bases, ADD the exponents: 2^3 × 2^4 = 2^(3+4) = 2^7 = 128."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "A rectangle has length 12 cm and breadth 7 cm. Find its area.",
+        "question_text": "Student Working:",
+        "student_working": "Area = length + breadth = 12 + 7 = 19 cm^2.",
+        "correct_solution": "Area of rectangle = Length × Breadth = 12 cm × 7 cm = 84 cm². Perimeter = 2(Length + Breadth) = 2(12 + 7) = 38 cm.",
+        "max_marks": 25,
+        "awarded_marks": 0,
+        "understanding_percentage": 0,
+        "status": "Red",
+        "mistake_detected": "Critical Formula Error: Student added length and breadth (12 + 7 = 19) instead of multiplying (12 × 7 = 84) to calculate area.",
+        "misconception": "Area vs Perimeter Formula Conflation: Conflated linear boundary addition with 2D orthogonal multiplication (Length × Breadth).",
+        "rule_to_remember": "Area of Rectangle = Length × Breadth (L × B, in cm²). Perimeter = 2 × (Length + Breadth). Always verify square units."
+      }
+    ],
+    "commonMisconceptions": [
+      "Area vs Perimeter Formula Conflation: Calculated area of rectangle by adding dimensions (12 + 7 = 19) instead of multiplying length × breadth (12 × 7 = 84).",
+      "Distributive Property & Bracket Expansion: Dropped outer multiplier across interior constant (wrote 2(x - 3) as 2x - 3 instead of 2x - 6).",
+      "Exponents / Algebraic Laws: Multiplied exponents instead of adding them when multiplying terms with equal bases (wrote 2^(3×4) = 2^12 instead of 2^(3+4) = 2^7 = 128)."
+    ],
+    "whatToLearnNext": [
+      "Rectangle Area Formula Practice: Explicitly write Area = Length × Breadth (L × B, in square units cm²) before calculating. Perimeter is 2(L + B).",
+      "Distributive Law Practice: Always distribute the outer coefficient to every term inside parentheses: a(b - c) = ab - ac before isolating variables.",
+      "Laws of Indices Drill: Memorize and apply the Product Rule: a^m × a^n = a^(m+n). Only multiply powers for power of a power: (a^m)^n = a^(m×n)."
+    ],
+    "isLiveGemini": false,
+    "modelUsed": "Universal Diagnostic Engine (Mathematics)",
+    "notice": "Evaluated 4 questions dynamically from uploaded sheet.",
+    "id": "diag_rep_1789423402493_u82l",
+    "createdAt": "2026-09-14T22:03:22.493Z"
+  },
+  {
     "answerSheetId": "sheet_1789422797322_njtd",
     "studentId": "elena_rostova",
     "studentName": "Elena Rostova",

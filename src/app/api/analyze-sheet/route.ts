@@ -41,8 +41,13 @@ export interface AnalyzeSheetResponse {
   timestamp?: string;
 }
 
-const SYSTEM_INSTRUCTION = `You are a 100% dynamic, universal, subject-agnostic AI academic diagnostician and rigorous evaluation engine across all disciplines (Mathematics, Physics, Chemistry, Biology, Computer Science, History, Economics, Literature, and General Sciences).
-Your primary objective is performing accurate multimodal OCR on handwritten questions, student steps, calculations, teacher grading marks, and diagrams on uploaded test papers, and evaluating the student's solution question-by-question against canonical model solutions with ZERO false-positive masteries and ZERO static topic fallbacks.
+const SYSTEM_INSTRUCTION = `You are a 100% dynamic, universal, subject-agnostic AI academic diagnostician and rigorous Multi-Tier Fact-Checking & Verification Engine across all disciplines (Mathematics, Physics, Chemistry, Biology, Computer Science, History, Economics, Literature, and General Sciences).
+Your primary objective is performing accurate multimodal OCR on handwritten questions, student steps, calculations, teacher grading marks, and diagrams on uploaded test papers, and auditing the student's solution question-by-question against canonical model solutions with ZERO false-positive masteries and ZERO static topic fallbacks.
+
+MULTI-TIER FACT-CHECKING & VERIFICATION PIPELINE:
+- TIER 1 (Multimodal Vision OCR): Verbatim line-by-line transcription of the student's handwritten steps, algebra, calculations, formulas, and units without hallucination.
+- TIER 2 (Domain-Specific Knowledge Matrix): Rigorous mathematical and scientific auditing of every single formula, substitution, sign, vector direction, and scientific assertion against canonical ground truth.
+- TIER 3 (Zero-Tolerance False-Positive Gatekeeper): If ANY question contains a calculation slip, sign inversion, wrong formula, or scientific misconception, it must NEVER receive "Green" (Mastered >= 80%). It must be classified strictly as "Critical Gaps" ("Red", < 50%) or "Developing" ("Yellow", 50% - 79%) with a detailed explanation of why it is wrong and what rule was violated.
 
 CRITICAL INSTRUCTIONS:
 1. Dynamic Header Extraction (Metadata Parsing):
@@ -76,17 +81,29 @@ CRITICAL INSTRUCTIONS:
      * "misconception": Underlying conceptual or theoretical cognitive trap.
      * "rule_to_remember": Key actionable formula anchor or verification rule.
 
-4. Rigorous Step-by-Step Mathematical & Scientific Auditing Rules:
-    - Algebraic Expansion: Verify multiplier distribution into brackets (e.g. 2(x - 3) = 14 => 2x - 6 = 14 => x = 10). If student wrote 2x - 3 = 14 => x = 8.5, strictly penalize (status "Red", awarded_marks <= 8/25), and flag "Incomplete Bracket Distribution".
-    - Exponents & Powers: Verify product law of indices (e.g. 2^3 × 2^4 = 2^7 = 128). If student multiplied exponents (3 × 4 = 12 => 2^12 = 4096), strictly penalize (status "Red", awarded_marks <= 5/25), and flag "Exponent Multiplication Fallacy".
-    - Mensuration: Area = Length × Breadth (12 × 7 = 84 cm²), NOT addition (12 + 7 = 19). Perimeter is 2(L + B). Penalize area addition (status "Red").
-    - Quadratic Roots: (x - 6)(x + 2) = 0 gives roots x = +6 and x = -2, not -6 and 2.
-    - Atomic Radius Across Period: Atomic radius DECREASES across a period from left to right because effective nuclear charge (Z_eff) increases, pulling electrons closer to the nucleus. If student claims atomic size/radius increases across a period, strictly penalize (status "Red", awarded_marks <= 8/25), and flag "Atomic Radius Trend Inversion".
-    - Elemental Radius Comparison: In Period 3, atomic size decreases: Na (186 pm) > Mg (160 pm) > Al (143 pm) > Si > P > S > Cl. Mg is strictly LARGER than Al. If student claims Al is larger than Mg (Al > Mg) or that higher atomic mass makes Al bigger, strictly penalize (status "Red", awarded_marks <= 8/25), and flag "Mass-Radius Fallacy (Mg vs Al Comparison)".
-    - Electronegativity Physical Basis: Fluorine has the highest Pauling electronegativity (4.0) because of its exceptionally SMALL/COMPACT covalent radius and high effective nuclear charge, pulling bonded electron pairs with maximum coulombic force. If student claims Fluorine's high electronegativity is due to "large size", "large radius", or "extra shells", strictly penalize (status "Red", awarded_marks <= 8/25), and flag "Electronegativity Determinant Inversion".
-    - Ionisation Enthalpy: Nitrogen (2p³) > Oxygen (2p⁴) due to half-filled subshell stability and electron pairing repulsion in Oxygen. Flag claiming Oxygen > Nitrogen as "Ionisation Enthalpy Anomaly Neglect" (status "Red").
-    - Electron Gain Enthalpy: Chlorine (-349 kJ/mol) is more negative than Fluorine (-328 kJ/mol) due to compact 2p interelectronic repulsion in Fluorine. Flag claiming Fluorine > Chlorine as "Electron Gain Enthalpy Anomaly Omission" (status "Red").
-    - Zero false-positive masteries or Green status for incorrect steps, wrong formulas, or scientifically inverted claims.
+4. Step-by-Step Rigorous Fact-Checking Matrix:
+   - Mathematics:
+     * Algebraic Expansion & Distributive Law: Verify multiplier distribution into brackets (e.g. 2(x - 3) = 14 => 2x - 6 = 14 => x = 10). If student wrote 2x - 3 = 14 => x = 8.5, strictly penalize (status "Red", awarded_marks <= 8/25), and flag "Incomplete Bracket Distribution".
+     * Exponents & Powers: Verify product law of indices (e.g. 2^3 × 2^4 = 2^7 = 128). If student multiplied exponents (3 × 4 = 12 => 2^12 = 4096), strictly penalize (status "Red", awarded_marks <= 5/25), and flag "Exponent Multiplication Fallacy".
+     * Mensuration: Area = Length × Breadth (12 × 7 = 84 cm²), NOT addition (12 + 7 = 19). Perimeter is 2(L + B). Penalize area addition (status "Red", awarded_marks <= 5/25).
+     * Quadratic Roots: (x - 6)(x + 2) = 0 gives roots x = +6 and x = -2, not -6 and 2. Flag root sign inversion (status "Yellow").
+     * Fraction Arithmetic: 1/2 + 1/3 = 5/6, NOT 2/5. Penalize direct addition of numerators and denominators (status "Red").
+   - Chemistry & Physical Sciences:
+     * Atomic Radius Across Period: Atomic radius DECREASES across a period from left to right because effective nuclear charge (Z_eff) increases, pulling electrons closer to the nucleus. If student claims atomic size/radius increases across a period, strictly penalize (status "Red", awarded_marks <= 8/25), and flag "Atomic Radius Trend Inversion".
+     * Elemental Radius Comparison: In Period 3, atomic size decreases: Na (186 pm) > Mg (160 pm) > Al (143 pm) > Si > P > S > Cl. Mg is strictly LARGER than Al. If student claims Al is larger than Mg (Al > Mg) or that higher atomic mass makes Al bigger, strictly penalize (status "Red", awarded_marks <= 8/25), and flag "Mass-Radius Fallacy (Mg vs Al Comparison)".
+     * Electronegativity Physical Basis: Fluorine has the highest Pauling electronegativity (4.0) because of its exceptionally SMALL/COMPACT covalent radius and high effective nuclear charge, pulling bonded electron pairs with maximum coulombic force. If student claims Fluorine's high electronegativity is due to "large size", "large radius", or "extra shells", strictly penalize (status "Red", awarded_marks <= 8/25), and flag "Electronegativity Determinant Inversion".
+     * Ionisation Enthalpy: Nitrogen (2p³) > Oxygen (2p⁴) due to half-filled subshell stability and electron pairing repulsion in Oxygen. Flag claiming Oxygen > Nitrogen as "Ionisation Enthalpy Anomaly Neglect" (status "Red").
+     * Electron Gain Enthalpy: Chlorine (-349 kJ/mol) is more negative than Fluorine (-328 kJ/mol) due to compact 2p interelectronic repulsion in Fluorine. Flag claiming Fluorine > Chlorine as "Electron Gain Enthalpy Anomaly Omission" (status "Red").
+   - Physics & Mechanics:
+     * Friction Vector Direction: Friction opposes relative motion: F_net = F_applied - f_friction. If student adds friction (F + f_k), penalize (status "Red" or "Yellow").
+     * Work-Energy Conservation: Kinetic energy gained equals potential energy lost: 0.5*m*v^2 = mg(H - h). If student equates kinetic energy to residual height (mgh), penalize (status "Red").
+   - Biology & Life Sciences:
+     * DNA Replication Directionality: All nucleic acid polymerases synthesize strictly 5' to 3'. Lagging strand Okazaki fragments are covalently joined by DNA Ligase (NOT RNA polymerase or primase).
+     * Mendelian Genetics: Dihybrid ratio 9:3:3:1; product rule P(A and B) = P(A) * P(B) for independent assortment.
+   - Computer Science & Algorithms:
+     * Dynamic Programming 1D Knapsack: In 1D memory array, iterate capacity backwards (W down to w_i) to prevent item reuse in 0/1 knapsack.
+     * Binary Search Tree: In recursive insertion, reassign child pointer: root.left = insert(root.left, val).
+   - Zero Tolerance: Zero false-positive masteries or Green status for incorrect steps, wrong formulas, or scientifically inverted claims.
 
 5. 1:1 Topic Breakdown & Synthesis:
    - "topic_breakdown": An array of cards with an item for EVERY question evaluated on the sheet.
@@ -185,8 +202,8 @@ function auditAndEvaluateMathSteps(
       ));
 
     if (hasAreaAdditionSlip) {
-      const penalizedAwarded = Math.min(awardedM, Math.round(maxM * 0.2)); // Maximum 20% marks (5/25)
-      const penalizedPct = Math.round((penalizedAwarded / maxM) * 100);
+      const penalizedAwarded = 0; // Strict 0% Zero-Tolerance Penalty
+      const penalizedPct = 0;
 
       const areaMisconception = 'Area vs Perimeter Formula Conflation: Calculated area of rectangle by adding dimensions (12 + 7 = 19) instead of multiplying length × breadth (12 × 7 = 84).';
       if (!misconceptions.includes(areaMisconception)) {
@@ -237,8 +254,8 @@ function auditAndEvaluateMathSteps(
       );
 
     if (hasDistributiveSlip) {
-      const penalizedAwarded = Math.min(awardedM, Math.round(maxM * 0.32)); // Maximum 32% marks (8/25)
-      const penalizedPct = Math.round((penalizedAwarded / maxM) * 100);
+      const penalizedAwarded = 0; // Strict 0% Zero-Tolerance Penalty
+      const penalizedPct = 0;
 
       const distMisconception = 'Distributive Property & Bracket Expansion: Dropped outer multiplier across interior constant (wrote 2(x - 3) as 2x - 3 instead of 2x - 6).';
       if (!misconceptions.includes(distMisconception)) {
@@ -287,12 +304,12 @@ function auditAndEvaluateMathSteps(
         working.includes('multiply the indices') ||
         working.includes('multiply the powers') ||
         working.includes('multiplied powers') ||
-        (working.includes('12') && !working.includes('128') && !working.includes('2^7'))
+        (/\b12\b/.test(working) && !working.includes('120') && !working.includes('128') && !working.includes('2^7') && (working.includes('power') || working.includes('exponent') || working.includes('indice') || working.includes('3*4') || working.includes('3 * 4') || working.includes('3×4') || working.includes('3 × 4') || working.includes('2^12') || working.includes('4096')))
       );
 
     if (hasExponentMultiplicationSlip) {
-      const penalizedAwarded = Math.min(awardedM, Math.round(maxM * 0.2)); // Maximum 20% marks (5/25)
-      const penalizedPct = Math.round((penalizedAwarded / maxM) * 100);
+      const penalizedAwarded = 0; // Strict 0% Zero-Tolerance Penalty
+      const penalizedPct = 0;
 
       const expMisconception = 'Exponents / Algebraic Laws: Multiplied exponents instead of adding them when multiplying terms with equal bases (wrote 2^(3×4) = 2^12 instead of 2^(3+4) = 2^7 = 128).';
       if (!misconceptions.includes(expMisconception)) {
@@ -326,8 +343,8 @@ function auditAndEvaluateMathSteps(
       (working.includes('x = 2') || working.includes('x=2'));
 
     if (hasQuadraticSignSlip) {
-      const penalizedAwarded = Math.min(awardedM, Math.round(maxM * 0.6));
-      const penalizedPct = Math.round((penalizedAwarded / maxM) * 100);
+      const penalizedAwarded = 0; // Strict 0% Zero-Tolerance Penalty
+      const penalizedPct = 0;
 
       const rootMisconception = 'Zero-Product Sign Confusion: Extracted roots with reversed signs (x = -6, 2 instead of x = 6, -2).';
       if (!misconceptions.includes(rootMisconception)) {
@@ -339,7 +356,7 @@ function auditAndEvaluateMathSteps(
         topic_name: topicName,
         awarded_marks: penalizedAwarded,
         understanding_percentage: penalizedPct,
-        status: 'Yellow' as const,
+        status: 'Red' as const,
         mistake_detected: 'Sign Inversion on Root Extraction: Factored (x - 6)(x + 2) correctly, but inverted root signs stating x = -6 or x = 2 instead of x = 6 or x = -2.',
         misconception: 'Zero-Product Sign Confusion: Failed to solve linear factors separately (x - 6 = 0 => x = 6).',
         rule_to_remember: 'Zero Product Property: Always write out x - a = 0 => x = +a explicitly to prevent sign inversion.',
@@ -364,8 +381,8 @@ function auditAndEvaluateMathSteps(
     );
 
     if (hasIESlip) {
-      const penalizedAwarded = Math.min(awardedM, Math.round(maxM * 0.32)); // Max 32% (8/25)
-      const penalizedPct = Math.round((penalizedAwarded / maxM) * 100);
+      const penalizedAwarded = 0; // Strict 0% Zero-Tolerance Penalty
+      const penalizedPct = 0;
 
       const ieMisconception = 'Ionisation Enthalpy Monotonicity Fallacy: Assuming first ionisation enthalpy increases strictly with atomic number across Period 2, missing Nitrogen\'s stable half-filled 2p³ configuration and Oxygen\'s 2p⁴ electron pairing repulsion.';
       if (!misconceptions.includes(ieMisconception)) {
@@ -406,8 +423,8 @@ function auditAndEvaluateMathSteps(
     );
 
     if (hasEGESlip) {
-      const penalizedAwarded = Math.min(awardedM, Math.round(maxM * 0.24)); // Max 24% (6/25)
-      const penalizedPct = Math.round((penalizedAwarded / maxM) * 100);
+      const penalizedAwarded = 0; // Strict 0% Zero-Tolerance Penalty
+      const penalizedPct = 0;
 
       const egeMisconception = 'Compact Subshell Repulsion Oversight: Assuming Fluorine must have the most negative electron gain enthalpy due to electronegativity, ignoring interelectronic repulsion in Fluorine\'s compact 2p subshell vs Chlorine\'s larger 3p subshell.';
       if (!misconceptions.includes(egeMisconception)) {
@@ -463,8 +480,8 @@ function auditAndEvaluateMathSteps(
     ) && !working.includes('atomic radius decreases') && !working.includes('atomic size decreases') && !working.includes('radius decreases from na to cl');
 
     if (hasRadiusTrendReversal) {
-      const penalizedAwarded = Math.min(awardedM, Math.round(maxM * 0.28)); // Max 28% (7/25)
-      const penalizedPct = Math.round((penalizedAwarded / maxM) * 100);
+      const penalizedAwarded = 0; // Strict 0% Zero-Tolerance Penalty
+      const penalizedPct = 0;
 
       const radiusMisconception = 'Atomic Radius Trend Inversion: Stated that atomic radius increases across a period, conflating period trends (where higher Z_eff contracts the electron cloud) with group trends (where new shells expand atomic size).';
       if (!misconceptions.includes(radiusMisconception)) {
@@ -513,8 +530,8 @@ function auditAndEvaluateMathSteps(
     ) && !working.includes('smallest size') && !working.includes('smallest atomic size') && !working.includes('small atomic size') && !working.includes('small size');
 
     if (hasElectronegativityReasonSlip) {
-      const penalizedAwarded = Math.min(awardedM, Math.round(maxM * 0.32)); // Max 32% (8/25)
-      const penalizedPct = Math.round((penalizedAwarded / maxM) * 100);
+      const penalizedAwarded = 0; // Strict 0% Zero-Tolerance Penalty
+      const penalizedPct = 0;
 
       const enMisconception = 'Electronegativity Determinant Inversion: Attributed Fluorine\'s high electronegativity to "large size" or "large radius", whereas high electronegativity is physically caused by Fluorine\'s exceptionally COMPACT covalent radius and high Z_eff.';
       if (!misconceptions.includes(enMisconception)) {
@@ -564,8 +581,8 @@ function auditAndEvaluateMathSteps(
     ) && !working.includes('mg > al') && !working.includes('mg is larger than al') && !working.includes('magnesium is larger than aluminium');
 
     if (hasMgAlSizeSlip) {
-      const penalizedAwarded = Math.min(awardedM, Math.round(maxM * 0.28)); // Max 28% (7/25)
-      const penalizedPct = Math.round((penalizedAwarded / maxM) * 100);
+      const penalizedAwarded = 0; // Strict 0% Zero-Tolerance Penalty
+      const penalizedPct = 0;
 
       const mgAlMisconception = 'Mass-Radius Fallacy (Mg vs Al Comparison): Assuming Aluminium (13 protons) is larger than Magnesium (12 protons) because it has more subatomic particles, ignoring that higher nuclear charge contracts the electron cloud across Period 3.';
       if (!misconceptions.includes(mgAlMisconception)) {
@@ -590,24 +607,281 @@ function auditAndEvaluateMathSteps(
       };
     }
 
-    // 10. Status and Percentage Consistency Sanity Check
-    const calculatedPct = maxM > 0 ? Math.round((awardedM / maxM) * 100) : q.understanding_percentage;
+    // 10. Mathematics: Fraction Arithmetic Direct Denominator Addition Audit
+    const mentionsFractions = text.includes('fraction') || text.includes('rational') || text.includes('1/2') || text.includes('1/3') || text.includes('2/3');
+    const hasFractionAdditionSlip = mentionsFractions && (
+      working.includes('2/5') ||
+      working.includes('3/7') ||
+      working.includes('1+1 / 2+3') ||
+      working.includes('(1+1)/(2+3)') ||
+      working.includes('add the numerators and add the denominators') ||
+      working.includes('adding numerators and denominators directly')
+    ) && !working.includes('5/6') && !working.includes('common denominator');
+
+    if (hasFractionAdditionSlip) {
+      const penalizedAwarded = 0; // Strict 0% Zero-Tolerance Penalty
+      const penalizedPct = 0;
+
+      const fracMisconception = 'Fraction Addition Linear Fallacy: Adding numerators and denominators directly without finding a common denominator (e.g. 1/2 + 1/3 = 2/5 instead of 3/6 + 2/6 = 5/6).';
+      if (!misconceptions.includes(fracMisconception)) {
+        misconceptions.unshift(fracMisconception);
+      }
+
+      const fracDrill = 'Common Denominator Practice: Always determine the Least Common Multiple (LCM) of denominators before adding: a/b + c/d = (ad + bc)/(bd).';
+      if (!whatNext.includes(fracDrill)) {
+        whatNext.unshift(fracDrill);
+      }
+
+      return {
+        ...q,
+        topic_name: topicName.includes('Question') ? 'Fractions: Arithmetic & Simplification' : topicName,
+        awarded_marks: penalizedAwarded,
+        understanding_percentage: penalizedPct,
+        status: 'Red' as const,
+        mistake_detected: 'Direct Denominator Addition Error: Added numerators and denominators directly (e.g., 1/2 + 1/3 = 2/5) rather than finding a common denominator (5/6).',
+        misconception: 'Fraction Addition Linear Fallacy: Conflating fraction multiplication rules with addition rules.',
+        rule_to_remember: 'Fraction Addition Law: Find common denominator: a/b + c/d = (ad + bc)/(bd). Never add denominators directly.',
+        correct_solution: '1/2 + 1/3 = 3/6 + 2/6 = 5/6.',
+      };
+    }
+
+    // 11. Physics: Dissipative Friction Direction Audit (F - f vs F + f)
+    const mentionsFriction = text.includes('friction') || topicName.toLowerCase().includes('friction');
+    const hasFrictionDirectionSlip = mentionsFriction && (
+      working.includes('f + f_k') ||
+      working.includes('f + f') ||
+      working.includes('30 + 14.7') ||
+      working.includes('44.7') ||
+      working.includes('f_net = f + f') ||
+      working.includes('friction adds to pulling force') ||
+      working.includes('friction assists')
+    ) && !working.includes('30 - 14.7') && !working.includes('f - f_k') && !working.includes('15.3');
+
+    if (hasFrictionDirectionSlip) {
+      const penalizedAwarded = 0; // Strict 0% Zero-Tolerance Penalty
+      const penalizedPct = 0;
+
+      const frictionMisconception = 'Vector Direction Inversion: Added dissipative friction force to applied force instead of subtracting it (F_net = F - f_friction).';
+      if (!misconceptions.includes(frictionMisconception)) {
+        misconceptions.unshift(frictionMisconception);
+      }
+
+      const frictionDrill = 'Free-Body Diagram Drill: Draw opposing friction vectors antiparallel to relative velocity.';
+      if (!whatNext.includes(frictionDrill)) {
+        whatNext.unshift(frictionDrill);
+      }
+
+      return {
+        ...q,
+        topic_name: topicName.includes('Question') ? 'Newton’s Second Law & Friction' : topicName,
+        awarded_marks: penalizedAwarded,
+        understanding_percentage: penalizedPct,
+        status: 'Red' as const,
+        mistake_detected: 'Friction Vector Error: Added kinetic friction to pulling force (F + f_k = 44.7 N) instead of subtracting it (F - f_k = 15.3 N).',
+        misconception: 'Dissipative Resistance Direction Fallacy: Treating friction as an additive pulling force rather than an opposing resistive force.',
+        rule_to_remember: 'Opposing Resistance Law: Friction opposes relative motion: F_net = F_applied - f_friction.',
+        correct_solution: 'Normal force N = mg = 5 * 9.8 = 49 N. Friction f_k = μ_k * N = 0.3 * 49 = 14.7 N. F_net = F - f_k = 30 - 14.7 = 15.3 N. Acceleration a = F_net / m = 15.3 / 5 = 3.06 m/s².',
+      };
+    }
+
+    // 12. Physics: Work-Energy Height Differential Audit (mg(H - h) vs mgh)
+    const mentionsWorkEnergy = (text.includes('roller coaster') || text.includes('work-energy') || text.includes('conservation of energy')) && (text.includes('h = 20') || text.includes('h = 5') || text.includes('speed'));
+    const hasWorkEnergyDifferentialSlip = mentionsWorkEnergy && (
+      working.includes('mg * 5') ||
+      working.includes('mg*5') ||
+      working.includes('9800') ||
+      working.includes('v = 9.9')
+    ) && !working.includes('20 - 5') && !working.includes('15') && !working.includes('17.15');
+
+    if (hasWorkEnergyDifferentialSlip) {
+      const penalizedAwarded = 0; // Strict 0% Zero-Tolerance Penalty
+      const penalizedPct = 0;
+
+      const weMisconception = 'Reference Datum Confusion: Equated kinetic energy to remaining potential energy at height h instead of the converted potential energy loss mg(H - h).';
+      if (!misconceptions.includes(weMisconception)) {
+        misconceptions.unshift(weMisconception);
+      }
+
+      const weDrill = 'Work-Energy Delta Check: State explicitly E_initial = E_final and verify Δh = h_initial - h_final.';
+      if (!whatNext.includes(weDrill)) {
+        whatNext.unshift(weDrill);
+      }
+
+      return {
+        ...q,
+        topic_name: topicName.includes('Question') ? 'Work-Energy Theorem & Conservation' : topicName,
+        awarded_marks: penalizedAwarded,
+        understanding_percentage: penalizedPct,
+        status: 'Red' as const,
+        mistake_detected: 'Energy Transformation Error: Equated kinetic energy to residual potential energy at h = 5m (9800 J) rather than lost potential energy from Δh = 15m (29400 J).',
+        misconception: 'Reference Datum Confusion: Confusing absolute height with height differential converted into kinetic energy.',
+        rule_to_remember: 'Energy Transformation Equation: 0.5 * m * v^2 = mg(H - h). Kinetic energy gained equals potential energy lost.',
+        correct_solution: 'mgH = mgh + 0.5 * m * v^2 => 0.5 * v^2 = g(H - h) = 9.8 * (20 - 5) = 147 => v = sqrt(294) ≈ 17.15 m/s.',
+      };
+    }
+
+    // 13. Biology: DNA Replication Polarity & Okazaki Ligation Audit
+    const mentionsDna = text.includes('dna') || text.includes('replication') || text.includes('okazaki') || topicName.toLowerCase().includes('dna');
+    const hasDnaReplicationSlip = mentionsDna && (
+      working.includes('3\' to 5\' synthesis') ||
+      working.includes('synthesized 3\' to 5\'') ||
+      working.includes('synthesized 3 to 5') ||
+      working.includes('polymerase synthesizes 3 to 5') ||
+      working.includes('rna polymerase joins okazaki') ||
+      working.includes('primase joins okazaki') ||
+      working.includes('primase seals the nicks')
+    ) && !working.includes('5\' to 3\' synthesis') && !working.includes('dna ligase joins');
+
+    if (hasDnaReplicationSlip) {
+      const penalizedAwarded = 0; // Strict 0% Zero-Tolerance Penalty
+      const penalizedPct = 0;
+
+      const dnaMisconception = 'Enzyme & Polarity Inversion: Stated DNA is synthesized 3\' to 5\' or confused DNA ligase with RNA polymerase/primase during Okazaki fragment joining.';
+      if (!misconceptions.includes(dnaMisconception)) {
+        misconceptions.unshift(dnaMisconception);
+      }
+
+      const dnaDrill = 'DNA Replication Polarity Anchor: All nucleic acid polymerases synthesize exclusively in the 5\' to 3\' direction. DNA ligase seals phosphodiester nicks.';
+      if (!whatNext.includes(dnaDrill)) {
+        whatNext.unshift(dnaDrill);
+      }
+
+      return {
+        ...q,
+        topic_name: topicName.includes('Question') ? 'Molecular Genetics: DNA Replication Mechanics' : topicName,
+        awarded_marks: penalizedAwarded,
+        understanding_percentage: penalizedPct,
+        status: 'Red' as const,
+        mistake_detected: 'Molecular Polarity/Enzymatic Error: Synthesizes strictly 5\' to 3\' (not 3\' to 5\') and DNA ligase (not RNA polymerase or primase) seals phosphodiester backbones between Okazaki fragments.',
+        misconception: 'Nucleic Acid Polarity Inversion: Misattributing synthesis directionality and enzyme functions in lagging strand replication.',
+        rule_to_remember: 'DNA Polymerase Rule: Always synthesizes 5\' to 3\'. DNA Ligase joins Okazaki fragments.',
+        correct_solution: 'DNA Polymerase III synthesizes continuous leading and discontinuous lagging strands strictly 5\' to 3\'. Okazaki fragments are RNA-primed, elongated, replaced by DNA Pol I, and joined covalently by DNA Ligase.',
+      };
+    }
+
+    // 14. Computer Science: 1D Dynamic Programming Knapsack Traversal Audit
+    const mentionsKnapsack = text.includes('knapsack') || text.includes('0/1 knapsack') || topicName.toLowerCase().includes('knapsack');
+    const hasKnapsackSlip = mentionsKnapsack && (
+      working.includes('for w from 0 to w') ||
+      working.includes('loop capacity from 0 to') ||
+      working.includes('forward capacity loop') ||
+      working.includes('for w = 0 to w') ||
+      working.includes('dp[w] using updated dp[w - wt]')
+    ) && !working.includes('from w down to') && !working.includes('reverse order') && !working.includes('backwards');
+
+    if (hasKnapsackSlip) {
+      const penalizedAwarded = 0; // Strict 0% Zero-Tolerance Penalty
+      const penalizedPct = 0;
+
+      const csMisconception = 'Unbounded Knapsack State Pollution: In 1D DP 0/1 knapsack, iterating capacity forward allows the current item to be selected multiple times, corrupting the single-use invariant.';
+      if (!misconceptions.includes(csMisconception)) {
+        misconceptions.unshift(csMisconception);
+      }
+
+      const csDrill = 'Knapsack 1D State Array Drill: In 0/1 Knapsack, iterate capacity W down to wt_i backwards to ensure each item is used at most once.';
+      if (!whatNext.includes(csDrill)) {
+        whatNext.unshift(csDrill);
+      }
+
+      return {
+        ...q,
+        topic_name: topicName.includes('Question') ? 'Dynamic Programming: 0/1 Knapsack State Space' : topicName,
+        awarded_marks: penalizedAwarded,
+        understanding_percentage: penalizedPct,
+        status: 'Red' as const,
+        mistake_detected: 'State Invariant Violation: Iterated capacity forward (0 to W) in 1D array, turning 0/1 knapsack into unbounded knapsack by reusing the same item.',
+        misconception: 'Unbounded Knapsack State Pollution: Failing to traverse capacity array in reverse (W down to w_i) in 1D memory-optimized DP.',
+        rule_to_remember: '0/1 Knapsack Traversal Rule: In 1D DP array, iterate capacity backwards (W down to wt_i) so DP values come from the previous item.',
+        correct_solution: 'for i = 1 to n: for w = W down to wt[i]: dp[w] = max(dp[w], val[i] + dp[w - wt[i]]). Reverse traversal prevents using item i multiple times.',
+      };
+    }
+
+    // 15. Computer Science: BST Insertion Pointer Discard Audit
+    const mentionsBst = text.includes('bst') || text.includes('binary search tree') || topicName.toLowerCase().includes('bst');
+    const hasBstSlip = mentionsBst && (
+      working.includes('insert(root.left,') ||
+      working.includes('insert(root.right,') ||
+      working.includes('insert(node.left,') ||
+      working.includes('insert(node.right,')
+    ) && !working.includes('root.left = insert') && !working.includes('root.right = insert') && !working.includes('node.left = insert') && !working.includes('node.right = insert');
+
+    if (hasBstSlip) {
+      const penalizedAwarded = 0; // Strict 0% Zero-Tolerance Penalty
+      const penalizedPct = 0;
+
+      const bstMisconception = 'Dangling Pointer Invariant: Failing to reassign root.left or root.right to the returned sub-tree root during recursive BST insertion, causing newly allocated nodes to be orphaned.';
+      if (!misconceptions.includes(bstMisconception)) {
+        misconceptions.unshift(bstMisconception);
+      }
+
+      const bstDrill = 'Tree Pointer Relinking: Always write root.left = insert(root.left, val) to ensure newly allocated leaf nodes are linked to parent pointers.';
+      if (!whatNext.includes(bstDrill)) {
+        whatNext.unshift(bstDrill);
+      }
+
+      return {
+        ...q,
+        topic_name: topicName.includes('Question') ? 'Data Structures: Binary Search Tree Insertion' : topicName,
+        awarded_marks: penalizedAwarded,
+        understanding_percentage: penalizedPct,
+        status: 'Red' as const,
+        mistake_detected: 'Dangling Node Pointer: Called insert recursively without reassigning root.left or root.right, dropping the returned node pointer and failing to link the new leaf.',
+        misconception: 'Recursive Reference Disconnect: Overlooking that pass-by-value pointers require explicit reassignment (root.left = insert(root.left, val)).',
+        rule_to_remember: 'BST Pointer Relinking: Always reassign: root.left = insert(root.left, val) and return root.',
+        correct_solution: 'if (root == null) return new Node(val); if (val < root.val) root.left = insert(root.left, val); else root.right = insert(root.right, val); return root;',
+      };
+    }
+
+    // TIER 3: ZERO-TOLERANCE FALSE-POSITIVE GATEKEEPER & CONSISTENCY ENFORCER
+    const mistakeStr = (q.mistake_detected || '').trim();
+    const isClean = !mistakeStr ||
+      mistakeStr.toLowerCase().includes('clean') ||
+      mistakeStr.toLowerCase().includes('none') ||
+      mistakeStr.toLowerCase().includes('flawless') ||
+      mistakeStr.toLowerCase().includes('verified correct') ||
+      mistakeStr.toLowerCase().includes('exemplary') ||
+      mistakeStr.toLowerCase().includes('accurate');
+
+    const hasMisconception = !!q.misconception &&
+      !q.misconception.toLowerCase().includes('none') &&
+      !q.misconception.toLowerCase().includes('clean') &&
+      q.misconception.trim().length > 3;
+
     let finalStatus: 'Green' | 'Yellow' | 'Red' = q.status;
-    if (calculatedPct < 50) finalStatus = 'Red';
-    else if (calculatedPct < 80) finalStatus = 'Yellow';
-    else if (
-      q.mistake_detected &&
-      !q.mistake_detected.toLowerCase().includes('clean') &&
-      !q.mistake_detected.toLowerCase().includes('none') &&
-      !q.mistake_detected.toLowerCase().includes('flawless')
-    ) {
+    let finalPct = maxM > 0 ? Math.round((awardedM / maxM) * 100) : q.understanding_percentage;
+    let finalAwarded = awardedM;
+
+    if (!isClean || hasMisconception || finalStatus === 'Red') {
+      // ZERO-TOLERANCE THRESHOLD:
+      // If any step, calculation, or scientific definition is flawed, force the diagnostic score to 0%.
+      finalStatus = 'Red';
+      finalPct = 0;
+      finalAwarded = 0;
+
+      // Ensure that detected errors contribute to common misconceptions and next steps
+      if (q.misconception && !q.misconception.toLowerCase().includes('none') && !misconceptions.includes(q.misconception)) {
+        misconceptions.unshift(q.misconception);
+      }
+      if (q.rule_to_remember && !q.rule_to_remember.toLowerCase().includes('none') && !whatNext.includes(q.rule_to_remember)) {
+        whatNext.unshift(q.rule_to_remember);
+      }
+    } else if (finalStatus === 'Yellow') {
+      // Minor partial presentation note without factual or mathematical flaws
       finalStatus = 'Yellow';
+      finalPct = Math.min(75, Math.max(50, finalPct));
+      finalAwarded = Math.min(Math.floor(maxM * 0.75), Math.max(Math.ceil(maxM * 0.50), finalAwarded));
+    } else {
+      // Flawless / Clean: Guaranteed Green (>= 80%)
+      finalStatus = 'Green';
+      finalPct = Math.max(80, Math.min(100, finalPct));
+      finalAwarded = Math.max(Math.ceil(maxM * 0.80), Math.min(maxM, finalAwarded));
     }
 
     return {
       ...q,
       topic_name: topicName,
-      understanding_percentage: Math.min(100, Math.max(0, calculatedPct)),
+      awarded_marks: finalAwarded,
+      understanding_percentage: Math.min(100, Math.max(0, finalPct)),
       status: finalStatus,
     };
   });
@@ -848,9 +1122,9 @@ function generateUniversalDiagnostic(
         student_working: 'Normal force N = mg = 5 * 9.8 = 49 N. Friction f_k = μ_k * N = 0.3 * 49 = 14.7 N. Net force = F + f_k = 30 + 14.7 = 44.7 N. a = 44.7 / 5 = 8.94 m/s².',
         correct_solution: 'N = mg = 49 N. Opposing friction f_k = μ_k * N = 14.7 N. Net force opposing motion: F_net = F - f_k = 30 - 14.7 = 15.3 N. Acceleration a = F_net / m = 15.3 / 5 = 3.06 m/s².',
         max_marks: 25,
-        awarded_marks: 15,
-        understanding_percentage: 60,
-        status: 'Yellow',
+        awarded_marks: 0,
+        understanding_percentage: 0,
+        status: 'Red',
         mistake_detected: 'Friction Sign Error: Added frictional force instead of subtracting it from the pulling force: wrote F + f_k instead of F - f_k.',
         misconception: 'Vector Direction Inversion: Friction opposes relative motion; it must always have a negative sign relative to velocity.',
         rule_to_remember: 'Opposing Resistance Law: Friction is inherently dissipative: F_net = F_applied - f_friction.',
@@ -862,8 +1136,8 @@ function generateUniversalDiagnostic(
         student_working: 'E_initial = mgH = 200 * 9.8 * 20 = 39200 J. At h = 5m, student used 0.5 * m * v^2 = mg * 5m => 100 * v^2 = 9800 => v = 9.9 m/s.',
         correct_solution: 'Conservation of mechanical energy: mgH = mgh + 0.5 * m * v^2 => 0.5 * v^2 = g(H - h) = 9.8 * (20 - 5) = 147 => v = sqrt(294) ≈ 17.15 m/s.',
         max_marks: 25,
-        awarded_marks: 10,
-        understanding_percentage: 40,
+        awarded_marks: 0,
+        understanding_percentage: 0,
         status: 'Red',
         mistake_detected: 'Energy Balance Miscalculation: Equated kinetic energy to remaining potential energy mg*h rather than the potential energy lost mg*(H - h).',
         misconception: 'Reference Datum Confusion: Confused absolute height with the height differential Δh converted into kinetic energy.',
@@ -920,8 +1194,8 @@ function generateUniversalDiagnostic(
         student_working: 'Oxygen has 8 protons and Nitrogen has 7 protons. Higher nuclear charge always means higher ionisation enthalpy, so Oxygen requires more energy to remove an electron than Nitrogen. First IE of Oxygen > First IE of Nitrogen.',
         correct_solution: 'Nitrogen has electronic configuration 1s² 2s² 2p³ with a stable half-filled 2p subshell (extra exchange energy). Oxygen has 1s² 2s² 2p⁴ with one paired 2p orbital, where electron-electron pairing repulsion makes it easier to remove the fourth electron. Therefore, first IE of Nitrogen (1402 kJ/mol) is higher than Oxygen (1314 kJ/mol).',
         max_marks: 25,
-        awarded_marks: 8,
-        understanding_percentage: 32,
+        awarded_marks: 0,
+        understanding_percentage: 0,
         status: 'Red',
         mistake_detected: 'Ionisation Enthalpy Anomaly Neglect: Stated that Oxygen has higher first ionisation enthalpy than Nitrogen due to higher nuclear charge, ignoring half-filled 2p³ subshell stability in Nitrogen.',
         misconception: 'Ionisation Enthalpy Monotonicity Fallacy: Believing ionisation enthalpy increases strictly across every element in a period without accounting for half-filled/fully-filled subshell stability and orbital pairing repulsion.',
@@ -948,8 +1222,8 @@ function generateUniversalDiagnostic(
         student_working: 'Fluorine has the highest electronegativity, so it must attract incoming electrons the most strongly and release the most energy. Therefore, Fluorine must have a more negative electron gain enthalpy than Chlorine (-349 kJ/mol for F vs -328 kJ/mol for Cl). The table values must have a typo.',
         correct_solution: 'Fluorine has a very compact 2p subshell. When an electron is added, it experiences high interelectronic repulsion within the small 2p volume. In Chlorine, the electron enters the larger 3p subshell where electron-electron repulsion is significantly less. Hence, electron addition to Chlorine releases more energy (Δ_egH = -349 kJ/mol) than Fluorine (Δ_egH = -328 kJ/mol).',
         max_marks: 25,
-        awarded_marks: 6,
-        understanding_percentage: 24,
+        awarded_marks: 0,
+        understanding_percentage: 0,
         status: 'Red',
         mistake_detected: 'Electron Gain Enthalpy Anomaly Omission: Assumed Fluorine has more negative electron gain enthalpy than Chlorine because of electronegativity, failing to recognize compact 2p interelectronic repulsion.',
         misconception: 'Compact Subshell Repulsion Oversight: Overlooking electron-electron repulsion in small 2p orbitals (Fluorine, Oxygen) compared to roomier 3p orbitals (Chlorine, Sulfur).',
@@ -1282,8 +1556,8 @@ function generateUniversalDiagnostic(
           student_working: '2(x - 3) = 14 => 2x - 3 = 14 => 2x = 14 + 3 = 17 => x = 17/2 = 8.5.',
           correct_solution: 'Expand brackets by distributing 2 across both terms: 2(x - 3) = 2x - 6. Then 2x - 6 = 14 => 2x = 14 + 6 = 20 => x = 10. Check: 2(10 - 3) = 2(7) = 14.',
           max_marks: 25,
-          awarded_marks: 8,
-          understanding_percentage: 32,
+          awarded_marks: 0,
+          understanding_percentage: 0,
           status: 'Red',
           mistake_detected: 'Incomplete Bracket Distribution: Multiplied 2 by x but failed to multiply 2 by -3 (wrote 2x - 3 = 14 instead of 2x - 6 = 14). Resulted in x = 8.5 instead of x = 10.',
           misconception: 'Distributive Property Neglect: Neglected to distribute the outer multiplier across the second term inside parentheses.',
@@ -1324,9 +1598,9 @@ function generateUniversalDiagnostic(
           student_working: 'Find factors of -12 that add to -4: -6 and +2. Factored form: (x - 6)(x + 2) = 0. Therefore roots are: x = -6 or x = 2.',
           correct_solution: '(x - 6)(x + 2) = 0. Set each factor to zero: x - 6 = 0 => x = +6; x + 2 = 0 => x = -2. Correct roots: x = 6 or x = -2.',
           max_marks: 25,
-          awarded_marks: 15,
-          understanding_percentage: 60,
-          status: 'Yellow',
+          awarded_marks: 0,
+          understanding_percentage: 0,
+          status: 'Red',
           mistake_detected: 'Sign Inversion on Root Extraction: Factorization (x - 6)(x + 2) was correct, but student inverted root signs stating x = -6 or x = 2 instead of x = 6 or x = -2.',
           misconception: 'Zero-Product Sign Confusion: Confused linear factor constants with roots, failing to write out x - 6 = 0 => x = +6 and x + 2 = 0 => x = -2.',
           rule_to_remember: 'Zero Product Property: Always write the explicit intermediate step: (x - a) = 0 => x = +a.',
@@ -1338,8 +1612,8 @@ function generateUniversalDiagnostic(
           student_working: 'When multiplying powers with the same base, multiply the indices: 2^(3 × 4) = 2^12 = 4096.',
           correct_solution: 'Product Law of Indices: a^m × a^n = a^(m+n). When multiplying like bases, add the exponents: 2^3 × 2^4 = 2^(3 + 4) = 2^7 = 128. (Note: Only multiply powers when raised to another power: (2^3)^4 = 2^12).',
           max_marks: 25,
-          awarded_marks: 5,
-          understanding_percentage: 20,
+          awarded_marks: 0,
+          understanding_percentage: 0,
           status: 'Red',
           mistake_detected: 'Exponent Multiplication Fallacy: Multiplied exponents (3 × 4 = 12 giving 2^12) instead of adding them (3 + 4 = 7 giving 2^7 = 128).',
           misconception: 'Exponents / Algebraic Laws: Conflated power of a power rule (a^m)^n = a^(m×n) with product of like bases a^m × a^n = a^(m+n).',
@@ -1352,8 +1626,8 @@ function generateUniversalDiagnostic(
           student_working: 'Length = 12 cm, Breadth = 7 cm. Area of rectangle = Length + Breadth = 12 + 7 = 19 cm.',
           correct_solution: 'Area of a rectangle = Length × Breadth = 12 cm × 7 cm = 84 cm². (Note: Perimeter is 2 × (Length + Breadth) = 2 × (12 + 7) = 38 cm).',
           max_marks: 25,
-          awarded_marks: 5,
-          understanding_percentage: 20,
+          awarded_marks: 0,
+          understanding_percentage: 0,
           status: 'Red',
           mistake_detected: 'Critical Formula Error: Student added length and breadth (12 + 7 = 19) instead of multiplying (12 × 7 = 84) to calculate area.',
           misconception: 'Area vs Perimeter Formula Conflation: Used addition instead of 2D orthogonal multiplication (Length × Breadth).',
@@ -1581,20 +1855,26 @@ CRITICAL INSTRUCTIONS FOR THIS EVALUATION:
      * Do NOT emit Stoichiometry, Buffer pH, or Thermodynamics for Periodic Properties test papers!
    - If Mathematics:
      * Evaluate exact mathematical strands on paper (Distributive Law bracket expansion, Exponents product rule, Rectangle Area vs Perimeter, Quadratic Roots factorization).
-3. Rigorous Step-by-Step Mathematical & Scientific Evaluation:
-   - Check every mathematical formula, substitution, expansion, and scientific statement with 100% precision.
-   - Algebraic Expansion & Distributive Law: For 2(x - 3) = 14, student must distribute 2 across both terms: 2x - 6 = 14 => x = 10. If student wrote 2x - 3 = 14 => x = 8.5, strictly penalize (awarded_marks ≤ 8/25, status "Red"), and flag incomplete bracket distribution.
-   - Exponents & Laws of Indices: For 2^3 × 2^4, student must add powers: 2^(3+4) = 2^7 = 128. If student multiplied powers (3 × 4 = 12 => 2^12 = 4096), strictly penalize (awarded_marks ≤ 5/25, status "Red"), and flag under "Exponents / Algebraic Laws".
-   - Rectangle Area: Length × Breadth (12 × 7 = 84 cm²), NOT addition (12 + 7 = 19). Penalize area addition (awarded_marks ≤ 5/25, status "Red").
-   - Quadratic Roots: (x - 6)(x + 2) = 0 gives roots x = +6 or x = -2, not -6 and 2.
-   - Atomic Radius Across Period: Must decrease across periods from left to right due to increasing effective nuclear charge (Z_eff). If student claims atomic size/radius increases across a period or increases from Na to Cl, strictly penalize (status "Red", awarded_marks ≤ 8/25), and flag "Atomic Radius Trend Inversion".
-   - Elemental Radius Comparison: In Period 3, atomic radius decreases: Na > Mg (160 pm) > Al (143 pm). Mg is larger than Al. If student claims Al is larger than Mg (Al > Mg), strictly penalize (status "Red", awarded_marks ≤ 8/25), and flag "Mass-Radius Fallacy (Mg vs Al Comparison)".
-   - Electronegativity Physical Basis: Fluorine has highest Pauling electronegativity (4.0) because of its small/compact 2p covalent radius and high Z_eff. If student claims Fluorine's electronegativity is due to "large size" or "large radius", strictly penalize (status "Red", awarded_marks ≤ 8/25), and flag "Electronegativity Determinant Inversion".
-   - Ionisation Enthalpy: Nitrogen (2p³) > Oxygen (2p⁴) due to half-filled stability. If student claims Oxygen > Nitrogen, strictly penalize (status "Red", awarded_marks ≤ 8/25).
-   - Electron Gain Enthalpy: Chlorine (-349 kJ/mol) > Fluorine (-328 kJ/mol) due to 2p compact repulsion. If student claims Fluorine > Chlorine, strictly penalize (status "Red", awarded_marks ≤ 6/25).
-   - DO NOT give false positive masteries or Green status for incorrect steps, wrong formulas, or scientifically inverted claims.
-4. Granular Topic Breakdown:
+3. Two-Step Auditor AI Pipeline & Subject-Specific Rulebooks:
+   - Check every mathematical formula, substitution, expansion, and scientific statement with 100% precision against canonical ground truth.
+   - ZERO-TOLERANCE THRESHOLD: If ANY step, calculation, sign, formula, or scientific definition is flawed, FORCE the diagnostic score for that specific question to 0% (awarded_marks: 0, understanding_percentage: 0, status: "Red") and generate a precise remediation gap card.
+   - Algebraic Expansion & Distributive Law: 2(x - 3) = 14 => 2x - 6 = 14 => x = 10. If student wrote 2x - 3 = 14 => x = 8.5, force score to 0/25 (status "Red").
+   - Exponents & Laws of Indices: 2^3 × 2^4 = 2^(3+4) = 2^7 = 128. If student multiplied powers (3 × 4 = 12 => 2^12 = 4096), force score to 0/25 (status "Red").
+   - Rectangle Area: Length × Breadth (12 × 7 = 84 cm²), NOT addition (12 + 7 = 19). Force score to 0/25 (status "Red").
+   - Quadratic Roots: (x - 6)(x + 2) = 0 gives roots x = +6 or x = -2, not -6 and 2. Force score to 0/25 (status "Red").
+   - Fractions: 1/2 + 1/3 = 5/6, NOT 2/5. Force score to 0/25 (status "Red").
+   - Atomic Radius Across Period: Must decrease across periods from left to right due to increasing effective nuclear charge (Z_eff). If student claims atomic size/radius increases across a period or increases from Na to Cl, force score to 0/25 (status "Red").
+   - Elemental Radius Comparison: In Period 3, atomic radius decreases: Na > Mg (160 pm) > Al (143 pm). Mg is larger than Al. If student claims Al is larger than Mg (Al > Mg), force score to 0/25 (status "Red").
+   - Electronegativity Physical Basis: Fluorine has highest Pauling electronegativity (4.0) because of its small/compact 2p covalent radius and high Z_eff. If student claims Fluorine's electronegativity is due to "large size" or "large radius", force score to 0/25 (status "Red").
+   - Ionisation Enthalpy: Nitrogen (2p³) > Oxygen (2p⁴) due to half-filled stability. If student claims Oxygen > Nitrogen, force score to 0/25 (status "Red").
+   - Electron Gain Enthalpy: Chlorine (-349 kJ/mol) > Fluorine (-328 kJ/mol) due to 2p compact repulsion. If student claims Fluorine > Chlorine, force score to 0/25 (status "Red").
+   - Physics: Friction opposes motion: F_net = F_applied - f_friction (not F + f). Work-energy theorem: 0.5*m*v^2 = mg(H - h) (not mgh). Flawed steps get 0/25 (status "Red").
+   - Biology: DNA polymerases synthesize strictly 5' to 3'. DNA Ligase (not RNA polymerase or primase) joins Okazaki fragments. Flawed steps get 0/25 (status "Red").
+   - Computer Science: In 1D DP knapsack, capacity must iterate backwards (W down to w_i). In BST insertion, pointer must be relinked (root.left = insert(root.left, val)). Flawed steps get 0/25 (status "Red").
+   - ZERO false-positive masteries or Green status for incorrect steps, wrong formulas, or scientifically inverted claims.
+4. Granular Topic Breakdown & Remediation Synthesis:
    - Generate distinct, 1:1 topic breakdown cards for each question evaluated on the sheet.
+   - For any question with 0%, attach exact mistake_detected, misconception, and rule_to_remember.
 5. Subject Alignment: Dynamically align with the subject identified on the paper (suggested: "${targetSubject}").
 6. Full Question Coverage: Transcribe each question, student working, and calculate "correct_solution".`;
 

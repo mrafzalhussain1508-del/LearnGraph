@@ -397,5 +397,20 @@
     "school": "Lincoln High School",
     "learningGoals": "Explore Kant's Formula of Humanity (End-in-Itself) formulation.",
     "createdAt": "2026-09-14T21:29:58.984Z"
+  },
+  {
+    "id": "student_1789423418576_c5tq",
+    "role": "student",
+    "name": "Priya Sharma",
+    "username": "priya_sharma",
+    "phone": "",
+    "email": "priya_sharma@student.learngraph.edu",
+    "password": "password123",
+    "studentId": "29",
+    "grade": "12th Grade",
+    "section": "Section A",
+    "school": "Lincoln High School",
+    "learningGoals": "Knapsack 1D State Array Drill: In 0/1 Knapsack, iterate capacity W down to wt_i backwards to ensure each item is used at most once.",
+    "createdAt": "2026-09-14T22:03:38.576Z"
   }
 ]
