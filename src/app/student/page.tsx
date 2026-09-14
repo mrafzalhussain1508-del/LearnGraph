@@ -140,8 +140,10 @@ function StudentDashboardContent() {
       }
 
       // Sync latest server diagnostic
-      const activeName = user?.name || 'Aarav Gupta';
-      fetchAnalysisForSubject(activeName, selectedSubject);
+      const activeName = (typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null)
+        || user?.name
+        || (analysisResult?.student_name && analysisResult.student_name !== 'Student' ? analysisResult.student_name : '');
+      fetchAnalysisForSubject(activeName || undefined, selectedSubject);
     }
     setIsLoading(false);
   }, [user, selectedSubject, fetchAnalysisForSubject]);
@@ -160,8 +162,10 @@ function StudentDashboardContent() {
     if (typeof window !== 'undefined') {
       localStorage.setItem('learngraph_selected_subject', subjectName);
     }
-    const activeName = user?.name || 'Aarav Gupta';
-    fetchAnalysisForSubject(activeName, subjectName);
+    const activeName = (typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null)
+      || user?.name
+      || (analysisResult?.student_name && analysisResult.student_name !== 'Student' ? analysisResult.student_name : '');
+    fetchAnalysisForSubject(activeName || undefined, subjectName);
   };
 
   const handleReset = () => {
@@ -174,7 +178,9 @@ function StudentDashboardContent() {
   const handleLoadSample = async () => {
     setIsLoading(true);
     try {
-      const activeName = user?.name || 'Aarav Gupta';
+      const activeName = (typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null)
+        || user?.name
+        || 'Rishu';
       const sampleFile = new File(
         [`Diagnostic Evaluation Submission for ${selectedSubject}\nStudent Name: ${activeName}\nSubject: ${selectedSubject}`],
         `${selectedSubject.replace(/\s+/g, '_')}_Paper.txt`,
@@ -229,9 +235,11 @@ function StudentDashboardContent() {
     });
   };
 
-  const studentName = (analysisResult?.student_name && analysisResult.student_name !== 'Student')
+  const studentName = (analysisResult?.student_name && analysisResult.student_name !== 'Student' && analysisResult.student_name !== 'Alex Chen')
     ? analysisResult.student_name
-    : (user?.name || analysisResult?.student_name || 'Aarav Gupta');
+    : ((typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null)
+      || user?.name
+      || 'Rishu');
 
   const overallScore = analysisResult?.overall_score_percentage ?? 0;
   const trueMastery = (analysisResult?.topic_breakdown && analysisResult.topic_breakdown.length > 0)

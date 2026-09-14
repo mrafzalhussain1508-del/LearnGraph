@@ -93,8 +93,10 @@ function UploadPageContent() {
       const activeSubject = customSubject || selectedSubject || 'Mathematics';
       const formData = new FormData();
       formData.append('file', fileToUpload);
-      const studentDisplayName = customStudentName || user?.name || 'Aarav Gupta';
-      formData.append('student_name', studentDisplayName);
+      const studentDisplayName = customStudentName?.trim() || (user?.role === 'student' ? user?.name : '') || (typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null) || '';
+      if (studentDisplayName) {
+        formData.append('student_name', studentDisplayName);
+      }
       formData.append('subject', activeSubject);
 
       if (typeof window !== 'undefined') {
@@ -123,6 +125,19 @@ function UploadPageContent() {
 
       if (typeof window !== 'undefined') {
         localStorage.setItem('learngraph_latest_analysis', JSON.stringify(data));
+        if (data.student_name && data.student_name !== 'Student') {
+          localStorage.setItem('learngraph_active_student_name', data.student_name.trim());
+          const storedAuth = localStorage.getItem('learngraph_auth_user');
+          if (storedAuth) {
+            try {
+              const authObj = JSON.parse(storedAuth);
+              if (authObj.role === 'student') {
+                authObj.name = data.student_name.trim();
+                localStorage.setItem('learngraph_auth_user', JSON.stringify(authObj));
+              }
+            } catch {}
+          }
+        }
         window.dispatchEvent(new CustomEvent('learngraph_analysis_completed', { detail: data }));
       }
 
@@ -138,7 +153,7 @@ function UploadPageContent() {
   };
 
   const handleStartSubjectAnalysis = (subjectName: string) => {
-    const studentDisplayName = user?.name || 'Aarav Gupta';
+    const studentDisplayName = user?.name || (typeof window !== 'undefined' ? localStorage.getItem('learngraph_active_student_name') : null) || 'Rishu';
     let sampleContent = '';
 
     const lower = subjectName.toLowerCase();
@@ -319,7 +334,13 @@ Let width = w, length = w + 6.
 Perimeter = 2(w + w + 6) = 4w + 12 = 48.
 4w = 36 => w = 9 meters.
 Length = 9 + 6 = 15 meters. Verification: 2(15 + 9) = 48m.
-Teacher Grading: 25/25 ✓ Full Marks. Excellent modeling.`;
+Teacher Grading: 25/25 ✓ Full Marks. Excellent modeling.
+
+Question 7: Mensuration: Area of a Rectangle (25 Marks)
+Prompt: A rectangle has a length of 12 cm and a breadth of 7 cm. Calculate the Area of the rectangle.
+Student Working:
+Area of rectangle = Length + Breadth = 12 + 7 = 19 cm.
+Teacher Grading: 5/25 ✕ Critical Formula Error. Area of rectangle is Length × Breadth (12 × 7 = 84 cm²), NOT addition (12 + 7 = 19). Conflated area with linear perimeter calculation.`;
     }
 
     const file = new File(

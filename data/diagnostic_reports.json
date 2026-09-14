@@ -1,5 +1,73 @@
 [
   {
+    "answerSheetId": "sheet_1789417504298_p9ei",
+    "studentId": "rishu",
+    "studentName": "Rishu",
+    "studentClass": "Class 10 • Section A",
+    "studentRollNo": "28",
+    "subject": "Mathematics",
+    "examTitle": "Mathematics Comprehensive Midterm",
+    "overallScorePercentage": 58,
+    "totalQuestions": 2,
+    "totalAwardedMarks": 29,
+    "totalMaxMarks": 50,
+    "topicBreakdown": [
+      {
+        "topic_name": "Linear Equations in Two Variables",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Mensuration: Area of Rectangle",
+        "understanding_percentage": 16,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Linear Equations in Two Variables",
+        "question_text": "Solve 2x + 3y = 12, x - y = 1.",
+        "student_working": "x = 3, y = 2. Verified.",
+        "correct_solution": "From x - y = 1, x = y + 1. Substitute into 2x + 3y = 12: 2(y + 1) + 3y = 12 => 2y + 2 + 3y = 12 => 5y = 10 => y = 2. Then x = 2 + 1 = 3. Final answer: x = 3, y = 2.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None. The student solved the linear system correctly.",
+        "misconception": "None.",
+        "rule_to_remember": "Always substitute the final values back into both original equations to confirm accuracy."
+      },
+      {
+        "question_number": 7,
+        "topic_name": "Mensuration: Area of Rectangle",
+        "question_text": "A rectangle has length 12 cm and breadth 7 cm. Calculate the Area.",
+        "student_working": "Area of rectangle = Length + Breadth = 12 + 7 = 19 cm.",
+        "correct_solution": "Area of a rectangle = Length × Breadth = 12 cm × 7 cm = 84 cm².",
+        "max_marks": 25,
+        "awarded_marks": 4,
+        "understanding_percentage": 16,
+        "status": "Red",
+        "mistake_detected": "Critical Formula Error: Student added length and breadth (12 + 7 = 19) instead of multiplying (12 × 7 = 84) to calculate area.",
+        "misconception": "Area vs Perimeter Formula Conflation: Conflated linear boundary addition with 2D orthogonal multiplication (Length × Breadth).",
+        "rule_to_remember": "Area of Rectangle = Length × Breadth (L × B, in cm²). Perimeter = 2 × (Length + Breadth). Always verify square units."
+      }
+    ],
+    "commonMisconceptions": [
+      "Area vs Perimeter Formula Conflation: Calculated area of rectangle by adding dimensions (12 + 7 = 19) instead of multiplying length × breadth (12 × 7 = 84).",
+      "Area vs Perimeter Conflation: Conflating linear addition of dimensions with two-dimensional multiplication for surface area."
+    ],
+    "whatToLearnNext": [
+      "Rectangle Area Formula Practice: Explicitly write Area = Length × Breadth (L × B, in square units cm²) before calculating. Perimeter is 2(L + B).",
+      "Review standard geometric formulas for Area (L × B) vs Perimeter (2 × (L + B)).",
+      "Practice dimensional analysis and identifying proper units of measurement (cm vs cm²)."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.6-flash (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789417504300_h22z",
+    "createdAt": "2026-09-14T20:25:04.300Z"
+  },
+  {
     "answerSheetId": "sheet_1789414079276_eeia",
     "studentId": "aarav_gupta",
     "studentName": "Aarav Gupta",

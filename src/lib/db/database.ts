@@ -225,7 +225,9 @@ export const diagnosticReportRepo = {
       const nameMatches =
         repName === clean ||
         repName.replace(/\s+/g, '_') === clean ||
-        report.studentId.toLowerCase() === clean;
+        report.studentId.toLowerCase() === clean ||
+        (clean.length >= 3 && repName.includes(clean)) ||
+        (repName.length >= 3 && clean.includes(repName));
 
       if (nameMatches) {
         if (!cleanSubject || repSubject.includes(cleanSubject) || cleanSubject.includes(repSubject)) {

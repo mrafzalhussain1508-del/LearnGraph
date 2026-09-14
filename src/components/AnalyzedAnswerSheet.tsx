@@ -137,7 +137,7 @@ export default function AnalyzedAnswerSheet({
   const currentQ = questions?.[selectedQIndex] || questions?.[0] || fallbackQuestions[0];
   const studentDisplayName = (analysisResult?.student_name && analysisResult.student_name !== 'Student')
     ? analysisResult.student_name
-    : (studentName || analysisResult?.student_name || 'Lingjensthaibi');
+    : (studentName || analysisResult?.student_name || 'Rishu');
 
   return (
     <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">

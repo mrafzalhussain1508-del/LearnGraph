@@ -352,5 +352,20 @@
     "school": "Lincoln High School",
     "learningGoals": "Quadratic Factor-to-Root Check: Always set each bracket to 0 separately: (x - a) = 0 => x = a.",
     "createdAt": "2026-09-14T18:45:03.573Z"
+  },
+  {
+    "id": "student_1789417504304_y7d0",
+    "role": "student",
+    "name": "Rishu",
+    "username": "rishu",
+    "phone": "",
+    "email": "rishu@student.learngraph.edu",
+    "password": "password123",
+    "studentId": "28",
+    "grade": "Class 10 • Section A",
+    "section": "Section A",
+    "school": "Lincoln High School",
+    "learningGoals": "Rectangle Area Formula Practice: Explicitly write Area = Length × Breadth (L × B, in square units cm²) before calculating. Perimeter is 2(L + B).",
+    "createdAt": "2026-09-14T20:25:04.304Z"
   }
 ]
