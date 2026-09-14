@@ -77,13 +77,16 @@ CRITICAL INSTRUCTIONS:
      * "rule_to_remember": Key actionable formula anchor or verification rule.
 
 4. Rigorous Step-by-Step Mathematical & Scientific Auditing Rules:
-   - Algebraic Expansion: Verify multiplier distribution into brackets (e.g. 2(x - 3) = 14 => 2x - 6 = 14 => x = 10). If student wrote 2x - 3 = 14 => x = 8.5, strictly penalize (status "Red", awarded_marks <= 8/25), and flag "Incomplete Bracket Distribution".
-   - Exponents & Powers: Verify product law of indices (e.g. 2^3 × 2^4 = 2^7 = 128). If student multiplied exponents (3 × 4 = 12 => 2^12 = 4096), strictly penalize (status "Red", awarded_marks <= 5/25), and flag "Exponent Multiplication Fallacy".
-   - Mensuration: Area = Length × Breadth (12 × 7 = 84 cm²), NOT addition (12 + 7 = 19). Perimeter is 2(L + B). Penalize area addition (status "Red").
-   - Quadratic Roots: (x - 6)(x + 2) = 0 gives roots x = +6 and x = -2, not -6 and 2.
-   - Ionisation Enthalpy: Nitrogen (2p³) > Oxygen (2p⁴) due to half-filled subshell stability and electron pairing repulsion in Oxygen. Flag claiming Oxygen > Nitrogen as "Ionisation Enthalpy Anomaly Neglect" (status "Red").
-   - Electron Gain Enthalpy: Chlorine (-349 kJ/mol) is more negative than Fluorine (-328 kJ/mol) due to compact 2p interelectronic repulsion in Fluorine. Flag claiming Fluorine > Chlorine as "Electron Gain Enthalpy Anomaly Omission" (status "Red").
-   - Zero false-positive masteries or Green status for incorrect steps or wrong formulas.
+    - Algebraic Expansion: Verify multiplier distribution into brackets (e.g. 2(x - 3) = 14 => 2x - 6 = 14 => x = 10). If student wrote 2x - 3 = 14 => x = 8.5, strictly penalize (status "Red", awarded_marks <= 8/25), and flag "Incomplete Bracket Distribution".
+    - Exponents & Powers: Verify product law of indices (e.g. 2^3 × 2^4 = 2^7 = 128). If student multiplied exponents (3 × 4 = 12 => 2^12 = 4096), strictly penalize (status "Red", awarded_marks <= 5/25), and flag "Exponent Multiplication Fallacy".
+    - Mensuration: Area = Length × Breadth (12 × 7 = 84 cm²), NOT addition (12 + 7 = 19). Perimeter is 2(L + B). Penalize area addition (status "Red").
+    - Quadratic Roots: (x - 6)(x + 2) = 0 gives roots x = +6 and x = -2, not -6 and 2.
+    - Atomic Radius Across Period: Atomic radius DECREASES across a period from left to right because effective nuclear charge (Z_eff) increases, pulling electrons closer to the nucleus. If student claims atomic size/radius increases across a period, strictly penalize (status "Red", awarded_marks <= 8/25), and flag "Atomic Radius Trend Inversion".
+    - Elemental Radius Comparison: In Period 3, atomic size decreases: Na (186 pm) > Mg (160 pm) > Al (143 pm) > Si > P > S > Cl. Mg is strictly LARGER than Al. If student claims Al is larger than Mg (Al > Mg) or that higher atomic mass makes Al bigger, strictly penalize (status "Red", awarded_marks <= 8/25), and flag "Mass-Radius Fallacy (Mg vs Al Comparison)".
+    - Electronegativity Physical Basis: Fluorine has the highest Pauling electronegativity (4.0) because of its exceptionally SMALL/COMPACT covalent radius and high effective nuclear charge, pulling bonded electron pairs with maximum coulombic force. If student claims Fluorine's high electronegativity is due to "large size", "large radius", or "extra shells", strictly penalize (status "Red", awarded_marks <= 8/25), and flag "Electronegativity Determinant Inversion".
+    - Ionisation Enthalpy: Nitrogen (2p³) > Oxygen (2p⁴) due to half-filled subshell stability and electron pairing repulsion in Oxygen. Flag claiming Oxygen > Nitrogen as "Ionisation Enthalpy Anomaly Neglect" (status "Red").
+    - Electron Gain Enthalpy: Chlorine (-349 kJ/mol) is more negative than Fluorine (-328 kJ/mol) due to compact 2p interelectronic repulsion in Fluorine. Flag claiming Fluorine > Chlorine as "Electron Gain Enthalpy Anomaly Omission" (status "Red").
+    - Zero false-positive masteries or Green status for incorrect steps, wrong formulas, or scientifically inverted claims.
 
 5. 1:1 Topic Breakdown & Synthesis:
    - "topic_breakdown": An array of cards with an item for EVERY question evaluated on the sheet.
@@ -429,7 +432,165 @@ function auditAndEvaluateMathSteps(
       };
     }
 
-    // 7. Status and Percentage Consistency Sanity Check
+    // 7. Chemistry: Atomic Radius Across Period Trend Reversal Audit
+    const mentionsRadiusTrend =
+      text.includes('radius') ||
+      text.includes('radii') ||
+      text.includes('atomic size') ||
+      text.includes('period 3') ||
+      text.includes('period 2') ||
+      topicName.toLowerCase().includes('radii') ||
+      topicName.toLowerCase().includes('radius') ||
+      topicName.toLowerCase().includes('size');
+
+    const hasRadiusTrendReversal = mentionsRadiusTrend && (
+      working.includes('atomic radius increases across') ||
+      working.includes('atomic size increases across') ||
+      working.includes('radius increases across the period') ||
+      working.includes('radius increases across period') ||
+      working.includes('size increases across the period') ||
+      working.includes('size increases across period') ||
+      working.includes('radius increases from left to right') ||
+      working.includes('size increases from left to right') ||
+      working.includes('radius increases from na to cl') ||
+      working.includes('size increases from na to cl') ||
+      working.includes('atomic radius increases') ||
+      working.includes('atomic size increases') ||
+      working.includes('radii increase across') ||
+      working.includes('chlorine atom is much larger than sodium') ||
+      working.includes('chlorine is larger than sodium') ||
+      working.includes('cl is larger than na')
+    ) && !working.includes('atomic radius decreases') && !working.includes('atomic size decreases') && !working.includes('radius decreases from na to cl');
+
+    if (hasRadiusTrendReversal) {
+      const penalizedAwarded = Math.min(awardedM, Math.round(maxM * 0.28)); // Max 28% (7/25)
+      const penalizedPct = Math.round((penalizedAwarded / maxM) * 100);
+
+      const radiusMisconception = 'Atomic Radius Trend Inversion: Stated that atomic radius increases across a period, conflating period trends (where higher Z_eff contracts the electron cloud) with group trends (where new shells expand atomic size).';
+      if (!misconceptions.includes(radiusMisconception)) {
+        misconceptions.unshift(radiusMisconception);
+      }
+
+      const radiusDrill = 'Periodic Radius Anchor: Across a period, atomic radius DECREASES (higher Z_eff pull on same shell n). Down a group, atomic radius INCREASES (new principal energy levels added).';
+      if (!whatNext.includes(radiusDrill)) {
+        whatNext.unshift(radiusDrill);
+      }
+
+      return {
+        ...q,
+        topic_name: topicName.includes('Question') ? 'Periodic Trends: Atomic & Ionic Radii' : topicName,
+        awarded_marks: penalizedAwarded,
+        understanding_percentage: penalizedPct,
+        status: 'Red' as const,
+        mistake_detected: 'Periodic Trend Reversal Error: Stated that atomic radius/size increases across a period (from left to right). Across any period, atomic radius actually DECREASES because protons increase while electrons enter the same shell, driving up effective nuclear charge (Z_eff).',
+        misconception: 'Atomic Radius Trend Inversion: Confusing period contraction (Z_eff) with group expansion (adding principal quantum shells).',
+        rule_to_remember: 'Periodic Law of Radii: Atomic radius DECREASES across a period from left to right as Z_eff increases; it INCREASES down a group as principal quantum level n increases.',
+        correct_solution: 'Across Period 3 (Na to Cl), atomic number increases from 11 to 17 while electrons enter the same n = 3 shell. The effective nuclear charge (Z_eff) increases, drawing the valence electron cloud closer to the nucleus. Therefore, atomic radius decreases across the period.',
+      };
+    }
+
+    // 8. Chemistry: Electronegativity Reasoning & Size Attribution Audit
+    const mentionsElectronegativity =
+      text.includes('electronegativity') ||
+      text.includes('pauling') ||
+      topicName.toLowerCase().includes('electronegativity');
+
+    const hasElectronegativityReasonSlip = mentionsElectronegativity && (
+      working.includes('large size') ||
+      working.includes('large atomic size') ||
+      working.includes('large radius') ||
+      working.includes('large atomic radius') ||
+      working.includes('larger size') ||
+      working.includes('larger radius') ||
+      working.includes('biggest size') ||
+      working.includes('biggest radius') ||
+      working.includes('fluorine has a large') ||
+      working.includes('fluorine has large') ||
+      working.includes('due to its large') ||
+      working.includes('because of its large') ||
+      working.includes('extra shells') ||
+      working.includes('more electron shells')
+    ) && !working.includes('smallest size') && !working.includes('smallest atomic size') && !working.includes('small atomic size') && !working.includes('small size');
+
+    if (hasElectronegativityReasonSlip) {
+      const penalizedAwarded = Math.min(awardedM, Math.round(maxM * 0.32)); // Max 32% (8/25)
+      const penalizedPct = Math.round((penalizedAwarded / maxM) * 100);
+
+      const enMisconception = 'Electronegativity Determinant Inversion: Attributed Fluorine\'s high electronegativity to "large size" or "large radius", whereas high electronegativity is physically caused by Fluorine\'s exceptionally COMPACT covalent radius and high Z_eff.';
+      if (!misconceptions.includes(enMisconception)) {
+        misconceptions.unshift(enMisconception);
+      }
+
+      const enDrill = 'Coulomb\'s Law of Electronegativity: Attraction force F = k*(Z_eff * e)/r². A smaller covalent radius r dramatically INCREASES nuclear electrostatic pull on shared bond pairs. Fluorine has the highest electronegativity BECAUSE it is the smallest halogen.';
+      if (!whatNext.includes(enDrill)) {
+        whatNext.unshift(enDrill);
+      }
+
+      return {
+        ...q,
+        topic_name: topicName.includes('Question') ? 'Electronegativity Trends & Pauling Scale' : topicName,
+        awarded_marks: penalizedAwarded,
+        understanding_percentage: penalizedPct,
+        status: 'Red' as const,
+        mistake_detected: 'Electronegativity Attribution Fallacy: Stated that Fluorine has high electronegativity due to "large size" or "large radius". In reality, Fluorine has the highest Pauling electronegativity (4.0) because of its minimal 2p covalent radius and high effective nuclear charge.',
+        misconception: 'Electronegativity Determinant Inversion: Believing high electronegativity is correlated with large atomic volume rather than minimal nuclear-to-electron distance.',
+        rule_to_remember: 'Electronegativity Inverse Size Rule: Electronegativity increases as atomic size DECREASES. Fluorine is the most electronegative atom precisely because it is the smallest non-noble reactive atom.',
+        correct_solution: 'Electronegativity is the tendency of an atom in a covalent bond to attract shared electron pairs. Fluorine has the highest Pauling value (4.0) because it has the smallest atomic size in Period 2 (excluding noble gases) and a high effective nuclear charge (Z_eff = +5.2), placing bonding electrons extremely close to its positively charged nucleus.',
+      };
+    }
+
+    // 9. Chemistry: Elemental Size Comparison Audit (e.g., Mg vs Al)
+    const mentionsMgAl =
+      ((text.includes('mg') || text.includes('magnesium')) &&
+       (text.includes('al') || text.includes('aluminium') || text.includes('aluminum'))) ||
+      (working.includes('mg') && working.includes('al')) ||
+      (working.includes('magnesium') && working.includes('alumin'));
+
+    const hasMgAlSizeSlip = mentionsMgAl && (
+      working.includes('al > mg') ||
+      working.includes('al is larger than mg') ||
+      working.includes('aluminium is larger than magnesium') ||
+      working.includes('aluminum is larger than magnesium') ||
+      working.includes('al has a larger radius than mg') ||
+      working.includes('al has larger radius than mg') ||
+      working.includes('al has a larger atomic size') ||
+      working.includes('al has larger atomic size') ||
+      working.includes('al is bigger than mg') ||
+      working.includes('aluminium is bigger than magnesium') ||
+      working.includes('aluminum is bigger than magnesium') ||
+      working.includes('al has more protons so it is larger') ||
+      working.includes('aluminium has more protons so it is larger') ||
+      working.includes('aluminum has more protons so it is larger')
+    ) && !working.includes('mg > al') && !working.includes('mg is larger than al') && !working.includes('magnesium is larger than aluminium');
+
+    if (hasMgAlSizeSlip) {
+      const penalizedAwarded = Math.min(awardedM, Math.round(maxM * 0.28)); // Max 28% (7/25)
+      const penalizedPct = Math.round((penalizedAwarded / maxM) * 100);
+
+      const mgAlMisconception = 'Mass-Radius Fallacy (Mg vs Al Comparison): Assuming Aluminium (13 protons) is larger than Magnesium (12 protons) because it has more subatomic particles, ignoring that higher nuclear charge contracts the electron cloud across Period 3.';
+      if (!misconceptions.includes(mgAlMisconception)) {
+        misconceptions.unshift(mgAlMisconception);
+      }
+
+      const mgAlDrill = 'Period 3 Elemental Size Order: Memorize the atomic radius contraction from left to right: Na (186 pm) > Mg (160 pm) > Al (143 pm) > Si (118 pm) > P (110 pm) > S (102 pm) > Cl (99 pm). Higher Z within the same shell always shrinks radius.';
+      if (!whatNext.includes(mgAlDrill)) {
+        whatNext.unshift(mgAlDrill);
+      }
+
+      return {
+        ...q,
+        topic_name: topicName.includes('Question') ? 'Periodic Trends: Elemental Radius Comparison (Mg vs Al)' : topicName,
+        awarded_marks: penalizedAwarded,
+        understanding_percentage: penalizedPct,
+        status: 'Red' as const,
+        mistake_detected: 'Elemental Radius Comparison Error: Claimed Aluminium (Al) has a larger atomic radius than Magnesium (Mg). Across Period 3, atomic radius decreases as nuclear charge increases, so Mg (160 pm) is strictly larger than Al (143 pm).',
+        misconception: 'Mass-Radius Fallacy: Assuming that having more protons/electrons makes an atom physically larger within the same principal quantum shell.',
+        rule_to_remember: 'Iso-Period Radius Law: Across Period 3, Mg (Z=12, 160 pm) is larger than Al (Z=13, 143 pm) because Al\'s higher nuclear charge exerts a stronger coulombic pull on the n = 3 electrons.',
+        correct_solution: 'Magnesium (Z = 12) and Aluminium (Z = 13) both have valence electrons in the n = 3 shell. Aluminium has 13 protons compared to Magnesium\'s 12 protons, resulting in a higher effective nuclear charge (Z_eff) in Aluminium. This stronger coulombic pull draws the electron cloud tighter towards the nucleus. Consequently, Magnesium (160 pm) has a larger atomic radius than Aluminium (143 pm): Mg > Al.',
+      };
+    }
+
+    // 10. Status and Percentage Consistency Sanity Check
     const calculatedPct = maxM > 0 ? Math.round((awardedM / maxM) * 100) : q.understanding_percentage;
     let finalStatus: 'Green' | 'Yellow' | 'Red' = q.status;
     if (calculatedPct < 50) finalStatus = 'Red';
@@ -1421,12 +1582,17 @@ CRITICAL INSTRUCTIONS FOR THIS EVALUATION:
    - If Mathematics:
      * Evaluate exact mathematical strands on paper (Distributive Law bracket expansion, Exponents product rule, Rectangle Area vs Perimeter, Quadratic Roots factorization).
 3. Rigorous Step-by-Step Mathematical & Scientific Evaluation:
-   - Check every mathematical formula, substitution, expansion, and calculation with 100% precision.
+   - Check every mathematical formula, substitution, expansion, and scientific statement with 100% precision.
    - Algebraic Expansion & Distributive Law: For 2(x - 3) = 14, student must distribute 2 across both terms: 2x - 6 = 14 => x = 10. If student wrote 2x - 3 = 14 => x = 8.5, strictly penalize (awarded_marks ≤ 8/25, status "Red"), and flag incomplete bracket distribution.
    - Exponents & Laws of Indices: For 2^3 × 2^4, student must add powers: 2^(3+4) = 2^7 = 128. If student multiplied powers (3 × 4 = 12 => 2^12 = 4096), strictly penalize (awarded_marks ≤ 5/25, status "Red"), and flag under "Exponents / Algebraic Laws".
    - Rectangle Area: Length × Breadth (12 × 7 = 84 cm²), NOT addition (12 + 7 = 19). Penalize area addition (awarded_marks ≤ 5/25, status "Red").
    - Quadratic Roots: (x - 6)(x + 2) = 0 gives roots x = +6 or x = -2, not -6 and 2.
-   - DO NOT give false positive masteries or Green status for incorrect steps or wrong formulas.
+   - Atomic Radius Across Period: Must decrease across periods from left to right due to increasing effective nuclear charge (Z_eff). If student claims atomic size/radius increases across a period or increases from Na to Cl, strictly penalize (status "Red", awarded_marks ≤ 8/25), and flag "Atomic Radius Trend Inversion".
+   - Elemental Radius Comparison: In Period 3, atomic radius decreases: Na > Mg (160 pm) > Al (143 pm). Mg is larger than Al. If student claims Al is larger than Mg (Al > Mg), strictly penalize (status "Red", awarded_marks ≤ 8/25), and flag "Mass-Radius Fallacy (Mg vs Al Comparison)".
+   - Electronegativity Physical Basis: Fluorine has highest Pauling electronegativity (4.0) because of its small/compact 2p covalent radius and high Z_eff. If student claims Fluorine's electronegativity is due to "large size" or "large radius", strictly penalize (status "Red", awarded_marks ≤ 8/25), and flag "Electronegativity Determinant Inversion".
+   - Ionisation Enthalpy: Nitrogen (2p³) > Oxygen (2p⁴) due to half-filled stability. If student claims Oxygen > Nitrogen, strictly penalize (status "Red", awarded_marks ≤ 8/25).
+   - Electron Gain Enthalpy: Chlorine (-349 kJ/mol) > Fluorine (-328 kJ/mol) due to 2p compact repulsion. If student claims Fluorine > Chlorine, strictly penalize (status "Red", awarded_marks ≤ 6/25).
+   - DO NOT give false positive masteries or Green status for incorrect steps, wrong formulas, or scientifically inverted claims.
 4. Granular Topic Breakdown:
    - Generate distinct, 1:1 topic breakdown cards for each question evaluated on the sheet.
 5. Subject Alignment: Dynamically align with the subject identified on the paper (suggested: "${targetSubject}").

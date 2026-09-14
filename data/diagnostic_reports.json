@@ -1,5 +1,939 @@
 [
   {
+    "answerSheetId": "sheet_1789422797322_njtd",
+    "studentId": "elena_rostova",
+    "studentName": "Elena Rostova",
+    "studentClass": "Class 12 • Section C",
+    "studentRollNo": "07",
+    "subject": "Philosophy & Ethics",
+    "examTitle": "Moral Philosophy Diagnostic Midterm",
+    "overallScorePercentage": 100,
+    "totalQuestions": 2,
+    "totalAwardedMarks": 50,
+    "totalMaxMarks": 50,
+    "topicBreakdown": [
+      {
+        "topic_name": "Categorical Imperative",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Utilitarianism vs Deontology",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Categorical Imperative",
+        "question_text": "State Kant's Categorical Imperative universal law formulation.",
+        "student_working": "Act only according to that maxim whereby you can at the same time will that it should become a universal law.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Utilitarianism vs Deontology",
+        "question_text": "Contrast Bentham's act utilitarianism with rule utilitarianism.",
+        "student_working": "Act utilitarianism evaluates consequences of individual actions; rule utilitarianism evaluates the consequence of general conformity to rules.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      }
+    ],
+    "commonMisconceptions": [
+      "Review key procedural working steps and conceptual definitions in Philosophy & Ethics."
+    ],
+    "whatToLearnNext": [
+      "Targeted practice problem set targeting key questions in Philosophy & Ethics."
+    ],
+    "isLiveGemini": false,
+    "modelUsed": "Universal Diagnostic Engine (Philosophy & Ethics)",
+    "notice": "Evaluated 2 questions dynamically from uploaded sheet.",
+    "id": "diag_rep_1789422797325_esnr",
+    "createdAt": "2026-09-14T21:53:17.325Z"
+  },
+  {
+    "answerSheetId": "sheet_1789422795675_nmau",
+    "studentId": "dev_patel",
+    "studentName": "Dev Patel",
+    "studentClass": "Class 11 • Section B",
+    "studentRollNo": "18",
+    "subject": "Physics",
+    "examTitle": "Mechanics & Kinematics Assessment",
+    "overallScorePercentage": 80,
+    "totalQuestions": 2,
+    "totalAwardedMarks": 40,
+    "totalMaxMarks": 50,
+    "topicBreakdown": [
+      {
+        "topic_name": "Projectile Kinematics",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Newton's Law & Friction",
+        "understanding_percentage": 60,
+        "status": "Yellow"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Projectile Kinematics",
+        "question_text": "Find maximum height of projectile launched at 25 m/s at 30 deg.",
+        "student_working": "v_0y = 12.5 m/s. 0 = 156.25 - 19.6h => h = 7.97 m.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Newton's Law & Friction",
+        "question_text": "5 kg block pulled with 30 N, mu_k = 0.3. Find acceleration.",
+        "student_working": "N = 49 N. f_k = 14.7 N. F_net = 30 + 14.7 = 44.7 N. a = 8.94 m/s^2.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 15,
+        "understanding_percentage": 60,
+        "status": "Yellow",
+        "mistake_detected": "Added friction to driving force.",
+        "misconception": "Identified cognitive misconception in procedural execution.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      }
+    ],
+    "commonMisconceptions": [
+      "Review key procedural working steps and conceptual definitions in Physics."
+    ],
+    "whatToLearnNext": [
+      "Targeted practice problem set targeting key questions in Physics."
+    ],
+    "isLiveGemini": false,
+    "modelUsed": "Universal Diagnostic Engine (Physics)",
+    "notice": "Evaluated 2 questions dynamically from uploaded sheet.",
+    "id": "diag_rep_1789422795678_nthn",
+    "createdAt": "2026-09-14T21:53:15.678Z"
+  },
+  {
+    "answerSheetId": "sheet_1789422775517_jpk1",
+    "studentId": "rishu",
+    "studentName": "Rishu",
+    "studentClass": "Class 10 • Section A",
+    "studentRollNo": "28",
+    "subject": "Mathematics",
+    "examTitle": "Mathematics Diagnostic Midterm",
+    "overallScorePercentage": 43,
+    "totalQuestions": 4,
+    "totalAwardedMarks": 43,
+    "totalMaxMarks": 100,
+    "topicBreakdown": [
+      {
+        "topic_name": "Fractions Arithmetic",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Linear Equations: Distributive Expansion",
+        "understanding_percentage": 32,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Exponents Product Law",
+        "understanding_percentage": 20,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Mensuration: Rectangle Area",
+        "understanding_percentage": 20,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Fractions Arithmetic",
+        "question_text": "Evaluate 3/4 + 2/5 - 1/2.",
+        "student_working": "LCM = 20. 15/20 + 8/20 - 10/20 = 13/20.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Linear Equations: Distributive Expansion",
+        "question_text": "Solve 2(x - 3) = 14.",
+        "student_working": "2(x - 3) = 14 => 2x - 3 = 14 => 2x = 17 => x = 8.5.",
+        "correct_solution": "2(x - 3) = 14 => 2x - 6 = 14 => 2x = 20 => x = 10. Check: 2(10 - 3) = 2(7) = 14.",
+        "max_marks": 25,
+        "awarded_marks": 8,
+        "understanding_percentage": 32,
+        "status": "Red",
+        "mistake_detected": "Incomplete Bracket Distribution: Multiplied 2 by x but failed to multiply 2 by -3 (wrote 2x - 3 = 14 instead of 2x - 6 = 14). Resulted in x = 8.5 instead of x = 10.",
+        "misconception": "Distributive Property Neglect: Neglected to distribute the outer multiplier across the second term inside parentheses.",
+        "rule_to_remember": "Distributive Law: a(b - c) = ab - ac. Expand 2(x - 3) = 2x - 6 before isolating x."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Exponents Product Law",
+        "question_text": "Evaluate 2^3 * 2^4.",
+        "student_working": "Multiply exponents: 2^(3 * 4) = 2^12 = 4096.",
+        "correct_solution": "Product of powers with same base: 2^3 × 2^4 = 2^(3 + 4) = 2^7 = 128. (Note: Only multiply powers when raised to another power: (2^3)^4 = 2^12).",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Exponent Multiplication Fallacy: Multiplied exponents (3 × 4 = 12 giving 2^12) instead of adding them (3 + 4 = 7 giving 2^7 = 128).",
+        "misconception": "Exponents / Algebraic Laws: Conflated power of a power rule (a^m)^n = a^(m×n) with product of like bases a^m × a^n = a^(m+n).",
+        "rule_to_remember": "Product Law of Exponents: a^m × a^n = a^(m+n). When multiplying like bases, ADD the exponents: 2^3 × 2^4 = 2^(3+4) = 2^7 = 128."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Mensuration: Rectangle Area",
+        "question_text": "Find Area of rectangle with length 12 cm and breadth 7 cm.",
+        "student_working": "Area = 12 + 7 = 19 cm.",
+        "correct_solution": "Area of rectangle = Length × Breadth = 12 cm × 7 cm = 84 cm². Perimeter = 2(Length + Breadth) = 2(12 + 7) = 38 cm.",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Critical Formula Error: Student added length and breadth (12 + 7 = 19) instead of multiplying (12 × 7 = 84) to calculate area.",
+        "misconception": "Area vs Perimeter Formula Conflation: Conflated linear boundary addition with 2D orthogonal multiplication (Length × Breadth).",
+        "rule_to_remember": "Area of Rectangle = Length × Breadth (L × B, in cm²). Perimeter = 2 × (Length + Breadth). Always verify square units."
+      }
+    ],
+    "commonMisconceptions": [
+      "Area vs Perimeter Formula Conflation: Calculated area of rectangle by adding dimensions (12 + 7 = 19) instead of multiplying length × breadth (12 × 7 = 84).",
+      "Exponents / Algebraic Laws: Multiplied exponents instead of adding them when multiplying terms with equal bases (wrote 2^(3×4) = 2^12 instead of 2^(3+4) = 2^7 = 128).",
+      "Distributive Property & Bracket Expansion: Dropped outer multiplier across interior constant (wrote 2(x - 3) as 2x - 3 instead of 2x - 6)."
+    ],
+    "whatToLearnNext": [
+      "Rectangle Area Formula Practice: Explicitly write Area = Length × Breadth (L × B, in square units cm²) before calculating. Perimeter is 2(L + B).",
+      "Laws of Indices Drill: Memorize and apply the Product Rule: a^m × a^n = a^(m+n). Only multiply powers for power of a power: (a^m)^n = a^(m×n).",
+      "Distributive Law Practice: Always distribute the outer coefficient to every term inside parentheses: a(b - c) = ab - ac before isolating variables."
+    ],
+    "isLiveGemini": false,
+    "modelUsed": "Universal Diagnostic Engine (Mathematics)",
+    "notice": "Evaluated 4 questions dynamically from uploaded sheet.",
+    "id": "diag_rep_1789422775520_uid4",
+    "createdAt": "2026-09-14T21:52:55.520Z"
+  },
+  {
+    "answerSheetId": "sheet_1789422753791_qcdr",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties & Chemical Trends Diagnostic Test",
+    "overallScorePercentage": 64,
+    "totalQuestions": 4,
+    "totalAwardedMarks": 64,
+    "totalMaxMarks": 100,
+    "topicBreakdown": [
+      {
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Ionisation Enthalpy: Half-Filled Subshell Stability",
+        "understanding_percentage": 32,
+        "status": "Red"
+      },
+      {
+        "topic_name": "Electronegativity Trends & Pauling Scale",
+        "understanding_percentage": 100,
+        "status": "Yellow"
+      },
+      {
+        "topic_name": "Electron Gain Enthalpy: Chlorine vs Fluorine Anomaly",
+        "understanding_percentage": 24,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "question_text": "Explain why atomic radius decreases across Period 3 from Na to Cl, but increases down Group 1. Compare the ionic radii of Na+ and F- (isoelectronic species).",
+        "student_working": "Across Period 3, atomic number increases from Na (11) to Cl (17) while electrons are added to the same energy level (n = 3). Effective nuclear charge (Z_eff) increases, drawing valence electrons closer to the nucleus, so atomic radius decreases.\nDown Group 1, each successive period adds a new electron shell (principal quantum number n increases), increasing electron shielding and atomic size.\nFor isoelectronic ions Na+ and F- (both have 10 electrons): Na+ has 11 protons (higher nuclear charge Z), exerting stronger coulombic pull on electrons than F- with 9 protons. Therefore, ionic radius of F- is larger than Na+ (F- > Na+).",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Flawless effective nuclear charge and isoelectronic radius comparison.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      },
+      {
+        "question_number": 2,
+        "topic_name": "Ionisation Enthalpy: Half-Filled Subshell Stability",
+        "question_text": "Compare the first ionisation enthalpies of Nitrogen (Z = 7) and Oxygen (Z = 8). Why does Nitrogen have a higher first ionisation enthalpy than Oxygen?",
+        "student_working": "Oxygen has 8 protons and Nitrogen has 7 protons. Higher nuclear charge always means higher ionisation enthalpy, so Oxygen requires more energy to remove an electron than Nitrogen. First IE of Oxygen > First IE of Nitrogen.",
+        "correct_solution": "Nitrogen (1s² 2s² 2p³) has a stable half-filled 2p subshell with extra exchange energy. Oxygen (1s² 2s² 2p⁴) has electron pairing repulsion in one 2p orbital, making electron removal easier. Hence First IE: N (1402 kJ/mol) > O (1314 kJ/mol).",
+        "max_marks": 25,
+        "awarded_marks": 8,
+        "understanding_percentage": 32,
+        "status": "Red",
+        "mistake_detected": "Ionisation Enthalpy Anomaly Neglect: Stated that Oxygen has higher first ionisation enthalpy than Nitrogen due to higher nuclear charge, ignoring half-filled 2p³ subshell stability in Nitrogen.",
+        "misconception": "Ionisation Enthalpy Monotonicity Fallacy: Believing ionisation enthalpy increases strictly across every element in a period without accounting for half-filled/fully-filled subshell stability and orbital pairing repulsion.",
+        "rule_to_remember": "First IE Anomalies: Half-filled (2p³ for N) and fully-filled (2s² for Be) subshells confer extra stability. N > O and Be > B."
+      },
+      {
+        "question_number": 3,
+        "topic_name": "Electronegativity Trends & Pauling Scale",
+        "question_text": "Define electronegativity. Contrast it with electron gain enthalpy, and explain why Fluorine has the highest Pauling electronegativity (4.0).",
+        "student_working": "Electronegativity is the tendency of an atom in a chemical bond to attract shared electron pairs towards itself. Unlike electron gain enthalpy which measures energy change of isolated gaseous atoms gaining an electron, electronegativity is a dimensionless bonded property.\nFluorine is the smallest halogen with high effective nuclear charge, pulling bonded electrons most strongly. Pauling value is 4.0.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Yellow",
+        "mistake_detected": "Precise definition and distinction from electron gain enthalpy.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      },
+      {
+        "question_number": 4,
+        "topic_name": "Electron Gain Enthalpy: Chlorine vs Fluorine Anomaly",
+        "question_text": "Why does Chlorine have a more negative electron gain enthalpy (-349 kJ/mol) than Fluorine (-328 kJ/mol), despite Fluorine being more electronegative?",
+        "student_working": "Fluorine has the highest electronegativity, so it must attract incoming electrons the most strongly and release the most energy. Therefore, Fluorine must have a more negative electron gain enthalpy than Chlorine (-349 kJ/mol for F vs -328 kJ/mol for Cl). The table values must have a typo.",
+        "correct_solution": "Fluorine has an extremely small 2p orbital, leading to intense electron-electron repulsion when an electron is added. Chlorine's incoming electron enters the larger 3p orbital with less repulsion. Hence Chlorine releases more energy: Δ_egH(Cl) = -349 kJ/mol vs Δ_egH(F) = -328 kJ/mol.",
+        "max_marks": 25,
+        "awarded_marks": 6,
+        "understanding_percentage": 24,
+        "status": "Red",
+        "mistake_detected": "Electron Gain Enthalpy Anomaly Omission: Assumed Fluorine has more negative electron gain enthalpy than Chlorine because of electronegativity, failing to recognize compact 2p interelectronic repulsion.",
+        "misconception": "Compact Subshell Repulsion Oversight: Overlooking electron-electron repulsion in small 2p orbitals (Fluorine, Oxygen) compared to roomier 3p orbitals (Chlorine, Sulfur).",
+        "rule_to_remember": "Electron Gain Enthalpy Halogen Anomaly: Chlorine has a more negative electron gain enthalpy than Fluorine (-349 vs -328 kJ/mol) because Fluorine's small 2p subshell creates high interelectronic repulsion."
+      }
+    ],
+    "commonMisconceptions": [
+      "Compact Subshell Repulsion Oversight: Assuming Fluorine must have the most negative electron gain enthalpy due to electronegativity, ignoring interelectronic repulsion in Fluorine's compact 2p subshell vs Chlorine's larger 3p subshell.",
+      "Ionisation Enthalpy Monotonicity Fallacy: Assuming first ionisation enthalpy increases strictly with atomic number across Period 2, missing Nitrogen's stable half-filled 2p³ configuration and Oxygen's 2p⁴ electron pairing repulsion."
+    ],
+    "whatToLearnNext": [
+      "Electron Gain Enthalpy vs Electronegativity Drill: Fluorine is more electronegative in covalent bonds, but Chlorine releases more energy on gaining an electron (-349 kJ/mol vs -328 kJ/mol) due to 3p dispersion.",
+      "Orbital Box Notation & Exchange Energy: Draw orbital boxes for N (2p³) and O (2p⁴). Count parallel exchange pairs (3 for N) to visualize extra stability."
+    ],
+    "isLiveGemini": false,
+    "modelUsed": "Universal Diagnostic Engine (Chemistry)",
+    "notice": "Evaluated 4 questions dynamically from uploaded sheet.",
+    "id": "diag_rep_1789422753795_7sjz",
+    "createdAt": "2026-09-14T21:52:33.795Z"
+  },
+  {
+    "answerSheetId": "sheet_1789422742275_ke23",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties Diagnostic Test",
+    "overallScorePercentage": 100,
+    "totalQuestions": 1,
+    "totalAwardedMarks": 25,
+    "totalMaxMarks": 25,
+    "topicBreakdown": [
+      {
+        "topic_name": "Period 3 Atomic Size & Electronegativity",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Period 3 Atomic Size & Electronegativity",
+        "question_text": "Compare atomic sizes of Mg and Al, and explain why size decreases across Period 3. Explain why Fluorine is the most electronegative atom.",
+        "student_working": "Across Period 3, effective nuclear charge increases while electrons enter the same shell (n = 3), pulling the electron cloud inward, so atomic radius decreases from Na to Cl.\nComparing Mg and Al: Magnesium has 12 protons while Aluminium has 13 protons. The higher effective nuclear charge in Aluminium draws its electron cloud tighter, so Mg is larger than Al (Mg > Al).\nFluorine has the highest electronegativity because it has the smallest atomic size and high effective nuclear charge, pulling bonded electrons with maximum electrostatic attraction.",
+        "correct_solution": "Standard model proof and exact analytical resolution verified.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Flawless explanation.",
+        "misconception": "None observed.",
+        "rule_to_remember": "Standard verification: Check units, signs, and boundary values upon conclusion."
+      }
+    ],
+    "commonMisconceptions": [
+      "Review key procedural working steps and conceptual definitions in Chemistry."
+    ],
+    "whatToLearnNext": [
+      "Targeted practice problem set targeting key questions in Chemistry."
+    ],
+    "isLiveGemini": false,
+    "modelUsed": "Universal Diagnostic Engine (Chemistry)",
+    "notice": "Evaluated 1 questions dynamically from uploaded sheet.",
+    "id": "diag_rep_1789422742279_mohh",
+    "createdAt": "2026-09-14T21:52:22.279Z"
+  },
+  {
+    "answerSheetId": "sheet_1789422740767_gjv8",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties Diagnostic Test",
+    "overallScorePercentage": 28,
+    "totalQuestions": 1,
+    "totalAwardedMarks": 7,
+    "totalMaxMarks": 25,
+    "topicBreakdown": [
+      {
+        "topic_name": "Period 3 Atomic Size: Mg vs Al",
+        "understanding_percentage": 28,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Period 3 Atomic Size: Mg vs Al",
+        "question_text": "Compare the atomic radius of Magnesium (Mg) and Aluminium (Al).",
+        "student_working": "Aluminium has 13 protons and 13 electrons while Magnesium only has 12. Therefore, Al is larger than Mg (Al > Mg) because it has more subatomic particles.",
+        "correct_solution": "Magnesium (Z = 12) and Aluminium (Z = 13) both have valence electrons in the n = 3 shell. Aluminium has 13 protons compared to Magnesium's 12 protons, resulting in a higher effective nuclear charge (Z_eff) in Aluminium. This stronger coulombic pull draws the electron cloud tighter towards the nucleus. Consequently, Magnesium (160 pm) has a larger atomic radius than Aluminium (143 pm): Mg > Al.",
+        "max_marks": 25,
+        "awarded_marks": 7,
+        "understanding_percentage": 28,
+        "status": "Red",
+        "mistake_detected": "Elemental Radius Comparison Error: Claimed Aluminium (Al) has a larger atomic radius than Magnesium (Mg). Across Period 3, atomic radius decreases as nuclear charge increases, so Mg (160 pm) is strictly larger than Al (143 pm).",
+        "misconception": "Mass-Radius Fallacy: Assuming that having more protons/electrons makes an atom physically larger within the same principal quantum shell.",
+        "rule_to_remember": "Iso-Period Radius Law: Across Period 3, Mg (Z=12, 160 pm) is larger than Al (Z=13, 143 pm) because Al's higher nuclear charge exerts a stronger coulombic pull on the n = 3 electrons."
+      }
+    ],
+    "commonMisconceptions": [
+      "Mass-Radius Fallacy (Mg vs Al Comparison): Assuming Aluminium (13 protons) is larger than Magnesium (12 protons) because it has more subatomic particles, ignoring that higher nuclear charge contracts the electron cloud across Period 3."
+    ],
+    "whatToLearnNext": [
+      "Period 3 Elemental Size Order: Memorize the atomic radius contraction from left to right: Na (186 pm) > Mg (160 pm) > Al (143 pm) > Si (118 pm) > P (110 pm) > S (102 pm) > Cl (99 pm). Higher Z within the same shell always shrinks radius."
+    ],
+    "isLiveGemini": false,
+    "modelUsed": "Universal Diagnostic Engine (Chemistry)",
+    "notice": "Evaluated 1 questions dynamically from uploaded sheet.",
+    "id": "diag_rep_1789422740770_iim4",
+    "createdAt": "2026-09-14T21:52:20.770Z"
+  },
+  {
+    "answerSheetId": "sheet_1789422696734_fwf8",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties Diagnostic Test",
+    "overallScorePercentage": 20,
+    "totalQuestions": 1,
+    "totalAwardedMarks": 5,
+    "totalMaxMarks": 25,
+    "topicBreakdown": [
+      {
+        "topic_name": "Electronegativity Trends & Pauling Scale",
+        "understanding_percentage": 20,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Electronegativity Trends & Pauling Scale",
+        "question_text": "Why does Fluorine possess the highest Pauling electronegativity value of 4.0?",
+        "student_working": "Fluorine has the highest electronegativity because of its large atomic size and extra shells, which gives it a huge electron cloud to pull other electrons.",
+        "correct_solution": "Electronegativity is the tendency of an atom in a covalent bond to attract shared electron pairs. Fluorine has the highest Pauling value (4.0) because it has the smallest atomic size in Period 2 (excluding noble gases) and a high effective nuclear charge (Z_eff = +5.2), placing bonding electrons extremely close to its positively charged nucleus.",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Electronegativity Attribution Fallacy: Stated that Fluorine has high electronegativity due to \"large size\" or \"large radius\". In reality, Fluorine has the highest Pauling electronegativity (4.0) because of its minimal 2p covalent radius and high effective nuclear charge.",
+        "misconception": "Electronegativity Determinant Inversion: Believing high electronegativity is correlated with large atomic volume rather than minimal nuclear-to-electron distance.",
+        "rule_to_remember": "Electronegativity Inverse Size Rule: Electronegativity increases as atomic size DECREASES. Fluorine is the most electronegative atom precisely because it is the smallest non-noble reactive atom."
+      }
+    ],
+    "commonMisconceptions": [
+      "Electronegativity Determinant Inversion: Attributed Fluorine's high electronegativity to \"large size\" or \"large radius\", whereas high electronegativity is physically caused by Fluorine's exceptionally COMPACT covalent radius and high Z_eff.",
+      "Belief that higher electronegativity is facilitated by larger atomic volume and extra shells rather than compact covalent radius and proximity to the nucleus."
+    ],
+    "whatToLearnNext": [
+      "Coulomb's Law of Electronegativity: Attraction force F = k*(Z_eff * e)/r². A smaller covalent radius r dramatically INCREASES nuclear electrostatic pull on shared bond pairs. Fluorine has the highest electronegativity BECAUSE it is the smallest halogen.",
+      "Review periodic trends in atomic radius, ionic radius, and effective nuclear charge (Z_eff) across Period 2 and Group 17.",
+      "Practice physical rationale questions explaining Pauling electronegativity using Coulomb's law: F ∝ (q₁·q₂)/r².",
+      "Contrast electronegativity (ability to attract shared electrons in a bond) with electron gain enthalpy (energy released when adding an electron to an isolated gas atom)."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-flash-latest (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789422696737_2aqi",
+    "createdAt": "2026-09-14T21:51:36.737Z"
+  },
+  {
+    "answerSheetId": "sheet_1789422690414_6xlv",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties Diagnostic Test",
+    "overallScorePercentage": 20,
+    "totalQuestions": 1,
+    "totalAwardedMarks": 5,
+    "totalMaxMarks": 25,
+    "topicBreakdown": [
+      {
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "understanding_percentage": 20,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "question_text": "Describe the variation in atomic radius across Period 3 from Na to Cl.",
+        "student_working": "As we move from left to right across Period 3, more electrons are added so the atomic radius increases across the period from Na to Cl. The chlorine atom is much larger than sodium.",
+        "correct_solution": "Across Period 3 (Na to Cl), atomic number increases from 11 to 17 while electrons enter the same n = 3 shell. The effective nuclear charge (Z_eff) increases, drawing the valence electron cloud closer to the nucleus. Therefore, atomic radius decreases across the period.",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Periodic Trend Reversal Error: Stated that atomic radius/size increases across a period (from left to right). Across any period, atomic radius actually DECREASES because protons increase while electrons enter the same shell, driving up effective nuclear charge (Z_eff).",
+        "misconception": "Atomic Radius Trend Inversion: Confusing period contraction (Z_eff) with group expansion (adding principal quantum shells).",
+        "rule_to_remember": "Periodic Law of Radii: Atomic radius DECREASES across a period from left to right as Z_eff increases; it INCREASES down a group as principal quantum level n increases."
+      }
+    ],
+    "commonMisconceptions": [
+      "Atomic Radius Trend Inversion: Stated that atomic radius increases across a period, conflating period trends (where higher Z_eff contracts the electron cloud) with group trends (where new shells expand atomic size).",
+      "Atomic Radius Trend Inversion: Assuming that adding electrons across a period causes the atom to expand, failing to consider the dominant effect of increasing nuclear charge (Z_eff) pulling the same valence shell closer."
+    ],
+    "whatToLearnNext": [
+      "Periodic Radius Anchor: Across a period, atomic radius DECREASES (higher Z_eff pull on same shell n). Down a group, atomic radius INCREASES (new principal energy levels added).",
+      "Revisit the concept of Effective Nuclear Charge (Z_eff = Z - S) and Slater's rules to understand how shielding impacts valence shell attraction.",
+      "Practice periodic trend comparison drills across Period 2 and Period 3 elements (e.g., comparing radii of Na, Mg, Al, P, and Cl).",
+      "Study the distinction between across-period trends (constant n, increasing Z_eff -> size decreases) and down-a-group trends (increasing n -> size increases)."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-flash-latest (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789422690416_k8el",
+    "createdAt": "2026-09-14T21:51:30.416Z"
+  },
+  {
+    "answerSheetId": "sheet_1789422666246_twov",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties Diagnostic Test",
+    "overallScorePercentage": 100,
+    "totalQuestions": 1,
+    "totalAwardedMarks": 25,
+    "totalMaxMarks": 25,
+    "topicBreakdown": [
+      {
+        "topic_name": "Periodic Trends: Atomic Radii & Electronegativity",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Periodic Trends: Atomic Radii & Electronegativity",
+        "question_text": "Compare atomic sizes of Mg and Al, and explain why size decreases across Period 3. Explain why Fluorine is the most electronegative atom.",
+        "student_working": "Across Period 3, effective nuclear charge increases while electrons enter the same shell (n = 3), pulling the electron cloud inward, so atomic radius decreases from Na to Cl.\nComparing Mg and Al: Magnesium has 12 protons while Aluminium has 13 protons. The higher effective nuclear charge in Aluminium draws its electron cloud tighter, so Mg is larger than Al (Mg > Al).\nFluorine has the highest electronegativity because it has the smallest atomic size and high effective nuclear charge, pulling bonded electrons with maximum electrostatic attraction.",
+        "correct_solution": "1. Across Period 3, atomic radius decreases from left to right (Na to Cl) because the effective nuclear charge (Z_eff) increases as protons are added to the nucleus while electrons are added to the same principal energy level (n = 3), resulting in a stronger electrostatic attraction pulling the electron cloud closer.\n2. Mg (Z=12) has a larger atomic radius than Al (Z=13) because Al has a higher nuclear charge (13 protons vs 12 protons) pulling the valence electrons more strongly inward.\n3. Fluorine has the highest electronegativity (4.0 on the Pauling scale) because of its exceptionally small atomic radius and high effective nuclear charge, which allows its nucleus to exert a powerful electrostatic pull on shared/bonded electron pairs.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "None",
+        "misconception": "None",
+        "rule_to_remember": "Atomic radius decreases across a period due to increasing effective nuclear charge (Z_eff). Electronegativity increases across a period and decreases down a group, with Fluorine being the most electronegative element due to its small size and high Z_eff."
+      }
+    ],
+    "commonMisconceptions": [],
+    "whatToLearnNext": [
+      "Explore anomalous trends in Ionisation Enthalpy (e.g., Nitrogen vs Oxygen half-filled stability).",
+      "Study Electron Gain Enthalpy anomalies, specifically why Chlorine has a more negative electron gain enthalpy than Fluorine due to interelectronic repulsion in Fluorine's compact 2p subshell."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789422666252_1lig",
+    "createdAt": "2026-09-14T21:51:06.252Z"
+  },
+  {
+    "answerSheetId": "sheet_1789422658490_lhx3",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties Diagnostic Test",
+    "overallScorePercentage": 20,
+    "totalQuestions": 1,
+    "totalAwardedMarks": 5,
+    "totalMaxMarks": 25,
+    "topicBreakdown": [
+      {
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "understanding_percentage": 20,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "question_text": "Compare the atomic radius of Magnesium (Mg) and Aluminium (Al).",
+        "student_working": "Aluminium has 13 protons and 13 electrons while Magnesium only has 12. Therefore, Al is larger than Mg (Al > Mg) because it has more subatomic particles.",
+        "correct_solution": "Magnesium (Z = 12) and Aluminium (Z = 13) both have valence electrons in the n = 3 shell. Aluminium has 13 protons compared to Magnesium's 12 protons, resulting in a higher effective nuclear charge (Z_eff) in Aluminium. This stronger coulombic pull draws the electron cloud tighter towards the nucleus. Consequently, Magnesium (160 pm) has a larger atomic radius than Aluminium (143 pm): Mg > Al.",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Elemental Radius Comparison Error: Claimed Aluminium (Al) has a larger atomic radius than Magnesium (Mg). Across Period 3, atomic radius decreases as nuclear charge increases, so Mg (160 pm) is strictly larger than Al (143 pm).",
+        "misconception": "Mass-Radius Fallacy: Assuming that having more protons/electrons makes an atom physically larger within the same principal quantum shell.",
+        "rule_to_remember": "Iso-Period Radius Law: Across Period 3, Mg (Z=12, 160 pm) is larger than Al (Z=13, 143 pm) because Al's higher nuclear charge exerts a stronger coulombic pull on the n = 3 electrons."
+      }
+    ],
+    "commonMisconceptions": [
+      "Mass-Radius Fallacy (Mg vs Al Comparison): Assuming Aluminium (13 protons) is larger than Magnesium (12 protons) because it has more subatomic particles, ignoring that higher nuclear charge contracts the electron cloud across Period 3.",
+      "Mass-Radius Fallacy: Believing that an increase in the number of protons and electrons (higher atomic number) automatically increases atomic size, ignoring the role of effective nuclear charge (Z_eff) in pulling the electron shells closer."
+    ],
+    "whatToLearnNext": [
+      "Period 3 Elemental Size Order: Memorize the atomic radius contraction from left to right: Na (186 pm) > Mg (160 pm) > Al (143 pm) > Si (118 pm) > P (110 pm) > S (102 pm) > Cl (99 pm). Higher Z within the same shell always shrinks radius.",
+      "Practice drills on Period 3 atomic radii trends.",
+      "Review the concept of Effective Nuclear Charge (Z_eff) and shielding effect.",
+      "Compare atomic sizes of Na, Mg, Al, and Si to reinforce the decreasing trend across a period."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789422658493_uvr5",
+    "createdAt": "2026-09-14T21:50:58.493Z"
+  },
+  {
+    "answerSheetId": "sheet_1789422650336_g6jd",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties Diagnostic Test",
+    "overallScorePercentage": 20,
+    "totalQuestions": 1,
+    "totalAwardedMarks": 5,
+    "totalMaxMarks": 25,
+    "topicBreakdown": [
+      {
+        "topic_name": "Electronegativity Trends & Pauling Scale",
+        "understanding_percentage": 20,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Electronegativity Trends & Pauling Scale",
+        "question_text": "Why does Fluorine possess the highest Pauling electronegativity value of 4.0?",
+        "student_working": "Fluorine has the highest electronegativity because of its large atomic size and extra shells, which gives it a huge electron cloud to pull other electrons.",
+        "correct_solution": "Electronegativity is the tendency of an atom in a covalent bond to attract shared electron pairs. Fluorine has the highest Pauling value (4.0) because it has the smallest atomic size in Period 2 (excluding noble gases) and a high effective nuclear charge (Z_eff = +5.2), placing bonding electrons extremely close to its positively charged nucleus.",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Electronegativity Attribution Fallacy: Stated that Fluorine has high electronegativity due to \"large size\" or \"large radius\". In reality, Fluorine has the highest Pauling electronegativity (4.0) because of its minimal 2p covalent radius and high effective nuclear charge.",
+        "misconception": "Electronegativity Determinant Inversion: Believing high electronegativity is correlated with large atomic volume rather than minimal nuclear-to-electron distance.",
+        "rule_to_remember": "Electronegativity Inverse Size Rule: Electronegativity increases as atomic size DECREASES. Fluorine is the most electronegative atom precisely because it is the smallest non-noble reactive atom."
+      }
+    ],
+    "commonMisconceptions": [
+      "Electronegativity Determinant Inversion: Attributed Fluorine's high electronegativity to \"large size\" or \"large radius\", whereas high electronegativity is physically caused by Fluorine's exceptionally COMPACT covalent radius and high Z_eff.",
+      "Electronegativity Determinant Inversion: Confusing the physical basis of electronegativity by attributing high electronegative strength to larger atomic size and additional electron shells."
+    ],
+    "whatToLearnNext": [
+      "Coulomb's Law of Electronegativity: Attraction force F = k*(Z_eff * e)/r². A smaller covalent radius r dramatically INCREASES nuclear electrostatic pull on shared bond pairs. Fluorine has the highest electronegativity BECAUSE it is the smallest halogen.",
+      "Review periodic trends of atomic radii across periods and down groups.",
+      "Study the relationship between effective nuclear charge (Z_eff), atomic size, and electronegativity.",
+      "Practice identifying the electronic configurations of Period 2 elements to understand shell structure."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789422650338_ghbd",
+    "createdAt": "2026-09-14T21:50:50.338Z"
+  },
+  {
+    "answerSheetId": "sheet_1789422643089_yel8",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties Diagnostic Test",
+    "overallScorePercentage": 20,
+    "totalQuestions": 1,
+    "totalAwardedMarks": 5,
+    "totalMaxMarks": 25,
+    "topicBreakdown": [
+      {
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "understanding_percentage": 20,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "question_text": "Describe the variation in atomic radius across Period 3 from Na to Cl.",
+        "student_working": "As we move from left to right across Period 3, more electrons are added so the atomic radius increases across the period from Na to Cl. The chlorine atom is much larger than sodium.",
+        "correct_solution": "Across Period 3 (Na to Cl), atomic number increases from 11 to 17 while electrons enter the same n = 3 shell. The effective nuclear charge (Z_eff) increases, drawing the valence electron cloud closer to the nucleus. Therefore, atomic radius decreases across the period.",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Periodic Trend Reversal Error: Stated that atomic radius/size increases across a period (from left to right). Across any period, atomic radius actually DECREASES because protons increase while electrons enter the same shell, driving up effective nuclear charge (Z_eff).",
+        "misconception": "Atomic Radius Trend Inversion: Confusing period contraction (Z_eff) with group expansion (adding principal quantum shells).",
+        "rule_to_remember": "Periodic Law of Radii: Atomic radius DECREASES across a period from left to right as Z_eff increases; it INCREASES down a group as principal quantum level n increases."
+      }
+    ],
+    "commonMisconceptions": [
+      "Atomic Radius Trend Inversion: Stated that atomic radius increases across a period, conflating period trends (where higher Z_eff contracts the electron cloud) with group trends (where new shells expand atomic size).",
+      "Confusing electron count with shell expansion, leading to the belief that atomic radius increases across a period.",
+      "Failing to account for effective nuclear charge (Z_eff) pulling electrons closer in the same shell."
+    ],
+    "whatToLearnNext": [
+      "Periodic Radius Anchor: Across a period, atomic radius DECREASES (higher Z_eff pull on same shell n). Down a group, atomic radius INCREASES (new principal energy levels added).",
+      "Review the concept of Effective Nuclear Charge (Z_eff) and Shielding Effect.",
+      "Practice comparing atomic sizes of Period 2 and Period 3 elements.",
+      "Study the physical basis of periodic trends (atomic radius, ionization energy, electronegativity)."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789422643092_arj6",
+    "createdAt": "2026-09-14T21:50:43.092Z"
+  },
+  {
+    "answerSheetId": "sheet_1789422534425_2tk1",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties Diagnostic Test",
+    "overallScorePercentage": 28,
+    "totalQuestions": 1,
+    "totalAwardedMarks": 7,
+    "totalMaxMarks": 25,
+    "topicBreakdown": [
+      {
+        "topic_name": "Periodic Trends: Atomic Radii & Electronegativity",
+        "understanding_percentage": 28,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Periodic Trends: Atomic Radii & Electronegativity",
+        "question_text": "Compare atomic sizes of Mg and Al, and explain why size decreases across Period 3. Explain why Fluorine is the most electronegative atom.",
+        "student_working": "Across Period 3, effective nuclear charge increases while electrons enter the same shell (n = 3), pulling the electron cloud inward, so atomic radius decreases from Na to Cl.\nComparing Mg and Al: Magnesium has 12 protons while Aluminium has 13 protons. The higher effective nuclear charge in Aluminium draws its electron cloud tighter, so Mg is larger than Al (Mg > Al).\nFluorine has the highest electronegativity because it has the smallest atomic size and high effective nuclear charge, pulling bonded electrons with maximum electrostatic attraction.",
+        "correct_solution": "Across Period 3 (Na to Cl), atomic number increases from 11 to 17 while electrons enter the same n = 3 shell. The effective nuclear charge (Z_eff) increases, drawing the valence electron cloud closer to the nucleus. Therefore, atomic radius decreases across the period.",
+        "max_marks": 25,
+        "awarded_marks": 7,
+        "understanding_percentage": 28,
+        "status": "Red",
+        "mistake_detected": "Periodic Trend Reversal Error: Stated that atomic radius/size increases across a period (from left to right). Across any period, atomic radius actually DECREASES because protons increase while electrons enter the same shell, driving up effective nuclear charge (Z_eff).",
+        "misconception": "Atomic Radius Trend Inversion: Confusing period contraction (Z_eff) with group expansion (adding principal quantum shells).",
+        "rule_to_remember": "Periodic Law of Radii: Atomic radius DECREASES across a period from left to right as Z_eff increases; it INCREASES down a group as principal quantum level n increases."
+      }
+    ],
+    "commonMisconceptions": [
+      "Atomic Radius Trend Inversion: Stated that atomic radius increases across a period, conflating period trends (where higher Z_eff contracts the electron cloud) with group trends (where new shells expand atomic size)."
+    ],
+    "whatToLearnNext": [
+      "Periodic Radius Anchor: Across a period, atomic radius DECREASES (higher Z_eff pull on same shell n). Down a group, atomic radius INCREASES (new principal energy levels added).",
+      "Explore anomalous trends in Ionisation Enthalpy (e.g., Nitrogen vs Oxygen half-filled subshell stability) to deepen understanding of periodic anomalies.",
+      "Study Electron Gain Enthalpy trends, specifically the Chlorine vs Fluorine anomaly caused by interelectronic repulsion in compact shells."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789422534428_bg3q",
+    "createdAt": "2026-09-14T21:48:54.428Z"
+  },
+  {
+    "answerSheetId": "sheet_1789422527128_9jj4",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties Diagnostic Test",
+    "overallScorePercentage": 20,
+    "totalQuestions": 1,
+    "totalAwardedMarks": 5,
+    "totalMaxMarks": 25,
+    "topicBreakdown": [
+      {
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "understanding_percentage": 20,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "question_text": "Compare the atomic radius of Magnesium (Mg) and Aluminium (Al).",
+        "student_working": "Aluminium has 13 protons and 13 electrons while Magnesium only has 12. Therefore, Al is larger than Mg (Al > Mg) because it has more subatomic particles.",
+        "correct_solution": "Magnesium (Z = 12) and Aluminium (Z = 13) both have valence electrons in the n = 3 shell. Aluminium has 13 protons compared to Magnesium's 12 protons, resulting in a higher effective nuclear charge (Z_eff) in Aluminium. This stronger coulombic pull draws the electron cloud tighter towards the nucleus. Consequently, Magnesium (160 pm) has a larger atomic radius than Aluminium (143 pm): Mg > Al.",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Elemental Radius Comparison Error: Claimed Aluminium (Al) has a larger atomic radius than Magnesium (Mg). Across Period 3, atomic radius decreases as nuclear charge increases, so Mg (160 pm) is strictly larger than Al (143 pm).",
+        "misconception": "Mass-Radius Fallacy: Assuming that having more protons/electrons makes an atom physically larger within the same principal quantum shell.",
+        "rule_to_remember": "Iso-Period Radius Law: Across Period 3, Mg (Z=12, 160 pm) is larger than Al (Z=13, 143 pm) because Al's higher nuclear charge exerts a stronger coulombic pull on the n = 3 electrons."
+      }
+    ],
+    "commonMisconceptions": [
+      "Mass-Radius Fallacy (Mg vs Al Comparison): Assuming Aluminium (13 protons) is larger than Magnesium (12 protons) because it has more subatomic particles, ignoring that higher nuclear charge contracts the electron cloud across Period 3.",
+      "Mass-Radius Fallacy: Assuming that more protons/electrons/neutrons automatically translate to a larger atomic volume, ignoring the contraction caused by increased effective nuclear charge (Z_eff) across a period."
+    ],
+    "whatToLearnNext": [
+      "Period 3 Elemental Size Order: Memorize the atomic radius contraction from left to right: Na (186 pm) > Mg (160 pm) > Al (143 pm) > Si (118 pm) > P (110 pm) > S (102 pm) > Cl (99 pm). Higher Z within the same shell always shrinks radius.",
+      "Review the concept of Effective Nuclear Charge (Z_eff) and how it is calculated using Slater's Rules.",
+      "Practice comparing atomic and ionic radii of adjacent elements in Period 3 (e.g., Na vs Mg, Mg vs Al).",
+      "Study the shielding effect and how inner-shell electrons screen outer-shell electrons from nuclear pull."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789422527131_n0kf",
+    "createdAt": "2026-09-14T21:48:47.131Z"
+  },
+  {
+    "answerSheetId": "sheet_1789422520251_yu20",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties Diagnostic Test",
+    "overallScorePercentage": 20,
+    "totalQuestions": 1,
+    "totalAwardedMarks": 5,
+    "totalMaxMarks": 25,
+    "topicBreakdown": [
+      {
+        "topic_name": "Electronegativity Trends & Pauling Scale",
+        "understanding_percentage": 20,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Electronegativity Trends & Pauling Scale",
+        "question_text": "Why does Fluorine possess the highest Pauling electronegativity value of 4.0?",
+        "student_working": "Fluorine has the highest electronegativity because of its large atomic size and extra shells, which gives it a huge electron cloud to pull other electrons.",
+        "correct_solution": "Electronegativity is the tendency of an atom in a covalent bond to attract shared electron pairs. Fluorine has the highest Pauling value (4.0) because it has the smallest atomic size in Period 2 (excluding noble gases) and a high effective nuclear charge (Z_eff = +5.2), placing bonding electrons extremely close to its positively charged nucleus.",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Electronegativity Attribution Fallacy: Stated that Fluorine has high electronegativity due to \"large size\" or \"large radius\". In reality, Fluorine has the highest Pauling electronegativity (4.0) because of its minimal 2p covalent radius and high effective nuclear charge.",
+        "misconception": "Electronegativity Determinant Inversion: Believing high electronegativity is correlated with large atomic volume rather than minimal nuclear-to-electron distance.",
+        "rule_to_remember": "Electronegativity Inverse Size Rule: Electronegativity increases as atomic size DECREASES. Fluorine is the most electronegative atom precisely because it is the smallest non-noble reactive atom."
+      }
+    ],
+    "commonMisconceptions": [
+      "Electronegativity Determinant Inversion: Attributed Fluorine's high electronegativity to \"large size\" or \"large radius\", whereas high electronegativity is physically caused by Fluorine's exceptionally COMPACT covalent radius and high Z_eff.",
+      "Electronegativity Determinant Inversion: Confusing large atomic size and extra electron shells with high electronegativity, when in fact a smaller atomic radius and fewer shells increase the electrostatic attraction for bonding electrons."
+    ],
+    "whatToLearnNext": [
+      "Coulomb's Law of Electronegativity: Attraction force F = k*(Z_eff * e)/r². A smaller covalent radius r dramatically INCREASES nuclear electrostatic pull on shared bond pairs. Fluorine has the highest electronegativity BECAUSE it is the smallest halogen.",
+      "Review the periodic trend of atomic radius and its inverse relationship with electronegativity.",
+      "Practice drawing Bohr models of Period 2 elements to visualize shell count and atomic size.",
+      "Study Coulomb's Law (F = k * q1 * q2 / r²) to understand how a smaller distance (r) increases the attractive force on valence/bonding electrons."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789422520253_2kvr",
+    "createdAt": "2026-09-14T21:48:40.253Z"
+  },
+  {
+    "answerSheetId": "sheet_1789422512916_lbz4",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties Diagnostic Test",
+    "overallScorePercentage": 20,
+    "totalQuestions": 1,
+    "totalAwardedMarks": 5,
+    "totalMaxMarks": 25,
+    "topicBreakdown": [
+      {
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "understanding_percentage": 20,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": 1,
+        "topic_name": "Periodic Trends: Atomic & Ionic Radii",
+        "question_text": "Describe the variation in atomic radius across Period 3 from Na to Cl.",
+        "student_working": "As we move from left to right across Period 3, more electrons are added so the atomic radius increases across the period from Na to Cl. The chlorine atom is much larger than sodium.",
+        "correct_solution": "Across Period 3 (Na to Cl), atomic number increases from 11 to 17 while electrons enter the same n = 3 shell. The effective nuclear charge (Z_eff) increases, drawing the valence electron cloud closer to the nucleus. Therefore, atomic radius decreases across the period.",
+        "max_marks": 25,
+        "awarded_marks": 5,
+        "understanding_percentage": 20,
+        "status": "Red",
+        "mistake_detected": "Periodic Trend Reversal Error: Stated that atomic radius/size increases across a period (from left to right). Across any period, atomic radius actually DECREASES because protons increase while electrons enter the same shell, driving up effective nuclear charge (Z_eff).",
+        "misconception": "Atomic Radius Trend Inversion: Confusing period contraction (Z_eff) with group expansion (adding principal quantum shells).",
+        "rule_to_remember": "Periodic Law of Radii: Atomic radius DECREASES across a period from left to right as Z_eff increases; it INCREASES down a group as principal quantum level n increases."
+      }
+    ],
+    "commonMisconceptions": [
+      "Atomic Radius Trend Inversion: Stated that atomic radius increases across a period, conflating period trends (where higher Z_eff contracts the electron cloud) with group trends (where new shells expand atomic size).",
+      "Atomic Radius Trend Inversion: Believing that atomic radius increases across a period due to the addition of electrons, ignoring the dominant effect of increasing effective nuclear charge (Z_eff)."
+    ],
+    "whatToLearnNext": [
+      "Periodic Radius Anchor: Across a period, atomic radius DECREASES (higher Z_eff pull on same shell n). Down a group, atomic radius INCREASES (new principal energy levels added).",
+      "Practice drills on calculating and identifying effective nuclear charge (Z_eff) trends across periods.",
+      "Review the physical basis of atomic size, nuclear attraction, and shielding effects.",
+      "Compare atomic radii of Period 3 elements (Na to Cl) using actual values in picometers (pm) to visualize the trend."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash (Multimodal Diagnostic Engine)",
+    "id": "diag_rep_1789422512920_s687",
+    "createdAt": "2026-09-14T21:48:32.920Z"
+  },
+  {
     "answerSheetId": "sheet_1789421398977_bf86",
     "studentId": "elena_rostova",
     "studentName": "Elena Rostova",
