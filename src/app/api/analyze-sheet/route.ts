@@ -23,6 +23,11 @@ export interface AnalyzedQuestionItem {
   error_type?: string;
   evaluation_reason?: string;
   confidence?: number;
+  // B.Tech Syllabus Mapping
+  syllabus_module?: string;
+  syllabus_code?: string;
+  academic_level?: string;
+  benchmark_formula?: string;
 }
 
 export interface TopicBreakdownItem {
@@ -141,6 +146,10 @@ export async function POST(req: NextRequest) {
       error_type: q.error_type,
       evaluation_reason: q.evaluation_reason,
       confidence: q.confidence,
+      syllabus_module: q.syllabus_module,
+      syllabus_code: q.syllabus_code,
+      academic_level: q.academic_level,
+      benchmark_formula: q.benchmark_formula,
     }));
 
     const responsePayload: AnalyzeSheetResponse = {

@@ -434,14 +434,19 @@ export default function QuestionEvaluationView({
 
                     {/* Question Title & Topic */}
                     <div className="min-w-0">
-                      <div className="flex items-center space-x-2">
+                      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                         <span className="font-mono text-xs font-extrabold text-slate-900 dark:text-white">
                           Question {q.question_number}
                         </span>
                         <span className="text-slate-300 dark:text-slate-700">•</span>
-                        <span className="px-2 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 truncate max-w-xs sm:max-w-md">
+                        <span className="px-2 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 truncate max-w-xs">
                           {q.topic_name}
                         </span>
+                        {q.syllabus_module && (
+                          <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 truncate max-w-xs">
+                            {q.syllabus_code ? `${q.syllabus_code} • ` : ''}{q.syllabus_module}
+                          </span>
+                        )}
                       </div>
                       <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5 font-mono">
                         {q.question_text}
@@ -472,9 +477,16 @@ export default function QuestionEvaluationView({
                   <div className="border-t border-slate-100 dark:border-slate-800 p-4 sm:p-6 md:p-8 space-y-6 bg-slate-50/40 dark:bg-slate-950/30">
                     {/* A. Question Prompt Container */}
                     <div className="bg-white dark:bg-slate-800/80 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-5 shadow-2xs">
-                      <div className="flex items-center space-x-2 text-slate-400 mb-1.5">
-                        <BookOpen className="w-3.5 h-3.5" />
-                        <span className="text-[10px] font-bold uppercase tracking-wider">Exam Prompt</span>
+                      <div className="flex flex-wrap items-center justify-between gap-2 text-slate-400 mb-1.5">
+                        <div className="flex items-center space-x-2">
+                          <BookOpen className="w-3.5 h-3.5" />
+                          <span className="text-[10px] font-bold uppercase tracking-wider">Exam Prompt</span>
+                        </div>
+                        {q.syllabus_module && (
+                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+                            {q.syllabus_code ? `${q.syllabus_code} • ` : ''}{q.syllabus_module}
+                          </span>
+                        )}
                       </div>
                       <p className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white leading-relaxed font-mono">
                         {q.question_text}
@@ -559,6 +571,18 @@ export default function QuestionEvaluationView({
                               </span>
                               <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
                                 {q.misconception}
+                              </p>
+                            </div>
+                          )}
+
+                          {/* University Syllabus Benchmark Formula */}
+                          {q.benchmark_formula && (
+                            <div className="p-3 bg-indigo-100/60 dark:bg-indigo-900/40 rounded-xl border border-indigo-200 dark:border-indigo-800/80 text-xs">
+                              <span className="font-bold text-indigo-700 dark:text-indigo-300 uppercase text-[10px] block mb-1">
+                                Syllabus Benchmark Formula:
+                              </span>
+                              <p className="font-mono text-slate-900 dark:text-white font-semibold text-xs leading-relaxed">
+                                {q.benchmark_formula}
                               </p>
                             </div>
                           )}

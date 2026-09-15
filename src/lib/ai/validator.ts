@@ -15,6 +15,7 @@ import {
   ErrorType,
 } from './types';
 import { auditTextAgainstRulebooks } from './rulebooks';
+import { lookupBTechCourse, matchQuestionToBTechModule } from '../curriculum/syllabusEngine';
 
 export interface ValidationOptions {
   modelUsed: string;
@@ -158,6 +159,14 @@ export function validateAndSanitizeAnalysis(
     const topic = (q.topic || q.topic_name || `${subject}: Strand ${qNum}`).trim();
     const subtopics = Array.isArray(q.subtopics) ? q.subtopics.map(String) : [];
 
+    // B.Tech Syllabus Knowledge Mapping
+    const btechCourse = lookupBTechCourse(subject, options.targetSubject || '');
+    const moduleMapping = matchQuestionToBTechModule(btechCourse, qText, topic);
+    const syllabusModule = (q.syllabus_module || moduleMapping.module_title || '').trim();
+    const syllabusCode = (q.syllabus_code || moduleMapping.syllabus_code || '').trim();
+    const academicLevel = (q.academic_level || (btechCourse ? 'B.Tech Engineering' : 'Standard Curriculum')).trim();
+    const benchmarkFormula = (q.benchmark_formula || moduleMapping.benchmark_formula || '').trim();
+
     sanitizedQuestions.push({
       question_id: `q_${i + 1}`,
       question_number: qNum,
@@ -181,6 +190,10 @@ export function validateAndSanitizeAnalysis(
       status,
       confidence,
       extraction_confidence: extractionConfidence,
+      syllabus_module: syllabusModule || undefined,
+      syllabus_code: syllabusCode || undefined,
+      academic_level: academicLevel || undefined,
+      benchmark_formula: benchmarkFormula || undefined,
     });
   }
 

@@ -1,0 +1,669 @@
+{
+  "version": "1.0",
+  "institution_standard": "AICTE / Model University B.Tech Engineering Curriculum",
+  "departments": [
+    {
+      "department_id": "common",
+      "department_name": "First-Year Common Engineering",
+      "courses": [
+        {
+          "course_code": "BT-MATH-101",
+          "course_name": "Engineering Mathematics I",
+          "semester": 1,
+          "credits": 4,
+          "modules": [
+            {
+              "module_number": 1,
+              "module_title": "Matrices & Linear Algebra",
+              "standard_topics": [
+                "Matrix Rank",
+                "System of Linear Equations (Gaussian Elimination)",
+                "Eigenvalues & Eigenvectors",
+                "Cayley-Hamilton Theorem",
+                "Diagonalization of Matrices",
+                "Orthogonal Transformation"
+              ],
+              "key_formulas": [
+                "Characteristic Equation: |A - λI| = 0",
+                "Cayley-Hamilton: P(A) = 0 where P(λ) is the characteristic polynomial",
+                "Inverse via Cayley-Hamilton: A^(-1) = -(1/a_0)(A^(n-1) + a_(n-1)A^(n-2) + ... + a_1 I)",
+                "Rank-Nullity Theorem: Rank(A) + Nullity(A) = n"
+              ],
+              "canonical_problem_types": [
+                "Find eigenvalues and eigenvectors of a 3x3 matrix",
+                "Verify Cayley-Hamilton Theorem for matrix A and find A^(-1) and A^4",
+                "Determine consistency and find solutions of AX = B"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Set up characteristic determinant det(A - λI) = 0",
+                "Step 2: Expand characteristic polynomial correctly without sign errors",
+                "Step 3: Solve polynomial for eigenvalues λ_1, λ_2, λ_3",
+                "Step 4: Solve (A - λ_i I)X = 0 to extract non-trivial eigenvectors",
+                "Step 5: Normalize and state linearly independent vectors"
+              ],
+              "common_misconceptions": [
+                "Sign errors in determinant cofactor expansion",
+                "Confusing eigenvalue roots with matrix diagonal elements",
+                "Claiming non-invertible matrix has no eigenvalues"
+              ]
+            },
+            {
+              "module_number": 2,
+              "module_title": "Differential Calculus of Several Variables",
+              "standard_topics": [
+                "Partial Derivatives",
+                "Euler's Theorem for Homogeneous Functions",
+                "Total Derivatives & Chain Rule",
+                "Jacobians of Transformations",
+                "Taylor Series for Functions of Two Variables",
+                "Maxima and Minima & Lagrange Multipliers"
+              ],
+              "key_formulas": [
+                "Euler's Theorem: x(∂u/∂x) + y(∂u/∂y) = n*u",
+                "Jacobian: J(u,v / x,y) = (∂u/∂x)(∂v/∂y) - (∂u/∂y)(∂v/∂x)",
+                "Extrema Test: D = rt - s^2 where r = ∂²f/∂x², s = ∂²f/∂x∂y, t = ∂²f/∂y² (D > 0, r > 0 => Min; D > 0, r < 0 => Max; D < 0 => Saddle)"
+              ],
+              "canonical_problem_types": [
+                "Examine extreme values of f(x, y) = x³ + y³ - 3axy",
+                "Find maxima/minima subject to constraint g(x, y) = 0 using Lagrange multipliers",
+                "Verify Euler's theorem for u = tan^(-1)((x³+y³)/(x-y))"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Calculate first partial derivatives fx = 0, fy = 0",
+                "Step 2: Solve simultaneous equations to find critical points (x_0, y_0)",
+                "Step 3: Calculate second partial derivatives r = fxx, s = fxy, t = fyy",
+                "Step 4: Evaluate discriminant D = rt - s² at each critical point",
+                "Step 5: Conclude whether point is Local Maximum, Local Minimum, or Saddle Point"
+              ],
+              "common_misconceptions": [
+                "Forgetting to check the sign of r when D > 0",
+                "Treating D < 0 as inconclusive instead of Saddle Point"
+              ]
+            },
+            {
+              "module_number": 3,
+              "module_title": "Multiple Integrals & Vector Calculus",
+              "standard_topics": [
+                "Double Integrals in Cartesian & Polar Coordinates",
+                "Change of Order of Integration",
+                "Triple Integrals & Volume",
+                "Beta and Gamma Functions",
+                "Gradient, Divergence & Curl",
+                "Green's, Stokes' & Gauss Divergence Theorems"
+              ],
+              "key_formulas": [
+                "Change of Variables: dx dy = |J| dr dθ = r dr dθ",
+                "Gauss Divergence: ∬_S F·n dS = ∭_V (∇·F) dV",
+                "Stokes' Theorem: ∮_C F·dr = ∬_S (∇×F)·n dS",
+                "Beta-Gamma Relation: B(m, n) = (Γ(m)Γ(n)) / Γ(m+n)"
+              ],
+              "canonical_problem_types": [
+                "Evaluate integral by changing the order of integration",
+                "Verify Gauss Divergence theorem for F = (x)i + (y)j + (z)k over a cylinder",
+                "Verify Stokes theorem for a vector field along a closed boundary"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Sketch region of integration and write boundary equations",
+                "Step 2: Determine new limits after changing integration order",
+                "Step 3: Compute inner integral holding outer variable constant",
+                "Step 4: Compute outer integral and verify dimensional consistency"
+              ],
+              "common_misconceptions": [
+                "Changing order without adjusting dependent integration limits",
+                "Omitting the Jacobian r in polar transformations dx dy = r dr dθ"
+              ]
+            }
+          ]
+        },
+        {
+          "course_code": "BT-PHYS-101",
+          "course_name": "Engineering Physics",
+          "semester": 1,
+          "credits": 4,
+          "modules": [
+            {
+              "module_number": 1,
+              "module_title": "Wave Optics: Interference & Diffraction",
+              "standard_topics": [
+                "Interference in Thin Films",
+                "Wedge Shaped Thin Film",
+                "Newton's Rings Experiment",
+                "Fraunhofer Diffraction at Single Slit",
+                "Diffraction Grating & Resolving Power",
+                "Polarization & Brewster's Law"
+              ],
+              "key_formulas": [
+                "Thin Film Constructive: 2μt cos(r) = (2n - 1)(λ/2)",
+                "Newton's Rings Dark Ring Diameter: D_n² = 4n R λ",
+                "Grating Equation: (a + b) sin(θ) = n λ",
+                "Brewster's Law: μ = tan(θ_p)"
+              ],
+              "canonical_problem_types": [
+                "Calculate radius of curvature of lens using Newton's rings dark ring diameters",
+                "Determine thickness of thin wire using wedge-shaped interference fringes",
+                "Find wavelengths of spectral lines using plane diffraction grating"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: State path difference formula with Stokes phase shift λ/2",
+                "Step 2: Relate film thickness t to ring diameter D_n and lens radius R",
+                "Step 3: Substitute measured diameters D_(n+p)² - D_n² = 4 p R λ",
+                "Step 4: Solve for unknown wavelength or radius with proper units (meters)"
+              ],
+              "common_misconceptions": [
+                "Neglecting phase change of π (path difference λ/2) on reflection at denser medium",
+                "Confusing fringe width with ring radius"
+              ]
+            },
+            {
+              "module_number": 2,
+              "module_title": "Quantum Mechanics & Wave-Particle Duality",
+              "standard_topics": [
+                "de Broglie Hypothesis",
+                "Heisenberg Uncertainty Principle",
+                "Born's Interpretation of Wavefunction",
+                "Time-Independent Schrödinger Equation",
+                "Particle in a 1D Infinite Potential Well",
+                "Quantum Tunneling Effect"
+              ],
+              "key_formulas": [
+                "de Broglie Wavelength: λ = h / p = h / √(2mE)",
+                "Heisenberg: Δx * Δp ≥ ℏ / 2",
+                "Schrödinger Equation: - (ℏ² / 2m) (d²ψ/dx²) + V ψ = E ψ",
+                "1D Box Eigenenergies: E_n = (n² h²) / (8 m L²)",
+                "1D Box Eigenfunctions: ψ_n(x) = √(2/L) sin(n π x / L)"
+              ],
+              "canonical_problem_types": [
+                "Derive energy eigenvalues for a particle in a 1D rigid box of width L",
+                "Calculate zero-point energy of an electron in a 1 nm well",
+                "Evaluate probability of finding particle in interval [0, L/4]"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Set up boundary conditions ψ(0) = 0 and ψ(L) = 0",
+                "Step 2: Solve second order ODE to get ψ(x) = A sin(kx) + B cos(kx)",
+                "Step 3: Apply boundary conditions to find B = 0 and k = nπ/L",
+                "Step 4: Relate wave vector k to energy: E = ℏ²k² / (2m)",
+                "Step 5: Normalize wavefunction ∫|ψ|² dx = 1 to find amplitude A = √(2/L)"
+              ],
+              "common_misconceptions": [
+                "Setting ground state quantum number n = 0 (n must start at 1)",
+                "Assuming zero-point energy is zero (it is h²/(8mL²))"
+              ]
+            },
+            {
+              "module_number": 3,
+              "module_title": "Lasers, Fiber Optics & Semiconductor Physics",
+              "standard_topics": [
+                "Spontaneous & Stimulated Emission",
+                "Einstein Coefficients (A and B)",
+                "Population Inversion & Pumping Schemes",
+                "Ruby & He-Ne Lasers",
+                "Optical Fiber Numerical Aperture & Acceptance Angle",
+                "Intrinsic & Extrinsic Semiconductors, Fermi Level"
+              ],
+              "key_formulas": [
+                "Einstein Ratio: A_21 / B_21 = (8 π h ν³) / c³",
+                "Numerical Aperture: NA = √(n_core² - n_cladding²) = sin(θ_a)",
+                "Acceptance Angle: θ_a = sin^(-1)(√(n_core² - n_cladding²))",
+                "Fermi-Dirac Distribution: f(E) = 1 / (1 + exp((E - E_F) / (k_B T)))"
+              ],
+              "canonical_problem_types": [
+                "Calculate acceptance angle and numerical aperture of an optical fiber",
+                "Determine ratio of stimulated to spontaneous emission at given temperature",
+                "Find position of Fermi level in n-type semiconductor at 300 K"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Apply Snell's law at fiber entrance face",
+                "Step 2: Apply total internal reflection condition at core-cladding boundary (sin φ ≥ n2/n1)",
+                "Step 3: Relate internal angle to external acceptance angle",
+                "Step 4: Formulate NA = √(n1² - n2²)"
+              ],
+              "common_misconceptions": [
+                "Assuming core refractive index can be lower than cladding (n1 must > n2)",
+                "Inverting Einstein coefficient ratio"
+              ]
+            }
+          ]
+        },
+        {
+          "course_code": "BT-CHEM-101",
+          "course_name": "Engineering Chemistry",
+          "semester": 1,
+          "credits": 4,
+          "modules": [
+            {
+              "module_number": 1,
+              "module_title": "Thermodynamics, Electrochemistry & Corrosion",
+              "standard_topics": [
+                "First & Second Laws of Thermodynamics",
+                "Gibbs Free Energy & Chemical Potential",
+                "Nernst Equation for Electrode Potentials",
+                "Reference Electrodes (Calomel, Glass)",
+                "Mechanism of Electrochemical Corrosion (Rusting)",
+                "Corrosion Prevention (Galvanization, Cathodic Protection)"
+              ],
+              "key_formulas": [
+                "Nernst Equation: E = E° - (RT / nF) ln(Q) = E° - (0.0591 / n) log10(Q) at 298K",
+                "Gibbs-Helmholtz: ΔG = ΔH - T ΔS = - n F E_cell",
+                "Corrosion Rate (Faraday): W = (I * t * M) / (n * F)"
+              ],
+              "canonical_problem_types": [
+                "Calculate EMF of electrochemical cell at 298 K using Nernst equation",
+                "Determine free energy change ΔG° and equilibrium constant K_eq",
+                "Explain rusting of iron with anodic and cathodic electrochemical reactions"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Identify anode (oxidation) and cathode (reduction) half-reactions",
+                "Step 2: Calculate standard cell potential E°cell = E°cathode - E°anode",
+                "Step 3: Formulate reaction quotient Q = [Products] / [Reactants]",
+                "Step 4: Substitute into Nernst formula E = E° - (0.0591/n) log(Q)",
+                "Step 5: Compute cell potential and verify spontaneity (E > 0 => ΔG < 0)"
+              ],
+              "common_misconceptions": [
+                "Reversing anode and cathode in standard potential calculation",
+                "Including pure solids or liquids in reaction quotient Q"
+              ]
+            },
+            {
+              "module_number": 2,
+              "module_title": "Water Treatment & Polymer Science",
+              "standard_topics": [
+                "Hardness of Water (Temporary & Permanent)",
+                "EDTA Complexometric Titration",
+                "Zeolite & Ion-Exchange Demineralization",
+                "Reverse Osmosis & Desalination",
+                "Classification of Polymers (Thermosetting vs Thermoplastic)",
+                "Conducting Polymers & Engineering Plastics"
+              ],
+              "key_formulas": [
+                "Total Hardness (ppm as CaCO3): (V_EDTA * M_EDTA * 100 * 1000) / V_water",
+                "Equivalent Weight of CaCO3: 50 g/eq (Molecular Weight = 100 g/mol)"
+              ],
+              "canonical_problem_types": [
+                "Calculate temporary, permanent, and total hardness from EDTA titration data",
+                "Design ion-exchange resin capacity for given water flow rate",
+                "Distinguish addition and condensation polymerization with examples"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Balance EDTA-metal 1:1 complex stoichiometry",
+                "Step 2: Calculate molarity of EDTA from standard hard water titration",
+                "Step 3: Calculate CaCO3 equivalents in sample",
+                "Step 4: Express total hardness in parts per million (ppm or mg/L)"
+              ],
+              "common_misconceptions": [
+                "Confusing molecular weight (100) with equivalent weight (50) of CaCO3",
+                "Attributing permanent hardness to bicarbonates instead of chlorides/sulfates"
+              ]
+            }
+          ]
+        },
+        {
+          "course_code": "BT-CSE-101",
+          "course_name": "Programming for Problem Solving",
+          "semester": 1,
+          "credits": 4,
+          "modules": [
+            {
+              "module_number": 1,
+              "module_title": "Control Structures, Functions & Recursion",
+              "standard_topics": [
+                "Data Types, Operators & Expressions",
+                "Conditional Branching (if-else, switch-case)",
+                "Loops (for, while, do-while)",
+                "Functions & Parameter Passing (Call by Value / Reference)",
+                "Recursive Functions (Tower of Hanoi, Fibonacci, Factorial)",
+                "Storage Classes (auto, static, extern, register)"
+              ],
+              "key_formulas": [
+                "Recursion Invariant: Base Case termination condition mandatory",
+                "Time Complexity: T(n) = 2T(n-1) + 1 for Tower of Hanoi (O(2^n))"
+              ],
+              "canonical_problem_types": [
+                "Write recursive C function for Tower of Hanoi and trace call stack for n=3",
+                "Implement iterative and recursive binary search on sorted array",
+                "Explain call by value versus call by reference with swap function"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Declare function prototypes with correct parameter types",
+                "Step 2: Define base case condition to prevent infinite stack overflow",
+                "Step 3: Define recursive reduction step",
+                "Step 4: Trace activation records on runtime stack"
+              ],
+              "common_misconceptions": [
+                "Omitting base case causing segmentation fault / stack overflow",
+                "Expecting call by value to mutate caller variables"
+              ]
+            },
+            {
+              "module_number": 2,
+              "module_title": "Arrays, Pointers & Dynamic Memory",
+              "standard_topics": [
+                "1D and 2D Arrays (Matrix Multiplication)",
+                "Pointer Arithmetic & Dereferencing",
+                "Pointers to Arrays & Arrays of Pointers",
+                "Dynamic Memory Allocation (malloc, calloc, realloc, free)",
+                "Structures & Unions",
+                "File Handling Operations (fopen, fread, fwrite, fclose)"
+              ],
+              "key_formulas": [
+                "Array Indexing Address: *(arr + i) == arr[i]",
+                "2D Row-Major Address: Base + (i * cols + j) * sizeof(type)",
+                "Memory Deallocation: free(ptr); ptr = NULL; to prevent dangling pointers"
+              ],
+              "canonical_problem_types": [
+                "Implement matrix multiplication with dimension compatibility check",
+                "Allocate dynamic 2D array using double pointers (int **)",
+                "Create a student record database using structures and binary files"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Check matrix compatibility: columns of A must equal rows of B",
+                "Step 2: Allocate dynamic memory and check for NULL return",
+                "Step 3: Execute triple nested loop with accumulator initialized to 0",
+                "Step 4: Free allocated blocks in reverse order"
+              ],
+              "common_misconceptions": [
+                "Failing to check if malloc returned NULL",
+                "Using pointer after free (dangling pointer)"
+              ]
+            }
+          ]
+        },
+        {
+          "course_code": "BT-EE-101",
+          "course_name": "Basic Electrical & Electronics Engineering",
+          "semester": 1,
+          "credits": 4,
+          "modules": [
+            {
+              "module_number": 1,
+              "module_title": "DC Circuit Analysis & Network Theorems",
+              "standard_topics": [
+                "Kirchhoff's Current & Voltage Laws (KCL, KVL)",
+                "Mesh & Nodal Analysis",
+                "Thevenin's Theorem",
+                "Norton's Theorem",
+                "Superposition Theorem",
+                "Maximum Power Transfer Theorem"
+              ],
+              "key_formulas": [
+                "KVL: ∑ V = 0, KCL: ∑ I_in = ∑ I_out",
+                "Thevenin Voltage: V_th = Open Circuit Voltage across terminals A-B",
+                "Thevenin Resistance: R_th = Equivalent resistance with independent sources killed (Voltage -> short, Current -> open)",
+                "Max Power Condition: R_L = R_th => P_max = V_th² / (4 R_th)"
+              ],
+              "canonical_problem_types": [
+                "Find current through load resistor using Thevenin theorem",
+                "Verify Superposition theorem in a multi-source circuit",
+                "Determine maximum power transferred to variable load resistor R_L"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Remove load resistor R_L to identify terminals A and B",
+                "Step 2: Calculate open-circuit voltage V_th using mesh or nodal analysis",
+                "Step 3: Deactivate independent sources (short voltage, open current)",
+                "Step 4: Calculate equivalent resistance R_th looking into terminals A-B",
+                "Step 5: Connect Thevenin equivalent circuit and compute I_L = V_th / (R_th + R_L)"
+              ],
+              "common_misconceptions": [
+                "Deactivating dependent sources (dependent sources must NOT be killed)",
+                "Leaving voltage sources as open circuits instead of short circuits"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "department_id": "cse",
+      "department_name": "Computer Science & Engineering",
+      "courses": [
+        {
+          "course_code": "BT-CSE-201",
+          "course_name": "Data Structures & Algorithms",
+          "semester": 3,
+          "credits": 4,
+          "modules": [
+            {
+              "module_number": 1,
+              "module_title": "Linear Data Structures: Stacks, Queues & Linked Lists",
+              "standard_topics": [
+                "Singly & Doubly Linked Lists",
+                "Stack Implementation & Infix to Postfix Conversion",
+                "Queue Implementation (Circular Queue, Deque, Priority Queue)",
+                "Asymptotic Notation (Big-O, Omega, Theta)"
+              ],
+              "key_formulas": [
+                "Circular Queue Next Position: rear = (rear + 1) % capacity",
+                "Master Theorem: T(n) = aT(n/b) + f(n)"
+              ],
+              "canonical_problem_types": [
+                "Convert given infix expression to postfix using stack algorithm",
+                "Implement circular queue operations handling overflow and underflow",
+                "Reverse a singly linked list in O(n) time and O(1) space"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Initialize operator stack and output buffer",
+                "Step 2: Process tokens respecting operator precedence and associativity",
+                "Step 3: Pop higher/equal precedence operators to output on encountering operator",
+                "Step 4: Unwind stack to output on end of string"
+              ],
+              "common_misconceptions": [
+                "Confusing operator precedence between multiplication/division and addition/subtraction",
+                "Neglecting boundary case when queue is full in circular array"
+              ]
+            },
+            {
+              "module_number": 2,
+              "module_title": "Trees, Graphs & Algorithm Paradigms",
+              "standard_topics": [
+                "Binary Search Trees (Insertion, Deletion, Traversals)",
+                "AVL Trees & Rotations (LL, RR, LR, RL)",
+                "Graph Traversals (BFS & DFS)",
+                "Minimum Spanning Trees (Kruskal & Prim)",
+                "Shortest Path: Dijkstra's Algorithm",
+                "Dynamic Programming (0/1 Knapsack, LCS)"
+              ],
+              "key_formulas": [
+                "AVL Balance Factor: BF = Height(LeftSubtree) - Height(RightSubtree) ∈ {-1, 0, +1}",
+                "Dijkstra Relaxation: if dist[u] + weight(u, v) < dist[v] then dist[v] = dist[u] + weight(u, v)",
+                "0/1 Knapsack DP: dp[i][w] = max(dp[i-1][w], dp[i-1][w - w_i] + v_i)"
+              ],
+              "canonical_problem_types": [
+                "Construct an AVL tree for a sequence of numbers showing rotation steps",
+                "Find minimum spanning tree cost using Prim's algorithm with priority queue",
+                "Solve 0/1 knapsack problem using dynamic programming table"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Set up DP recurrence relations and boundary conditions",
+                "Step 2: Construct 2D DP matrix filling row by row",
+                "Step 3: Compute optimal value at dp[N][W]",
+                "Step 4: Trace back selected items through DP table"
+              ],
+              "common_misconceptions": [
+                "Applying greedy fractional strategy to 0/1 knapsack (items cannot be divided)",
+                "Allowing negative edge weights in Dijkstra's algorithm"
+              ]
+            }
+          ]
+        },
+        {
+          "course_code": "BT-CSE-301",
+          "course_name": "Operating Systems",
+          "semester": 4,
+          "credits": 4,
+          "modules": [
+            {
+              "module_number": 1,
+              "module_title": "CPU Scheduling, Synchronization & Deadlocks",
+              "standard_topics": [
+                "Process State Transition & PCB",
+                "CPU Scheduling (FCFS, SJF, Round Robin, Priority)",
+                "Critical Section Problem & Semaphores (Wait/Signal)",
+                "Classical Synchronization: Producer-Consumer, Dining Philosophers",
+                "Deadlock Necessary Conditions & Banker's Algorithm"
+              ],
+              "key_formulas": [
+                "Turnaround Time: TAT = Completion Time - Arrival Time",
+                "Waiting Time: WT = Turnaround Time - Burst Time",
+                "Banker's Safety: Need[i][j] = Max[i][j] - Allocation[i][j] ≤ Work[j]"
+              ],
+              "canonical_problem_types": [
+                "Draw Gantt chart and calculate average turnaround and waiting times for Round Robin (quantum=2)",
+                "Apply Banker's algorithm to determine if system state is safe and find safe sequence",
+                "Implement reader-writer synchronization using counting and binary semaphores"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Compute Need matrix = Max - Allocation for all processes",
+                "Step 2: Initialize Work = Available and Finish = all false",
+                "Step 3: Find process P_i where Finish[i] == false and Need[i] ≤ Work",
+                "Step 4: Reclaim resources Work = Work + Allocation[i], set Finish[i] = true",
+                "Step 5: Output complete safe sequence if all finish, else declare unsafe"
+              ],
+              "common_misconceptions": [
+                "Assuming unsafe state is identical to deadlock (unsafe state may lead to deadlock, but is not yet deadlocked)",
+                "Forgetting to subtract arrival time when calculating waiting time"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "department_id": "me",
+      "department_name": "Mechanical Engineering",
+      "courses": [
+        {
+          "course_code": "BT-ME-201",
+          "course_name": "Engineering Thermodynamics",
+          "semester": 3,
+          "credits": 4,
+          "modules": [
+            {
+              "module_number": 1,
+              "module_title": "First & Second Laws of Thermodynamics & Cycles",
+              "standard_topics": [
+                "Thermodynamic Systems & State Postulate",
+                "First Law for Closed & Open Systems (Steady Flow Energy Equation)",
+                "Second Law: Kelvin-Planck & Clausius Statements",
+                "Carnot Cycle & Thermal Efficiency",
+                "Entropy Change in Reversible & Irreversible Processes",
+                "Rankine & Brayton Cycles"
+              ],
+              "key_formulas": [
+                "SFEE: q - w = Δh + Δ(v²/2) + gΔz",
+                "Carnot Efficiency: η_th = 1 - (T_L / T_H) where T is absolute temperature in Kelvin",
+                "Clausius Inequality: ∮ (dQ / T) ≤ 0",
+                "Entropy Change of Ideal Gas: Δs = c_p ln(T2/T1) - R ln(P2/P1)"
+              ],
+              "canonical_problem_types": [
+                "Calculate thermal efficiency and power output of a Carnot engine operating between 800 K and 300 K",
+                "Determine entropy generation in an irreversible heat transfer process",
+                "Evaluate steam cycle efficiency using Rankine cycle with superheat"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Convert temperatures to Kelvin (T_K = T_C + 273.15)",
+                "Step 2: Formulate energy conservation balance Q_in - Q_out = W_net",
+                "Step 3: Calculate ideal efficiency η = 1 - T_L / T_H",
+                "Step 4: Compute actual work output W = η * Q_in"
+              ],
+              "common_misconceptions": [
+                "Using temperatures in Celsius instead of Kelvin in Carnot formula",
+                "Neglecting heat rejected to sink Q_out when calculating work"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "department_id": "ece",
+      "department_name": "Electronics & Communication Engineering",
+      "courses": [
+        {
+          "course_code": "BT-ECE-201",
+          "course_name": "Signals & Systems",
+          "semester": 3,
+          "credits": 4,
+          "modules": [
+            {
+              "module_number": 1,
+              "module_title": "LTI Systems, Fourier & Z-Transforms",
+              "standard_topics": [
+                "Continuous & Discrete Time Signals",
+                "Linearity, Time-Invariance & Causality",
+                "Convolution Integral & Convolution Sum",
+                "Continuous-Time Fourier Transform (CTFT)",
+                "Z-Transform & Region of Convergence (ROC)"
+              ],
+              "key_formulas": [
+                "Convolution: y(t) = ∫ x(τ) h(t - τ) dτ",
+                "Fourier Transform: X(ω) = ∫ x(t) e^(-jωt) dt",
+                "Z-Transform: X(z) = ∑ x[n] z^(-n)",
+                "LTI Stability: System is BIBO stable if ROC contains unit circle |z| = 1"
+              ],
+              "canonical_problem_types": [
+                "Determine convolution of two rectangular pulse signals",
+                "Find Z-transform and ROC of x[n] = a^n u[n] - b^n u[-n-1]",
+                "Test LTI system for linearity, time-invariance, and causality"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Check linearity: T{a x1 + b x2} = a T{x1} + b T{x2}",
+                "Step 2: Check time-invariance: T{x(t - t0)} = y(t - t0)",
+                "Step 3: Check causality: output y(t) depends only on current and past inputs",
+                "Step 4: State rigorous mathematical conclusion"
+              ],
+              "common_misconceptions": [
+                "Confusing time reversal x(-t) with time shifting x(t - t0)",
+                "Neglecting Region of Convergence (ROC) when specifying Z-transform"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "department_id": "ee",
+      "department_name": "Electrical Engineering",
+      "courses": [
+        {
+          "course_code": "BT-EE-301",
+          "course_name": "Control Systems",
+          "semester": 5,
+          "credits": 4,
+          "modules": [
+            {
+              "module_number": 1,
+              "module_title": "Transfer Functions, Block Diagrams & Stability",
+              "standard_topics": [
+                "Open-Loop vs Closed-Loop Systems",
+                "Transfer Functions & Mason's Gain Formula",
+                "Time Response of Second-Order Systems (Damping Ratio, Natural Frequency)",
+                "Routh-Hurwitz Stability Criterion",
+                "Root Locus Technique & Frequency Response (Bode Plots)"
+              ],
+              "key_formulas": [
+                "Second Order Transfer Function: G(s) = ω_n² / (s² + 2ζω_n s + ω_n²)",
+                "Damped Frequency: ω_d = ω_n √(1 - ζ²)",
+                "Peak Overshoot: %M_p = exp(- (π ζ) / √(1 - ζ²)) * 100",
+                "Settling Time (2% criterion): t_s = 4 / (ζ ω_n)"
+              ],
+              "canonical_problem_types": [
+                "Find transfer function of feedback system using block diagram reduction",
+                "Determine stability and number of right-half plane poles using Routh array",
+                "Calculate rise time, peak overshoot, and settling time for step input"
+              ],
+              "expected_derivation_steps": [
+                "Step 1: Set up characteristic equation 1 + G(s)H(s) = 0",
+                "Step 2: Construct Routh table array row by row",
+                "Step 3: Inspect first column elements for sign changes",
+                "Step 4: Number of sign changes equals number of poles in right-half s-plane (unstable poles)"
+              ],
+              "common_misconceptions": [
+                "Treating a zero in the first column as stable without epsilon replacement",
+                "Forgetting that any sign change indicates instability"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

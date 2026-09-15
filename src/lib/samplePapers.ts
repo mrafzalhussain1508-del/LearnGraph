@@ -2,6 +2,57 @@ export function getSubjectSamplePaper(subjectName: string, studentName?: string)
   const lower = (subjectName || '').toLowerCase();
   const student = studentName?.trim() || (lower.includes('chem') ? 'Arola Thoudam' : 'Rishu');
 
+  if (lower.includes('btech') || lower.includes('b.tech') || lower.includes('engineering') || lower.includes('matrices') || lower.includes('linear algebra')) {
+    return `Student Name: ${student}
+Class: B.Tech First Year • Section C
+Roll No: BT24EC042
+Subject: Engineering Mathematics I
+Exam: BT-MATH-101 End-Semester Diagnostic Assessment
+
+Question 1: Matrices & Cayley-Hamilton Theorem (25 Marks)
+Prompt: State the Cayley-Hamilton Theorem. Verify it for matrix A = [[2, 1], [1, 2]] and find A^-1.
+Student Working:
+Characteristic equation: det(A - λI) = 0.
+det([[2-λ, 1], [1, 2-λ]]) = (2-λ)^2 - 1 = λ^2 - 4λ + 3 = 0.
+By Cayley-Hamilton Theorem, every square matrix satisfies its own characteristic equation: A^2 - 4A + 3I = 0.
+A^2 = [[2, 1], [1, 2]] * [[2, 1], [1, 2]] = [[5, 4], [4, 5]].
+A^2 - 4A + 3I = [[5, 4], [4, 5]] - [[8, 4], [4, 8]] + [[3, 0], [0, 3]] = [[0, 0], [0, 0]] = 0.
+Verified!
+Multiplying by A^-1: A - 4I + 3A^-1 = 0 => 3A^-1 = 4I - A => A^-1 = (1/3)(4I - A).
+4I - A = [[4, 0], [0, 4]] - [[2, 1], [1, 2]] = [[2, -1], [-1, 2]].
+A^-1 = (1/3)[[2, -1], [-1, 2]].
+Teacher Grading: 25/25 ✓ Full Marks. Rigorous characteristic polynomial derivation and inverse computation.
+
+Question 2: Eigenvalues & Orthogonal Diagonalization (25 Marks)
+Prompt: Find eigenvalues and eigenvectors for matrix B = [[1, 2], [2, 1]]. Is B diagonalizable?
+Student Working:
+det(B - λI) = (1-λ)^2 - 4 = λ^2 - 2λ - 3 = 0 => (λ - 3)(λ + 1) = 0.
+Eigenvalues: λ1 = 3, λ2 = -1.
+For λ = 3: (B - 3I)x = [[-2, 2], [2, -2]][x1, x2]^T = 0 => -2x1 + 2x2 = 0 => x1 = x2 => v1 = [1, 1]^T.
+For λ = -1: (B + I)x = [[2, 2], [2, 2]][x1, x2]^T = 0 => 2x1 + 2x2 = 0 => x1 = -x2 => v2 = [1, -1]^T.
+Since B is real symmetric, eigenvectors are orthogonal (v1 · v2 = 1 - 1 = 0). B is diagonalizable with P = [[1, 1], [1, -1]].
+Teacher Grading: 25/25 ✓ Full Marks. Proper spectral theorem execution.
+
+Question 3: Partial Differentiation & Euler's Theorem for Homogeneous Functions (25 Marks)
+Prompt: If u = x^3 + y^3 + 3x^2y, verify Euler's theorem: x(∂u/∂x) + y(∂u/∂y) = 3u.
+Student Working:
+∂u/∂x = 3x^2 + 6xy.
+∂u/∂y = 3y^2 + 3x^2.
+x(∂u/∂x) + y(∂u/∂y) = x(3x^2 + 6xy) + y(3y^2 + 3x^2) = 3x^3 + 6x^2y + 3y^3 + 3x^2y = 3x^3 + 9x^2y + 3y^3 = 3(x^3 + 3x^2y + y^3) = 3u.
+Euler's theorem verified since u(tx, ty) = t^3 u(x, y) is homogeneous of degree n = 3.
+Teacher Grading: 25/25 ✓ Full Marks.
+
+Question 4: Ordinary Differential Equations: Second-Order Linear with Constant Coefficients (25 Marks)
+Prompt: Solve (D^2 - 4D + 4)y = e^(2x).
+Student Working:
+Auxiliary equation: m^2 - 4m + 4 = 0 => (m - 2)^2 = 0 => m = 2, 2 (repeated roots).
+Complementary function: y_c = (c1 + c2*x)e^(2x).
+Particular integral: y_p = (1 / (D - 2)^2) e^(2x).
+Since 2 is a double root of auxiliary equation: y_p = (x^2 / 2!) e^(2x) = (x^2 / 2) e^(2x).
+Student instead wrote: y_p = x e^(2x) / (2D - 4) = x e^(2x) / 0 = undefined.
+Teacher Grading: 12/25 ½ Partial. Differentiated denominator once instead of twice for double resonance root. Correct PI is (x^2/2)e^(2x).`;
+  }
+
   if (lower.includes('phys')) {
     return `Student Name: ${student}
 Class: Class 11 • Section B

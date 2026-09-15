@@ -472,5 +472,20 @@
     "school": "Lincoln High School",
     "learningGoals": "Advance to higher-order applied synthesis problems in Physics.",
     "createdAt": "2026-09-15T00:39:21.298Z"
+  },
+  {
+    "id": "student_1789434975450_qu4k",
+    "role": "student",
+    "name": "Priyanshu Roy",
+    "username": "priyanshu_roy",
+    "phone": "",
+    "email": "priyanshu_roy@student.learngraph.edu",
+    "password": "password123",
+    "studentId": "BT24EC042",
+    "grade": "B.Tech First Year • Section C",
+    "section": "Section A",
+    "school": "Lincoln High School",
+    "learningGoals": "Differential Equations: When f(a) = 0 in the exponential shift method for particular integrals, multiply by x and differentiate the operator function in the denominator.",
+    "createdAt": "2026-09-15T01:16:15.450Z"
   }
 ]

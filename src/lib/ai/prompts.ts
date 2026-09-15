@@ -8,6 +8,7 @@
  */
 
 import { getFormattedRulebooksForSubject } from './rulebooks';
+import { lookupBTechCourse, formatBTechSyllabusForPrompt } from '../curriculum/syllabusEngine';
 
 export const ANALYSIS_SYSTEM_PROMPT = `You are a Senior Academic Diagnostician, Cognitive Misconception Analyst, and Senior Subject-Matter Auditor across STEM (Mathematics, Physics, Chemistry, Biology, Computer Science) and Humanities disciplines.
 
@@ -83,9 +84,15 @@ export function buildAnalysisPrompt(params: {
   // Inject Tier 2 Rulebooks dynamically
   const rulebooksText = getFormattedRulebooksForSubject(targetSubject);
 
+  // Fetch B.Tech Syllabus Course Standards dynamically
+  const btechCourse = lookupBTechCourse(targetSubject, extractedTextContent || fileName);
+  const btechSyllabusText = formatBTechSyllabusForPrompt(btechCourse);
+
   let prompt = `${ANALYSIS_SYSTEM_PROMPT}
 
 ${rulebooksText}
+
+${btechSyllabusText}
 
 DOCUMENT METADATA CONTEXT:
 - Uploaded File: ${fileName} (${fileSize} bytes)
@@ -96,8 +103,8 @@ EVALUATION DIRECTIVE:
 1. The student name, subject, and questions visibly written or printed on the sheet ALWAYS take 100% precedence over any session context.
 2. Read the entire document line by line.
 3. Identify EVERY single solved question independently. DO NOT group multiple questions into one.
-4. For every question: transcribe the student's solution verbatim, evaluate each step against the canonical model solution, determine the exact error type, cite the exact line of mistake, and award marks 0 to max_marks based strictly on mathematical/scientific correctness.
-5. Apply the Tier 2 Ground-Truth Rulebooks strictly. If a student claims an incorrect scientific fact or violates an algebraic law, invoke the zero-tolerance policy and flag the mistake.
+4. For every question: map it to its specific B.Tech syllabus module (e.g. "Module 1: Matrices & Linear Algebra"), state the key benchmark formula, transcribe the student's solution verbatim, evaluate each step against the canonical model solution, determine the exact error type, cite the exact line of mistake, and award marks 0 to max_marks based strictly on mathematical/scientific correctness.
+5. Apply the Tier 2 Ground-Truth Rulebooks & B.Tech Syllabus Standards strictly. If a student claims an incorrect scientific fact, violates an algebraic law, or omits mandatory derivation steps, invoke the zero-tolerance policy and flag the mistake.
 6. Ground every comment in actual evidence from the student's sheet.
 
 RESPOND STRICTLY WITH A RAW JSON OBJECT IN THIS EXACT SCHEMA:
@@ -116,6 +123,9 @@ RESPOND STRICTLY WITH A RAW JSON OBJECT IN THIS EXACT SCHEMA:
       "correct_solution": "string",
       "topic": "string",
       "subtopics": ["string"],
+      "syllabus_module": "Module 1: Matrices & Linear Algebra",
+      "syllabus_code": "BT-MATH-101",
+      "benchmark_formula": "string",
       "marks_possible": 25,
       "marks_awarded": 25,
       "evaluation_status": "correct",
@@ -202,20 +212,25 @@ export function buildAuditorPrompt(params: {
 }): string {
   const { initialAnalysisJson, targetSubject, extractedTextContent } = params;
   const rulebooksText = getFormattedRulebooksForSubject(targetSubject);
+  const btechCourse = lookupBTechCourse(targetSubject, extractedTextContent);
+  const btechSyllabusText = formatBTechSyllabusForPrompt(btechCourse);
 
   let prompt = `${AUDITOR_SYSTEM_PROMPT}
 
 ${rulebooksText}
+
+${btechSyllabusText}
 
 INITIAL EVALUATION TO AUDIT:
 ${JSON.stringify(initialAnalysisJson, null, 2)}
 
 INSTRUCTIONS:
 1. Inspect each question in "questions".
-2. Audit the student_answer and marks_awarded against the ground-truth rulebooks.
+2. Audit the student_answer, marks_awarded, and syllabus_module mapping against official B.Tech benchmarks and rulebooks.
 3. If any step was scored inaccurately (e.g. a false statement was awarded marks, or marks_awarded > marks_possible), adjust marks_awarded, evaluation_status, mistake_detected, and evaluation_reason.
-4. If the initial evaluation is already 100% sound, confirm it.
-5. Record every adjustment made in "audit_adjustments" (array of strings, e.g. ["Q2: Zero-tolerance override - deducted 10 marks for incorrect IE trend"]).
+4. Ensure each question has a valid "syllabus_module", "syllabus_code", and "benchmark_formula".
+5. If the initial evaluation is already 100% sound, confirm it.
+6. Record every adjustment made in "audit_adjustments" (array of strings, e.g. ["Q2: Zero-tolerance override - deducted 10 marks for incorrect IE trend"]).
 
 RESPOND STRICTLY WITH A JSON OBJECT IN THIS FORMAT:
 {
@@ -231,6 +246,9 @@ RESPOND STRICTLY WITH A JSON OBJECT IN THIS FORMAT:
       "correct_solution": "string",
       "topic": "string",
       "subtopics": ["string"],
+      "syllabus_module": "Module 1: Matrices & Linear Algebra",
+      "syllabus_code": "BT-MATH-101",
+      "benchmark_formula": "string",
       "marks_possible": 25,
       "marks_awarded": 25,
       "evaluation_status": "correct",

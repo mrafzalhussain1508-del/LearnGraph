@@ -47,6 +47,10 @@ export interface QuestionEvaluation {
   status: MasteryStatus;
   confidence: number; // 0.0 - 1.0
   extraction_confidence: number; // 0.0 - 1.0
+  syllabus_module?: string;
+  syllabus_code?: string;
+  academic_level?: string;
+  benchmark_formula?: string;
 }
 
 export interface TopicPerformance {

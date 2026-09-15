@@ -1,5 +1,106 @@
 [
   {
+    "answerSheetId": "sheet_1789434975436_gbum",
+    "studentId": "priyanshu_roy",
+    "studentName": "Priyanshu Roy",
+    "studentClass": "B.Tech First Year • Section C",
+    "studentRollNo": "BT24EC042",
+    "subject": "Engineering Mathematics",
+    "examTitle": "BT-MATH-101 Matrices & Differential Equations",
+    "overallScorePercentage": 83,
+    "totalQuestions": 3,
+    "totalAwardedMarks": 62,
+    "totalMaxMarks": 75,
+    "topicBreakdown": [
+      {
+        "topic_name": "Matrices & Linear Algebra",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Differential Equations",
+        "understanding_percentage": 48,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": "1",
+        "topic_name": "Matrices & Linear Algebra",
+        "question_text": "State the Cayley-Hamilton Theorem. Verify it for matrix A = [[2, 1], [1, 2]] and find A^-1.",
+        "student_working": "Characteristic equation: det(A - λI) = 0.\ndet([[2-λ, 1], [1, 2-λ]]) = (2-λ)^2 - 1 = λ^2 - 4λ + 3 = 0.\nBy Cayley-Hamilton Theorem, A^2 - 4A + 3I = 0.\nA^2 = [[5, 4], [4, 5]].\nA^2 - 4A + 3I = [[5, 4], [4, 5]] - [[8, 4], [4, 8]] + [[3, 0], [0, 3]] = 0.\n3A^-1 = 4I - A => A^-1 = (1/3)[[2, -1], [-1, 2]].",
+        "correct_solution": "Every square matrix satisfies its own characteristic equation. Characteristic polynomial: det(A - λI) = λ^2 - 4λ + 3 = 0. Substituting matrix A yields A^2 - 4A + 3I = 0. Multiplying by A^-1 gives A^-1 = (1/3)(4I - A) = (1/3)[[2, -1], [-1, 2]].",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None",
+        "rule_to_remember": "Every square matrix satisfies its own characteristic equation.",
+        "error_type": "none",
+        "evaluation_reason": "The student correctly formulated the characteristic equation, derived the correct polynomial, verified the Cayley-Hamilton theorem matrix relation, and correctly calculated the inverse matrix.",
+        "confidence": 0.95,
+        "syllabus_module": "Module 1: Matrices & Linear Algebra",
+        "syllabus_code": "BT-MATH-101",
+        "academic_level": "B.Tech Engineering",
+        "benchmark_formula": "Characteristic Equation: |A - λI| = 0 | Cayley-Hamilton: P(A) = 0"
+      },
+      {
+        "question_number": "2",
+        "topic_name": "Matrices & Linear Algebra",
+        "question_text": "Find eigenvalues for matrix B = [[1, 2], [2, 1]].",
+        "student_working": "det(B - λI) = λ^2 - 2λ - 3 = 0 => (λ - 3)(λ + 1) = 0.\nEigenvalues: λ1 = 3, λ2 = -1.",
+        "correct_solution": "det(B - λI) = det([[1-λ, 2], [2, 1-λ]]) = (1-λ)^2 - 4 = λ^2 - 2λ - 3 = 0. Factoring gives (λ - 3)(λ + 1) = 0, leading to eigenvalues λ1 = 3, λ2 = -1.",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None",
+        "rule_to_remember": "Eigenvalues are roots of the characteristic equation det(A - λI) = 0.",
+        "error_type": "none",
+        "evaluation_reason": "The student correctly computed the characteristic determinant, expanded the polynomial, factored it, and found the correct eigenvalues.",
+        "confidence": 0.95,
+        "syllabus_module": "Module 1: Matrices & Linear Algebra",
+        "syllabus_code": "BT-MATH-101",
+        "academic_level": "B.Tech Engineering",
+        "benchmark_formula": "Characteristic Equation: |B - λI| = 0"
+      },
+      {
+        "question_number": "3",
+        "topic_name": "Differential Equations",
+        "question_text": "Solve (D^2 - 4D + 4)y = e^(2x).",
+        "student_working": "Auxiliary equation: (m - 2)^2 = 0 => m = 2, 2.\ny_c = (c1 + c2*x)e^(2x).\ny_p = x e^(2x) / (2D - 4) = undefined.",
+        "correct_solution": "Auxiliary equation gives repeated roots m = 2, 2, so complementary function is y_c = (c1 + c2*x)e^(2x). For particular integral with exponential shift method where f(a) = 0, multiply by x and differentiate denominator: y_p = x * e^(2x) / (2D - 4)|_{D=2} -> using general formula x^k e^(ax) / k! f^(k)(a), y_p = x^2 e^(2x) / 2.",
+        "max_marks": 25,
+        "awarded_marks": 12,
+        "understanding_percentage": 48,
+        "status": "Red",
+        "mistake_detected": "Conflated single root with double root particular integral application.",
+        "misconception": "Believing that operator methods fail outright when division by zero occurs rather than applying the polynomial multiplier rule.",
+        "rule_to_remember": "When f(a) = 0 in the exponential shift method for particular integrals, multiply by x and differentiate the operator function in the denominator.",
+        "error_type": "incomplete_answer",
+        "evaluation_reason": "The student correctly found the auxiliary equation and complementary function y_c. However, when evaluating the particular integral using the exponential shift method where denominator becomes zero, the student failed to apply the repeated root case.",
+        "confidence": 0.95,
+        "syllabus_module": "Module 3: Multiple Integrals & Vector Calculus",
+        "syllabus_code": "BT-MATH-101",
+        "academic_level": "B.Tech Engineering",
+        "benchmark_formula": "Special case for exponential shift method when f(a) = 0: y_p = (x^k / k!) * (e^(ax) / P^(k)(a))"
+      }
+    ],
+    "commonMisconceptions": [
+      "Differential Equations: Believing that operator methods fail outright when division by zero occurs rather than applying the polynomial multiplier rule."
+    ],
+    "whatToLearnNext": [
+      "Differential Equations: When f(a) = 0 in the exponential shift method for particular integrals, multiply by x and differentiate the operator function in the denominator."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash-lite (Pool Key #1)",
+    "notice": "Evaluated 3 questions dynamically with model gemini-3.5-flash-lite (Pool Key #1). | 4-Tier Architecture: [T1 OCR Preprocessing: Standard] [T2 Rulebooks: Active] [T3 Granular: 3 questions] [T4 Auditor: Verified & Cross-Audited]",
+    "id": "diag_rep_1789434975442_938t",
+    "createdAt": "2026-09-15T01:16:15.442Z"
+  },
+  {
     "answerSheetId": "sheet_1789434302025_i8s4",
     "studentId": "arola_thoudam",
     "studentName": "Arola Thoudam",
