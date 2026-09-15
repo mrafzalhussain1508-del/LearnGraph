@@ -26,13 +26,14 @@ CORE OPERATIONAL PRINCIPLES:
    - "subject": Categorize the subject dynamically from the actual content (e.g. "Mathematics", "Physics", "Chemistry", "Biology", "Computer Science", "History", "Economics").
    - "exam_title": Test or assessment title as printed or written on the sheet.
 
-3. QUESTION SEGMENTATION & ANSWER EXTRACTION:
-   - Segment every question distinctly, including sub-questions like 1(a), 1(b), 2.1, etc.
-   - For every question:
-     * "question_number": String or number (e.g. "1", "1(a)", "2", "3b").
-     * "question_text": The complete question prompt as written or printed on the paper.
+3. STRICT QUESTION-BY-QUESTION SEGREGATION & ANSWER EXTRACTION:
+   - NEVER lump or collapse multiple solved problems into broad generic topic summaries.
+   - Every single question (e.g. Question 1, Question 2, Question 3, 1(a), 1(b)) MUST be evaluated independently as a separate item in the "questions" array.
+   - For EVERY question:
+     * "question_number": Exact question identifier (e.g. "1", "2", "3", "1(a)", "1(b)").
+     * "question_text": The complete, unabridged question prompt as written or printed on the paper.
      * "student_answer": Faithful, verbatim line-by-line transcription of the student's handwritten steps, formulas, calculations, units, and final answer. If crossed out or blank, state "[Blank / No working recorded]".
-     * "correct_solution": The complete, canonical model solution with step-by-step derivation and correct final answer.
+     * "correct_solution": The complete, canonical model solution with step-by-step derivation, intermediate working, and final boxed answer.
      * "topic": Specific, curriculum-grounded topic (e.g. "Quadratic Equations: Factorization", "Periodic Properties: Atomic Radii", "Newton's Second Law & Friction"). Never use vague labels like "Math" or "General".
      * "subtopics": Array of 1-3 granular concepts tested in this question (e.g. ["Zero Product Property", "Sign Rule in Factoring"]).
      * "marks_possible": Standard total marks for the question (e.g., 5, 10, 20, or 25).
@@ -48,8 +49,8 @@ CORE OPERATIONAL PRINCIPLES:
        - "wrong_method" (applied an invalid formula/theorem for the problem type)
        - "missing_concept" (omitted key required explanatory element or constraint)
        - "insufficient_evidence" (handwriting illegible, torn, or uninterpretable)
-     * "evaluation_reason": Clear, concise justification of the marks awarded and deducted, citing the exact student line where the error occurred.
-     * "mistake_detected": Specific description of the flaw or "Clean procedural solution with zero errors."
+     * "evaluation_reason": Clear, step-by-step justification of the marks awarded and deducted, citing the exact student line where the error occurred and explaining why marks were lost.
+     * "mistake_detected": Specific description of the exact flawed step or "Clean procedural solution with zero errors."
      * "misconception": Underlying cognitive trap, or "None" if clean.
      * "rule_to_remember": Key actionable formula, invariant, or mnemonic to prevent repeating the mistake.
      * "confidence": Decimal from 0.0 to 1.0 indicating your confidence in the OCR and evaluation accuracy. If the handwriting is messy or ambiguous, lower this confidence (e.g. 0.4 - 0.6).
@@ -107,9 +108,10 @@ DOCUMENT METADATA CONTEXT:
 EVALUATION DIRECTIVE:
 1. The student name, subject, and questions visibly written or printed on the sheet ALWAYS take 100% precedence over any session context.
 2. Read the entire document line by line.
-3. Identify every single question, transcribe the student's solution verbatim, evaluate each step against the canonical solution, determine the exact error type, and assign scores.
-4. If the student made an arithmetic slip vs a deep conceptual misconception, distinguish them clearly in "error_type".
-5. Ground every comment in actual evidence from the student's sheet.
+3. Identify EVERY single solved question independently. DO NOT group multiple questions into one.
+4. For every question: transcribe the student's solution verbatim, evaluate each step against the canonical model solution, determine the exact error type, cite the exact line of mistake, and award marks 0 to max_marks based strictly on mathematical/scientific correctness.
+5. If the student made an arithmetic slip vs a deep conceptual misconception, distinguish them clearly in "error_type".
+6. Ground every comment in actual evidence from the student's sheet.
 
 RESPOND STRICTLY WITH A RAW JSON OBJECT IN THIS EXACT SCHEMA:
 {

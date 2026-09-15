@@ -15,7 +15,8 @@ import {
   Zap,
   TrendingUp,
   Award,
-  Layers
+  Layers,
+  CheckSquare
 } from 'lucide-react';
 import { AnalyzeSheetResponse } from '@/app/api/analyze-sheet/route';
 
@@ -148,7 +149,7 @@ export default function StudyGuideOverviewView({
           <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
             Explore Dedicated Sections
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
             {/* Launchpad 1: Topic Diagnoses */}
             <button
               type="button"
@@ -167,7 +168,25 @@ export default function StudyGuideOverviewView({
               </p>
             </button>
 
-            {/* Launchpad 2: Scanned Answer Sheet */}
+            {/* Launchpad 2: Question Breakdown */}
+            <button
+              type="button"
+              onClick={() => onSelectTab('questions')}
+              className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/70 hover:bg-emerald-50/60 dark:hover:bg-emerald-950/40 border border-slate-200/80 dark:border-slate-700/80 text-left transition-all group cursor-pointer hover:border-emerald-300 dark:hover:border-emerald-800"
+            >
+              <div className="flex items-center justify-between mb-2">
+                <div className="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                  <CheckSquare className="w-4 h-4" />
+                </div>
+                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all" />
+              </div>
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white">Question Breakdown</h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                Accordion list of all solved problems & canonical solutions
+              </p>
+            </button>
+
+            {/* Launchpad 3: Scanned Answer Sheet */}
             <button
               type="button"
               onClick={() => onSelectTab('sheet')}
@@ -179,13 +198,13 @@ export default function StudyGuideOverviewView({
                 </div>
                 <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-rose-600 group-hover:translate-x-1 transition-all" />
               </div>
-              <h4 className="text-sm font-bold text-slate-900 dark:text-white">Analyzed Answer Sheet</h4>
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white">Analyzed Sheet View</h4>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                 Step-by-step handwriting OCR & scoring
               </p>
             </button>
 
-            {/* Launchpad 3: What to Learn Next */}
+            {/* Launchpad 4: What to Learn Next */}
             <button
               type="button"
               onClick={() => onSelectTab('next_steps')}
@@ -203,7 +222,7 @@ export default function StudyGuideOverviewView({
               </p>
             </button>
 
-            {/* Launchpad 4: Study Resources */}
+            {/* Launchpad 5: Study Resources */}
             <button
               type="button"
               onClick={() => onSelectTab('resources')}

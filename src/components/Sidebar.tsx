@@ -85,6 +85,7 @@ export default function Sidebar({
     { id: 'overview', label: 'Study Guide Overview', href: '/student?tab=overview', icon: BookOpen, badge: 'Midterm' },
     { id: 'subjects', label: 'My Subjects', href: '/student?tab=subjects', icon: Layers, badge: 'Active' },
     { id: 'topics', label: 'Topic Diagnoses', href: '/student?tab=topics', icon: Compass },
+    { id: 'questions', label: 'Question Breakdown', href: '/student?tab=questions', icon: CheckSquare, badge: 'Audited' },
     { id: 'sheet', label: 'Analyzed Answer Sheet', href: '/student?tab=sheet', icon: FileSpreadsheet, highlight: true },
     { id: 'next_steps', label: 'What to Learn Next', href: '/student?tab=next_steps', icon: Sparkles, alertCount: 3 },
     { id: 'mock_tests', label: 'Mock Tests & Quizzes', href: '/student?tab=mock_tests', icon: CheckSquare, badge: 'Timed' },

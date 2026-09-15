@@ -29,17 +29,19 @@ import { getSubjectSamplePaper } from '@/lib/samplePapers';
 import StudyGuideOverviewView from '@/components/student/StudyGuideOverviewView';
 import SubjectsView from '@/components/student/SubjectsView';
 import TopicDiagnosesView from '@/components/student/TopicDiagnosesView';
+import QuestionEvaluationView from '@/components/student/QuestionEvaluationView';
 import AnalyzedSheetView from '@/components/student/AnalyzedSheetView';
 import WhatToLearnNextView from '@/components/student/WhatToLearnNextView';
 import StudyResourcesView from '@/components/student/StudyResourcesView';
 import MockTestsView from '@/components/student/MockTestsView';
 
-type StudentTabId = 'overview' | 'subjects' | 'topics' | 'sheet' | 'next_steps' | 'mock_tests' | 'resources';
+type StudentTabId = 'overview' | 'subjects' | 'topics' | 'questions' | 'sheet' | 'next_steps' | 'mock_tests' | 'resources';
 
 const tabList: { id: StudentTabId; label: string; icon: React.ElementType }[] = [
   { id: 'overview', label: 'Study Guide Overview', icon: BookOpen },
   { id: 'subjects', label: 'My Subjects', icon: Layers },
   { id: 'topics', label: 'Topic Diagnoses', icon: Compass },
+  { id: 'questions', label: 'Question Breakdown', icon: CheckSquare },
   { id: 'sheet', label: 'Analyzed Answer Sheet', icon: FileSpreadsheet },
   { id: 'next_steps', label: 'What to Learn Next', icon: Sparkles },
   { id: 'mock_tests', label: 'Mock Tests & Quizzes', icon: CheckSquare },
@@ -65,7 +67,7 @@ function StudentDashboardContent() {
   // 1. Tab Navigation State
   const urlTab = searchParams.get('tab') as StudentTabId | null;
   const [activeTab, setActiveTab] = useState<StudentTabId>(() => {
-    if (urlTab && ['overview', 'subjects', 'topics', 'sheet', 'next_steps', 'mock_tests', 'resources'].includes(urlTab)) {
+    if (urlTab && ['overview', 'subjects', 'topics', 'questions', 'sheet', 'next_steps', 'mock_tests', 'resources'].includes(urlTab)) {
       return urlTab;
     }
     return 'overview';
@@ -129,12 +131,13 @@ function StudentDashboardContent() {
 
   // Synchronize activeTab with URL changes & backward-compatible hash anchors
   useEffect(() => {
-    if (urlTab && ['overview', 'subjects', 'topics', 'sheet', 'next_steps', 'mock_tests', 'resources'].includes(urlTab)) {
+    if (urlTab && ['overview', 'subjects', 'topics', 'questions', 'sheet', 'next_steps', 'mock_tests', 'resources'].includes(urlTab)) {
       setActiveTab(urlTab);
     } else if (typeof window !== 'undefined' && window.location.hash) {
       const hash = window.location.hash;
       if (hash === '#subjects') setActiveTab('subjects');
       else if (hash === '#topic-breakdown') setActiveTab('topics');
+      else if (hash === '#questions' || hash === '#question-breakdown') setActiveTab('questions');
       else if (hash === '#analyzed-sheet') setActiveTab('sheet');
       else if (hash === '#action-plan' || hash === '#diagnostic-tabs') setActiveTab('next_steps');
       else if (hash === '#mock-tests') setActiveTab('mock_tests');
@@ -652,6 +655,15 @@ function StudentDashboardContent() {
                 onToggleCleared={handleToggleCleared}
                 onTriggerQuiz={(topic) => setActiveQuizTopic(topic)}
                 onSelectTab={handleSelectTab}
+              />
+            )}
+
+            {activeTab === 'questions' && (
+              <QuestionEvaluationView
+                studentName={studentName}
+                analysisResult={analysisResult}
+                onSelectTab={handleSelectTab}
+                onLoadSample={handleLoadSample}
               />
             )}
 

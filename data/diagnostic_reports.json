@@ -1,5 +1,77 @@
 [
   {
+    "answerSheetId": "sheet_1789433459810_vfgr",
+    "studentId": "rishu",
+    "studentName": "Rishu",
+    "studentClass": "Class 10 • Section A",
+    "studentRollNo": "24",
+    "subject": "Mathematics",
+    "examTitle": "Algebra & Linear Systems Diagnostic",
+    "overallScorePercentage": 80,
+    "totalQuestions": 2,
+    "totalAwardedMarks": 40,
+    "totalMaxMarks": 50,
+    "topicBreakdown": [
+      {
+        "topic_name": "Linear Equations in Two Variables",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Quadratic Equation Factorization & Roots",
+        "understanding_percentage": 60,
+        "status": "Yellow"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": "1",
+        "topic_name": "Linear Equations in Two Variables",
+        "question_text": "Solve the system of linear equations by substitution: 2x + 3y = 12 and x - y = 1.",
+        "student_working": "From equation 2: x = y + 1. Substitute into eq 1: 2(y + 1) + 3y = 12 => 5y = 10 => y = 2. Then x = 3. Solution: (3, 2).",
+        "correct_solution": "1. Express x from second equation: x = y + 1.\n2. Substitute into first equation: 2(y + 1) + 3y = 12\n3. Expand and simplify: 2y + 2 + 3y = 12 => 5y + 2 = 12 => 5y = 10 => y = 2.\n4. Substitute y back: x = 2 + 1 = 3.\n5. Final Answer: (3, 2).",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None",
+        "rule_to_remember": "Isolate one variable in the simpler equation and substitute cleanly into the other equation.",
+        "error_type": "none",
+        "evaluation_reason": "Clean procedural substitution with zero calculation errors. All steps followed correctly.",
+        "confidence": 0.95
+      },
+      {
+        "question_number": "2",
+        "topic_name": "Quadratic Equation Factorization & Roots",
+        "question_text": "Solve the quadratic equation by factoring: x^2 - 4x - 12 = 0.",
+        "student_working": "Factors of -12 that add to -4 are -6 and +2. Factored form: (x - 6)(x + 2) = 0. Therefore roots are: x = -6 or x = 2.",
+        "correct_solution": "1. Find two numbers that multiply to -12 and add to -4: -6 and +2.\n2. Write in factored form: (x - 6)(x + 2) = 0.\n3. Apply zero product property: x - 6 = 0 => x = 6, and x + 2 = 0 => x = -2.\n4. Final Answer: x = 6, x = -2.",
+        "max_marks": 25,
+        "awarded_marks": 15,
+        "understanding_percentage": 60,
+        "status": "Yellow",
+        "mistake_detected": "Inverted root signs from the correct factors (x - 6)(x + 2) = 0.",
+        "misconception": "Confusing the sign of the factors with the sign of the final roots when applying the zero product property.",
+        "rule_to_remember": "For any factor of the form (x - a) = 0, the root is x = +a. For (x + b) = 0, the root is x = -b.",
+        "error_type": "careless_mistake",
+        "evaluation_reason": "Factorization (x - 6)(x + 2) = 0 was correctly identified, but student made a sign inversion error when extracting the final roots, stating x = -6 or x = 2 instead of x = 6 or x = -2.",
+        "confidence": 0.95
+      }
+    ],
+    "commonMisconceptions": [
+      "Quadratic Equation Factorization & Roots: Confusing the sign of the factors with the sign of the final roots when applying the zero product property."
+    ],
+    "whatToLearnNext": [
+      "Quadratic Equation Factorization & Roots: For any factor of the form (x - a) = 0, the root is x = +a. For (x + b) = 0, the root is x = -b."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash-lite (Pool Key #1)",
+    "notice": "Evaluated 2 questions dynamically with model gemini-3.5-flash-lite (Pool Key #1). | Latency: 9671ms | Model: gemini-3.5-flash-lite (Pool Key #1) | Total Questions Evaluated: 2",
+    "id": "diag_rep_1789433459816_fu0f",
+    "createdAt": "2026-09-15T00:50:59.816Z"
+  },
+  {
     "answerSheetId": "sheet_1789432761288_yufl",
     "studentId": "test_student_3",
     "studentName": "Test Student 3",
