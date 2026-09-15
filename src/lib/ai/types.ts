@@ -116,4 +116,13 @@ export interface AnalysisResult {
   model_used: string;
   notices: string[];
   validation_warnings: string[];
+  auditor_verified: boolean;
+  audit_adjustments: string[];
+  preprocessing_applied: string[];
+  tier_pipeline_status: {
+    tier1_multimodal_ocr: boolean;
+    tier2_rulebooks_applied: boolean;
+    tier3_granular_json: boolean;
+    tier4_auditor_passed: boolean;
+  };
 }

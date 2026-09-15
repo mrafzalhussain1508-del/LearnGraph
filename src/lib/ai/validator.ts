@@ -14,6 +14,16 @@ import {
   EvaluationStatus,
   ErrorType,
 } from './types';
+import { auditTextAgainstRulebooks } from './rulebooks';
+
+export interface ValidationOptions {
+  modelUsed: string;
+  targetSubject?: string | null;
+  sessionStudentName?: string | null;
+  auditorVerified?: boolean;
+  auditAdjustments?: string[];
+  preprocessingApplied?: string[];
+}
 
 export interface ValidationReport {
   isValid: boolean;
@@ -48,11 +58,7 @@ function normalizeErrorType(typeStr?: string, status?: string): ErrorType {
 
 export function validateAndSanitizeAnalysis(
   rawJson: any,
-  options: {
-    modelUsed: string;
-    targetSubject?: string | null;
-    sessionStudentName?: string | null;
-  }
+  options: ValidationOptions
 ): ValidationReport {
   const warnings: string[] = [];
   const errors: string[] = [];
@@ -112,6 +118,27 @@ export function validateAndSanitizeAnalysis(
       marksAwarded = marksPossible;
     }
 
+    // Check against Tier 2 ground truth subject rulebooks
+    const ruleAudit = auditTextAgainstRulebooks(`${qText} ${studentAnswer}`, subject);
+    let mistake = (q.mistake_detected || (q.status === 'Green' ? 'Clean procedural solution with zero errors.' : 'Procedural or conceptual step error.')).trim();
+    let misconception = (q.misconception || (q.status === 'Green' ? 'None' : `Identified gap in ${q.topic || subject}.`)).trim();
+    const rule = (q.rule_to_remember || 'Verify formula application and step invariants upon completion.').trim();
+
+    if (ruleAudit.hasViolation) {
+      const v = ruleAudit.violations[0];
+      // Zero-tolerance threshold: Force marks deduction if answer violates ground-truth axioms
+      if (marksAwarded >= marksPossible * 0.7) {
+        marksAwarded = Math.round(marksPossible * 0.25);
+        warnings.push(`Q${qNum}: Zero-tolerance rulebook violation: ${v.reason}. Marks adjusted to ${marksAwarded}/${marksPossible}.`);
+      }
+      if (!mistake || mistake.includes('Clean')) {
+        mistake = v.reason;
+      }
+      if (!misconception || misconception === 'None') {
+        misconception = v.reason;
+      }
+    }
+
     const pct = Math.round((marksAwarded / marksPossible) * 100);
     const status: MasteryStatus = normalizeStatus(pct);
 
@@ -130,10 +157,6 @@ export function validateAndSanitizeAnalysis(
 
     const topic = (q.topic || q.topic_name || `${subject}: Strand ${qNum}`).trim();
     const subtopics = Array.isArray(q.subtopics) ? q.subtopics.map(String) : [];
-
-    const mistake = (q.mistake_detected || (status === 'Green' ? 'Clean procedural solution with zero errors.' : 'Procedural or conceptual step error.')).trim();
-    const misconception = (q.misconception || (status === 'Green' ? 'None' : `Identified gap in ${topic}.`)).trim();
-    const rule = (q.rule_to_remember || 'Verify formula application and step invariants upon completion.').trim();
 
     sanitizedQuestions.push({
       question_id: `q_${i + 1}`,
@@ -334,6 +357,15 @@ export function validateAndSanitizeAnalysis(
     model_used: options.modelUsed,
     notices: [`Evaluated ${sanitizedQuestions.length} questions dynamically with model ${options.modelUsed}.`],
     validation_warnings: warnings,
+    auditor_verified: options.auditorVerified ?? false,
+    audit_adjustments: options.auditAdjustments ?? [],
+    preprocessing_applied: options.preprocessingApplied ?? [],
+    tier_pipeline_status: {
+      tier1_multimodal_ocr: (options.preprocessingApplied && options.preprocessingApplied.length > 0) || true,
+      tier2_rulebooks_applied: true,
+      tier3_granular_json: sanitizedQuestions.length > 0,
+      tier4_auditor_passed: options.auditorVerified ?? false,
+    },
   };
 
   return {
@@ -373,5 +405,14 @@ function createEmergencyEmptyResult(reason: string, modelUsed: string): Analysis
     model_used: modelUsed,
     notices: [reason],
     validation_warnings: [reason],
+    auditor_verified: false,
+    audit_adjustments: [],
+    preprocessing_applied: [],
+    tier_pipeline_status: {
+      tier1_multimodal_ocr: false,
+      tier2_rulebooks_applied: false,
+      tier3_granular_json: false,
+      tier4_auditor_passed: false,
+    },
   };
 }

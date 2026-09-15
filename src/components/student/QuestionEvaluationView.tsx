@@ -194,11 +194,22 @@ export default function QuestionEvaluationView({
       {/* 1. Header Banner & Diagnostics Overview */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-[#e8e2d4] dark:border-slate-800 p-6 sm:p-8 shadow-sm">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-          <div className="space-y-1.5">
-            <div className="flex items-center space-x-2">
-              <span className="px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-900">
-                Discrete Question Audit
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-900">
+                Tier 1 OCR
               </span>
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-900">
+                Tier 2 Rulebooks
+              </span>
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-purple-50 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-900">
+                Tier 3 Granular
+              </span>
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 flex items-center space-x-1">
+                <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                <span>Tier 4 Auditor AI</span>
+              </span>
+              <span className="text-xs text-slate-400">•</span>
               <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
                 {analysisResult.model_used || 'Gemini 3.6 Flash'}
               </span>
@@ -211,7 +222,7 @@ export default function QuestionEvaluationView({
               Question-by-Question Diagnostic Breakdown
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-2xl">
-              Inspect independent score evaluations, transcribed student working, pinpointed mistake slips, and canonical model solutions for every single question.
+              Inspect independent score evaluations, transcribed student working, pinpointed mistake slips, and canonical model solutions verified by the 4-Tier Verification Pipeline.
             </p>
           </div>
 

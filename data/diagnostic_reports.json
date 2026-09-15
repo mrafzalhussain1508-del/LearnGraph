@@ -1,5 +1,77 @@
 [
   {
+    "answerSheetId": "sheet_1789434302025_i8s4",
+    "studentId": "arola_thoudam",
+    "studentName": "Arola Thoudam",
+    "studentClass": "Class 11 • Section A",
+    "studentRollNo": "14",
+    "subject": "Chemistry",
+    "examTitle": "Periodic Properties & Chemical Trends Diagnostic Test",
+    "overallScorePercentage": 66,
+    "totalQuestions": 2,
+    "totalAwardedMarks": 33,
+    "totalMaxMarks": 50,
+    "topicBreakdown": [
+      {
+        "topic_name": "Periodic Properties: Atomic & Ionic Radii",
+        "understanding_percentage": 100,
+        "status": "Green"
+      },
+      {
+        "topic_name": "Ionisation Enthalpy",
+        "understanding_percentage": 32,
+        "status": "Red"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": "1",
+        "topic_name": "Periodic Properties: Atomic & Ionic Radii",
+        "question_text": "Compare atomic radius of Na and Cl in Period 3, and ionic radii of Na+ and F-.",
+        "student_working": "Across Period 3, atomic radius decreases from Na to Cl due to increasing effective nuclear charge Z_eff. For isoelectronic Na+ and F-, F- with 9 protons is larger than Na+ with 11 protons (F- > Na+).",
+        "correct_solution": "Across Period 3, atomic radius decreases from Na to Cl because effective nuclear charge increases while principal quantum number remains constant. For isoelectronic species Na+ and F- (both having 10 electrons), the species with higher nuclear charge (Na+ with Z=11) exerts stronger coulombic pull, making F- (133 pm) larger than Na+ (102 pm).",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None",
+        "rule_to_remember": "For isoelectronic ions, higher atomic number (nuclear charge) results in a smaller ionic radius.",
+        "error_type": "none",
+        "evaluation_reason": "The student correctly explains the decrease in atomic radius across Period 3 via increasing Z_eff and accurately applies the isoelectronic ionic radius rule where F- is larger than Na+ due to lower nuclear charge.",
+        "confidence": 0.98
+      },
+      {
+        "question_number": "2",
+        "topic_name": "Ionisation Enthalpy",
+        "question_text": "Why does Nitrogen have a higher first ionisation enthalpy than Oxygen?",
+        "student_working": "Oxygen has 8 protons and Nitrogen has 7 protons. Higher nuclear charge always means higher ionisation enthalpy, so First IE of Oxygen > First IE of Nitrogen.",
+        "correct_solution": "Nitrogen has a higher first ionisation enthalpy than Oxygen because Nitrogen possesses a stable half-filled 2p subshell ([He] 2s2 2p3) with extra exchange energy, whereas Oxygen ([He] 2s2 2p4) has paired electrons in a 2p orbital experiencing mutual repulsion, making it easier to remove an electron.",
+        "max_marks": 25,
+        "awarded_marks": 8,
+        "understanding_percentage": 32,
+        "status": "Red",
+        "mistake_detected": "Violated Rule C4: Claimed Oxygen has a higher first ionisation enthalpy than Nitrogen due to more protons.",
+        "misconception": "Believing that atomic number/nuclear charge strictly correlates monotonically with ionisation enthalpy without considering electronic configuration stability.",
+        "rule_to_remember": "Half-filled (p3, d5, f7) and fully-filled subshells provide extra stability, requiring more energy to remove an electron than predicted by general nuclear charge trends alone.",
+        "error_type": "conceptual_misconception",
+        "evaluation_reason": "The student incorrectly assumes that higher nuclear charge alone dictates first ionisation enthalpy, directly violating Rule C4 regarding subshell stability and half-filled 2p configurations.",
+        "confidence": 0.95
+      }
+    ],
+    "commonMisconceptions": [
+      "Ionisation Enthalpy: Believing that atomic number/nuclear charge strictly correlates monotonically with ionisation enthalpy without considering electronic configuration stability."
+    ],
+    "whatToLearnNext": [
+      "Ionisation Enthalpy: Half-filled (p3, d5, f7) and fully-filled subshells provide extra stability, requiring more energy to remove an electron than predicted by general nuclear charge trends alone."
+    ],
+    "isLiveGemini": true,
+    "modelUsed": "gemini-3.5-flash-lite (Pool Key #1)",
+    "notice": "Evaluated 2 questions dynamically with model gemini-3.5-flash-lite (Pool Key #1). | 4-Tier Architecture: [T1 OCR Preprocessing: Standard] [T2 Rulebooks: Active] [T3 Granular: 2 questions] [T4 Auditor: Verified & Cross-Audited]",
+    "id": "diag_rep_1789434302029_7249",
+    "createdAt": "2026-09-15T01:05:02.029Z"
+  },
+  {
     "answerSheetId": "sheet_1789433459810_vfgr",
     "studentId": "rishu",
     "studentName": "Rishu",

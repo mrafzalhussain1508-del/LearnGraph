@@ -51,6 +51,15 @@ export interface AnalyzeSheetResponse {
   model_used?: string;
   notice?: string;
   timestamp?: string;
+  auditor_verified?: boolean;
+  audit_adjustments?: string[];
+  preprocessing_applied?: string[];
+  tier_pipeline_status?: {
+    tier1_multimodal_ocr: boolean;
+    tier2_rulebooks_applied: boolean;
+    tier3_granular_json: boolean;
+    tier4_auditor_passed: boolean;
+  };
 }
 
 export async function POST(req: NextRequest) {
@@ -153,6 +162,10 @@ export async function POST(req: NextRequest) {
       model_used: pipelineResult.model_used,
       notice: pipelineResult.notices.join(' | '),
       timestamp: pipelineResult.timestamp,
+      auditor_verified: pipelineResult.auditor_verified,
+      audit_adjustments: pipelineResult.audit_adjustments,
+      preprocessing_applied: pipelineResult.preprocessing_applied,
+      tier_pipeline_status: pipelineResult.tier_pipeline_status,
     };
 
     // Persist to relational and JSON databases
