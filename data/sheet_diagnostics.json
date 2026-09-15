@@ -1,5 +1,140 @@
 [
   {
+    "student_name": "Test Student 3",
+    "student_class": "Unknown",
+    "student_roll_no": "Unknown",
+    "subject": "Physics",
+    "exam_title": "Physics Assessment",
+    "overall_score_percentage": 100,
+    "topic_breakdown": [
+      {
+        "topic_name": "Newton's Laws of Motion & Friction",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": "1",
+        "topic_name": "Newton's Laws of Motion & Friction",
+        "question_text": "Friction opposes motion",
+        "student_working": "F_net = F - f = 30 - 10 = 20 N",
+        "correct_solution": "F_net = F_applied - f_friction = 30 N - 10 N = 20 N",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None",
+        "rule_to_remember": "Friction always acts in the direction opposite to relative motion, reducing the net applied force: F_net = F_applied - f_friction.",
+        "error_type": "none",
+        "evaluation_reason": "Student correctly applied the formula for net force by subtracting the opposing frictional force from the applied force, resulting in the correct calculation of 20 N.",
+        "confidence": 0.95
+      }
+    ],
+    "common_misconceptions": [
+      "No critical conceptual misconceptions observed; answers demonstrate sound procedural grounding."
+    ],
+    "what_to_learn_next": [
+      "Advance to higher-order applied synthesis problems in Physics."
+    ],
+    "is_live_gemini": true,
+    "model_used": "gemini-3.5-flash-lite (Pool Key #3)",
+    "notice": "Evaluated 1 questions dynamically with model gemini-3.5-flash-lite (Pool Key #3). | Latency: 3720ms | Model: gemini-3.5-flash-lite (Pool Key #3) | Total Questions Evaluated: 1",
+    "id": "diag_1789432761302_89o1",
+    "createdAt": "2026-09-15T00:39:21.302Z"
+  },
+  {
+    "student_name": "Test Student 2",
+    "student_class": "Unknown",
+    "student_roll_no": "Unknown",
+    "subject": "Physics",
+    "exam_title": "Unknown Exam",
+    "overall_score_percentage": 100,
+    "topic_breakdown": [
+      {
+        "topic_name": "Newton's Laws of Motion & Friction",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": "1",
+        "topic_name": "Newton's Laws of Motion & Friction",
+        "question_text": "Friction opposes motion",
+        "student_working": "F_net = F - f = 30 - 10 = 20 N",
+        "correct_solution": "F_net = F_applied - f_friction = 30 N - 10 N = 20 N",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None",
+        "rule_to_remember": "F_net = F_applied - f_friction",
+        "error_type": "none",
+        "evaluation_reason": "Student correctly applied the principle that friction opposes motion, calculating the net force as applied force minus frictional force.",
+        "confidence": 0.95
+      }
+    ],
+    "common_misconceptions": [
+      "No critical conceptual misconceptions observed; answers demonstrate sound procedural grounding."
+    ],
+    "what_to_learn_next": [
+      "Advance to higher-order applied synthesis problems in Physics."
+    ],
+    "is_live_gemini": true,
+    "model_used": "gemini-3.5-flash-lite (Pool Key #2)",
+    "notice": "Evaluated 1 questions dynamically with model gemini-3.5-flash-lite (Pool Key #2). | Latency: 10049ms | Model: gemini-3.5-flash-lite (Pool Key #2) | Total Questions Evaluated: 1",
+    "id": "diag_1789432757545_dvcd",
+    "createdAt": "2026-09-15T00:39:17.545Z"
+  },
+  {
+    "student_name": "Test Student 1",
+    "student_class": "Unknown",
+    "student_roll_no": "Unknown",
+    "subject": "Physics",
+    "exam_title": "Physics Assessment",
+    "overall_score_percentage": 100,
+    "topic_breakdown": [
+      {
+        "topic_name": "Newton's Laws & Friction",
+        "understanding_percentage": 100,
+        "status": "Green"
+      }
+    ],
+    "questions": [
+      {
+        "question_number": "1",
+        "topic_name": "Newton's Laws & Friction",
+        "question_text": "Friction opposes motion",
+        "student_working": "F_net = F - f = 30 - 10 = 20 N",
+        "correct_solution": "F_net = F_applied - f_friction = 30 N - 10 N = 20 N",
+        "max_marks": 25,
+        "awarded_marks": 25,
+        "understanding_percentage": 100,
+        "status": "Green",
+        "mistake_detected": "Clean procedural solution with zero errors.",
+        "misconception": "None",
+        "rule_to_remember": "Friction always opposes the direction of relative motion, reducing the net applied force: F_net = F_applied - f_friction.",
+        "error_type": "none",
+        "evaluation_reason": "Student correctly applied the principle that friction opposes motion, correctly setting up the net force equation and calculating 20 N.",
+        "confidence": 0.95
+      }
+    ],
+    "common_misconceptions": [
+      "No critical conceptual misconceptions observed; answers demonstrate sound procedural grounding."
+    ],
+    "what_to_learn_next": [
+      "Advance to higher-order applied synthesis problems in Physics."
+    ],
+    "is_live_gemini": true,
+    "model_used": "gemini-3.5-flash-lite (Pool Key #1)",
+    "notice": "Evaluated 1 questions dynamically with model gemini-3.5-flash-lite (Pool Key #1). | Latency: 6797ms | Model: gemini-3.5-flash-lite (Pool Key #1) | Total Questions Evaluated: 1",
+    "id": "diag_1789432747453_6v0x",
+    "createdAt": "2026-09-15T00:39:07.453Z"
+  },
+  {
     "student_name": "Maya Patel",
     "student_class": "Unknown",
     "student_roll_no": "Unknown",

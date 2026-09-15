@@ -201,6 +201,7 @@ export async function runAnswerSheetPipeline(options: RunPipelineOptions): Promi
       text: JSON.stringify(localJson),
       json: localJson,
       modelUsed: 'LearnGraph Resilient Document Processor',
+      keyUsedIndex: 0,
       latencyMs: 150,
       attempts: 1,
     };

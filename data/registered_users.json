@@ -427,5 +427,50 @@
     "school": "Lincoln High School",
     "learningGoals": "Advance to higher-order applied synthesis problems in Mathematics.",
     "createdAt": "2026-09-14T23:32:17.990Z"
+  },
+  {
+    "id": "student_1789432747449_dyrk",
+    "role": "student",
+    "name": "Test Student 1",
+    "username": "test_student_1",
+    "phone": "",
+    "email": "test_student_1@student.learngraph.edu",
+    "password": "password123",
+    "studentId": "Unknown",
+    "grade": "Unknown",
+    "section": "Section A",
+    "school": "Lincoln High School",
+    "learningGoals": "Advance to higher-order applied synthesis problems in Physics.",
+    "createdAt": "2026-09-15T00:39:07.449Z"
+  },
+  {
+    "id": "student_1789432757542_a8po",
+    "role": "student",
+    "name": "Test Student 2",
+    "username": "test_student_2",
+    "phone": "",
+    "email": "test_student_2@student.learngraph.edu",
+    "password": "password123",
+    "studentId": "Unknown",
+    "grade": "Unknown",
+    "section": "Section A",
+    "school": "Lincoln High School",
+    "learningGoals": "Advance to higher-order applied synthesis problems in Physics.",
+    "createdAt": "2026-09-15T00:39:17.542Z"
+  },
+  {
+    "id": "student_1789432761298_8kuu",
+    "role": "student",
+    "name": "Test Student 3",
+    "username": "test_student_3",
+    "phone": "",
+    "email": "test_student_3@student.learngraph.edu",
+    "password": "password123",
+    "studentId": "Unknown",
+    "grade": "Unknown",
+    "section": "Section A",
+    "school": "Lincoln High School",
+    "learningGoals": "Advance to higher-order applied synthesis problems in Physics.",
+    "createdAt": "2026-09-15T00:39:21.298Z"
   }
 ]
